@@ -40,6 +40,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -60,11 +61,11 @@
             this.label3.BackColor = System.Drawing.Color.Brown;
             this.label3.Font = new System.Drawing.Font("Tempus Sans ITC", 48.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(79, 33);
+            this.label3.Location = new System.Drawing.Point(127, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(286, 85);
+            this.label3.Size = new System.Drawing.Size(391, 85);
             this.label3.TabIndex = 20;
-            this.label3.Text = "Cafetière";
+            this.label3.Text = "Cafetiere asd";
             // 
             // btn_cancel
             // 
@@ -158,6 +159,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Brown;
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(-91, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(556, 151);
@@ -168,9 +170,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 368);
+            this.ClientSize = new System.Drawing.Size(468, 373);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.txt_pass);
@@ -183,6 +184,8 @@
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
