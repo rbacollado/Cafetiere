@@ -1,0 +1,28 @@
+create database cafetiere;
+use cafetiere;
+
+create table Staff(staff_id int primary key auto_increment,
+firstname varchar(45), lastname varchar(45), address varchar(75), contact varchar(15),
+usertype varchar(45), username varchar(45), password varchar(45), 
+userstatus varchar(45));
+
+select * from staff;
+drop table staff;
+
+create table Suppliers(supplier_id	int primary key auto_increment,
+supp_org varchar(45), supp_type varchar(45));
+
+select * from Suppliers;
+
+create table Orders(order_id int primary key auto_increment,
+order_date varchar(45), order_type varchar(45), order_subtotal varchar(45), 
+order_total varchar(45), discount varchar(45), waitNum int (4));
+
+select * from Orders;
+Drop table orders;
+
+create table Products(product_id int primary key auto_increment,
+pname varchar(45), pprice decimal(45,2), pstatus varchar(45), pquantity int(10), pcost int(10));
+
+select * from Products;
+
