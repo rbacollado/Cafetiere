@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.timeText = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.report_btn = new System.Windows.Forms.Button();
             this.lbl_type = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDash = new System.Windows.Forms.Button();
@@ -74,14 +75,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.report_btn = new System.Windows.Forms.Button();
-            this.panel_reports = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.sales_report = new System.Windows.Forms.Button();
-            this.inventory_report = new System.Windows.Forms.Button();
-            this.sales = new System.Windows.Forms.DataGridView();
-            this.Back = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -102,16 +95,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel_reports.SuspendLayout();
-            this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sales)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.panel1.Controls.Add(this.timeText);
-            this.panel1.Controls.Add(this.report_btn);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(121, -1);
             this.panel1.Name = "panel1";
@@ -139,6 +128,20 @@
             this.label3.Size = new System.Drawing.Size(171, 29);
             this.label3.TabIndex = 12;
             this.label3.Text = "DASHBOARD";
+            // 
+            // report_btn
+            // 
+            this.report_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(68)))), ((int)(((byte)(173)))));
+            this.report_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.report_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.report_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.report_btn.Location = new System.Drawing.Point(591, 540);
+            this.report_btn.Name = "report_btn";
+            this.report_btn.Size = new System.Drawing.Size(248, 36);
+            this.report_btn.TabIndex = 97;
+            this.report_btn.Text = "REPORTS";
+            this.report_btn.UseVisualStyleBackColor = false;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
             // 
             // lbl_type
             // 
@@ -669,113 +672,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Recent Sales";
             // 
-            // report_btn
-            // 
-            this.report_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.report_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.report_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
-            this.report_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.report_btn.Location = new System.Drawing.Point(6, 8);
-            this.report_btn.Name = "report_btn";
-            this.report_btn.Size = new System.Drawing.Size(93, 36);
-            this.report_btn.TabIndex = 97;
-            this.report_btn.Text = "REPORTS";
-            this.report_btn.UseVisualStyleBackColor = false;
-            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
-            // 
-            // panel_reports
-            // 
-            this.panel_reports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.panel_reports.Controls.Add(this.sales);
-            this.panel_reports.Controls.Add(this.inventory_report);
-            this.panel_reports.Controls.Add(this.sales_report);
-            this.panel_reports.Controls.Add(this.panel15);
-            this.panel_reports.Enabled = false;
-            this.panel_reports.Location = new System.Drawing.Point(130, 64);
-            this.panel_reports.Margin = new System.Windows.Forms.Padding(2);
-            this.panel_reports.Name = "panel_reports";
-            this.panel_reports.Size = new System.Drawing.Size(728, 531);
-            this.panel_reports.TabIndex = 97;
-            this.panel_reports.Visible = false;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.panel15.Controls.Add(this.Back);
-            this.panel15.Controls.Add(this.label15);
-            this.panel15.Location = new System.Drawing.Point(-10, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(743, 63);
-            this.panel15.TabIndex = 61;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Transparent;
-            this.label15.Location = new System.Drawing.Point(309, 15);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(137, 29);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "REPORTS";
-            // 
-            // sales_report
-            // 
-            this.sales_report.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.sales_report.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sales_report.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
-            this.sales_report.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.sales_report.Location = new System.Drawing.Point(29, 77);
-            this.sales_report.Name = "sales_report";
-            this.sales_report.Size = new System.Drawing.Size(92, 36);
-            this.sales_report.TabIndex = 98;
-            this.sales_report.Text = "SALES";
-            this.sales_report.UseVisualStyleBackColor = false;
-            // 
-            // inventory_report
-            // 
-            this.inventory_report.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.inventory_report.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventory_report.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
-            this.inventory_report.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.inventory_report.Location = new System.Drawing.Point(127, 77);
-            this.inventory_report.Name = "inventory_report";
-            this.inventory_report.Size = new System.Drawing.Size(98, 36);
-            this.inventory_report.TabIndex = 99;
-            this.inventory_report.Text = "INVENTORY";
-            this.inventory_report.UseVisualStyleBackColor = false;
-            // 
-            // sales
-            // 
-            this.sales.AllowUserToAddRows = false;
-            this.sales.AllowUserToDeleteRows = false;
-            this.sales.AllowUserToResizeColumns = false;
-            this.sales.AllowUserToResizeRows = false;
-            this.sales.BackgroundColor = System.Drawing.Color.MintCream;
-            this.sales.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.sales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.sales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sales.Location = new System.Drawing.Point(29, 129);
-            this.sales.Name = "sales";
-            this.sales.ReadOnly = true;
-            this.sales.RowHeadersVisible = false;
-            this.sales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.sales.Size = new System.Drawing.Size(673, 367);
-            this.sales.TabIndex = 206;
-            // 
-            // Back
-            // 
-            this.Back.BackColor = System.Drawing.Color.Tomato;
-            this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back.Location = new System.Drawing.Point(706, 0);
-            this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(29, 34);
-            this.Back.TabIndex = 98;
-            this.Back.Text = "X";
-            this.Back.UseVisualStyleBackColor = false;
-            this.Back.Click += new System.EventHandler(this.Back_Click);
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -783,8 +679,8 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(869, 684);
-            this.Controls.Add(this.panel_reports);
             this.Controls.Add(this.panel14);
+            this.Controls.Add(this.report_btn);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel10);
@@ -836,10 +732,6 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel_reports.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -894,12 +786,5 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label timeText;
         private System.Windows.Forms.Button report_btn;
-        private System.Windows.Forms.Panel panel_reports;
-        private System.Windows.Forms.Button inventory_report;
-        private System.Windows.Forms.Button sales_report;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DataGridView sales;
-        private System.Windows.Forms.Button Back;
     }
 }

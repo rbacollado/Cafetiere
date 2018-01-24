@@ -115,3 +115,4 @@ C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.GenerateRe
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.exe
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.pdb
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Reports.resources

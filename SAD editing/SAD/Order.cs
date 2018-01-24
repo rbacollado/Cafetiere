@@ -317,9 +317,7 @@ namespace SAD
         {
             try
             {
-
-               
-
+                
                 /*if (!(string.IsNullOrEmpty(discountTxt.Text)))
                 {
                     converted_discount = Convert.ToInt32(discountTxt.Text);

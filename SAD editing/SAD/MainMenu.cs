@@ -58,41 +58,9 @@ namespace SAD
                 btn_profiling.BackColor = Color.Gray;
                 btn_product.BackColor = Color.Gray;
             }
-
-            salesLoad();
-
-        }
-
-        private void salesLoad()
-        {
-            string query = "SELECT * FROM `order`";
-
-            conn.Open();
-
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-
-            conn.Close();
-
-            DataTable dt = new DataTable();
-
-            adp.Fill(dt);
-
-            sales.DataSource = dt;
-            sales.Columns["orderID"].Visible = false;
-            sales.Columns["order_staff_id"].HeaderText = "Staff";
-            sales.Columns["orderDate"].HeaderText = "Sales Date";
-            sales.Columns["orderTotal"].HeaderText = "Sales Total";
-            sales.Columns["orderDiscount"].HeaderText = "Discount";
             
-            sales.Columns["order_staff_id"].Width = 50;
-            sales.Columns["orderDate"].Width = 150;
-            sales.Columns["orderTotal"].Width = 120;
-            sales.Columns["orderDiscount"].Width = 135;
-            
-
         }
-
+        
         private void btn_logout_Click(object sender, EventArgs e)
         {
             prevForm.Show();
@@ -125,18 +93,13 @@ namespace SAD
 
         private void report_btn_Click(object sender, EventArgs e)
         {
-            panel_reports.Visible = true;
-            panel_reports.Enabled = true;
-
-            panel_reports.Size = new Size(728, 531);
-            panel_reports.Location = new Point(130, 64);
+            Reports reports = new Reports();
+            reports.prevForm = this;
+            reports.Show();
+            this.Hide();
         }
 
-        private void Back_Click(object sender, EventArgs e)
-        {
-            panel_reports.Visible = false;
-            panel_reports.Enabled = false;
-        }
+       
 
 
 
