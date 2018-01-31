@@ -215,7 +215,7 @@
             this.btn_logout.Image = global::SAD.Properties.Resources.logout__2_;
             this.btn_logout.Location = new System.Drawing.Point(0, 569);
             this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(129, 115);
+            this.btn_logout.Size = new System.Drawing.Size(129, 123);
             this.btn_logout.TabIndex = 61;
             this.btn_logout.Text = "\r\n\r\n\r\n\r\n\r\n\r\n  SIGN OUT";
             this.btn_logout.UseVisualStyleBackColor = false;
@@ -678,7 +678,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(869, 684);
+            this.ClientSize = new System.Drawing.Size(869, 694);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.report_btn);
             this.Controls.Add(this.panel13);

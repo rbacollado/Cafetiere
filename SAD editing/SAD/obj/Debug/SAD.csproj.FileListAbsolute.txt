@@ -116,3 +116,4 @@ C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.CoreCompil
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.exe
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.pdb
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Reports.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff_Add.resources

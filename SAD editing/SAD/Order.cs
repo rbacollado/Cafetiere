@@ -318,18 +318,6 @@ namespace SAD
             try
             {
                 
-                /*if (!(string.IsNullOrEmpty(discountTxt.Text)))
-                {
-                    converted_discount = Convert.ToInt32(discountTxt.Text);
-                    converted_total = Convert.ToInt32(totalDue.Text);
-
-                    discounted = ((converted_discount * converted_total) / 100);
-                }
-                else
-                {
-                    changetxt.Clear();
-                }*/
-
             }
             catch (Exception)
             {
