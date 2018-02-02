@@ -17,7 +17,7 @@ namespace SAD
 
         public class DisplayUserDetails
         {
-            public static int staff_id;
+           public static int staff_id;
             public static string name;
             public static string usertype;
             public static string username;
@@ -39,7 +39,7 @@ namespace SAD
         {
             string user = txt_user.Text;
             string pass = txt_pass.Text;
-            string query = "SELECT * FROM Staff WHERE username = '" + user + "' AND password = '" + pass + "'";
+            string query = "SELECT staffid, username, password, firstname, lastname, position FROM staff, person WHERE username = '" + user + "' AND password = '" + pass + "' AND person.personid = staff.person_personid";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -53,12 +53,12 @@ namespace SAD
 
             if (dt.Rows.Count == 1)
             {
-                int id = int.Parse(dt.Rows[0][0].ToString());
-                string fname = dt.Rows[0][1].ToString();
-                string lname = dt.Rows[0][2].ToString();
-                string usertype = dt.Rows[0][5].ToString();
-                string username = dt.Rows[0][6].ToString();
-                string password = dt.Rows[0][7].ToString();
+                int id = int.Parse(dt.Rows[0]["staffid"].ToString());
+                string fname = dt.Rows[0]["firstname"].ToString();
+                string lname = dt.Rows[0]["lastname"].ToString();
+                string usertype = dt.Rows[0]["position"].ToString();
+                string username = dt.Rows[0]["username"].ToString();
+                string password = dt.Rows[0]["password"].ToString();
 
                 DisplayUserDetails.staff_id = id;
                 DisplayUserDetails.name = lname + ", " + fname;

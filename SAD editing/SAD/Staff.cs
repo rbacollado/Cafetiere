@@ -15,13 +15,15 @@ namespace SAD
     public partial class Staff : Form
     {
         MySqlConnection conn;
+
+        public Form prevForm { get; set; }
+
         public Staff()
         {
             InitializeComponent();
             conn = new MySqlConnection("SERVER=localhost; DATABASE=Cafetiere; uid=root; pwd=root;");
         }
-        public Profiling prevForm { get; set; }
-
+        
         private void loadAll()
         {
             string query = "SELECT * FROM person , staff WHERE person.personid = staff.person_personid";
@@ -68,12 +70,12 @@ namespace SAD
             prevForm.Show();
             this.Close();
         }
-        
+
         private void show_add_Click(object sender, EventArgs e)
         {
             Staff_Add addStaff = new Staff_Add();
             addStaff.Show();
-            addStaff.prevForm = this;      
+            addStaff.prevForm = this;
             this.Hide();
         }
     }

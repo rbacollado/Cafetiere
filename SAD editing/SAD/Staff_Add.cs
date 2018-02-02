@@ -16,7 +16,6 @@ namespace SAD
         MySqlConnection conn;
         public Form prevForm { get; set; }
 
-
         public Staff_Add()
         {
             InitializeComponent();
@@ -48,19 +47,19 @@ namespace SAD
                     + "VALUES('" + txt_fname.Text + "','" + txt_lname.Text + "','" + txt_address.Text + "','" + mtxt_contact.Text + "','" + txt_email.Text + "','STAFF')";
 
                 string query1 = "INSERT INTO staff (person_personid, position, username, password, status, date_added, date_modified)" +
-                                "VALUES( (SELECT MAX(personid) from person) ,'" + cb_usertype.Text + "','" + txt_username.Text + "','" + txt_pass.Text + "','" + cb_userstatus.Text + "', current_timestamp(), current_timestamp() )";
+                                "VALUES( (SELECT MAX(personid) from person) ,'" + cb_usertype.Text + "','" + txt_username.Text + "','" + txt_pass.Text + "','Active', current_timestamp(), current_timestamp() )";
                 conn.Open();
-
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 comm.ExecuteNonQuery();
 
                 MySqlCommand comm1 = new MySqlCommand(query1, conn);
                 comm1.ExecuteNonQuery();
-
                 conn.Close();
 
+                MessageBox.Show("Staff added!");
+
                 this.Close();
-                prevForm.Show();
+                prevForm.ShowDialog();
 
             }
         }
@@ -91,6 +90,6 @@ namespace SAD
             this.Close();
         }
 
-        
+       
     }
 }

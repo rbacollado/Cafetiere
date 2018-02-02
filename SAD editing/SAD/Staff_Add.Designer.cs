@@ -39,10 +39,8 @@
             this.lbl_usertype = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_clear = new System.Windows.Forms.Button();
-            this.cb_userstatus = new System.Windows.Forms.ComboBox();
             this.btn_add = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_confpass = new System.Windows.Forms.TextBox();
             this.txt_pass = new System.Windows.Forms.TextBox();
@@ -149,10 +147,8 @@
             this.panel2.Controls.Add(this.lbl_usertype);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.btn_clear);
-            this.panel2.Controls.Add(this.cb_userstatus);
             this.panel2.Controls.Add(this.btn_add);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txt_confpass);
             this.panel2.Controls.Add(this.txt_pass);
@@ -173,7 +169,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(675, 326);
             this.panel2.TabIndex = 107;
-        
             // 
             // lbl_usertype
             // 
@@ -212,21 +207,6 @@
             this.btn_clear.UseVisualStyleBackColor = false;
             this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
-            // cb_userstatus
-            // 
-            this.cb_userstatus.BackColor = System.Drawing.Color.White;
-            this.cb_userstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_userstatus.ForeColor = System.Drawing.Color.Black;
-            this.cb_userstatus.FormattingEnabled = true;
-            this.cb_userstatus.Items.AddRange(new object[] {
-            "Inactive",
-            "Active"});
-            this.cb_userstatus.Location = new System.Drawing.Point(499, 194);
-            this.cb_userstatus.Name = "cb_userstatus";
-            this.cb_userstatus.Size = new System.Drawing.Size(159, 28);
-            this.cb_userstatus.TabIndex = 87;
-            this.cb_userstatus.Text = "Inactive";
-            // 
             // btn_add
             // 
             this.btn_add.BackColor = System.Drawing.Color.PaleGreen;
@@ -252,17 +232,6 @@
             this.label4.Size = new System.Drawing.Size(158, 20);
             this.label4.TabIndex = 90;
             this.label4.Text = "Confirm Password:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(336, 194);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
-            this.label2.TabIndex = 92;
-            this.label2.Text = "Status:";
             // 
             // label7
             // 
@@ -479,9 +448,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbl_usertype;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cb_userstatus;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_confpass;
         private System.Windows.Forms.TextBox txt_pass;

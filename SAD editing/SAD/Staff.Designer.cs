@@ -43,7 +43,7 @@
             this.show_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.show_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
             this.show_add.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.show_add.Location = new System.Drawing.Point(521, 24);
+            this.show_add.Location = new System.Drawing.Point(670, 24);
             this.show_add.Name = "show_add";
             this.show_add.Size = new System.Drawing.Size(87, 36);
             this.show_add.TabIndex = 114;
@@ -56,7 +56,7 @@
             this.Back.BackColor = System.Drawing.Color.Tomato;
             this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back.Location = new System.Drawing.Point(679, 0);
+            this.Back.Location = new System.Drawing.Point(786, 0);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(114, 67);
             this.Back.TabIndex = 87;
@@ -73,13 +73,13 @@
             this.dtgv.BackgroundColor = System.Drawing.Color.White;
             this.dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv.Location = new System.Drawing.Point(28, 73);
+            this.dtgv.Location = new System.Drawing.Point(12, 73);
             this.dtgv.MultiSelect = false;
             this.dtgv.Name = "dtgv";
             this.dtgv.ReadOnly = true;
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv.Size = new System.Drawing.Size(735, 460);
+            this.dtgv.Size = new System.Drawing.Size(861, 460);
             this.dtgv.TabIndex = 111;
             // 
             // panel1
@@ -90,7 +90,7 @@
             this.panel1.Controls.Add(this.Back);
             this.panel1.Location = new System.Drawing.Point(-14, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(877, 67);
+            this.panel1.Size = new System.Drawing.Size(903, 67);
             this.panel1.TabIndex = 109;
             // 
             // label1
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 554);
+            this.ClientSize = new System.Drawing.Size(885, 554);
             this.Controls.Add(this.dtgv);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
