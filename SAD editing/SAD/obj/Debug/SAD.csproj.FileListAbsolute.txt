@@ -117,3 +117,8 @@ C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.exe
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.pdb
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Reports.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff_Add.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff_Update.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff_View.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Supplier_Add.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Supplier_Update.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.SupplierView.resources

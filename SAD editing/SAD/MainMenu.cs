@@ -16,7 +16,7 @@ namespace SAD
     {
         MySqlConnection conn;
 
-        public Login prevForm { get; set; }
+        public Form prevForm { get; set; }
 
         public MainMenu()
         {
@@ -98,10 +98,6 @@ namespace SAD
             reports.Show();
             this.Hide();
         }
-
-       
-
-
-
+        
     }
 }

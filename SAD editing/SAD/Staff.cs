@@ -23,7 +23,7 @@ namespace SAD
             InitializeComponent();
             conn = new MySqlConnection("SERVER=localhost; DATABASE=Cafetiere; uid=root; pwd=root;");
         }
-        
+
         private void loadAll()
         {
             string query = "SELECT * FROM person , staff WHERE person.personid = staff.person_personid";
@@ -56,7 +56,7 @@ namespace SAD
             dtgv.Columns["status"].HeaderText = "Status";
             dtgv.Columns["date_added"].HeaderText = "Date Added";
             dtgv.Columns["date_modified"].HeaderText = "Date Modified";
-           
+
 
         }
 
@@ -71,11 +71,42 @@ namespace SAD
             this.Close();
         }
 
-        private void show_add_Click(object sender, EventArgs e)
+        private void staff_add_Click(object sender, EventArgs e)
         {
-            Staff_Add addStaff = new Staff_Add();
-            addStaff.Show();
-            addStaff.prevForm = this;
+            Staff_Add addstaff = new Staff_Add();
+            addstaff.prevForm = this;
+            addstaff.Show();
+            this.Hide();
+        }
+
+        public class selected_data
+        {
+            public static int selected_user_id;
+        }
+        
+        private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.RowIndex > -1)
+            {
+                int selected_id = int.Parse(dtgv.Rows[e.RowIndex].Cells["personid"].Value.ToString());
+                selected_data.selected_user_id = selected_id;
+            }
+        }
+
+        private void staff_update_Click(object sender, EventArgs e)
+        {
+            Staff_Update updatestaff = new Staff_Update();
+            updatestaff.prevForm = this;
+            updatestaff.Show();
+            this.Hide();
+        }
+
+        private void staff_view_Click(object sender, EventArgs e)
+        {
+            Staff_View viewstaff = new Staff_View();
+            viewstaff.prevForm = this;
+            viewstaff.Show();
             this.Hide();
         }
     }

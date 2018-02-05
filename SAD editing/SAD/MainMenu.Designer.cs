@@ -131,7 +131,7 @@
             // 
             // report_btn
             // 
-            this.report_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(68)))), ((int)(((byte)(173)))));
+            this.report_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(43)))), ((int)(((byte)(73)))));
             this.report_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.report_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
             this.report_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -678,7 +678,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(869, 694);
+            this.ClientSize = new System.Drawing.Size(888, 700);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.report_btn);
             this.Controls.Add(this.panel13);

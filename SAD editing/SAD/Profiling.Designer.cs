@@ -46,7 +46,7 @@
             this.btn_supplier.Name = "btn_supplier";
             this.btn_supplier.Size = new System.Drawing.Size(189, 89);
             this.btn_supplier.TabIndex = 60;
-            this.btn_supplier.Text = "Add Supplier";
+            this.btn_supplier.Text = "SUPPLIER";
             this.btn_supplier.UseVisualStyleBackColor = false;
             this.btn_supplier.Click += new System.EventHandler(this.btn_supplier_Click);
             // 
@@ -60,7 +60,7 @@
             this.btn_staff.Name = "btn_staff";
             this.btn_staff.Size = new System.Drawing.Size(176, 89);
             this.btn_staff.TabIndex = 59;
-            this.btn_staff.Text = "Add Staff";
+            this.btn_staff.Text = "STAFF";
             this.btn_staff.UseVisualStyleBackColor = false;
             this.btn_staff.Click += new System.EventHandler(this.btn_staff_Click_1);
             // 

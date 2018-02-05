@@ -24,7 +24,7 @@ namespace SAD
 
         private void loadAll()
         {
-            string query = "SELECT * FROM Supplier";
+            string query = "SELECT * FROM person , supplier WHERE person.personid = supplier.person_personid";
 
             conn.Open();
 
@@ -38,17 +38,19 @@ namespace SAD
             adp.Fill(dt);
 
             dtgv.DataSource = dt;
+            dtgv.Columns["personid"].Visible = false;
             dtgv.Columns["supplierID"].Visible = false;
+            dtgv.Columns["person_type"].Visible = false;
+            dtgv.Columns["person_personid"].Visible = false;
+           
             dtgv.Columns["firstname"].HeaderText = "Firstname";
             dtgv.Columns["lastname"].HeaderText = "Lastname";
             dtgv.Columns["address"].HeaderText = "Address";
             dtgv.Columns["contact"].HeaderText = "Contact Number";
-            dtgv.Columns["organization"].HeaderText = "Organiztion";
-            dtgv.Columns["status"].HeaderText = "Status";
+            dtgv.Columns["email"].HeaderText = "Email";
+            dtgv.Columns["organization"].HeaderText = "Organization";
             dtgv.Columns["date_added"].HeaderText = "Date Added";
             dtgv.Columns["date_modified"].HeaderText = "Date Modified";
-            dtgv.Columns["date_added"].Width = 135;
-            dtgv.Columns["date_modified"].Width = 135;
 
         }
 
@@ -58,86 +60,54 @@ namespace SAD
             this.Close();
         }
 
-        private void btn_add_Click(object sender, EventArgs e)
-        {
-            if (txt_fname.Text == "" || txt_lname.Text == "" || txt_address.Text == "" || mtxt_contact.Text == "" || txt_org.Text == "" || cb_userstatus.Text == "")
-            {
-                MessageBox.Show("Please Complete the Registration!", "Incomplete Registration", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                string query = "INSERT INTO Supplier" +
-                "(firstname, lastname, address, contact, organization, status, date_added, date_modified)" + " VALUES('" + txt_fname.Text + "','" + txt_lname.Text + "','" + txt_address.Text + "','" + mtxt_contact.Text + "','" + txt_org.Text + "','" + cb_userstatus.Text + "', current_timestamp(), current_timestamp())";
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-                loadAll();
-            }
-        }
-
         private void Supplier_Load(object sender, EventArgs e)
         {
-            loadAll();
-            btn_update.Enabled = false;
-            btn_update.BackColor = Color.Gray;
+            loadAll();   
         }
 
-        private int selected_supplier_id;
+
+        private void supplier_add_Click(object sender, EventArgs e)
+        {
+            Supplier_Add addsupplier= new Supplier_Add();
+            addsupplier.prevForm = this;
+            addsupplier.Show();
+            this.Hide();
+        }
+
+        private void supplier_update_Click(object sender, EventArgs e)
+        {
+            Supplier_Update updatesupplier= new Supplier_Update();
+            updatesupplier.prevForm = this;
+            updatesupplier.Show();
+            this.Hide();
+        }
+
+        public class selected_data
+        {
+            public static int selected_user_id;
+        }
 
         private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
-                selected_supplier_id = int.Parse(dtgv.Rows[e.RowIndex].Cells["supplierID"].Value.ToString());
-                txt_fname.Text = dtgv.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
-                txt_lname.Text = dtgv.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
-                txt_address.Text = dtgv.Rows[e.RowIndex].Cells["address"].Value.ToString();
-                mtxt_contact.Text = dtgv.Rows[e.RowIndex].Cells["contact"].Value.ToString();
-                txt_org.Text = dtgv.Rows[e.RowIndex].Cells["organization"].Value.ToString();
-                cb_userstatus.Text = dtgv.Rows[e.RowIndex].Cells["status"].Value.ToString();
-                btn_add.Enabled = false;
-                btn_update.Enabled = true;
-                btn_update.BackColor = Color.Gold;
-                btn_add.BackColor = Color.Gray;
+                int selected_id = int.Parse(dtgv.Rows[e.RowIndex].Cells["personid"].Value.ToString());
+                selected_data.selected_user_id = selected_id;
             }
         }
 
-        private void btn_update_Click(object sender, EventArgs e)
+        private void supplier_view_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string query = "UPDATE Supplier " +
-                               "SET firstname = '" + txt_fname.Text + "'," + "lastname = '" + txt_lname.Text + "', " +
-                               "address = '" + txt_address.Text + "', " + "contact = '" + mtxt_contact.Text + "', " + "organization = '" + txt_org.Text + "', " +
-                                "status = '" + cb_userstatus.Text + "', " + "date_modified = current_timestamp() WHERE supplierID = '" + selected_supplier_id + "';";
-
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Supplier Updated!", "Update Supplier", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadAll();
-            }
-            catch (Exception)
-            {
-                //MessageBox.Show("An error has occured. Please Try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            
+            SupplierView viewsuppplier= new SupplierView();
+            viewsuppplier.prevForm = this;
+            viewsuppplier.Show();
+            this.Hide();
         }
 
-        private void btn_clear_Click(object sender, EventArgs e)
+        private void Back_Click_1(object sender, EventArgs e)
         {
-            txt_fname.Clear();
-            txt_lname.Clear();
-            txt_address.Clear();
-            mtxt_contact.Clear();
-            txt_org.Clear();
-            btn_add.Enabled = true;
-            btn_update.Enabled = false;
-            btn_update.BackColor = Color.Gray;
-            btn_add.BackColor = Color.PaleGreen;
+            prevForm.Show();
+            this.Close();
         }
-
     }
 }

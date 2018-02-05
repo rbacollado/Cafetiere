@@ -60,6 +60,8 @@ namespace SAD
                 string username = dt.Rows[0]["username"].ToString();
                 string password = dt.Rows[0]["password"].ToString();
 
+                MessageBox.Show("Welcome " + lname + ", " + fname + "!", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 DisplayUserDetails.staff_id = id;
                 DisplayUserDetails.name = lname + ", " + fname;
                 DisplayUserDetails.usertype = usertype;
@@ -67,11 +69,9 @@ namespace SAD
                 DisplayUserDetails.password = password;
 
                 MainMenu mainmenu = new MainMenu();
-                mainmenu.prevForm = this;
                 mainmenu.Show();
+                mainmenu.prevForm = this;
                 this.Hide();
-
-                MessageBox.Show("Welcome " + lname + ", " + fname + "!", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
