@@ -63,7 +63,7 @@ namespace SAD
                 MessageBox.Show("Welcome " + lname + ", " + fname + "!", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 DisplayUserDetails.staff_id = id;
-                DisplayUserDetails.name = lname + ", " + fname;
+                DisplayUserDetails.name = fname + " " + lname;
                 DisplayUserDetails.usertype = usertype;
                 DisplayUserDetails.username = username;
                 DisplayUserDetails.password = password;

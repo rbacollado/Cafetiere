@@ -344,8 +344,8 @@ namespace SAD
             {
                 
                 string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderDiscount)" 
-                        + " VALUES((SELECT staff.staffid FROM staff INNER JOIN person ON person.personid = staff.person_personid AND CONCAT(person.firstname, ' ' , person.lastname) LIKE '%" + SAD.Login.DisplayUserDetails.name + "%'), current_timestamp(),'"
-                        + decimal.Parse(totalDue.Text) + "','" + double.Parse(discountTxt.Text) + "')";
+                        + " VALUES((SELECT staff.staffid FROM staff INNER JOIN person ON person.personid = staff.person_personid AND CONCAT(person.firstname, ' ' , person.lastname) LIKE '%" + SAD.Login.DisplayUserDetails.name + "%'), " 
+                        + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + double.Parse(discountTxt.Text) + "')";
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query_order, conn);
                 comm.ExecuteNonQuery();
