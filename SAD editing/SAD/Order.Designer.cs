@@ -177,6 +177,7 @@
             this.paymentpanel.Size = new System.Drawing.Size(385, 390);
             this.paymentpanel.TabIndex = 208;
             this.paymentpanel.Visible = false;
+            this.paymentpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paymentpanel_Paint);
             // 
             // discountTxt
             // 
@@ -185,7 +186,6 @@
             this.discountTxt.Name = "discountTxt";
             this.discountTxt.Size = new System.Drawing.Size(126, 29);
             this.discountTxt.TabIndex = 93;
-            this.discountTxt.Text = "0";
             this.discountTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.discountTxt.TextChanged += new System.EventHandler(this.discountTxt_TextChanged);
             // 
@@ -197,9 +197,9 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(18, 128);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 25);
+            this.label8.Size = new System.Drawing.Size(147, 25);
             this.label8.TabIndex = 92;
-            this.label8.Text = "Discount";
+            this.label8.Text = "Discount (%)";
             // 
             // pay
             // 

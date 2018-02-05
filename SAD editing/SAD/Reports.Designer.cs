@@ -59,6 +59,7 @@
             this.Back.TabIndex = 98;
             this.Back.Text = "BACK";
             this.Back.UseVisualStyleBackColor = false;
+            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // label15
             // 
@@ -129,6 +130,7 @@
             this.Name = "Reports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reports";
+            this.Load += new System.EventHandler(this.Reports_Load);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sales)).EndInit();
