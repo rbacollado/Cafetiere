@@ -86,12 +86,25 @@ namespace SAD
         
         private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
             if (e.RowIndex > -1)
             {
                 int selected_id = int.Parse(dtgv.Rows[e.RowIndex].Cells["personid"].Value.ToString());
                 selected_data.selected_user_id = selected_id;
             }
+
+            string query = "SELECT firstname, lastname, orderDate, orderType FROM person " +
+                            "INNER JOIN staff ON person.personid = staff.person_personid " +
+                            "INNER JOIN `order` ON staff.staffid = `order`.staff_staffid " +
+                            "INNER JOIN orderline ON `order`.orderID = orderline.orderID " +
+                            "WHERE personid = " + selected_data.selected_user_id + " ";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            records.DataSource = dt;
+
         }
 
         private void staff_update_Click(object sender, EventArgs e)
@@ -108,6 +121,11 @@ namespace SAD
             viewstaff.prevForm = this;
             viewstaff.Show();
             this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

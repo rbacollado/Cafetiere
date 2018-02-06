@@ -94,14 +94,19 @@ namespace SAD
                 int selected_id = int.Parse(dtgv.Rows[e.RowIndex].Cells["personid"].Value.ToString());
                 selected_data.selected_user_id = selected_id;
             }
-        }
 
-        private void supplier_view_Click(object sender, EventArgs e)
-        {
-            SupplierView viewsuppplier= new SupplierView();
-            viewsuppplier.prevForm = this;
-            viewsuppplier.Show();
-            this.Hide();
+            string query = "SELECT firstname, lastname, purchaseOrdeDate, deliveryDate, deliveryStatus FROM person " +
+                            "INNER JOIN supplier on person.personid = supplier.person_personid " +
+                            "INNER JOIN purchaseorder on supplier.supplierID = purchaseorder.supplier_supplierID " +
+                            "WHERE personid = " + selected_data.selected_user_id + " ";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            records.DataSource = dt;
+
         }
 
         private void Back_Click_1(object sender, EventArgs e)

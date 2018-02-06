@@ -150,9 +150,10 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label2.Location = new System.Drawing.Point(617, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 29);
+            this.label2.Size = new System.Drawing.Size(214, 29);
             this.label2.TabIndex = 116;
-            this.label2.Text = "RECORDS";
+            this.label2.Text = "TRANSACTIONS";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Staff
             // 
