@@ -203,7 +203,7 @@ namespace SAD
                     total += (decimal.Parse(ordered_products.Rows[i].Cells["Subtotal"].Value.ToString()));
 
                 }
-                TotalTB.Text = total.ToString("C");
+                TotalTB.Text = total.ToString("");
                 totalDue.Text = total.ToString();
             }catch(Exception)
             {
@@ -315,15 +315,27 @@ namespace SAD
 
         private void discountTxt_TextChanged(object sender, EventArgs e)
         {
-            try
+            /* try
+             {
+
+             }
+             catch (Exception)
+             {
+                 MessageBox.Show("An error has occured. Please Try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+             }*/
+
+            if (discountTxt.Text == "")
             {
-                
+                totalDue.Text = TotalTB.Text;
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("An error has occured. Please Try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                decimal discount = decimal.Parse(totalDue.Text) * (decimal.Parse(discountTxt.Text) / (decimal)100);
+                decimal totaldue = decimal.Parse(totalDue.Text) - discount;
+                totaldue = Math.Round(totaldue, 2, MidpointRounding.AwayFromZero);
+                totalDue.Text = totaldue.ToString();
             }
-            
+
         }
         private void backbtnSales_Click(object sender, EventArgs e)
         {
@@ -385,6 +397,9 @@ namespace SAD
             }
         }
 
-        
+        private void paymentpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

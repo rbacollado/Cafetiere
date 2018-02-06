@@ -27,7 +27,7 @@ namespace SAD
 
         private void salesLoad()
         {
-            string query = "SELECT orderID, concat(firstname, ' ', lastname) as StaffName , orderDate, orderTotal, orderDiscount FROM `order`, staff WHERE `order`.order_staff_id = staff.staff_id";
+            string query = "SELECT orderID, concat(firstname, ' ', lastname) as StaffName , orderDate, orderTotal, orderDiscount FROM `order`, person , staff WHERE personid = person_personid AND staffid = order_staff_id";
 
             conn.Open();
 
@@ -55,6 +55,15 @@ namespace SAD
 
         }
 
-        
+        private void Reports_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            prevForm.Show();
+            this.Close();
+        }
     }
 }
