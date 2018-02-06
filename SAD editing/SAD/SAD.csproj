@@ -120,23 +120,11 @@
     <Compile Include="Staff_Update.Designer.cs">
       <DependentUpon>Staff_Update.cs</DependentUpon>
     </Compile>
-    <Compile Include="Staff_View.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff_View.Designer.cs">
-      <DependentUpon>Staff_View.cs</DependentUpon>
-    </Compile>
     <Compile Include="Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Supplier.Designer.cs">
       <DependentUpon>Supplier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SupplierView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SupplierView.Designer.cs">
-      <DependentUpon>SupplierView.cs</DependentUpon>
     </Compile>
     <Compile Include="Supplier_Add.cs">
       <SubType>Form</SubType>
@@ -196,14 +184,8 @@
     <EmbeddedResource Include="Staff_Update.resx">
       <DependentUpon>Staff_Update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff_View.resx">
-      <DependentUpon>Staff_View.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Supplier.resx">
       <DependentUpon>Supplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SupplierView.resx">
-      <DependentUpon>SupplierView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Supplier_Add.resx">
       <DependentUpon>Supplier_Add.cs</DependentUpon>
