@@ -24,41 +24,6 @@ namespace SAD
             conn = new MySqlConnection("SERVER=localhost; DATABASE=Cafetiere; uid=root; pwd=root;");
         }
 
-        private void btn_add_Click(object sender, EventArgs e)
-        {
-            if (txt_pname.Text == "" || txt_pprice.Text == "" || nud_pquantity.Text == "" || txt_pcost.Text == "")
-            {
-                MessageBox.Show("Please Complete the Product Information!", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-
-                string q = "SELECT pname FROM Products WHERE pname = '" + txt_pname.Text + "';";
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand(q, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-                DataTable dt = new DataTable();
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                adp.Fill(dt);
-
-                if (dt.Rows.Count == 1)
-                {
-                    MessageBox.Show("Product Already Exist!", "Duplicate Product", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                else
-                {
-                    string query = "INSERT INTO Products(pname, pprice, pstatus, pquantity, pcost)" + 
-                                   " VALUES('" + txt_pname.Text + "','" + txt_pprice.Text + "', 'Available' ,'" + nud_pquantity.Text + "','" + txt_pcost.Text + "')";
-                    conn.Open();
-                    MySqlCommand comm2 = new MySqlCommand(query, conn);
-                    comm2.ExecuteNonQuery();
-                    conn.Close();
-                    
-                }
-            }
-        }
 
         private void Back_Click(object sender, EventArgs e)
         {
@@ -89,6 +54,95 @@ namespace SAD
             char ch = e.KeyChar;
 
             if (ch == 46 && txt_pprice.Text.IndexOf('.') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_add_Click_1(object sender, EventArgs e)
+        {
+            if (txt_pname.Text == "" || cb_category.Text == "" || txt_pprice.Text == "" || nud_pquantity.Text == "" || txt_pcost.Text == "")
+            {
+                MessageBox.Show("Please Complete the Product Information!", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+                string q = "SELECT pname FROM Products WHERE pname = '" + txt_pname.Text + "';";
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(q, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 1)
+                {
+                    MessageBox.Show("Product Already Exist!", "Duplicate Product", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                {
+                    string query = "INSERT INTO Products(pname, pcategory, pprice, pstatus, pquantity, pcost, category_category_id)" + " VALUES('" + txt_pname.Text + "','" + cb_category.Text + "','" + txt_pprice.Text + "', 'Available' ,'" + nud_pquantity.Text + "','" + txt_pcost.Text + "', (select max(category_id) from category))";
+                    conn.Open();
+                    MySqlCommand comm2 = new MySqlCommand(query, conn);
+                    comm2.ExecuteNonQuery();
+                    conn.Close();
+
+                    MessageBox.Show("Product added!");
+
+                    this.Close();
+                    prevForm.ShowDialog();
+
+                }
+            }
+        }
+
+        
+
+        private void Product_Add_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_pprice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_pprice_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (ch == 46 && txt_pprice.Text.IndexOf('.') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_pcost_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (ch == 46 && txt_pcost.Text.IndexOf('.') != -1)
             {
                 e.Handled = true;
                 return;
