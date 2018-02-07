@@ -14,13 +14,15 @@ namespace SAD
     public partial class Order : Form
     {
         MySqlConnection conn;
-       
+
+        public MainMenu prevForm { get; set; }
+
         public Order()
         {
             InitializeComponent();
             conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root;"); 
         }
-        public MainMenu prevForm { get; set; }
+       
 
         DataTable order = new DataTable();
 
@@ -99,7 +101,6 @@ namespace SAD
             {
                 productpanel.Visible = true;
                 productpanel.Enabled = true;
-
 
                 productpanel.Size = new Size(380, 421);
                 productpanel.Location = new Point(11, 160);
@@ -397,7 +398,7 @@ namespace SAD
             }
         }
 
-        private void paymentpanel_Paint(object sender, PaintEventArgs e)
+        private void prodname_TextChanged(object sender, EventArgs e)
         {
 
         }

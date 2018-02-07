@@ -115,7 +115,7 @@
             this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Back.Location = new System.Drawing.Point(639, 3);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(94, 51);
+            this.Back.Size = new System.Drawing.Size(103, 51);
             this.Back.TabIndex = 85;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = false;
@@ -172,12 +172,11 @@
             this.paymentpanel.Controls.Add(this.label10);
             this.paymentpanel.Controls.Add(this.label9);
             this.paymentpanel.Controls.Add(this.label6);
-            this.paymentpanel.Location = new System.Drawing.Point(0, 100);
+            this.paymentpanel.Location = new System.Drawing.Point(350, 434);
             this.paymentpanel.Name = "paymentpanel";
-            this.paymentpanel.Size = new System.Drawing.Size(385, 390);
+            this.paymentpanel.Size = new System.Drawing.Size(35, 56);
             this.paymentpanel.TabIndex = 208;
             this.paymentpanel.Visible = false;
-            this.paymentpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paymentpanel_Paint);
             // 
             // discountTxt
             // 
@@ -494,6 +493,7 @@
             this.prodname.TabIndex = 80;
             this.prodname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.prodname.MouseClick += new System.Windows.Forms.MouseEventHandler(this.prod_MouseClick);
+            this.prodname.TextChanged += new System.EventHandler(this.prodname_TextChanged);
             // 
             // quantityTxt
             // 
@@ -540,9 +540,9 @@
             this.productpanel.BackColor = System.Drawing.Color.Brown;
             this.productpanel.Controls.Add(this.label7);
             this.productpanel.Controls.Add(this.product_data);
-            this.productpanel.Location = new System.Drawing.Point(377, 559);
+            this.productpanel.Location = new System.Drawing.Point(366, 561);
             this.productpanel.Name = "productpanel";
-            this.productpanel.Size = new System.Drawing.Size(14, 22);
+            this.productpanel.Size = new System.Drawing.Size(161, 20);
             this.productpanel.TabIndex = 86;
             this.productpanel.Visible = false;
             // 

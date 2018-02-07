@@ -27,7 +27,10 @@ namespace SAD
 
         private void salesLoad()
         {
-            string query = "SELECT orderID, concat(firstname, ' ', lastname) as StaffName , orderDate, orderTotal, orderDiscount FROM `order`, person , staff WHERE personid = person_personid AND staffid = order_staff_id";
+            string query = "SELECT concat(firstname, ' ',lastname) as Staffname, orderDate, orderTotal, orderType FROM person " +
+                           "INNER JOIN staff ON person.personid = staff.person_personid " +
+                           "INNER JOIN `order` ON staff.staffid = `order`.staff_staffid " +
+                           "INNER JOIN orderline ON `order`.orderID = orderline.orderID ";
 
             conn.Open();
 
@@ -41,16 +44,15 @@ namespace SAD
             adp.Fill(dt);
 
             sales.DataSource = dt;
-            sales.Columns["orderID"].Visible = false;
             sales.Columns["StaffName"].HeaderText = "Staff";
             sales.Columns["orderDate"].HeaderText = "Sales Date";
             sales.Columns["orderTotal"].HeaderText = "Sales Total";
-            sales.Columns["orderDiscount"].HeaderText = "Discount";
+            sales.Columns["orderType"].HeaderText = "Sales Type";
 
             sales.Columns["StaffName"].Width = 100;
             sales.Columns["orderDate"].Width = 150;
             sales.Columns["orderTotal"].Width = 120;
-            sales.Columns["orderDiscount"].Width = 130;
+            sales.Columns["orderType"].Width = 130;
 
 
         }

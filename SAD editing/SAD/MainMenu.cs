@@ -98,6 +98,14 @@ namespace SAD
             reports.Show();
             this.Hide();
         }
-        
+
+        private void btn_inventory_Click(object sender, EventArgs e)
+        {
+            InventoryTransaction inventory = new InventoryTransaction();
+            inventory.prevForm = this;
+            inventory.Show();
+            this.Hide();
+            
+        }
     }
 }

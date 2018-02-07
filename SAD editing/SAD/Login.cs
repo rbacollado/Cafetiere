@@ -66,12 +66,12 @@ namespace SAD
                 DisplayUserDetails.username = username;
                 DisplayUserDetails.password = password;
 
+                MessageBox.Show("Welcome " + lname + ", " + fname + "!", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.prevForm = this;
                 mainMenu.Show();
                 this.Hide();
-
-                MessageBox.Show("Welcome " + lname + ", " + fname + "!", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

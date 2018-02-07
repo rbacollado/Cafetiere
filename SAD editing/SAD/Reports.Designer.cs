@@ -45,17 +45,18 @@
             this.panel15.Controls.Add(this.label15);
             this.panel15.Location = new System.Drawing.Point(-3, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(853, 63);
+            this.panel15.Size = new System.Drawing.Size(853, 50);
             this.panel15.TabIndex = 62;
             // 
             // Back
             // 
-            this.Back.BackColor = System.Drawing.Color.Tomato;
+            this.Back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
             this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.Back.Location = new System.Drawing.Point(442, 0);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(94, 63);
+            this.Back.Size = new System.Drawing.Size(94, 50);
             this.Back.TabIndex = 98;
             this.Back.Text = "BACK";
             this.Back.UseVisualStyleBackColor = false;
@@ -66,7 +67,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Transparent;
-            this.label15.Location = new System.Drawing.Point(38, 18);
+            this.label15.Location = new System.Drawing.Point(38, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(137, 29);
             this.label15.TabIndex = 12;
@@ -82,12 +83,12 @@
             this.sales.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.sales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.sales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sales.Location = new System.Drawing.Point(12, 118);
+            this.sales.Location = new System.Drawing.Point(21, 98);
             this.sales.Name = "sales";
             this.sales.ReadOnly = true;
             this.sales.RowHeadersVisible = false;
             this.sales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.sales.Size = new System.Drawing.Size(486, 409);
+            this.sales.Size = new System.Drawing.Size(486, 445);
             this.sales.TabIndex = 207;
             // 
             // inventory_report
@@ -96,7 +97,7 @@
             this.inventory_report.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inventory_report.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
             this.inventory_report.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.inventory_report.Location = new System.Drawing.Point(138, 76);
+            this.inventory_report.Location = new System.Drawing.Point(138, 56);
             this.inventory_report.Name = "inventory_report";
             this.inventory_report.Size = new System.Drawing.Size(98, 36);
             this.inventory_report.TabIndex = 209;
@@ -109,7 +110,7 @@
             this.sales_report.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sales_report.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
             this.sales_report.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.sales_report.Location = new System.Drawing.Point(40, 76);
+            this.sales_report.Location = new System.Drawing.Point(40, 56);
             this.sales_report.Name = "sales_report";
             this.sales_report.Size = new System.Drawing.Size(92, 36);
             this.sales_report.TabIndex = 208;

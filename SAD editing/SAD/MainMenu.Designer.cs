@@ -112,7 +112,7 @@
             this.timeText.AutoSize = true;
             this.timeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeText.ForeColor = System.Drawing.Color.White;
-            this.timeText.Location = new System.Drawing.Point(620, 20);
+            this.timeText.Location = new System.Drawing.Point(575, 20);
             this.timeText.Name = "timeText";
             this.timeText.Size = new System.Drawing.Size(45, 24);
             this.timeText.TabIndex = 13;
@@ -123,7 +123,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(275, 15);
+            this.label3.Location = new System.Drawing.Point(53, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(171, 29);
             this.label3.TabIndex = 12;
@@ -167,7 +167,7 @@
             this.panel2.Location = new System.Drawing.Point(-7, -1);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(129, 712);
+            this.panel2.Size = new System.Drawing.Size(129, 755);
             this.panel2.TabIndex = 67;
             // 
             // btnDash
@@ -182,7 +182,7 @@
             this.btnDash.Location = new System.Drawing.Point(-1, 0);
             this.btnDash.Margin = new System.Windows.Forms.Padding(2, 6, 2, 2);
             this.btnDash.Name = "btnDash";
-            this.btnDash.Size = new System.Drawing.Size(129, 109);
+            this.btnDash.Size = new System.Drawing.Size(130, 109);
             this.btnDash.TabIndex = 66;
             this.btnDash.Text = "\r\n\r\n\r\n\r\n\r\n\r\n  DASHBOARD";
             this.btnDash.UseVisualStyleBackColor = true;
@@ -213,9 +213,9 @@
             this.btn_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
             this.btn_logout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_logout.Image = global::SAD.Properties.Resources.logout__2_;
-            this.btn_logout.Location = new System.Drawing.Point(0, 569);
+            this.btn_logout.Location = new System.Drawing.Point(3, 566);
             this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(129, 123);
+            this.btn_logout.Size = new System.Drawing.Size(129, 143);
             this.btn_logout.TabIndex = 61;
             this.btn_logout.Text = "\r\n\r\n\r\n\r\n\r\n\r\n  SIGN OUT";
             this.btn_logout.UseVisualStyleBackColor = false;
@@ -270,6 +270,7 @@
             this.btn_inventory.TabIndex = 63;
             this.btn_inventory.Text = "\r\n\r\n\r\n\r\n\r\n\r\n INVENTORY";
             this.btn_inventory.UseVisualStyleBackColor = false;
+            this.btn_inventory.Click += new System.EventHandler(this.btn_inventory_Click);
             // 
             // panel14
             // 
@@ -677,7 +678,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(888, 700);
+            this.ClientSize = new System.Drawing.Size(870, 700);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.report_btn);
             this.Controls.Add(this.panel13);

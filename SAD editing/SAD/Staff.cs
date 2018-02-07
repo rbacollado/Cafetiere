@@ -114,15 +114,7 @@ namespace SAD
             updatestaff.Show();
             this.Hide();
         }
-
-        private void staff_view_Click(object sender, EventArgs e)
-        {
-            Staff_View viewstaff = new Staff_View();
-            viewstaff.prevForm = this;
-            viewstaff.Show();
-            this.Hide();
-        }
-
+        
         private void label2_Click(object sender, EventArgs e)
         {
 

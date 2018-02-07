@@ -91,9 +91,9 @@
             this.Back.BackColor = System.Drawing.Color.Tomato;
             this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back.Location = new System.Drawing.Point(330, 3);
+            this.Back.Location = new System.Drawing.Point(320, 4);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(100, 73);
+            this.Back.Size = new System.Drawing.Size(110, 73);
             this.Back.TabIndex = 86;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = false;
