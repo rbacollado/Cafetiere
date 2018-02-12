@@ -46,11 +46,13 @@ namespace SAD
 
             dtgv.DataSource = dt;
             dtgv.Columns["productID"].Visible = false;
-            dtgv.Columns["pname"].HeaderText = "Product Name";
-            dtgv.Columns["pprice"].HeaderText = "Product Price (₱)";
+            dtgv.Columns["pname"].HeaderText = "Name";
+            dtgv.Columns["pcategory"].HeaderText = "Category";
+            dtgv.Columns["pprice"].HeaderText = "Price (₱)";
             dtgv.Columns["pstatus"].HeaderText = "Availability";
-            dtgv.Columns["pquantity"].HeaderText = "Product Quantity";
-            dtgv.Columns["pcost"].HeaderText = "Product Cost";
+            dtgv.Columns["pquantity"].HeaderText = "Quantity";
+            dtgv.Columns["pcost"].HeaderText = "Cost";
+            dtgv.Columns["category_category_id"].Visible = false;
             dtgv.Columns[0].Width = 50;
             dtgv.Columns[1].Width = 150;
             dtgv.Columns[2].Width = 120;
@@ -87,6 +89,14 @@ namespace SAD
             Product_Add addproduct = new Product_Add();
             addproduct.prevForm = this;
             addproduct.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Category_Add addcategory = new Category_Add();
+            addcategory.prevForm = this;
+            addcategory.Show();
             this.Hide();
         }
     }

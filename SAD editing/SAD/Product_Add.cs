@@ -114,7 +114,7 @@ namespace SAD
 
         private void Product_Add_Load(object sender, EventArgs e)
         {
-
+            categoryCmbData();
         }
 
         private void txt_pprice_TextChanged(object sender, EventArgs e)
@@ -152,6 +152,28 @@ namespace SAD
             {
                 e.Handled = true;
             }
+        }
+
+        public void categoryCmbData()
+        {
+            String query_categories = "SELECT * FROM category";
+
+            MySqlCommand comm_categories = new MySqlCommand(query_categories, conn);
+            comm_categories.CommandText = query_categories;
+            conn.Open();
+            MySqlDataReader drd_categories = comm_categories.ExecuteReader();
+
+            cb_category.Items.Clear();
+            while (drd_categories.Read())
+            {
+                cb_category.Items.Add(drd_categories["category_name"].ToString());
+            }
+            conn.Close();
+        }
+
+        private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -178,3 +178,4 @@ C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.cs
 C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
 C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.exe
 C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.pdb
+C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Category_Add.resources
