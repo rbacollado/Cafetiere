@@ -92,19 +92,30 @@ namespace SAD
                 selected_data.selected_user_id = selected_id;
             }
 
-            string query = "SELECT firstname, lastname, orderDate, orderType FROM person " +
+            string salesrecord_query = "SELECT firstname, lastname, orderDate, orderType FROM person " +
                             "INNER JOIN staff ON person.personid = staff.person_personid " +
                             "INNER JOIN `order` ON staff.staffid = `order`.staff_staffid " +
                             "INNER JOIN orderline ON `order`.orderID = orderline.orderID " +
                             "WHERE personid = " + selected_data.selected_user_id + " ";
             conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlCommand comm = new MySqlCommand(salesrecord_query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            records.DataSource = dt;
+            DataTable dt_sales = new DataTable();
+            adp.Fill(dt_sales);
+            sales_records.DataSource = dt_sales;
 
+            string inventoryrecord_query = "SELECT firstname, lastname, logdate as Date, logType as Activity FROM person " +
+                                            "INNER JOIN staff ON person.personid = staff.person_personid " +
+                                            "INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid " +                                      
+                                            "WHERE personid = " + selected_data.selected_user_id + " ";
+            conn.Open();
+            MySqlCommand comm1 = new MySqlCommand(inventoryrecord_query, conn);
+            MySqlDataAdapter adp1 = new MySqlDataAdapter(comm1);
+            conn.Close();
+            DataTable dt_inventory = new DataTable();
+            adp1.Fill(dt_inventory);
+            inventory_records.DataSource = dt_inventory;
         }
 
         private void staff_update_Click(object sender, EventArgs e)

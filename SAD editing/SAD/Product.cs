@@ -64,7 +64,7 @@ namespace SAD
             this.Close();
         }
 
-        private int selected_product_id;
+       // private int selected_product_id;
        /* private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)

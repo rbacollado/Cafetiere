@@ -397,10 +397,5 @@ namespace SAD
                 MessageBox.Show("Order added!");
             }
         }
-
-        private void prodname_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

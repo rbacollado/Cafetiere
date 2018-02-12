@@ -150,3 +150,5 @@ C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.pdb
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product_Add.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.PurchaseOrder.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.PurchaseOrder_create.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Inventory_Stockin.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Item_Add.resources

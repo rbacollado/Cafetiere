@@ -111,6 +111,7 @@
             this.dtgv.AllowUserToDeleteRows = false;
             this.dtgv.AllowUserToResizeColumns = false;
             this.dtgv.AllowUserToResizeRows = false;
+            this.dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv.BackgroundColor = System.Drawing.Color.White;
             this.dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -130,6 +131,7 @@
             this.records.AllowUserToDeleteRows = false;
             this.records.AllowUserToResizeColumns = false;
             this.records.AllowUserToResizeRows = false;
+            this.records.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.records.BackgroundColor = System.Drawing.Color.White;
             this.records.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.records.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

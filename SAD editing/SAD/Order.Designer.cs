@@ -493,7 +493,7 @@
             this.prodname.TabIndex = 80;
             this.prodname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.prodname.MouseClick += new System.Windows.Forms.MouseEventHandler(this.prod_MouseClick);
-            this.prodname.TextChanged += new System.EventHandler(this.prodname_TextChanged);
+           
             // 
             // quantityTxt
             // 
