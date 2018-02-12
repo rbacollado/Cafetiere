@@ -77,7 +77,7 @@ namespace SAD
 
         private void prod_MouseClick(object sender, MouseEventArgs e)
         {
-            String query = "SELECT productID, pname, pprice, pquantity FROM products";
+            /**String query = "SELECT productID, pname, pprice, pquantity FROM products";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -91,20 +91,15 @@ namespace SAD
             product_data.Columns["pprice"].HeaderText = "Price";
             product_data.Columns["pquantity"].HeaderText = "Quantity";
 
-            product_data.Columns["pprice"].DefaultCellStyle.Format = "c";
+            product_data.Columns["pprice"].DefaultCellStyle.Format = "c";**/
 
-            if (product_data.Rows.Count < 1)
-            {
-                MessageBox.Show("Products Unavailable" ,"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
+           
                 productpanel.Visible = true;
                 productpanel.Enabled = true;
 
                 productpanel.Size = new Size(380, 421);
                 productpanel.Location = new Point(11, 160);
-            }
+            
         }
 
         public static int selected_user_id;
@@ -397,5 +392,40 @@ namespace SAD
                 MessageBox.Show("Order added!");
             }
         }
+<<<<<<< HEAD
+=======
+
+        private void prodname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void product_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void productpanel_Paint(object sender, PaintEventArgs e)
+        {
+            categoryCmbData();
+        }
+
+        public void categoryCmbData()
+        {
+            String query_categories = "SELECT * FROM category";
+
+            MySqlCommand comm_categories = new MySqlCommand(query_categories, conn);
+            comm_categories.CommandText = query_categories;
+            conn.Open();
+            MySqlDataReader drd_categories = comm_categories.ExecuteReader();
+
+            cb_category.Items.Clear();
+            while (drd_categories.Read())
+            {
+                cb_category.Items.Add(drd_categories["category_name"].ToString());
+            }
+            conn.Close();
+        }
+>>>>>>> 5bb68333316c59fd4e45917809e0f1bba3c15c49
     }
 }

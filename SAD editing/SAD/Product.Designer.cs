@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgv = new System.Windows.Forms.DataGridView();
-            this.btn_add = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.SuspendLayout();
@@ -40,6 +41,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btn_add);
             this.panel1.Controls.Add(this.Back);
             this.panel1.Controls.Add(this.label1);
@@ -47,6 +49,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(711, 59);
             this.panel1.TabIndex = 100;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.PaleGreen;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(273, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 25);
+            this.button1.TabIndex = 87;
+            this.button1.Text = "Add Category";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_add
+            // 
+            this.btn_add.BackColor = System.Drawing.Color.PaleGreen;
+            this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.ForeColor = System.Drawing.Color.Black;
+            this.btn_add.Location = new System.Drawing.Point(425, 20);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(109, 25);
+            this.btn_add.TabIndex = 86;
+            this.btn_add.Text = "Add Product";
+            this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click_1);
             // 
             // Back
             // 
@@ -88,22 +120,6 @@
             this.dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv.Size = new System.Drawing.Size(581, 466);
             this.dtgv.TabIndex = 108;
-            
-            // 
-            // btn_add
-            // 
-            this.btn_add.BackColor = System.Drawing.Color.PaleGreen;
-            this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.ForeColor = System.Drawing.Color.Black;
-            this.btn_add.Location = new System.Drawing.Point(498, 26);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(64, 25);
-            this.btn_add.TabIndex = 86;
-            this.btn_add.Text = "Add";
-            this.btn_add.UseVisualStyleBackColor = false;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click_1);
             // 
             // Product
             // 
@@ -131,5 +147,6 @@
         private System.Windows.Forms.DataGridView dtgv;
         private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Button button1;
     }
 }

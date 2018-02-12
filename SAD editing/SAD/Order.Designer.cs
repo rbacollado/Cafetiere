@@ -73,6 +73,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.checkout = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cb_category = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.paymentpanel.SuspendLayout();
@@ -124,11 +126,11 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.dinein);
             this.panel6.Controls.Add(this.paymentpanel);
             this.panel6.Controls.Add(this.takeout);
             this.panel6.Controls.Add(this.label12);
-            this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.btn_clear);
             this.panel6.Controls.Add(this.btn_remove);
             this.panel6.Controls.Add(this.btn_add);
@@ -538,13 +540,16 @@
             // productpanel
             // 
             this.productpanel.BackColor = System.Drawing.Color.Brown;
-            this.productpanel.Controls.Add(this.label7);
+            this.productpanel.Controls.Add(this.cb_category);
+            this.productpanel.Controls.Add(this.label14);
             this.productpanel.Controls.Add(this.product_data);
-            this.productpanel.Location = new System.Drawing.Point(366, 561);
+            this.productpanel.Controls.Add(this.label7);
+            this.productpanel.Location = new System.Drawing.Point(494, 148);
             this.productpanel.Name = "productpanel";
-            this.productpanel.Size = new System.Drawing.Size(161, 20);
+            this.productpanel.Size = new System.Drawing.Size(390, 442);
             this.productpanel.TabIndex = 86;
             this.productpanel.Visible = false;
+            this.productpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.productpanel_Paint);
             // 
             // label7
             // 
@@ -552,7 +557,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(93, 3);
+            this.label7.Location = new System.Drawing.Point(109, 96);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(168, 31);
             this.label7.TabIndex = 207;
@@ -565,7 +570,7 @@
             this.product_data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.product_data.BackgroundColor = System.Drawing.Color.White;
             this.product_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.product_data.Location = new System.Drawing.Point(17, 55);
+            this.product_data.Location = new System.Drawing.Point(24, 135);
             this.product_data.Name = "product_data";
             this.product_data.ReadOnly = true;
             this.product_data.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -574,6 +579,7 @@
             this.product_data.Size = new System.Drawing.Size(342, 285);
             this.product_data.TabIndex = 0;
             this.product_data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_data_CellClick);
+            this.product_data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_data_CellContentClick);
             // 
             // ordered_products
             // 
@@ -662,15 +668,36 @@
             this.panel2.Size = new System.Drawing.Size(318, 68);
             this.panel2.TabIndex = 210;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(109, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(167, 31);
+            this.label14.TabIndex = 208;
+            this.label14.Text = "CATEGORY";
+            // 
+            // cb_category
+            // 
+            this.cb_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_category.FormattingEnabled = true;
+            this.cb_category.Location = new System.Drawing.Point(60, 49);
+            this.cb_category.Name = "cb_category";
+            this.cb_category.Size = new System.Drawing.Size(254, 33);
+            this.cb_category.TabIndex = 209;
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(730, 615);
+            this.ClientSize = new System.Drawing.Size(1054, 615);
+            this.Controls.Add(this.productpanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel10);
-            this.Controls.Add(this.productpanel);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.ordered_products);
             this.Controls.Add(this.panel1);
@@ -748,5 +775,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox discountTxt;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cb_category;
+        private System.Windows.Forms.Label label14;
     }
 }
