@@ -76,15 +76,16 @@ namespace SAD
                 MessageBox.Show("item added");
                 conn.Close();
                 this.Close();
+                prevForm.ShowDialog();
 
-                if (form == 1)
+                /*if (form == 1)
                 {
                     prevForm.ShowDialog();
                 }
                 else
                 {
                     prevForm.Show();
-                }
+                }*/
             }
         }
 

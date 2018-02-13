@@ -155,11 +155,23 @@ namespace SAD
         {
             Boolean duplicate_item = false;
             int iditem = 0;
+            
+            string expiry;
+            
+            if (iExpiry_txt.Visible == true && label9.Visible == true)
+            {
+                expiry = iExpiry_txt.Text;
+            }
+            else
+            {
+                expiry = "0000-00-00";
+
+            }
 
             // Check if items in the items_ordered datagrid
             for (int i = 0; i < items_purchased.Rows.Count; i++)
             {
-                if ((iName_txt.Text == items_purchased.Rows[i].Cells["Name"].Value.ToString()) && iExpiry_txt.Text == items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString())
+                if ((iName_txt.Text == items_purchased.Rows[i].Cells["Name"].Value.ToString()) && expiry == items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString())
                 {
                     duplicate_item = true;
                     iditem = i;
@@ -183,8 +195,8 @@ namespace SAD
             }
             else
             {
-
-                OrderWM.Rows.Add(iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, iExpiry_txt.Text , subtotal_txt.Text);
+                
+                OrderWM.Rows.Add(iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, expiry , subtotal_txt.Text);
                 items_purchased.DataSource = OrderWM;
                 
                 total();
@@ -247,7 +259,7 @@ namespace SAD
         {
             string item_name;
             int item_quantity;
-            //decimal item_price;
+            
             string item_expiry;
             string type;
             
@@ -262,7 +274,6 @@ namespace SAD
                     
                     item_name = items_purchased.Rows[i].Cells["Name"].Value.ToString();
                     item_quantity = Int32.Parse(items_purchased.Rows[i].Cells["Quantity"].Value.ToString());
-                    //item_price = decimal.Parse(items_purchased.Rows[i].Cells["Price"].Value.ToString());
                     item_expiry = items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString();
 
                     string duplicateItemsquery = "SELECT itemExpiry from items_inventory  WHERE itemExpiry = '" + item_expiry +
@@ -275,7 +286,9 @@ namespace SAD
                     DataTable duplicateItems = new DataTable();
                     adp.Fill(duplicateItems);
 
-                    if (item_expiry == "0000-00-00 00:00:00")
+                    MessageBox.Show(item_expiry);
+
+                    if (item_expiry == "0000/00/00")
                     {
                         type = "Non-Ingredient";
                     }
@@ -297,7 +310,7 @@ namespace SAD
                     else
                     {
                         string addNewItemQuery = "INSERT INTO items_inventory (item_ID, itemQuantity, itemStatus, itemType, itemStockedIn, itemExpiry) " +
-                                                       "VALUES((SELECT itemsID from items WHERE name = '" + item_name + "'), " + item_quantity + ", 'Available', '" + type + "', current_timestamp(), '" + item_expiry + "');";
+                                                   "VALUES((SELECT itemsID from items WHERE name = '" + item_name + "'), " + item_quantity + ", 'Available', '" + type + "', current_timestamp(), '" + item_expiry + "');";
                         conn.Open();
                         MySqlCommand comm_NewItem = new MySqlCommand(addNewItemQuery, conn);
                         comm_NewItem.ExecuteNonQuery();
@@ -309,13 +322,13 @@ namespace SAD
                     conn.Open();
                     MySqlCommand comm_inventorylog = new MySqlCommand(inventorylogQuery, conn);
                     comm_inventorylog.ExecuteNonQuery();
-
                     conn.Close();
+
+                    MessageBox.Show("Items successfully stocked in!");
                     prevForm.ShowDialog();
                     this.Close();
                 }
             }
-            MessageBox.Show("Items successfully stocked in!");
         } 
     }
 }

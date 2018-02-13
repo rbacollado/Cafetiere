@@ -29,24 +29,23 @@ namespace SAD
             encoderLbl.Text = SAD.Login.DisplayUserDetails.name;
             encoderPos.Text = SAD.Login.DisplayUserDetails.usertype;
 
-            /*if (!POrder.Columns.Contains("id") || !POrder.Columns.Contains("Name") || !POrder.Columns.Contains("Quantity") || 
+            if (!POrder.Columns.Contains("id") || !POrder.Columns.Contains("Name") || !POrder.Columns.Contains("Quantity") || 
                 !POrder.Columns.Contains("po_id") || !POrder.Columns.Contains("pol_id"))
             {
-                POrder.Columns.Add("id", typeof(string));
                 POrder.Columns.Add("Name", typeof(string));
                 POrder.Columns.Add("Price", typeof(string));
                 POrder.Columns.Add("Quantity", typeof(int));
                 POrder.Columns.Add("ExpiryDate", typeof(string));
                 POrder.Columns.Add("Subtotal", typeof(string));
-            }*/
+            }
 
-            //POrder.Columns.Add("itemID", typeof(string));
+            /*//POrder.Columns.Add("itemID", typeof(string));
 
             POrder.Columns.Add("Name", typeof(string));
             POrder.Columns.Add("Price", typeof(string));
             POrder.Columns.Add("Quantity", typeof(int));
             POrder.Columns.Add("ExpiryDate", typeof(string));
-            POrder.Columns.Add("Subtotal", typeof(string));
+            POrder.Columns.Add("Subtotal", typeof(string));*/
 
             DateTime now = DateTime.Today;
             date.Text = now.ToString("MM/dd/yy");
@@ -273,8 +272,8 @@ namespace SAD
                 conn.Close();
 
 
-                string orderquery = "INSERT INTO purchaseorder (supplier_supplierID, staff_staffid, purchaseOrderDate, purchaseOrderTotal, deliverystatus) "
-                        + "VALUES('"+ int.Parse(supplierid) + "','"+ SAD.Login.DisplayUserDetails.staff_id +"', current_timestamp(), '" + decimal.Parse(TotalTB.Text) + "', 'Not yet delivered')";
+                string orderquery = "INSERT INTO purchaseorder (supplier_supplierID, staff_staffid, purchaseOrderDate, purchaseOrderTotal) "
+                        + "VALUES('"+ int.Parse(supplierid) + "','"+ SAD.Login.DisplayUserDetails.staff_id +"', current_timestamp(), '" + decimal.Parse(TotalTB.Text) + "')";
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(orderquery, conn);
                 comm.ExecuteNonQuery();

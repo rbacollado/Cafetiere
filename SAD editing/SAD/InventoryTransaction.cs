@@ -66,11 +66,28 @@ namespace SAD
                 int selected_id = int.Parse(inventory_dtgv.Rows[e.RowIndex].Cells["itemInvID"].Value.ToString());
                 itemInvID = selected_id;
 
-                btn_stockout.Visible = true;
+                show_SOpanel.Visible = true;
                 pictureBox5.Visible = true;
 
             }
+        }
+        private void show_SOpanel_Click(object sender, EventArgs e)
+        {
 
+            panel_stockout.Visible = true;
+            panel_stockout.Enabled = true;
+            panel_stockout.Size = new Size(341, 385);
+            panel_stockout.Location = new Point(738, 297);
+            
+
+        }
+        
+        
+
+        private void btn_SOBack_Click(object sender, EventArgs e)
+        {
+            panel_stockout.Visible = false;
+            panel_stockout.Enabled = false;
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -101,11 +118,6 @@ namespace SAD
             stockin.prevForm = this;
             stockin.Show();
             this.Hide();
-        }
-
-        private void btn_stockout_Click(object sender, EventArgs e)
-        {
-
         }
 
         
