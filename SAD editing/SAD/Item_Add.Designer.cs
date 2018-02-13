@@ -47,9 +47,6 @@
             this.lbl_fname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_lname = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmb_supplier = new System.Windows.Forms.ComboBox();
-            this.supplierID_lbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,7 +81,7 @@
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_close.Location = new System.Drawing.Point(749, 12);
+            this.btn_close.Location = new System.Drawing.Point(576, 12);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(87, 64);
             this.btn_close.TabIndex = 64;
@@ -102,7 +99,7 @@
             this.panel6.Location = new System.Drawing.Point(11, 72);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(678, 326);
+            this.panel6.Size = new System.Drawing.Size(486, 326);
             this.panel6.TabIndex = 109;
             // 
             // panel3
@@ -112,7 +109,7 @@
             this.panel3.Location = new System.Drawing.Point(20, 19);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(645, 37);
+            this.panel3.Size = new System.Drawing.Size(440, 37);
             this.panel3.TabIndex = 1;
             // 
             // label5
@@ -134,7 +131,7 @@
             this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_clear.ForeColor = System.Drawing.Color.Black;
-            this.btn_clear.Location = new System.Drawing.Point(583, 276);
+            this.btn_clear.Location = new System.Drawing.Point(378, 276);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(82, 37);
             this.btn_clear.TabIndex = 10;
@@ -148,7 +145,7 @@
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.Black;
-            this.btn_add.Location = new System.Drawing.Point(495, 276);
+            this.btn_add.Location = new System.Drawing.Point(290, 276);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(82, 37);
             this.btn_add.TabIndex = 7;
@@ -160,9 +157,6 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.supplierID_lbl);
-            this.panel5.Controls.Add(this.cmb_supplier);
-            this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.price);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.expirable);
@@ -176,7 +170,7 @@
             this.panel5.Location = new System.Drawing.Point(20, 21);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(645, 250);
+            this.panel5.Size = new System.Drawing.Size(440, 250);
             this.panel5.TabIndex = 0;
             // 
             // price
@@ -296,43 +290,11 @@
             this.lbl_lname.TabIndex = 102;
             this.lbl_lname.Text = "Unit";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(377, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 25);
-            this.label1.TabIndex = 233;
-            this.label1.Text = "Supplier";
-            // 
-            // cmb_supplier
-            // 
-            this.cmb_supplier.FormattingEnabled = true;
-            this.cmb_supplier.Location = new System.Drawing.Point(474, 92);
-            this.cmb_supplier.Name = "cmb_supplier";
-            this.cmb_supplier.Size = new System.Drawing.Size(131, 21);
-            this.cmb_supplier.TabIndex = 234;
-            this.cmb_supplier.SelectedIndexChanged += new System.EventHandler(this.cmb_supplier_SelectedIndexChanged);
-            // 
-            // supplierID_lbl
-            // 
-            this.supplierID_lbl.AutoSize = true;
-            this.supplierID_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supplierID_lbl.ForeColor = System.Drawing.Color.Black;
-            this.supplierID_lbl.Location = new System.Drawing.Point(512, 202);
-            this.supplierID_lbl.Name = "supplierID_lbl";
-            this.supplierID_lbl.Size = new System.Drawing.Size(128, 25);
-            this.supplierID_lbl.TabIndex = 235;
-            this.supplierID_lbl.Text = "Supplier ID";
-            // 
             // Item_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 409);
+            this.ClientSize = new System.Drawing.Size(523, 409);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -372,8 +334,5 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox price;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmb_supplier;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label supplierID_lbl;
     }
 }

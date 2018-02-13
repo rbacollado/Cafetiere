@@ -29,7 +29,19 @@ namespace SAD
             encoderLbl.Text = SAD.Login.DisplayUserDetails.name;
             encoderPos.Text = SAD.Login.DisplayUserDetails.usertype;
 
-            POrder.Columns.Add("id", typeof(string));
+            /*if (!POrder.Columns.Contains("id") || !POrder.Columns.Contains("Name") || !POrder.Columns.Contains("Quantity") || 
+                !POrder.Columns.Contains("po_id") || !POrder.Columns.Contains("pol_id"))
+            {
+                POrder.Columns.Add("id", typeof(string));
+                POrder.Columns.Add("Name", typeof(string));
+                POrder.Columns.Add("Price", typeof(string));
+                POrder.Columns.Add("Quantity", typeof(int));
+                POrder.Columns.Add("ExpiryDate", typeof(string));
+                POrder.Columns.Add("Subtotal", typeof(string));
+            }*/
+
+            //POrder.Columns.Add("itemID", typeof(string));
+
             POrder.Columns.Add("Name", typeof(string));
             POrder.Columns.Add("Price", typeof(string));
             POrder.Columns.Add("Quantity", typeof(int));
@@ -167,9 +179,9 @@ namespace SAD
                     
                 }
 
-                POrder.Rows.Add(selected_supplierid, iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, expiry, subtotal_txt.Text);
+                POrder.Rows.Add(iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, expiry, subtotal_txt.Text);
                 items_ordered.DataSource = POrder;
-                items_ordered.Columns["id"].Visible = false;
+                
                 total();
 
             }
@@ -272,7 +284,17 @@ namespace SAD
                 for (int i = 0; i <= items_ordered.Rows.Count - 1; i++)
                 {
                     
-                    string itemid = items_ordered.Rows[i].Cells["id"].Value.ToString();
+                    string itemname = items_ordered.Rows[i].Cells["Name"].Value.ToString();
+
+                    string queryitem = "SELECT itemsID FROM items WHERE name = '" + itemname + "'";
+                    conn.Open();
+                    MySqlCommand commitems = new MySqlCommand(queryitem, conn);
+                    MySqlDataAdapter adpitems = new MySqlDataAdapter(commitems);
+                    conn.Close();
+                    DataTable dt_items = new DataTable();
+                    adpitems.Fill(dt_items);
+
+                    string itemid = dt_items.Rows[0][0].ToString();
                     string itemName = items_ordered.Rows[i].Cells["Name"].Value.ToString();
                     string itemPrice = items_ordered.Rows[i].Cells["Price"].Value.ToString();
                     string itemQuantity = items_ordered.Rows[i].Cells["Quantity"].Value.ToString();
@@ -280,7 +302,7 @@ namespace SAD
                     string subtotal = items_ordered.Rows[i].Cells["Subtotal"].Value.ToString();
                     
 
-                    string orderline_query = "INSERT INTO purchaseorder_line(purchaseOrder_purchaseOrderID, item_itemID, POLineItemName, POLinePrice, POLineQuantity, itemExipiryDate, POLineSubtotal, stocked_in)" +
+                    string orderline_query = "INSERT INTO purchaseorder_line(purchaseOrder_purchaseOrderID, items_itemsID, POLineItemName, POLinePrice, POLineQuantity, itemExipiryDate, POLineSubtotal, stocked_in)" +
                                              "VALUES((SELECT max(purchaseOrderID) from purchaseorder), '" + int.Parse(itemid) + "' ,'" + itemName + "', '" + double.Parse(itemPrice) + "','" + int.Parse(itemQuantity) +
                                              "','" + itemExipiry + "','" + decimal.Parse(subtotal) + "', 'No');";
                     conn.Open();
@@ -290,6 +312,7 @@ namespace SAD
                 }
                 MessageBox.Show("Item Order added!");
                 clear_shit();
+                this.Close();
                 prevForm.ShowDialog();
             }
             else
@@ -299,11 +322,19 @@ namespace SAD
            
         }
 
+        private void btn_additem_Click_1(object sender, EventArgs e)
+        {
+            Item_Add add = new Item_Add();
+            add.Show();
+            add.prevForm = this;
+            this.Hide();
+
+        }
+
         private void iName_txt_MouseClick(object sender, MouseEventArgs e)
         {
-            String queryitems = "SELECT itemsID, name, price, unit, amount, expirable FROM items, supplier, supplier_has_items " +
-                             "WHERE itemsID = items_itemsID AND supplier_supplierid = supplierid AND supplierid = " + selected_supplierid + ";";
-
+            String queryitems = "SELECT itemsID, name, price, unit, amount, expirable FROM items ";
+                             
             conn.Open();
             MySqlCommand commitems = new MySqlCommand(queryitems, conn);
             MySqlDataAdapter adpitems = new MySqlDataAdapter(commitems);
@@ -343,12 +374,12 @@ namespace SAD
             
         }
         
-        public int idselected;
+        public int item_idselected;
         private void dtgv_items_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
-                idselected = int.Parse(dtgv_items.Rows[e.RowIndex].Cells["itemsID"].Value.ToString());
+                item_idselected = int.Parse(dtgv_items.Rows[e.RowIndex].Cells["itemsID"].Value.ToString());
 
                 item_panel.Visible = false;
                 item_panel.Enabled = false;
@@ -358,7 +389,7 @@ namespace SAD
 
         public void item_details()
         {
-            String loaditemdetails = "SELECT itemsID,name,price,unit,amount,expirable FROM items where itemsID = " + idselected + " ";
+            String loaditemdetails = "SELECT itemsID,name,price,unit,amount,expirable FROM items where itemsID = " + item_idselected + ";";
 
             MySqlCommand commitemdetails = new MySqlCommand(loaditemdetails, conn);
             commitemdetails.CommandText = loaditemdetails;
@@ -387,7 +418,7 @@ namespace SAD
                     label9.Visible = false;
 
                 }
-                //Validation = true;
+                
 
                 iQuantity_txt.Enabled = true;
             }
@@ -409,5 +440,7 @@ namespace SAD
             add.prevForm = this;
             this.Hide();
         }
+
+       
     }
 }

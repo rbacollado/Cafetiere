@@ -52,7 +52,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_logs = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_stockout = new System.Windows.Forms.Button();
             this.btn_PO = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -154,6 +154,7 @@
             this.inventory_dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.inventory_dtgv.Size = new System.Drawing.Size(701, 541);
             this.inventory_dtgv.TabIndex = 206;
+            this.inventory_dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_dtgv_CellClick);
             // 
             // panel5
             // 
@@ -274,7 +275,7 @@
             this.panel10.Controls.Add(this.pictureBox4);
             this.panel10.Controls.Add(this.btn_close);
             this.panel10.Controls.Add(this.btn_logs);
-            this.panel10.Controls.Add(this.button2);
+            this.panel10.Controls.Add(this.btn_stockout);
             this.panel10.Controls.Add(this.btn_PO);
             this.panel10.Location = new System.Drawing.Point(738, 297);
             this.panel10.Name = "panel10";
@@ -317,6 +318,7 @@
             this.pictureBox5.Size = new System.Drawing.Size(41, 29);
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Visible = false;
             // 
             // pictureBox4
             // 
@@ -359,19 +361,21 @@
             this.btn_logs.UseVisualStyleBackColor = false;
             this.btn_logs.Click += new System.EventHandler(this.btn_logs_Click);
             // 
-            // button2
+            // btn_stockout
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.button2.Location = new System.Drawing.Point(0, 39);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(341, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Remove Item";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_stockout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.btn_stockout.FlatAppearance.BorderSize = 0;
+            this.btn_stockout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_stockout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_stockout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_stockout.Location = new System.Drawing.Point(0, 39);
+            this.btn_stockout.Name = "btn_stockout";
+            this.btn_stockout.Size = new System.Drawing.Size(341, 40);
+            this.btn_stockout.TabIndex = 1;
+            this.btn_stockout.Text = "Remove Item";
+            this.btn_stockout.UseVisualStyleBackColor = false;
+            this.btn_stockout.Visible = false;
+            this.btn_stockout.Click += new System.EventHandler(this.btn_stockout_Click);
             // 
             // btn_PO
             // 
@@ -614,7 +618,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button btn_logs;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_stockout;
         private System.Windows.Forms.Button btn_PO;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;

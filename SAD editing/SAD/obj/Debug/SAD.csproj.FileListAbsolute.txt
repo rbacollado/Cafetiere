@@ -1,186 +1,32 @@
-C:\Users\Userpc\source\repos\SAD\SAD\bin\Debug\SAD.exe.config
-C:\Users\Userpc\source\repos\SAD\SAD\bin\Debug\SAD.exe
-C:\Users\Userpc\source\repos\SAD\SAD\bin\Debug\SAD.pdb
-C:\Users\Userpc\source\repos\SAD\SAD\obj\Debug\SAD.csprojResolveAssemblyReference.cache
-C:\Users\Userpc\source\repos\SAD\SAD\obj\Debug\SAD.Login.resources
-C:\Users\Userpc\source\repos\SAD\SAD\obj\Debug\SAD.MainMenu.resources
-C:\Users\Userpc\source\repos\SAD\SAD\obj\Debug\SAD.Profiling.resources
-C:\Users\Userpc\source\repos\SAD\SAD\obj\Debug\SAD.Staff.resources
-C:\Users\Userpc\source\repos\SAD\SAD\obj\Debug\SAD.Properties.Resources.resources
-C:\Users\Userpc\source\repos\SAD\SAD\obj\Debug\SAD.csproj.GenerateResource.Cache
-C:\Users\Userpc\source\repos\SAD\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
-C:\Users\Userpc\source\repos\SAD\SAD\obj\Debug\SAD.exe
-C:\Users\Userpc\source\repos\SAD\SAD\obj\Debug\SAD.pdb
-D:\SAD\SAD\bin\Debug\SAD.exe.config
-D:\SAD\SAD\bin\Debug\SAD.exe
-D:\SAD\SAD\bin\Debug\SAD.pdb
-D:\SAD\SAD\obj\Debug\SAD.csprojResolveAssemblyReference.cache
-D:\SAD\SAD\obj\Debug\SAD.Login.resources
-D:\SAD\SAD\obj\Debug\SAD.MainMenu.resources
-D:\SAD\SAD\obj\Debug\SAD.Profiling.resources
-D:\SAD\SAD\obj\Debug\SAD.Staff.resources
-D:\SAD\SAD\obj\Debug\SAD.Properties.Resources.resources
-D:\SAD\SAD\obj\Debug\SAD.csproj.GenerateResource.Cache
-D:\SAD\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
-D:\SAD\SAD\obj\Debug\SAD.exe
-D:\SAD\SAD\obj\Debug\SAD.pdb
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\bin\Debug\SAD.exe.config
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\bin\Debug\SAD.exe
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\bin\Debug\SAD.pdb
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\bin\Debug\MySql.Data.dll
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\bin\Debug\MySql.Data.xml
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.csprojResolveAssemblyReference.cache
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.Login.resources
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.MainMenu.resources
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.Profiling.resources
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.Staff.resources
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.Properties.Resources.resources
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.csproj.GenerateResource.Cache
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.exe
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.pdb
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.Settings.resources
-C:\Users\maddymaulana\Documents\SAD\SAD\SAD\obj\Debug\SAD.Order.resources
-E:\SAD [Maddy]\SAD\bin\Debug\SAD.exe.config
-E:\SAD [Maddy]\SAD\bin\Debug\SAD.exe
-E:\SAD [Maddy]\SAD\bin\Debug\SAD.pdb
-E:\SAD [Maddy]\SAD\bin\Debug\MySql.Data.xml
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.csprojResolveAssemblyReference.cache
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.Login.resources
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.MainMenu.resources
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.Order.resources
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.Profiling.resources
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.Settings.resources
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.Staff.resources
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.Properties.Resources.resources
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.csproj.GenerateResource.Cache
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.exe
-E:\SAD [Maddy]\SAD\obj\Debug\SAD.pdb
-D:\SAD editing\SAD\bin\Debug\SAD.exe.config
-D:\SAD editing\SAD\bin\Debug\SAD.exe
-D:\SAD editing\SAD\bin\Debug\SAD.pdb
-D:\SAD editing\SAD\bin\Debug\MySql.Data.xml
-D:\SAD editing\SAD\obj\Debug\SAD.csprojResolveAssemblyReference.cache
-D:\SAD editing\SAD\obj\Debug\SAD.Login.resources
-D:\SAD editing\SAD\obj\Debug\SAD.MainMenu.resources
-D:\SAD editing\SAD\obj\Debug\SAD.Order.resources
-D:\SAD editing\SAD\obj\Debug\SAD.Profiling.resources
-D:\SAD editing\SAD\obj\Debug\SAD.Settings.resources
-D:\SAD editing\SAD\obj\Debug\SAD.Staff.resources
-D:\SAD editing\SAD\obj\Debug\SAD.Properties.Resources.resources
-D:\SAD editing\SAD\obj\Debug\SAD.csproj.GenerateResource.Cache
-D:\SAD editing\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
-D:\SAD editing\SAD\obj\Debug\SAD.exe
-D:\SAD editing\SAD\obj\Debug\SAD.pdb
-C:\Users\admin\Desktop\SAD editing\SAD\bin\Debug\SAD.exe.config
-C:\Users\admin\Desktop\SAD editing\SAD\bin\Debug\SAD.exe
-C:\Users\admin\Desktop\SAD editing\SAD\bin\Debug\SAD.pdb
-C:\Users\admin\Desktop\SAD editing\SAD\bin\Debug\MySql.Data.dll
-C:\Users\admin\Desktop\SAD editing\SAD\bin\Debug\MySql.Data.xml
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.csprojResolveAssemblyReference.cache
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.InventoryLog.resources
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.InventoryTransaction.resources
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.Login.resources
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.MainMenu.resources
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.Order.resources
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.Profiling.resources
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.Settings.resources
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.Staff.resources
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.Properties.Resources.resources
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.csproj.GenerateResource.Cache
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.exe
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.pdb
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.Product.resources
-C:\Users\admin\Desktop\SAD editing\SAD\obj\Debug\SAD.Supplier.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\bin\Debug\SAD.exe.config
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\bin\Debug\SAD.exe
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\bin\Debug\SAD.pdb
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\bin\Debug\MySql.Data.dll
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\bin\Debug\MySql.Data.xml
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Category_Add.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.InventoryLog.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.InventoryTransaction.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Inventory_Stockin.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Item_Add.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Login.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.MainMenu.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Order.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product_Add.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Profiling.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.PurchaseOrder.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.PurchaseOrder_create.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Reports.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Settings.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Properties.Resources.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff_Add.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff_Update.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Supplier.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Supplier_Add.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Supplier_Update.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.GenerateResource.Cache
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.exe
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.pdb
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Reports.resources
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff_Add.resources
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff_Update.resources
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Supplier_Add.resources
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Supplier_Update.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\bin\Debug\SAD.exe.config
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\bin\Debug\SAD.exe
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\bin\Debug\SAD.pdb
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\bin\Debug\MySql.Data.xml
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.csprojResolveAssemblyReference.cache
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.InventoryLog.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.InventoryTransaction.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Login.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.MainMenu.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Order.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Product.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Profiling.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Reports.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Settings.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Staff.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Properties.Resources.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Staff_Add.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Staff_Update.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Staff_View.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Supplier.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.SupplierView.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Supplier_Add.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.Supplier_Update.resources
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.csproj.GenerateResource.Cache
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.exe
-C:\Users\mmntmaulana\Source\Repos\Cafetiere2\SAD editing\SAD\obj\Debug\SAD.pdb
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product_Add.resources
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.PurchaseOrder.resources
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.PurchaseOrder_create.resources
-<<<<<<< HEAD
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Inventory_Stockin.resources
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Item_Add.resources
-=======
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\bin\Debug\SAD.exe.config
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\bin\Debug\SAD.exe
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\bin\Debug\SAD.pdb
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\bin\Debug\MySql.Data.xml
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csprojResolveAssemblyReference.cache
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.InventoryLog.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.InventoryTransaction.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Login.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.MainMenu.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Order.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product_Add.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Profiling.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.PurchaseOrder.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.PurchaseOrder_create.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Reports.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Settings.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Properties.Resources.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff_Add.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Staff_Update.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Supplier.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Supplier_Add.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Supplier_Update.resources
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.GenerateResource.Cache
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.exe
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.pdb
-C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Category_Add.resources
->>>>>>> 5bb68333316c59fd4e45917809e0f1bba3c15c49

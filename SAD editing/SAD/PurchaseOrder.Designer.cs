@@ -116,7 +116,7 @@
             this.item_purchased.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.item_purchased.Size = new System.Drawing.Size(785, 234);
             this.item_purchased.TabIndex = 207;
-            this.item_purchased.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.item_ordered_CellClick);
+            this.item_purchased.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.item_purchased_CellClick);
             this.item_purchased.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.item_purchased_RowStateChanged);
             // 
             // item_poLine

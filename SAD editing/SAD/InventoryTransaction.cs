@@ -29,12 +29,13 @@ namespace SAD
 
         private void InventoryTransaction_Load(object sender, EventArgs e)
         {
-            //inventory();
+            inventory();
         }
 
         private void inventory()
         {
-            String inventoryquery = "SELECT * FROM items;";
+            String inventoryquery = "SELECT itemInvID, item_ID, name, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, itemExpiry, itemStockedIn FROM items " +
+                                    "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID;";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(inventoryquery, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -44,16 +45,32 @@ namespace SAD
 
             inventory_dtgv.DataSource = dt_log;
 
-            inventory_dtgv.Columns["itemID"].Visible = false;
-            inventory_dtgv.Columns["purchaseorder_line_POLineID"].Visible = false;
-            inventory_dtgv.Columns["itemName"].HeaderText = "Name";
+            inventory_dtgv.Columns["item_ID"].Visible = false;
+            inventory_dtgv.Columns["itemInvID"].Visible = false;
+            inventory_dtgv.Columns["name"].HeaderText = "Name";
+            inventory_dtgv.Columns["unit"].HeaderText = "Unit";
+            inventory_dtgv.Columns["amount"].HeaderText = "Amount";
+            inventory_dtgv.Columns["Cost"].HeaderText = "Cost";
             inventory_dtgv.Columns["itemQuantity"].HeaderText = "Quantity";
-            inventory_dtgv.Columns["itemAmount"].HeaderText = "Amount";
-            inventory_dtgv.Columns["itemUnit"].HeaderText = "Unit";
             inventory_dtgv.Columns["itemStatus"].HeaderText = "Status";
             inventory_dtgv.Columns["itemType"].HeaderText = "Type";
             inventory_dtgv.Columns["itemExpiry"].HeaderText = "Expiration Date";
             inventory_dtgv.Columns["itemStockedIn"].HeaderText = "Date";
+        }
+
+        public static int itemInvID;
+        private void inventory_dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                int selected_id = int.Parse(inventory_dtgv.Rows[e.RowIndex].Cells["itemInvID"].Value.ToString());
+                itemInvID = selected_id;
+
+                btn_stockout.Visible = true;
+                pictureBox5.Visible = true;
+
+            }
+
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -85,5 +102,12 @@ namespace SAD
             stockin.Show();
             this.Hide();
         }
+
+        private void btn_stockout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

@@ -27,7 +27,7 @@ namespace SAD
         public static int form;
         private void Item_Add_Load(object sender, EventArgs e)
         {
-            supplierCmbData();
+            
         }
 
      
@@ -39,7 +39,7 @@ namespace SAD
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            if (name.Text == "" || price.Text == "" || unit.Text == "" || cmb_supplier.Text == "" )
+            if (name.Text == "" || price.Text == "" || unit.Text == ""  )
             {
                 MessageBox.Show("Please fill up all fields", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -73,17 +73,8 @@ namespace SAD
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(itemaddquery, conn);
                 comm.ExecuteNonQuery();
-                MessageBox.Show("item add");
+                MessageBox.Show("item added");
                 conn.Close();
-
-                conn.Open();
-                string addjunctionquery = "INSERT INTO supplier_has_items(supplier_supplierID, items_itemsID)" +
-                               "VALUES(" + Int32.Parse(supplierID_lbl.Text) + ", (SELECT max(itemsID) from items));";
-             
-                MySqlCommand comm1 = new MySqlCommand(addjunctionquery, conn);
-                comm1.ExecuteNonQuery();
-                conn.Close();
-
                 this.Close();
 
                 if (form == 1)
@@ -97,42 +88,6 @@ namespace SAD
             }
         }
 
-       
-        public void supplierCmbData()
-        {
-           /* if ()
-            {
-
-            }else
-            {*/
-                String query_suppliers = "SELECT * FROM supplier";
-
-                MySqlCommand comm_suppliers = new MySqlCommand(query_suppliers, conn);
-                comm_suppliers.CommandText = query_suppliers;
-                conn.Open();
-                MySqlDataReader drd_suppliers = comm_suppliers.ExecuteReader();
-
-                while (drd_suppliers.Read())
-                {
-                    cmb_supplier.Items.Add(drd_suppliers["organization"].ToString());
-                }
-                conn.Close();
-            //}
-        }
-
-        private void cmb_supplier_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String supplieridquery = "SELECT supplierID FROM supplier WHERE organization = '" + cmb_supplier.Text + "';";
-
-            MySqlCommand commsupplierid = new MySqlCommand(supplieridquery, conn);
-            conn.Open();
-            MySqlDataReader drdsupplierid = commsupplierid.ExecuteReader();
-
-            while (drdsupplierid.Read())
-            {
-                supplierID_lbl.Text = (drdsupplierid["supplierID"].ToString());
-            }
-            conn.Close();
-        }
+      
     }
 }

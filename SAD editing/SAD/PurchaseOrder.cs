@@ -27,7 +27,7 @@ namespace SAD
         public PurchaseOrder()
         {
             InitializeComponent();
-            conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root;");
+            conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root; Allow Zero Datetime=true");
         }
 
         DataTable ToBeStocked = new DataTable();
@@ -54,7 +54,6 @@ namespace SAD
                 items_stockin.Columns["purchaseID"].Visible = false;
                 items_stockin.Columns["polID"].Visible = false;
             }
-            
             
         }
 
@@ -95,9 +94,9 @@ namespace SAD
             item_purchased.Columns["total"].HeaderText = "Total";
         }
 
-       
-        private void item_ordered_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void item_purchased_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (e.RowIndex > -1)
             {
                 int polineID;
@@ -105,9 +104,9 @@ namespace SAD
                 int selected_id = int.Parse(item_purchased.Rows[e.RowIndex].Cells["id"].Value.ToString());
                 polineID = selected_id;
 
-                 String POLinequery = "SELECT POLineID AS polID, DATE_FORMAT(itemExipiryDate, '%Y/%m/%d %H:%i %p') AS ExipirationDate, POLineItemName as Name, POLinePrice as Price, POLineQuantity as Quantity, POLineSubtotal as Subtotal " +
-                                     "FROM purchaseorder_line WHERE purchaseOrder_purchaseOrderID = " + selected_id + ";";
-                                     
+                String POLinequery = "SELECT POLineID AS polID, DATE_FORMAT(itemExipiryDate, '%Y/%m/%d %H:%i %p') AS ExipirationDate, POLineItemName as Name, POLinePrice as Price, POLineQuantity as Quantity, POLineSubtotal as Subtotal " +
+                                    "FROM purchaseorder_line, items WHERE purchaseOrder_purchaseOrderID = " + selected_id + " AND items.itemsID = purchaseorder_line.items_itemsID ;";
+
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(POLinequery, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -125,6 +124,7 @@ namespace SAD
                 item_poLine.Columns["Subtotal"].HeaderText = "Subtotal";
             }
         }
+
 
         private void item_purchased_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
@@ -144,6 +144,7 @@ namespace SAD
             string total_string = total.ToString();
             TotalTB.Text = total_string;
         }
+
         public static int polineID;
         private void item_poLine_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -165,6 +166,7 @@ namespace SAD
         private void moveBtn_Click(object sender, EventArgs e)
         {
             int id;
+            int itemsID;
             string item_name;
             int poID;
             int item_quantity;
@@ -183,17 +185,18 @@ namespace SAD
             if (duplicate.Rows.Count < 1)
             {
 
-                String POLinequery = "SELECT POLineID as id, POLineItemName as Name, purchaseOrder_purchaseOrderID, POLineQuantity as Quantity, DATE_FORMAT(itemExipiryDate, '%Y/%m/%d') as Exipiration " +
-                                    " FROM purchaseorder_line WHERE POLineID = " + polineID + "";
-                MySqlCommand comm = new MySqlCommand(POLinequery, conn);
-                comm.CommandText = POLinequery;
+                String POLinequery = "SELECT POLineID as id, items.name as Name, itemsID, purchaseOrder_purchaseOrderID, POLineQuantity as Quantity, DATE_FORMAT(itemExipiryDate, '%Y/%m/%d') as Exipiration " +
+                                     "FROM purchaseorder_line, items WHERE purchaseorder_line.items_itemsID = items.itemsID AND POLineID = " + polineID + "";
+                MySqlCommand commPOLinequery = new MySqlCommand(POLinequery, conn);
+                commPOLinequery.CommandText = POLinequery;
 
                 conn.Open();
-                MySqlDataReader dtgv_poline = comm.ExecuteReader();
+                MySqlDataReader dtgv_poline = commPOLinequery.ExecuteReader();
                 while(dtgv_poline.Read())
                 {
                     id = int.Parse(dtgv_poline["id"].ToString());
                     item_expirydate = dtgv_poline["Exipiration"].ToString();
+                    itemsID = int.Parse(dtgv_poline["itemsID"].ToString());
                     item_name = dtgv_poline["Name"].ToString();
                     poID = int.Parse(dtgv_poline["purchaseOrder_purchaseOrderID"].ToString());
                     item_quantity = int.Parse(dtgv_poline["Quantity"].ToString());
@@ -242,7 +245,9 @@ namespace SAD
             string item_name;
             int item_quantity;
             string item_expiry;
+            string type;
 
+            
             if (items_stockin.Rows.Count < 1)
             {
                 MessageBox.Show("Nothing to stock in!");
@@ -257,7 +262,8 @@ namespace SAD
                     item_quantity = int.Parse(items_stockin.Rows[i].Cells["Quantity"].Value.ToString());
                     item_expiry = items_stockin.Rows[i].Cells["ExpiryDate"].Value.ToString();
 
-                    string duplicateItemsquery = "SELECT itemExpiry from item WHERE itemExpiry = '" + item_expiry + "' AND itemName = '" + item_name + "';";
+                    string duplicateItemsquery = "SELECT itemExpiry from items_inventory  WHERE itemExpiry = '" + item_expiry + 
+                                                 "' AND item_ID = (SELECT itemsID FROM items WHERE name = '" + item_name + "');";
                     conn.Open();
                     MySqlCommand comm1 = new MySqlCommand(duplicateItemsquery, conn);
                     MySqlDataAdapter adp = new MySqlDataAdapter(comm1);
@@ -266,10 +272,19 @@ namespace SAD
                     DataTable duplicateItems = new DataTable();
                     adp.Fill(duplicateItems);
 
+                    if (item_expiry == "0000-00-00 00:00:00")
+                    {
+                        type = "Non-Ingredient";
+                    }
+                    else
+                    {
+                        type = "Ingredient";
+                    }
+
                     if (duplicateItems.Rows.Count > 0)
-                    {             
-                        string addItemQuantityquery = "UPDATE item SET itemStatus = 'Available', itemQuantity = itemQuantity + " + item_quantity + 
-                                                      " WHERE itemName = "+ item_name +" AND itemExpiry = '" + item_expiry + "';";
+                    {
+                        string addItemQuantityquery = "UPDATE items_inventory SET itemStatus = 'Available', itemQuantity = itemQuantity + " + item_quantity + 
+                                                      " WHERE item_ID = (SELECT itemsID FROM items WHERE name ='"+ item_name +"') AND itemExpiry = '" + item_expiry + "';";
 
                         conn.Open();
                         MySqlCommand comm_itemquantity = new MySqlCommand(addItemQuantityquery, conn);
@@ -278,18 +293,8 @@ namespace SAD
                     }
                     else
                     {
-                        string type;
-
-                        if (item_expiry == "0000-00-00")
-                        {
-                            type = "Non-Ingredient";
-                        }
-                        else
-                        {
-                            type = "Ingredient";
-                        }
-                        string addNewItemQuery = "INSERT INTO item (purchaseorder_line_POLineID, itemName, itemQuantity, itemStatus, itemType, itemStockedIn, itemExpiry)" +
-                                                       " VALUES (" + polid + ", '" + item_name + "', '" + item_quantity + "', 'Available', '" + type + "', current_timestamp(), '"+ item_expiry + "');";
+                        string addNewItemQuery = "INSERT INTO items_inventory (item_ID, itemQuantity, itemStatus, itemType, itemStockedIn, itemExpiry) " +
+                                                       "VALUES((SELECT itemsID from items WHERE name = '"+ item_name +"'), " + item_quantity + ", 'Available', '" + type + "', current_timestamp(), '" + item_expiry + "');";
                         conn.Open();
                         MySqlCommand comm_NewItem = new MySqlCommand(addNewItemQuery, conn);
                         comm_NewItem.ExecuteNonQuery();
@@ -303,20 +308,12 @@ namespace SAD
                     comm_ItemStatus.ExecuteNonQuery();
                     conn.Close();
 
-                    
-                    string inventorylogQuery = "INSERT INTO inventorylog (staff_staffid,itemName,logdate,quantity,logType) " +
-                                               "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + item_name + "', current_timestamp(), " + item_quantity + ", 'Stock in (Purchased)' );";
+                    string inventorylogQuery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType) " +
+                                               "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + item_name + "'," + item_quantity + ", current_timestamp(), 'Stock in (Purchased)' );";
                     conn.Open();
                     MySqlCommand comm_inventorylog = new MySqlCommand(inventorylogQuery, conn);
                     comm_inventorylog.ExecuteNonQuery();
 
-                    conn.Close();
-
-                    string updatePO = "UPDATE purchaseorder SET deliveryStatus = 'Delivered', deliveryDate = current_timestamp() WHERE purchaseOrderID = " + poid +";";
-
-                    conn.Open();
-                    MySqlCommand comm_updatePO = new MySqlCommand(updatePO, conn);
-                    comm_updatePO.ExecuteNonQuery();
                     conn.Close();
 
                 }
@@ -324,5 +321,6 @@ namespace SAD
             MessageBox.Show("Items successfully stocked in!");
             ToBeStocked.Clear();
         }
+        
     }
 }

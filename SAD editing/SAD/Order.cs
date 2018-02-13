@@ -392,7 +392,7 @@ namespace SAD
                 MessageBox.Show("Order added!");
             }
         }
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 =======
 
         private void prodname_TextChanged(object sender, EventArgs e)
@@ -426,6 +426,6 @@ namespace SAD
             }
             conn.Close();
         }
->>>>>>> 5bb68333316c59fd4e45917809e0f1bba3c15c49
+>>>>>>> 5bb68333316c59fd4e45917809e0f1bba3c15c49*/
     }
 }

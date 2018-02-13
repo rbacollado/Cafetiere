@@ -549,7 +549,7 @@
             this.productpanel.Size = new System.Drawing.Size(390, 442);
             this.productpanel.TabIndex = 86;
             this.productpanel.Visible = false;
-            this.productpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.productpanel_Paint);
+            //this.productpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.productpanel_Paint);
             // 
             // label7
             // 
@@ -579,7 +579,7 @@
             this.product_data.Size = new System.Drawing.Size(342, 285);
             this.product_data.TabIndex = 0;
             this.product_data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_data_CellClick);
-            this.product_data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_data_CellContentClick);
+            //this.product_data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_data_CellContentClick);
             // 
             // ordered_products
             // 

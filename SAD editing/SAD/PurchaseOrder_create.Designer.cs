@@ -37,6 +37,7 @@
             this.dtgv_items = new System.Windows.Forms.DataGridView();
             this.iQuantity_txt = new System.Windows.Forms.NumericUpDown();
             this.supplierpanel = new System.Windows.Forms.Panel();
+            this.supplier_btn = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.supplier_data = new System.Windows.Forms.DataGridView();
             this.subtotal_txt = new System.Windows.Forms.TextBox();
@@ -66,7 +67,7 @@
             this.btn_order = new System.Windows.Forms.Button();
             this.Total = new System.Windows.Forms.Label();
             this.TotalTB = new System.Windows.Forms.TextBox();
-            this.supplier_btn = new System.Windows.Forms.Button();
+            this.btn_additem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.item_panel.SuspendLayout();
@@ -148,11 +149,12 @@
             // item_panel
             // 
             this.item_panel.BackColor = System.Drawing.Color.Brown;
+            this.item_panel.Controls.Add(this.btn_additem);
             this.item_panel.Controls.Add(this.label13);
             this.item_panel.Controls.Add(this.dtgv_items);
             this.item_panel.Location = new System.Drawing.Point(3, 124);
             this.item_panel.Name = "item_panel";
-            this.item_panel.Size = new System.Drawing.Size(37, 18);
+            this.item_panel.Size = new System.Drawing.Size(41, 11);
             this.item_panel.TabIndex = 226;
             this.item_panel.Visible = false;
             // 
@@ -208,11 +210,26 @@
             this.supplierpanel.Controls.Add(this.supplier_btn);
             this.supplierpanel.Controls.Add(this.label10);
             this.supplierpanel.Controls.Add(this.supplier_data);
-            this.supplierpanel.Location = new System.Drawing.Point(346, 124);
+            this.supplierpanel.Location = new System.Drawing.Point(349, 124);
             this.supplierpanel.Name = "supplierpanel";
-            this.supplierpanel.Size = new System.Drawing.Size(43, 11);
+            this.supplierpanel.Size = new System.Drawing.Size(40, 21);
             this.supplierpanel.TabIndex = 220;
             this.supplierpanel.Visible = false;
+            // 
+            // supplier_btn
+            // 
+            this.supplier_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.supplier_btn.FlatAppearance.BorderSize = 0;
+            this.supplier_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.supplier_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.supplier_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.supplier_btn.Location = new System.Drawing.Point(222, 401);
+            this.supplier_btn.Name = "supplier_btn";
+            this.supplier_btn.Size = new System.Drawing.Size(144, 25);
+            this.supplier_btn.TabIndex = 209;
+            this.supplier_btn.Text = "Add Supplier";
+            this.supplier_btn.UseVisualStyleBackColor = false;
+            this.supplier_btn.Click += new System.EventHandler(this.supplier_btn_Click);
             // 
             // label10
             // 
@@ -575,20 +592,20 @@
             this.TotalTB.TabIndex = 210;
             this.TotalTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // supplier_btn
+            // btn_additem
             // 
-            this.supplier_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.supplier_btn.FlatAppearance.BorderSize = 0;
-            this.supplier_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.supplier_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supplier_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.supplier_btn.Location = new System.Drawing.Point(222, 401);
-            this.supplier_btn.Name = "supplier_btn";
-            this.supplier_btn.Size = new System.Drawing.Size(144, 25);
-            this.supplier_btn.TabIndex = 209;
-            this.supplier_btn.Text = "Add Supplier";
-            this.supplier_btn.UseVisualStyleBackColor = false;
-            this.supplier_btn.Click += new System.EventHandler(this.supplier_btn_Click);
+            this.btn_additem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btn_additem.FlatAppearance.BorderSize = 0;
+            this.btn_additem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_additem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_additem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_additem.Location = new System.Drawing.Point(222, 401);
+            this.btn_additem.Name = "btn_additem";
+            this.btn_additem.Size = new System.Drawing.Size(144, 25);
+            this.btn_additem.TabIndex = 210;
+            this.btn_additem.Text = "Add Item";
+            this.btn_additem.UseVisualStyleBackColor = false;
+            this.btn_additem.Click += new System.EventHandler(this.btn_additem_Click_1);
             // 
             // PurchaseOrder_create
             // 
@@ -670,5 +687,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dtgv_items;
         private System.Windows.Forms.Button supplier_btn;
+        private System.Windows.Forms.Button btn_additem;
     }
 }
