@@ -42,6 +42,8 @@ namespace SAD
             DateTime now = DateTime.Today;
             date.Text = now.ToString("MM/dd/yy");
 
+            categoryCmbData();
+
         }
 
         public void load_products()
@@ -392,22 +394,10 @@ namespace SAD
                 MessageBox.Show("Order added!");
             }
         }
-/*<<<<<<< HEAD
-=======
-
-        private void prodname_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void product_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void productpanel_Paint(object sender, PaintEventArgs e)
         {
-            categoryCmbData();
+
         }
 
         public void categoryCmbData()
@@ -426,6 +416,32 @@ namespace SAD
             }
             conn.Close();
         }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        /*<<<<<<< HEAD
+=======
+
+       private void prodname_TextChanged(object sender, EventArgs e)
+       {
+
+       }
+
+       private void product_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       {
+
+       }
+
+       private void productpanel_Paint(object sender, PaintEventArgs e)
+       {
+           categoryCmbData();
+       }
+
+      
 >>>>>>> 5bb68333316c59fd4e45917809e0f1bba3c15c49*/
     }
 }
