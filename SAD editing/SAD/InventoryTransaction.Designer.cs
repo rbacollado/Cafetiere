@@ -70,15 +70,17 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel_stockout = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txt_amount = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txt_quantity = new System.Windows.Forms.NumericUpDown();
+            this.btn_stockout = new System.Windows.Forms.Button();
+            this.txt_unit = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.txt_itemName = new System.Windows.Forms.TextBox();
+            this.txt_name = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btn_SOBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -96,6 +98,7 @@
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel_stockout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_quantity)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -559,31 +562,85 @@
             // 
             this.panel_stockout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(84)))), ((int)(((byte)(123)))));
             this.panel_stockout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_stockout.Controls.Add(this.button1);
-            this.panel_stockout.Controls.Add(this.textBox7);
+            this.panel_stockout.Controls.Add(this.txt_amount);
+            this.panel_stockout.Controls.Add(this.label17);
+            this.panel_stockout.Controls.Add(this.txt_quantity);
+            this.panel_stockout.Controls.Add(this.btn_stockout);
+            this.panel_stockout.Controls.Add(this.txt_unit);
             this.panel_stockout.Controls.Add(this.label16);
-            this.panel_stockout.Controls.Add(this.textBox6);
             this.panel_stockout.Controls.Add(this.label15);
-            this.panel_stockout.Controls.Add(this.txt_itemName);
+            this.panel_stockout.Controls.Add(this.txt_name);
             this.panel_stockout.Controls.Add(this.label14);
             this.panel_stockout.Controls.Add(this.btn_SOBack);
             this.panel_stockout.Controls.Add(this.label5);
-            this.panel_stockout.Location = new System.Drawing.Point(738, 297);
+            this.panel_stockout.Location = new System.Drawing.Point(1053, 658);
             this.panel_stockout.Margin = new System.Windows.Forms.Padding(2);
             this.panel_stockout.Name = "panel_stockout";
-            this.panel_stockout.Size = new System.Drawing.Size(341, 323);
+            this.panel_stockout.Size = new System.Drawing.Size(26, 38);
             this.panel_stockout.TabIndex = 22;
             this.panel_stockout.Visible = false;
             // 
-            // textBox7
+            // txt_amount
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(159, 178);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(43, 24);
-            this.textBox7.TabIndex = 219;
-            this.textBox7.Tag = "";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_amount.Location = new System.Drawing.Point(159, 167);
+            this.txt_amount.Name = "txt_amount";
+            this.txt_amount.Size = new System.Drawing.Size(55, 24);
+            this.txt_amount.TabIndex = 226;
+            this.txt_amount.Tag = "";
+            this.txt_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(28, 169);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 20);
+            this.label17.TabIndex = 225;
+            this.label17.Text = "Amount";
+            // 
+            // txt_quantity
+            // 
+            this.txt_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_quantity.Location = new System.Drawing.Point(159, 126);
+            this.txt_quantity.Name = "txt_quantity";
+            this.txt_quantity.Size = new System.Drawing.Size(152, 24);
+            this.txt_quantity.TabIndex = 224;
+            this.txt_quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_quantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // btn_stockout
+            // 
+            this.btn_stockout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btn_stockout.FlatAppearance.BorderSize = 0;
+            this.btn_stockout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_stockout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_stockout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_stockout.Location = new System.Drawing.Point(85, 266);
+            this.btn_stockout.Name = "btn_stockout";
+            this.btn_stockout.Size = new System.Drawing.Size(174, 26);
+            this.btn_stockout.TabIndex = 220;
+            this.btn_stockout.Text = "STOCK OUT";
+            this.btn_stockout.UseVisualStyleBackColor = false;
+            this.btn_stockout.Click += new System.EventHandler(this.btn_stockout_Click);
+            // 
+            // txt_unit
+            // 
+            this.txt_unit.Enabled = false;
+            this.txt_unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_unit.Location = new System.Drawing.Point(159, 201);
+            this.txt_unit.Name = "txt_unit";
+            this.txt_unit.Size = new System.Drawing.Size(55, 24);
+            this.txt_unit.TabIndex = 219;
+            this.txt_unit.Tag = "";
+            this.txt_unit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label16
             // 
@@ -591,21 +648,11 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(28, 180);
+            this.label16.Location = new System.Drawing.Point(28, 203);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(83, 20);
+            this.label16.Size = new System.Drawing.Size(42, 20);
             this.label16.TabIndex = 218;
-            this.label16.Text = "Item Unit";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(159, 130);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(151, 24);
-            this.textBox6.TabIndex = 217;
-            this.textBox6.Tag = "";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label16.Text = "Unit";
             // 
             // label15
             // 
@@ -613,21 +660,21 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(28, 130);
+            this.label15.Location = new System.Drawing.Point(28, 127);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(117, 20);
+            this.label15.Size = new System.Drawing.Size(76, 20);
             this.label15.TabIndex = 216;
-            this.label15.Text = "Item Quantity";
+            this.label15.Text = "Quantity";
             // 
-            // txt_itemName
+            // txt_name
             // 
-            this.txt_itemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_itemName.Location = new System.Drawing.Point(159, 87);
-            this.txt_itemName.Name = "txt_itemName";
-            this.txt_itemName.Size = new System.Drawing.Size(151, 24);
-            this.txt_itemName.TabIndex = 215;
-            this.txt_itemName.Tag = "";
-            this.txt_itemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_name.Location = new System.Drawing.Point(159, 87);
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(151, 24);
+            this.txt_name.TabIndex = 215;
+            this.txt_name.Tag = "";
+            this.txt_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label14
             // 
@@ -635,11 +682,11 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(28, 87);
+            this.label14.Location = new System.Drawing.Point(28, 89);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(96, 20);
+            this.label14.Size = new System.Drawing.Size(55, 20);
             this.label14.TabIndex = 214;
-            this.label14.Text = "Item Name";
+            this.label14.Text = "Name";
             // 
             // btn_SOBack
             // 
@@ -667,20 +714,6 @@
             this.label5.Size = new System.Drawing.Size(143, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "STOCK OUT";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.button1.Location = new System.Drawing.Point(85, 266);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 26);
-            this.button1.TabIndex = 220;
-            this.button1.Text = "STOCK OUT";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // InventoryTransaction
             // 
@@ -728,6 +761,7 @@
             this.panel13.PerformLayout();
             this.panel_stockout.ResumeLayout(false);
             this.panel_stockout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_quantity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -778,12 +812,14 @@
         private System.Windows.Forms.Panel panel_stockout;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_SOBack;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txt_unit;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txt_itemName;
+        private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_stockout;
+        private System.Windows.Forms.NumericUpDown txt_quantity;
+        private System.Windows.Forms.TextBox txt_amount;
+        private System.Windows.Forms.Label label17;
     }
 }

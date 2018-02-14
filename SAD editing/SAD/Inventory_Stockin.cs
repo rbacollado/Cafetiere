@@ -283,6 +283,7 @@ namespace SAD
                     MySqlDataAdapter adp = new MySqlDataAdapter(comm1);
                     comm1.ExecuteNonQuery();
                     conn.Close();
+
                     DataTable duplicateItems = new DataTable();
                     adp.Fill(duplicateItems);
 
