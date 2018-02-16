@@ -26,8 +26,10 @@ namespace SAD
         private void Product_Load(object sender, EventArgs e)
         {
             loadAll();
-         
         }
+
+       
+        
 
         private void loadAll()
         {
@@ -98,6 +100,16 @@ namespace SAD
             addcategory.prevForm = this;
             addcategory.Show();
             this.Hide();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_add_MouseClick(object sender, MouseEventArgs e)
+        {
+           
         }
     }
 }
