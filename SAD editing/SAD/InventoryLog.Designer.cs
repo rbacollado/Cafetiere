@@ -35,6 +35,7 @@
             this.inventory_log = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.filter_logprocess = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_log)).BeginInit();
@@ -83,7 +84,7 @@
             this.panel4.Controls.Add(this.inventory_log);
             this.panel4.Location = new System.Drawing.Point(19, 105);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(716, 464);
+            this.panel4.Size = new System.Drawing.Size(729, 520);
             this.panel4.TabIndex = 62;
             // 
             // inventory_log
@@ -98,21 +99,22 @@
             this.inventory_log.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.inventory_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inventory_log.GridColor = System.Drawing.SystemColors.Control;
-            this.inventory_log.Location = new System.Drawing.Point(14, 5);
+            this.inventory_log.Location = new System.Drawing.Point(20, 15);
             this.inventory_log.Name = "inventory_log";
             this.inventory_log.ReadOnly = true;
             this.inventory_log.RowHeadersVisible = false;
             this.inventory_log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventory_log.Size = new System.Drawing.Size(689, 454);
+            this.inventory_log.Size = new System.Drawing.Size(693, 487);
             this.inventory_log.TabIndex = 208;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            this.panel3.Controls.Add(this.filter_logprocess);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(19, 64);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(716, 40);
+            this.panel3.Size = new System.Drawing.Size(729, 40);
             this.panel3.TabIndex = 63;
             // 
             // label6
@@ -120,17 +122,25 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label6.Location = new System.Drawing.Point(11, 9);
+            this.label6.Location = new System.Drawing.Point(17, 12);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 18);
+            this.label6.Size = new System.Drawing.Size(102, 18);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Inventory Details";
+            this.label6.Text = "Process Type";
+            // 
+            // filter_logprocess
+            // 
+            this.filter_logprocess.FormattingEnabled = true;
+            this.filter_logprocess.Location = new System.Drawing.Point(125, 13);
+            this.filter_logprocess.Name = "filter_logprocess";
+            this.filter_logprocess.Size = new System.Drawing.Size(121, 21);
+            this.filter_logprocess.TabIndex = 4;
             // 
             // InventoryLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 576);
+            this.ClientSize = new System.Drawing.Size(753, 628);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -158,5 +168,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.DataGridView inventory_log;
+        private System.Windows.Forms.ComboBox filter_logprocess;
     }
 }

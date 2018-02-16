@@ -43,10 +43,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.amount = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.TextBox();
-            this.unit = new System.Windows.Forms.TextBox();
             this.lbl_fname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_lname = new System.Windows.Forms.Label();
+            this.unit = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -157,13 +157,13 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.unit);
             this.panel5.Controls.Add(this.price);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.expirable);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.amount);
             this.panel5.Controls.Add(this.name);
-            this.panel5.Controls.Add(this.unit);
             this.panel5.Controls.Add(this.lbl_fname);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.lbl_lname);
@@ -242,18 +242,6 @@
             this.name.Size = new System.Drawing.Size(220, 27);
             this.name.TabIndex = 3;
             // 
-            // unit
-            // 
-            this.unit.BackColor = System.Drawing.Color.White;
-            this.unit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unit.ForeColor = System.Drawing.Color.Black;
-            this.unit.Location = new System.Drawing.Point(131, 160);
-            this.unit.Multiline = true;
-            this.unit.Name = "unit";
-            this.unit.Size = new System.Drawing.Size(220, 27);
-            this.unit.TabIndex = 4;
-            // 
             // lbl_fname
             // 
             this.lbl_fname.AutoSize = true;
@@ -289,6 +277,19 @@
             this.lbl_lname.Size = new System.Drawing.Size(50, 25);
             this.lbl_lname.TabIndex = 102;
             this.lbl_lname.Text = "Unit";
+            // 
+            // unit
+            // 
+            this.unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unit.FormattingEnabled = true;
+            this.unit.Items.AddRange(new object[] {
+            "kg",
+            "ml",
+            "pcs"});
+            this.unit.Location = new System.Drawing.Point(128, 157);
+            this.unit.Name = "unit";
+            this.unit.Size = new System.Drawing.Size(58, 28);
+            this.unit.TabIndex = 232;
             // 
             // Item_Add
             // 
@@ -326,7 +327,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox amount;
         private System.Windows.Forms.TextBox name;
-        private System.Windows.Forms.TextBox unit;
         private System.Windows.Forms.Label lbl_fname;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_lname;
@@ -334,5 +334,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox price;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox unit;
     }
 }

@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.item_panel = new System.Windows.Forms.Panel();
+            this.btn_item = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.item_data = new System.Windows.Forms.DataGridView();
             this.iQuantity_txt = new System.Windows.Forms.NumericUpDown();
             this.subtotal_txt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -60,20 +62,16 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.items_purchased = new System.Windows.Forms.DataGridView();
-            this.item_panel = new System.Windows.Forms.Panel();
-            this.btn_item = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.item_data = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.item_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.item_data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iQuantity_txt)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.items_purchased)).BeginInit();
-            this.item_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.item_data)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -136,6 +134,65 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(406, 559);
             this.panel6.TabIndex = 206;
+            // 
+            // item_panel
+            // 
+            this.item_panel.BackColor = System.Drawing.Color.Brown;
+            this.item_panel.Controls.Add(this.btn_item);
+            this.item_panel.Controls.Add(this.label10);
+            this.item_panel.Controls.Add(this.item_data);
+            this.item_panel.Location = new System.Drawing.Point(1, 456);
+            this.item_panel.Name = "item_panel";
+            this.item_panel.Size = new System.Drawing.Size(30, 22);
+            this.item_panel.TabIndex = 224;
+            this.item_panel.Visible = false;
+            // 
+            // btn_item
+            // 
+            this.btn_item.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btn_item.FlatAppearance.BorderSize = 0;
+            this.btn_item.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_item.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_item.Location = new System.Drawing.Point(222, 401);
+            this.btn_item.Name = "btn_item";
+            this.btn_item.Size = new System.Drawing.Size(144, 25);
+            this.btn_item.TabIndex = 209;
+            this.btn_item.Text = "Add Items";
+            this.btn_item.UseVisualStyleBackColor = false;
+            this.btn_item.Click += new System.EventHandler(this.btn_item_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(152, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 31);
+            this.label10.TabIndex = 207;
+            this.label10.Text = "ITEMS";
+            // 
+            // item_data
+            // 
+            this.item_data.AllowUserToAddRows = false;
+            this.item_data.AllowUserToDeleteRows = false;
+            this.item_data.AllowUserToResizeColumns = false;
+            this.item_data.AllowUserToResizeRows = false;
+            this.item_data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.item_data.BackgroundColor = System.Drawing.Color.White;
+            this.item_data.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.item_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.item_data.Location = new System.Drawing.Point(31, 50);
+            this.item_data.Name = "item_data";
+            this.item_data.ReadOnly = true;
+            this.item_data.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.item_data.RowHeadersVisible = false;
+            this.item_data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.item_data.Size = new System.Drawing.Size(351, 347);
+            this.item_data.TabIndex = 0;
+            this.item_data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.item_data_CellClick);
             // 
             // iQuantity_txt
             // 
@@ -456,81 +513,6 @@
             this.items_purchased.Size = new System.Drawing.Size(497, 430);
             this.items_purchased.TabIndex = 213;
             // 
-            // item_panel
-            // 
-            this.item_panel.BackColor = System.Drawing.Color.Brown;
-            this.item_panel.Controls.Add(this.btn_item);
-            this.item_panel.Controls.Add(this.label10);
-            this.item_panel.Controls.Add(this.item_data);
-            this.item_panel.Location = new System.Drawing.Point(1, 530);
-            this.item_panel.Name = "item_panel";
-            this.item_panel.Size = new System.Drawing.Size(75, 26);
-            this.item_panel.TabIndex = 224;
-            this.item_panel.Visible = false;
-            // 
-            // btn_item
-            // 
-            this.btn_item.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.btn_item.FlatAppearance.BorderSize = 0;
-            this.btn_item.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_item.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_item.Location = new System.Drawing.Point(222, 401);
-            this.btn_item.Name = "btn_item";
-            this.btn_item.Size = new System.Drawing.Size(144, 25);
-            this.btn_item.TabIndex = 209;
-            this.btn_item.Text = "Add Items";
-            this.btn_item.UseVisualStyleBackColor = false;
-            this.btn_item.Click += new System.EventHandler(this.btn_item_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(152, 16);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 31);
-            this.label10.TabIndex = 207;
-            this.label10.Text = "ITEMS";
-            // 
-            // item_data
-            // 
-            this.item_data.AllowUserToAddRows = false;
-            this.item_data.AllowUserToDeleteRows = false;
-            this.item_data.AllowUserToResizeColumns = false;
-            this.item_data.AllowUserToResizeRows = false;
-            this.item_data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.item_data.BackgroundColor = System.Drawing.Color.White;
-            this.item_data.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.item_data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.item_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.item_data.DefaultCellStyle = dataGridViewCellStyle4;
-            this.item_data.Location = new System.Drawing.Point(31, 50);
-            this.item_data.Name = "item_data";
-            this.item_data.ReadOnly = true;
-            this.item_data.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.item_data.RowHeadersVisible = false;
-            this.item_data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.item_data.Size = new System.Drawing.Size(351, 347);
-            this.item_data.TabIndex = 0;
-            this.item_data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.item_data_CellClick);
-            // 
             // Inventory_Stockin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -550,6 +532,9 @@
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.item_panel.ResumeLayout(false);
+            this.item_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.item_data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iQuantity_txt)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -560,9 +545,6 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.items_purchased)).EndInit();
-            this.item_panel.ResumeLayout(false);
-            this.item_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.item_data)).EndInit();
             this.ResumeLayout(false);
 
         }

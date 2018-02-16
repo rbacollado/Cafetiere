@@ -52,7 +52,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_logs = new System.Windows.Forms.Button();
-            this.btn_stockout = new System.Windows.Forms.Button();
+            this.show_SOpanel = new System.Windows.Forms.Button();
             this.btn_PO = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -69,6 +69,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.panel_stockout = new System.Windows.Forms.Panel();
+            this.txt_amount = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txt_quantity = new System.Windows.Forms.NumericUpDown();
+            this.btn_stockout = new System.Windows.Forms.Button();
+            this.txt_unit = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txt_name = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btn_SOBack = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -85,6 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel_stockout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_quantity)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -275,7 +289,7 @@
             this.panel10.Controls.Add(this.pictureBox4);
             this.panel10.Controls.Add(this.btn_close);
             this.panel10.Controls.Add(this.btn_logs);
-            this.panel10.Controls.Add(this.btn_stockout);
+            this.panel10.Controls.Add(this.show_SOpanel);
             this.panel10.Controls.Add(this.btn_PO);
             this.panel10.Location = new System.Drawing.Point(738, 297);
             this.panel10.Name = "panel10";
@@ -361,21 +375,21 @@
             this.btn_logs.UseVisualStyleBackColor = false;
             this.btn_logs.Click += new System.EventHandler(this.btn_logs_Click);
             // 
-            // btn_stockout
+            // show_SOpanel
             // 
-            this.btn_stockout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
-            this.btn_stockout.FlatAppearance.BorderSize = 0;
-            this.btn_stockout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_stockout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_stockout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_stockout.Location = new System.Drawing.Point(0, 39);
-            this.btn_stockout.Name = "btn_stockout";
-            this.btn_stockout.Size = new System.Drawing.Size(341, 40);
-            this.btn_stockout.TabIndex = 1;
-            this.btn_stockout.Text = "Remove Item";
-            this.btn_stockout.UseVisualStyleBackColor = false;
-            this.btn_stockout.Visible = false;
-            this.btn_stockout.Click += new System.EventHandler(this.btn_stockout_Click);
+            this.show_SOpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.show_SOpanel.FlatAppearance.BorderSize = 0;
+            this.show_SOpanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.show_SOpanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.show_SOpanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.show_SOpanel.Location = new System.Drawing.Point(0, 39);
+            this.show_SOpanel.Name = "show_SOpanel";
+            this.show_SOpanel.Size = new System.Drawing.Size(341, 40);
+            this.show_SOpanel.TabIndex = 1;
+            this.show_SOpanel.Text = "Remove Item";
+            this.show_SOpanel.UseVisualStyleBackColor = false;
+            this.show_SOpanel.Visible = false;
+            this.show_SOpanel.Click += new System.EventHandler(this.show_SOpanel_Click);
             // 
             // btn_PO
             // 
@@ -544,11 +558,169 @@
             this.panel13.Size = new System.Drawing.Size(707, 31);
             this.panel13.TabIndex = 5;
             // 
+            // panel_stockout
+            // 
+            this.panel_stockout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(84)))), ((int)(((byte)(123)))));
+            this.panel_stockout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_stockout.Controls.Add(this.txt_amount);
+            this.panel_stockout.Controls.Add(this.label17);
+            this.panel_stockout.Controls.Add(this.txt_quantity);
+            this.panel_stockout.Controls.Add(this.btn_stockout);
+            this.panel_stockout.Controls.Add(this.txt_unit);
+            this.panel_stockout.Controls.Add(this.label16);
+            this.panel_stockout.Controls.Add(this.label15);
+            this.panel_stockout.Controls.Add(this.txt_name);
+            this.panel_stockout.Controls.Add(this.label14);
+            this.panel_stockout.Controls.Add(this.btn_SOBack);
+            this.panel_stockout.Controls.Add(this.label5);
+            this.panel_stockout.Location = new System.Drawing.Point(1053, 658);
+            this.panel_stockout.Margin = new System.Windows.Forms.Padding(2);
+            this.panel_stockout.Name = "panel_stockout";
+            this.panel_stockout.Size = new System.Drawing.Size(26, 38);
+            this.panel_stockout.TabIndex = 22;
+            this.panel_stockout.Visible = false;
+            // 
+            // txt_amount
+            // 
+            this.txt_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_amount.Location = new System.Drawing.Point(159, 167);
+            this.txt_amount.Name = "txt_amount";
+            this.txt_amount.Size = new System.Drawing.Size(55, 24);
+            this.txt_amount.TabIndex = 226;
+            this.txt_amount.Tag = "";
+            this.txt_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(28, 169);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 20);
+            this.label17.TabIndex = 225;
+            this.label17.Text = "Amount";
+            // 
+            // txt_quantity
+            // 
+            this.txt_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_quantity.Location = new System.Drawing.Point(159, 126);
+            this.txt_quantity.Name = "txt_quantity";
+            this.txt_quantity.Size = new System.Drawing.Size(152, 24);
+            this.txt_quantity.TabIndex = 224;
+            this.txt_quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_quantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // btn_stockout
+            // 
+            this.btn_stockout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btn_stockout.FlatAppearance.BorderSize = 0;
+            this.btn_stockout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_stockout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_stockout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_stockout.Location = new System.Drawing.Point(85, 266);
+            this.btn_stockout.Name = "btn_stockout";
+            this.btn_stockout.Size = new System.Drawing.Size(174, 26);
+            this.btn_stockout.TabIndex = 220;
+            this.btn_stockout.Text = "STOCK OUT";
+            this.btn_stockout.UseVisualStyleBackColor = false;
+            this.btn_stockout.Click += new System.EventHandler(this.btn_stockout_Click);
+            // 
+            // txt_unit
+            // 
+            this.txt_unit.Enabled = false;
+            this.txt_unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_unit.Location = new System.Drawing.Point(159, 201);
+            this.txt_unit.Name = "txt_unit";
+            this.txt_unit.Size = new System.Drawing.Size(55, 24);
+            this.txt_unit.TabIndex = 219;
+            this.txt_unit.Tag = "";
+            this.txt_unit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(28, 203);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(42, 20);
+            this.label16.TabIndex = 218;
+            this.label16.Text = "Unit";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(28, 127);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(76, 20);
+            this.label15.TabIndex = 216;
+            this.label15.Text = "Quantity";
+            // 
+            // txt_name
+            // 
+            this.txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_name.Location = new System.Drawing.Point(159, 87);
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(151, 24);
+            this.txt_name.TabIndex = 215;
+            this.txt_name.Tag = "";
+            this.txt_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(28, 89);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 20);
+            this.label14.TabIndex = 214;
+            this.label14.Text = "Name";
+            // 
+            // btn_SOBack
+            // 
+            this.btn_SOBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btn_SOBack.FlatAppearance.BorderSize = 0;
+            this.btn_SOBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SOBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SOBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_SOBack.Location = new System.Drawing.Point(304, -1);
+            this.btn_SOBack.Name = "btn_SOBack";
+            this.btn_SOBack.Size = new System.Drawing.Size(36, 25);
+            this.btn_SOBack.TabIndex = 65;
+            this.btn_SOBack.Text = "X";
+            this.btn_SOBack.UseVisualStyleBackColor = false;
+            this.btn_SOBack.Click += new System.EventHandler(this.btn_SOBack_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(104, 38);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(143, 25);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "STOCK OUT";
+            // 
             // InventoryTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1089, 767);
+            this.Controls.Add(this.panel_stockout);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel10);
@@ -587,6 +759,9 @@
             this.panel2.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            this.panel_stockout.ResumeLayout(false);
+            this.panel_stockout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_quantity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -618,7 +793,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button btn_logs;
-        private System.Windows.Forms.Button btn_stockout;
+        private System.Windows.Forms.Button show_SOpanel;
         private System.Windows.Forms.Button btn_PO;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
@@ -634,5 +809,17 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.DataGridView inventory_dtgv;
         private System.Windows.Forms.Button stockin_btn;
+        private System.Windows.Forms.Panel panel_stockout;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_SOBack;
+        private System.Windows.Forms.TextBox txt_unit;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txt_name;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btn_stockout;
+        private System.Windows.Forms.NumericUpDown txt_quantity;
+        private System.Windows.Forms.TextBox txt_amount;
+        private System.Windows.Forms.Label label17;
     }
 }

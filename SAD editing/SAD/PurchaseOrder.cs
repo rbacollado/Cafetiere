@@ -201,6 +201,8 @@ namespace SAD
                     poID = int.Parse(dtgv_poline["purchaseOrder_purchaseOrderID"].ToString());
                     item_quantity = int.Parse(dtgv_poline["Quantity"].ToString());
 
+                    MessageBox.Show(item_expirydate);
+
                     for(int i = 0; i < items_stockin.Rows.Count; i++)
                     {
                         if (id == int.Parse(items_stockin.Rows[i].Cells["polID"].Value.ToString()) && poID == int.Parse(items_stockin.Rows[i].Cells["purchaseID"].Value.ToString()) && item_quantity <= int.Parse(items_stockin.Rows[i].Cells["Quantity"].Value.ToString()))
@@ -210,6 +212,7 @@ namespace SAD
                     }
                     if (stocked_in == false)
                     {
+
                         ToBeStocked.Rows.Add(poID, id, item_name, item_quantity, item_expirydate);
                     }
                     else
@@ -272,7 +275,7 @@ namespace SAD
                     DataTable duplicateItems = new DataTable();
                     adp.Fill(duplicateItems);
 
-                    if (item_expiry == "0000-00-00 00:00:00")
+                    if (item_expiry == "0000/00/00")
                     {
                         type = "Non-Ingredient";
                     }
@@ -319,7 +322,8 @@ namespace SAD
                 }
             }
             MessageBox.Show("Items successfully stocked in!");
-            ToBeStocked.Clear();
+            prevForm.ShowDialog();
+            this.Close();
         }
         
     }

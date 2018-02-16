@@ -66,11 +66,77 @@ namespace SAD
                 int selected_id = int.Parse(inventory_dtgv.Rows[e.RowIndex].Cells["itemInvID"].Value.ToString());
                 itemInvID = selected_id;
 
-                btn_stockout.Visible = true;
+                show_SOpanel.Visible = true;
                 pictureBox5.Visible = true;
+                loadTobeRemoved();
 
             }
+        }
 
+        public void loadTobeRemoved()
+        {
+            String inventoryquery = "SELECT name, unit, amount, itemQuantity FROM items, items_inventory WHERE items_inventory.itemInvID = " + itemInvID + " " +
+                                    "AND items.itemsID = items_inventory.item_ID;";
+
+            MySqlCommand comm = new MySqlCommand(inventoryquery, conn);
+            comm.CommandText = inventoryquery;
+
+            conn.Open();
+            MySqlDataReader drdInv = comm.ExecuteReader();
+
+            while (drdInv.Read())
+            {
+                txt_name.Text = (drdInv["name"].ToString());
+                txt_quantity.Text = (drdInv["itemQuantity"].ToString());
+                txt_amount.Text = (drdInv["amount"].ToString());
+                txt_unit.Text = (drdInv["unit"].ToString());
+            }
+            conn.Close();
+            
+
+        }
+
+        private void btn_stockout_Click(object sender, EventArgs e)
+        {
+
+            String removequery = "UPDATE items_inventory SET itemQuantity = itemQuantity - " + int.Parse(txt_quantity.Text) + " WHERE itemInvID = " + itemInvID + ";";
+
+            conn.Open();
+            MySqlCommand comm_Remove = new MySqlCommand(removequery, conn);
+            comm_Remove.ExecuteNonQuery();
+            conn.Close();
+
+
+            String updateAvail = "UPDATE items_inventory SET itemStatus = 'Unavailable' WHERE itemQuantity <= 0;";
+
+            conn.Open();
+            MySqlCommand comm_Avail = new MySqlCommand(updateAvail, conn);
+            comm_Avail.ExecuteNonQuery();
+            conn.Close();
+
+            String updateLogquery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType) " +
+                                               "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + txt_name.Text + "'," + txt_quantity.Text + ", current_timestamp(), 'Stock out(Manual)' );";
+            conn.Open();
+            MySqlCommand comm_inventorylog = new MySqlCommand(updateLogquery, conn);
+            comm_inventorylog.ExecuteNonQuery();
+            conn.Close();
+
+            inventory();
+        }
+
+        private void show_SOpanel_Click(object sender, EventArgs e)
+        {
+            panel_stockout.Visible = true;
+            panel_stockout.Enabled = true;
+            panel_stockout.Size = new Size(341, 385);
+            panel_stockout.Location = new Point(738, 297);
+            loadTobeRemoved();
+        }
+        
+        private void btn_SOBack_Click(object sender, EventArgs e)
+        {
+            panel_stockout.Visible = false;
+            panel_stockout.Enabled = false;
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -101,11 +167,6 @@ namespace SAD
             stockin.prevForm = this;
             stockin.Show();
             this.Hide();
-        }
-
-        private void btn_stockout_Click(object sender, EventArgs e)
-        {
-
         }
 
         
