@@ -559,6 +559,7 @@
             this.cb_category.Name = "cb_category";
             this.cb_category.Size = new System.Drawing.Size(254, 33);
             this.cb_category.TabIndex = 209;
+            this.cb_category.SelectedIndexChanged += new System.EventHandler(this.cb_category_SelectedIndexChanged);
             // 
             // label14
             // 

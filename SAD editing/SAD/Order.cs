@@ -44,6 +44,7 @@ namespace SAD
 
             categoryCmbData();
 
+
         }
 
         public void load_products()
@@ -79,7 +80,7 @@ namespace SAD
 
         private void prod_MouseClick(object sender, MouseEventArgs e)
         {
-            /**String query = "SELECT productID, pname, pprice, pquantity FROM products";
+            String query = "SELECT productID, pname, pprice, pquantity FROM products";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -93,7 +94,7 @@ namespace SAD
             product_data.Columns["pprice"].HeaderText = "Price";
             product_data.Columns["pquantity"].HeaderText = "Quantity";
 
-            product_data.Columns["pprice"].DefaultCellStyle.Format = "c";**/
+            product_data.Columns["pprice"].DefaultCellStyle.Format = "c";
 
            
                 productpanel.Visible = true;
@@ -400,25 +401,37 @@ namespace SAD
 
         }
 
-        public void categoryCmbData()
+       public void categoryCmbData()
         {
-            String query_categories = "SELECT * FROM category";
-
-            MySqlCommand comm_categories = new MySqlCommand(query_categories, conn);
-            comm_categories.CommandText = query_categories;
-            conn.Open();
-            MySqlDataReader drd_categories = comm_categories.ExecuteReader();
-
             cb_category.Items.Clear();
-            while (drd_categories.Read())
-            {
-                cb_category.Items.Add(drd_categories["category_name"].ToString());
-            }
-            conn.Close();
+            string query = "SELECT category_id, category_name FROM category";
+            cb_category.DataSource = getData(query);
+            cb_category.DisplayMember = "category_name";
+            cb_category.ValueMember = "category_id";
+
+            cb_category_SelectedIndexChanged(null, null);
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        public DataTable getData(string query)
+        {
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(comm);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int val;
+            Int32.TryParse(cb_category.SelectedValue.ToString(), out val);
+            string query = "SELECT productID, pname, pprice, pquantity FROM products, category WHERE category_category_id = " + val + " AND category.category_id = products.category_category_id";
+            product_data.DataSource = getData(query);
 
         }
 
