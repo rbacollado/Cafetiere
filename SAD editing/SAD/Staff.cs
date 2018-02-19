@@ -92,7 +92,7 @@ namespace SAD
                 selected_data.selected_user_id = selected_id;
             }
 
-            string salesrecord_query = "SELECT firstname, lastname, orderDate, orderType FROM person " +
+            string salesrecord_query = "SELECT CONCAT(firstname,' ',lastname) as StaffName, orderDate, orderType FROM person " +
                             "INNER JOIN staff ON person.personid = staff.person_personid " +
                             "INNER JOIN `order` ON staff.staffid = `order`.staff_staffid " +
                             "INNER JOIN orderline ON `order`.orderID = orderline.orderID " +
@@ -105,7 +105,7 @@ namespace SAD
             adp.Fill(dt_sales);
             sales_records.DataSource = dt_sales;
 
-            string inventoryrecord_query = "SELECT firstname, lastname, logdate as Date, logType as Activity FROM person " +
+            string inventoryrecord_query = "SELECT CONCAT(firstname,' ',lastname) as StaffName,logType as Activity, logdate as Date FROM person " +
                                             "INNER JOIN staff ON person.personid = staff.person_personid " +
                                             "INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid " +                                      
                                             "WHERE personid = " + selected_data.selected_user_id + " ";
@@ -124,11 +124,6 @@ namespace SAD
             updatestaff.prevForm = this;
             updatestaff.Show();
             this.Hide();
-        }
-        
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

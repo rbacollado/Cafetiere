@@ -21,6 +21,14 @@ namespace SAD
         {
             InitializeComponent();
             conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root;");
+
+            POrder.Columns.Add("Name", typeof(string));
+            POrder.Columns.Add("Price", typeof(string));
+            POrder.Columns.Add("Quantity", typeof(int));
+            POrder.Columns.Add("ExpiryDate", typeof(string));
+            POrder.Columns.Add("Subtotal", typeof(string));
+
+
         }
 
         DataTable POrder = new DataTable();
@@ -29,23 +37,7 @@ namespace SAD
             encoderLbl.Text = SAD.Login.DisplayUserDetails.name;
             encoderPos.Text = SAD.Login.DisplayUserDetails.usertype;
 
-            if (!POrder.Columns.Contains("id") || !POrder.Columns.Contains("Name") || !POrder.Columns.Contains("Quantity") || 
-                !POrder.Columns.Contains("po_id") || !POrder.Columns.Contains("pol_id"))
-            {
-                POrder.Columns.Add("Name", typeof(string));
-                POrder.Columns.Add("Price", typeof(string));
-                POrder.Columns.Add("Quantity", typeof(int));
-                POrder.Columns.Add("ExpiryDate", typeof(string));
-                POrder.Columns.Add("Subtotal", typeof(string));
-            }
-
-            /*//POrder.Columns.Add("itemID", typeof(string));
-
-            POrder.Columns.Add("Name", typeof(string));
-            POrder.Columns.Add("Price", typeof(string));
-            POrder.Columns.Add("Quantity", typeof(int));
-            POrder.Columns.Add("ExpiryDate", typeof(string));
-            POrder.Columns.Add("Subtotal", typeof(string));*/
+            
 
             DateTime now = DateTime.Today;
             date.Text = now.ToString("MM/dd/yy");
@@ -54,6 +46,8 @@ namespace SAD
             iExpiry_txt.CustomFormat = "yyyy-MM-dd";
             
         }
+
+        
 
         private void btn_close_Click(object sender, EventArgs e)
         {
@@ -97,25 +91,14 @@ namespace SAD
             supplier_data.Columns["lastname"].HeaderText = "Last Name";
             supplier_data.Columns["organization"].HeaderText = "Organization";
 
-            if (supplier_data.Rows.Count < 1)
-            {
-                MessageBox.Show("No Supplier Available!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Supplier_Add add = new Supplier_Add();
-                add.Show();
-                add.prevForm = this;
-                this.Hide();
-            }
-            else
-            {
-                supplierpanel.Visible = true;
-                supplierpanel.Enabled = true;
-                iQuantity_txt.Visible = false;
-               
+            supplierpanel.Visible = true;
+            supplierpanel.Enabled = true;
+            iQuantity_txt.Visible = false;
+            btn_remove.Visible = false;
 
-                supplierpanel.Size = new Size(389, 435);
-                supplierpanel.Location = new Point(0, 124);
-            }
-
+            supplierpanel.Size = new Size(389, 435);
+            supplierpanel.Location = new Point(0, 124);
+  
         }
 
         public static int selected_supplierid;
@@ -128,9 +111,8 @@ namespace SAD
                 supplierpanel.Visible = false;
                 supplierpanel.Enabled = false;
                 iQuantity_txt.Visible = true;
- 
+                btn_remove.Visible = true;
                 load_suppliers();
-               
             }
         }
 
@@ -332,8 +314,34 @@ namespace SAD
 
         private void iName_txt_MouseClick(object sender, MouseEventArgs e)
         {
+           
+            if (supplier_txt.Text == "")
+            {
+                MessageBox.Show("Choose a supplier first!");
+            }
+            else if (dtgv_items.Rows.Count < 1)
+            {
+                MessageBox.Show("No items Found");
+                Item_Add add = new Item_Add();
+                add.Show();
+                add.prevForm = this;
+                this.Hide();
+            }
+            else
+            {
+                ShowItems();
+                item_panel.Visible = true;
+                item_panel.Enabled = true;
+                item_panel.Size = new Size(383, 432);
+                item_panel.Location = new Point(3, 124);
+                btn_remove.Visible = false;
+            }
+            
+        }
+        public void ShowItems()
+        {
             String queryitems = "SELECT itemsID, name, price, unit, amount, expirable FROM items ";
-                             
+
             conn.Open();
             MySqlCommand commitems = new MySqlCommand(queryitems, conn);
             MySqlDataAdapter adpitems = new MySqlDataAdapter(commitems);
@@ -349,30 +357,7 @@ namespace SAD
             dtgv_items.Columns["amount"].HeaderText = "Amount";
             dtgv_items.Columns["expirable"].HeaderText = "Expirable";
 
-
-            if (supplier_txt.Text == "")
-            {
-                MessageBox.Show("Choose a supplier first!");
-            }
-            else if (dtgv_items.Rows.Count > 0)
-            {
-                
-                item_panel.Visible = true;
-                item_panel.Enabled = true;
-                item_panel.Size = new Size(383, 432);
-                item_panel.Location = new Point(3, 124);
-            }
-            else
-            {
-                MessageBox.Show("No items Found");
-                Item_Add add = new Item_Add();
-                add.Show();
-                add.prevForm = this;
-                this.Hide();
-            }
-            
         }
-        
         public int item_idselected;
         private void dtgv_items_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -382,6 +367,7 @@ namespace SAD
 
                 item_panel.Visible = false;
                 item_panel.Enabled = false;
+                btn_remove.Visible = true;
                 item_details();
             }
         }
@@ -440,6 +426,25 @@ namespace SAD
             this.Hide();
         }
 
-       
+        private void PurchaseOrder_create_VisibleChanged(object sender, EventArgs e)
+        {
+            ShowItems();
+        }
+
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            if (items_ordered.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Please order first!");
+            }
+            else
+            {
+                int row = items_ordered.CurrentCell.RowIndex;
+                items_ordered.Rows.RemoveAt(row);
+
+                total();
+
+            }
+        }
     }
 }

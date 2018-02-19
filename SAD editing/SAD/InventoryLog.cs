@@ -57,6 +57,28 @@ namespace SAD
         private void InventoryLog_Load(object sender, EventArgs e)
         {
             inventorylog();
+
+            datetime_filter.Format = DateTimePickerFormat.Custom;
+            datetime_filter.CustomFormat = "yyyy-MM-dd";
+
+        }
+
+        private void datetime_filter_ValueChanged(object sender, EventArgs e)
+        {
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT logid, CONCAT(firstname, ' ' , lastname) as StaffName, itemName, quantity, logtype, logdate FROM person"
+                              + " INNER JOIN staff ON person.personid = staff.person_personid"
+                              + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid"
+                              + " WHERE logdate like '%" + datetime_filter.Value + "%';";
+            cmd.Parameters.Add(datetime_filter.Text, MySqlDbType.DateTime).Value = datetime_filter.Value;
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(dt);
+            inventory_log.DataSource = dt;
+            conn.Close();
         }
     }
 }

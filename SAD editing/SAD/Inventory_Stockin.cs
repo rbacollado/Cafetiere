@@ -21,21 +21,21 @@ namespace SAD
         {
             InitializeComponent();
             conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root;");
-        }
 
-        DataTable OrderWM = new DataTable();
-        private void Inventory_Stockin_Load(object sender, EventArgs e)
-        {
-            encoderLbl.Text = SAD.Login.DisplayUserDetails.name;
-            encoderPos.Text = SAD.Login.DisplayUserDetails.usertype;
-
-            
             OrderWM.Columns.Add("Name", typeof(string));
             OrderWM.Columns.Add("Price", typeof(string));
             OrderWM.Columns.Add("Quantity", typeof(int));
             OrderWM.Columns.Add("ExpiryDate", typeof(string));
             OrderWM.Columns.Add("Subtotal", typeof(string));
+        }
 
+        DataTable OrderWM = new DataTable();
+
+        private void Inventory_Stockin_Load(object sender, EventArgs e)
+        {
+            encoderLbl.Text = SAD.Login.DisplayUserDetails.name;
+            encoderPos.Text = SAD.Login.DisplayUserDetails.usertype;
+            
             DateTime now = DateTime.Today;
             date.Text = now.ToString("MM/dd/yy");
 
@@ -81,23 +81,26 @@ namespace SAD
             item_data.Columns["amount"].HeaderText = "Amount";
             item_data.Columns["expirable"].HeaderText = "Expirable";
 
-            if (item_data.Rows.Count > 0)
-            {
-
-                item_panel.Visible = true;
-                item_panel.Enabled = true;
-                item_panel.Size = new Size(402, 432);
-                item_panel.Location = new Point(1, 124);
-            }
-            else
+            if (item_data.Rows.Count < 1)
             {
                 MessageBox.Show("No items Found");
                 Item_Add add = new Item_Add();
                 add.Show();
                 add.prevForm = this;
                 this.Hide();
+                
+            }
+            else
+            {
+                btn_remove.Visible = false;
+                item_panel.Visible = true;
+                item_panel.Enabled = true;
+                item_panel.Size = new Size(402, 432);
+                item_panel.Location = new Point(1, 124);
             }
         }
+
+        
 
         public int item_idselected;
         private void item_data_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -108,6 +111,7 @@ namespace SAD
 
                 item_panel.Visible = false;
                 item_panel.Enabled = false;
+                btn_remove.Visible = true;
                 item_details();
             }
         }
@@ -330,6 +334,20 @@ namespace SAD
                     this.Close();
                 }
             }
-        } 
+        }
+
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            if (items_purchased.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Please order first!");
+            }
+            else
+            {
+                int row = items_purchased.CurrentCell.RowIndex;
+                items_purchased.Rows.RemoveAt(row);
+                total();
+            }
+        }
     }
 }

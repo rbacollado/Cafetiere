@@ -28,16 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btn_remove = new System.Windows.Forms.Button();
             this.item_panel = new System.Windows.Forms.Panel();
+            this.btn_additem = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.dtgv_items = new System.Windows.Forms.DataGridView();
             this.iQuantity_txt = new System.Windows.Forms.NumericUpDown();
             this.supplierpanel = new System.Windows.Forms.Panel();
-            this.supplier_btn = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.supplier_data = new System.Windows.Forms.DataGridView();
             this.subtotal_txt = new System.Windows.Forms.TextBox();
@@ -67,7 +72,6 @@
             this.btn_order = new System.Windows.Forms.Button();
             this.Total = new System.Windows.Forms.Label();
             this.TotalTB = new System.Windows.Forms.TextBox();
-            this.btn_additem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.item_panel.SuspendLayout();
@@ -121,6 +125,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel6.Controls.Add(this.btn_remove);
             this.panel6.Controls.Add(this.item_panel);
             this.panel6.Controls.Add(this.iQuantity_txt);
             this.panel6.Controls.Add(this.supplierpanel);
@@ -146,6 +151,21 @@
             this.panel6.Size = new System.Drawing.Size(389, 559);
             this.panel6.TabIndex = 205;
             // 
+            // btn_remove
+            // 
+            this.btn_remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btn_remove.FlatAppearance.BorderSize = 0;
+            this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_remove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_remove.Location = new System.Drawing.Point(231, 494);
+            this.btn_remove.Name = "btn_remove";
+            this.btn_remove.Size = new System.Drawing.Size(95, 37);
+            this.btn_remove.TabIndex = 227;
+            this.btn_remove.Text = "REMOVE";
+            this.btn_remove.UseVisualStyleBackColor = false;
+            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
+            // 
             // item_panel
             // 
             this.item_panel.BackColor = System.Drawing.Color.Brown;
@@ -154,9 +174,24 @@
             this.item_panel.Controls.Add(this.dtgv_items);
             this.item_panel.Location = new System.Drawing.Point(3, 124);
             this.item_panel.Name = "item_panel";
-            this.item_panel.Size = new System.Drawing.Size(41, 11);
+            this.item_panel.Size = new System.Drawing.Size(12, 351);
             this.item_panel.TabIndex = 226;
             this.item_panel.Visible = false;
+            // 
+            // btn_additem
+            // 
+            this.btn_additem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btn_additem.FlatAppearance.BorderSize = 0;
+            this.btn_additem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_additem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_additem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_additem.Location = new System.Drawing.Point(222, 401);
+            this.btn_additem.Name = "btn_additem";
+            this.btn_additem.Size = new System.Drawing.Size(144, 25);
+            this.btn_additem.TabIndex = 210;
+            this.btn_additem.Text = "Add Item";
+            this.btn_additem.UseVisualStyleBackColor = false;
+            this.btn_additem.Click += new System.EventHandler(this.btn_additem_Click_1);
             // 
             // label13
             // 
@@ -174,10 +209,28 @@
             // 
             this.dtgv_items.AllowUserToAddRows = false;
             this.dtgv_items.AllowUserToDeleteRows = false;
+            this.dtgv_items.AllowUserToResizeColumns = false;
+            this.dtgv_items.AllowUserToResizeRows = false;
             this.dtgv_items.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_items.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_items.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtgv_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_items.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_items.Location = new System.Drawing.Point(15, 51);
             this.dtgv_items.Name = "dtgv_items";
             this.dtgv_items.ReadOnly = true;
@@ -207,29 +260,13 @@
             // supplierpanel
             // 
             this.supplierpanel.BackColor = System.Drawing.Color.Brown;
-            this.supplierpanel.Controls.Add(this.supplier_btn);
             this.supplierpanel.Controls.Add(this.label10);
             this.supplierpanel.Controls.Add(this.supplier_data);
-            this.supplierpanel.Location = new System.Drawing.Point(349, 124);
+            this.supplierpanel.Location = new System.Drawing.Point(379, 150);
             this.supplierpanel.Name = "supplierpanel";
-            this.supplierpanel.Size = new System.Drawing.Size(40, 21);
+            this.supplierpanel.Size = new System.Drawing.Size(10, 286);
             this.supplierpanel.TabIndex = 220;
             this.supplierpanel.Visible = false;
-            // 
-            // supplier_btn
-            // 
-            this.supplier_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.supplier_btn.FlatAppearance.BorderSize = 0;
-            this.supplier_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.supplier_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supplier_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.supplier_btn.Location = new System.Drawing.Point(222, 401);
-            this.supplier_btn.Name = "supplier_btn";
-            this.supplier_btn.Size = new System.Drawing.Size(144, 25);
-            this.supplier_btn.TabIndex = 209;
-            this.supplier_btn.Text = "Add Supplier";
-            this.supplier_btn.UseVisualStyleBackColor = false;
-            this.supplier_btn.Click += new System.EventHandler(this.supplier_btn_Click);
             // 
             // label10
             // 
@@ -250,7 +287,23 @@
             this.supplier_data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.supplier_data.BackgroundColor = System.Drawing.Color.White;
             this.supplier_data.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.supplier_data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.supplier_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.supplier_data.DefaultCellStyle = dataGridViewCellStyle8;
             this.supplier_data.Location = new System.Drawing.Point(15, 51);
             this.supplier_data.Name = "supplier_data";
             this.supplier_data.ReadOnly = true;
@@ -292,7 +345,7 @@
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.Black;
-            this.btn_add.Location = new System.Drawing.Point(107, 494);
+            this.btn_add.Location = new System.Drawing.Point(55, 494);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(82, 37);
             this.btn_add.TabIndex = 83;
@@ -307,7 +360,7 @@
             this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_clear.ForeColor = System.Drawing.Color.Black;
-            this.btn_clear.Location = new System.Drawing.Point(195, 494);
+            this.btn_clear.Location = new System.Drawing.Point(143, 494);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(82, 37);
             this.btn_clear.TabIndex = 85;
@@ -592,21 +645,6 @@
             this.TotalTB.TabIndex = 210;
             this.TotalTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btn_additem
-            // 
-            this.btn_additem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.btn_additem.FlatAppearance.BorderSize = 0;
-            this.btn_additem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_additem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_additem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_additem.Location = new System.Drawing.Point(222, 401);
-            this.btn_additem.Name = "btn_additem";
-            this.btn_additem.Size = new System.Drawing.Size(144, 25);
-            this.btn_additem.TabIndex = 210;
-            this.btn_additem.Text = "Add Item";
-            this.btn_additem.UseVisualStyleBackColor = false;
-            this.btn_additem.Click += new System.EventHandler(this.btn_additem_Click_1);
-            // 
             // PurchaseOrder_create
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,6 +660,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PurchaseOrder_create";
             this.Load += new System.EventHandler(this.PurchaseOrder_create_Load);
+            this.VisibleChanged += new System.EventHandler(this.PurchaseOrder_create_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -686,7 +725,7 @@
         private System.Windows.Forms.Panel item_panel;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dtgv_items;
-        private System.Windows.Forms.Button supplier_btn;
         private System.Windows.Forms.Button btn_additem;
+        private System.Windows.Forms.Button btn_remove;
     }
 }

@@ -128,8 +128,8 @@ namespace SAD
         {
             panel_stockout.Visible = true;
             panel_stockout.Enabled = true;
-            panel_stockout.Size = new Size(341, 385);
-            panel_stockout.Location = new Point(738, 297);
+            panel_stockout.Size = new Size(341, 353);
+            panel_stockout.Location = new Point(738, 206);
             loadTobeRemoved();
         }
         

@@ -34,12 +34,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.inventory_dtgv = new System.Windows.Forms.DataGridView();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txt_staffname = new System.Windows.Forms.TextBox();
             this.txt_staffposition = new System.Windows.Forms.TextBox();
@@ -85,9 +79,6 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_dtgv)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -170,65 +161,6 @@
             this.inventory_dtgv.TabIndex = 206;
             this.inventory_dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_dtgv_CellClick);
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
-            this.panel5.Controls.Add(this.pictureBox1);
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Location = new System.Drawing.Point(738, 71);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(98, 81);
-            this.panel5.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::SAD.Properties.Resources.receipt;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 66);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel6
-            // 
-            this.panel6.Location = new System.Drawing.Point(104, 1);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(237, 69);
-            this.panel6.TabIndex = 2;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.panel7.Controls.Add(this.label11);
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(835, 71);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(244, 81);
-            this.panel7.TabIndex = 3;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label11.Location = new System.Drawing.Point(10, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(108, 18);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Invoice number";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label3.Location = new System.Drawing.Point(10, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 24);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "label3";
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
@@ -236,7 +168,7 @@
             this.panel8.Controls.Add(this.txt_staffposition);
             this.panel8.Controls.Add(this.label13);
             this.panel8.Controls.Add(this.label12);
-            this.panel8.Location = new System.Drawing.Point(738, 190);
+            this.panel8.Location = new System.Drawing.Point(738, 100);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(341, 101);
             this.panel8.TabIndex = 4;
@@ -291,7 +223,7 @@
             this.panel10.Controls.Add(this.btn_logs);
             this.panel10.Controls.Add(this.show_SOpanel);
             this.panel10.Controls.Add(this.btn_PO);
-            this.panel10.Location = new System.Drawing.Point(738, 297);
+            this.panel10.Location = new System.Drawing.Point(738, 207);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(341, 203);
             this.panel10.TabIndex = 6;
@@ -411,7 +343,7 @@
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(68)))), ((int)(((byte)(173)))));
             this.panel11.Controls.Add(this.pictureBox2);
             this.panel11.Controls.Add(this.label4);
-            this.panel11.Location = new System.Drawing.Point(738, 161);
+            this.panel11.Location = new System.Drawing.Point(738, 71);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(341, 41);
             this.panel11.TabIndex = 5;
@@ -573,10 +505,10 @@
             this.panel_stockout.Controls.Add(this.label14);
             this.panel_stockout.Controls.Add(this.btn_SOBack);
             this.panel_stockout.Controls.Add(this.label5);
-            this.panel_stockout.Location = new System.Drawing.Point(1053, 658);
+            this.panel_stockout.Location = new System.Drawing.Point(1062, 206);
             this.panel_stockout.Margin = new System.Windows.Forms.Padding(2);
             this.panel_stockout.Name = "panel_stockout";
-            this.panel_stockout.Size = new System.Drawing.Size(26, 38);
+            this.panel_stockout.Size = new System.Drawing.Size(17, 23);
             this.panel_stockout.TabIndex = 22;
             this.panel_stockout.Visible = false;
             // 
@@ -725,8 +657,6 @@
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -742,10 +672,6 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inventory_dtgv)).EndInit();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -772,17 +698,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox2;

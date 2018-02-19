@@ -35,7 +35,7 @@
             this.inventory_log = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.filter_logprocess = new System.Windows.Forms.ComboBox();
+            this.datetime_filter = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_log)).BeginInit();
@@ -59,7 +59,7 @@
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_close.Location = new System.Drawing.Point(685, 0);
+            this.btn_close.Location = new System.Drawing.Point(694, 0);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(71, 50);
             this.btn_close.TabIndex = 64;
@@ -110,7 +110,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
-            this.panel3.Controls.Add(this.filter_logprocess);
+            this.panel3.Controls.Add(this.datetime_filter);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(19, 64);
             this.panel3.Name = "panel3";
@@ -124,17 +124,17 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label6.Location = new System.Drawing.Point(17, 12);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 18);
+            this.label6.Size = new System.Drawing.Size(99, 18);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Process Type";
+            this.label6.Text = "Filter Details:";
             // 
-            // filter_logprocess
+            // datetime_filter
             // 
-            this.filter_logprocess.FormattingEnabled = true;
-            this.filter_logprocess.Location = new System.Drawing.Point(125, 13);
-            this.filter_logprocess.Name = "filter_logprocess";
-            this.filter_logprocess.Size = new System.Drawing.Size(121, 21);
-            this.filter_logprocess.TabIndex = 4;
+            this.datetime_filter.Location = new System.Drawing.Point(122, 12);
+            this.datetime_filter.Name = "datetime_filter";
+            this.datetime_filter.Size = new System.Drawing.Size(200, 20);
+            this.datetime_filter.TabIndex = 65;
+            this.datetime_filter.ValueChanged += new System.EventHandler(this.datetime_filter_ValueChanged);
             // 
             // InventoryLog
             // 
@@ -165,9 +165,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.DataGridView inventory_log;
-        private System.Windows.Forms.ComboBox filter_logprocess;
+        private System.Windows.Forms.DateTimePicker datetime_filter;
+        private System.Windows.Forms.Label label6;
     }
 }
