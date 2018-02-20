@@ -29,12 +29,11 @@ namespace SAD
         {
             prevForm.Show();
             this.Close();
-
         }
-       
+        
         private void inventorylog()
         {
-            String logquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate , logtype FROM person"
+            string logquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate , logtype FROM person"
                               + " INNER JOIN staff ON person.personid = staff.person_personid"
                               + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid;";
             conn.Open();
@@ -62,23 +61,27 @@ namespace SAD
             datetime_filter.CustomFormat = "yyyy-MM-dd";
 
         }
-
         private void datetime_filter_ValueChanged(object sender, EventArgs e)
         {
+            string filterquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate , logtype FROM person"
+                            + " INNER JOIN staff ON person.personid = staff.person_personid"
+                            + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid"
+                            + " WHERE logdate LIKE '%" + datetime_filter.Text + "%' ;";
             conn.Open();
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT logid, CONCAT(firstname, ' ' , lastname) as StaffName, itemName, quantity, logtype, logdate FROM person"
-                              + " INNER JOIN staff ON person.personid = staff.person_personid"
-                              + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid"
-                              + " WHERE logdate like '%" + datetime_filter.Value + "%';";
-            cmd.Parameters.Add(datetime_filter.Text, MySqlDbType.DateTime).Value = datetime_filter.Value;
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            da.Fill(dt);
-            inventory_log.DataSource = dt;
+            MySqlCommand comm = new MySqlCommand(filterquery, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
+            DataTable dt_filter = new DataTable();
+            adp.Fill(dt_filter);
+
+            inventory_log.DataSource = dt_filter;
+
+            inventory_log.Columns["logid"].Visible = false;
+            inventory_log.Columns["StaffName"].HeaderText = "Staff Name";
+            inventory_log.Columns["itemName"].HeaderText = "Item";
+            inventory_log.Columns["quantity"].HeaderText = "Quantity";
+            inventory_log.Columns["logdate"].HeaderText = "Date";
+            inventory_log.Columns["logtype"].HeaderText = "Activity";
         }
     }
 }

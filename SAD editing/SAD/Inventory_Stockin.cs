@@ -20,7 +20,7 @@ namespace SAD
         public Inventory_Stockin()
         {
             InitializeComponent();
-            conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root;");
+            conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root; Allow Zero Datetime=true");
 
             OrderWM.Columns.Add("Name", typeof(string));
             OrderWM.Columns.Add("Price", typeof(string));
@@ -273,14 +273,12 @@ namespace SAD
             }
             else
             {
-                for (int i = 0; i < items_purchased.Rows.Count; i++)
+                for (int i = 0; i <= items_purchased.Rows.Count - 1; i++)
                 {
-                    
                     item_name = items_purchased.Rows[i].Cells["Name"].Value.ToString();
                     item_quantity = Int32.Parse(items_purchased.Rows[i].Cells["Quantity"].Value.ToString());
                     item_expiry = items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString();
-
-                    string duplicateItemsquery = "SELECT itemExpiry from items_inventory  WHERE itemExpiry = '" + item_expiry +
+                    string duplicateItemsquery = "SELECT itemExpiry from items_inventory WHERE itemExpiry = '" + item_expiry +
                                                  "' AND item_ID = (SELECT itemsID FROM items WHERE name = '" + item_name + "');";
                     conn.Open();
                     MySqlCommand comm1 = new MySqlCommand(duplicateItemsquery, conn);
@@ -291,9 +289,7 @@ namespace SAD
                     DataTable duplicateItems = new DataTable();
                     adp.Fill(duplicateItems);
 
-                    MessageBox.Show(item_expiry);
-
-                    if (item_expiry == "0000/00/00")
+                    if (item_expiry == "0000-00-00")
                     {
                         type = "Non-Ingredient";
                     }
@@ -328,11 +324,12 @@ namespace SAD
                     MySqlCommand comm_inventorylog = new MySqlCommand(inventorylogQuery, conn);
                     comm_inventorylog.ExecuteNonQuery();
                     conn.Close();
-
-                    MessageBox.Show("Items successfully stocked in!");
-                    prevForm.ShowDialog();
-                    this.Close();
+                    
                 }
+                MessageBox.Show("Items successfully stocked in!");
+                prevForm.ShowDialog();
+                this.Close();
+
             }
         }
 

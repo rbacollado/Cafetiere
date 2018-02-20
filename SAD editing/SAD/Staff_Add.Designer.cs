@@ -251,9 +251,8 @@
             this.txt_confpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_confpass.ForeColor = System.Drawing.Color.Black;
             this.txt_confpass.Location = new System.Drawing.Point(499, 162);
-            this.txt_confpass.Multiline = true;
             this.txt_confpass.Name = "txt_confpass";
-            this.txt_confpass.Size = new System.Drawing.Size(159, 27);
+            this.txt_confpass.Size = new System.Drawing.Size(159, 26);
             this.txt_confpass.TabIndex = 86;
             // 
             // txt_pass
@@ -263,9 +262,8 @@
             this.txt_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_pass.ForeColor = System.Drawing.Color.Black;
             this.txt_pass.Location = new System.Drawing.Point(499, 132);
-            this.txt_pass.Multiline = true;
             this.txt_pass.Name = "txt_pass";
-            this.txt_pass.Size = new System.Drawing.Size(159, 27);
+            this.txt_pass.Size = new System.Drawing.Size(159, 26);
             this.txt_pass.TabIndex = 85;
             // 
             // txt_username
@@ -275,9 +273,8 @@
             this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_username.ForeColor = System.Drawing.Color.Black;
             this.txt_username.Location = new System.Drawing.Point(499, 99);
-            this.txt_username.Multiline = true;
             this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(159, 27);
+            this.txt_username.Size = new System.Drawing.Size(159, 26);
             this.txt_username.TabIndex = 84;
             // 
             // cb_usertype
@@ -301,9 +298,8 @@
             this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_email.ForeColor = System.Drawing.Color.Black;
             this.txt_email.Location = new System.Drawing.Point(162, 199);
-            this.txt_email.Multiline = true;
             this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(159, 27);
+            this.txt_email.Size = new System.Drawing.Size(159, 26);
             this.txt_email.TabIndex = 76;
             // 
             // label10
@@ -335,9 +331,8 @@
             this.txt_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_address.ForeColor = System.Drawing.Color.Black;
             this.txt_address.Location = new System.Drawing.Point(161, 132);
-            this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(159, 27);
+            this.txt_address.Size = new System.Drawing.Size(159, 26);
             this.txt_address.TabIndex = 3;
             // 
             // label6
@@ -383,9 +378,8 @@
             this.txt_fname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_fname.ForeColor = System.Drawing.Color.Black;
             this.txt_fname.Location = new System.Drawing.Point(161, 66);
-            this.txt_fname.Multiline = true;
             this.txt_fname.Name = "txt_fname";
-            this.txt_fname.Size = new System.Drawing.Size(159, 27);
+            this.txt_fname.Size = new System.Drawing.Size(159, 26);
             this.txt_fname.TabIndex = 1;
             // 
             // lbl_fname
@@ -407,9 +401,8 @@
             this.txt_lname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_lname.ForeColor = System.Drawing.Color.Black;
             this.txt_lname.Location = new System.Drawing.Point(161, 99);
-            this.txt_lname.Multiline = true;
             this.txt_lname.Name = "txt_lname";
-            this.txt_lname.Size = new System.Drawing.Size(159, 27);
+            this.txt_lname.Size = new System.Drawing.Size(159, 26);
             this.txt_lname.TabIndex = 2;
             // 
             // Staff_Add

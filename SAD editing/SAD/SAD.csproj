@@ -106,12 +106,6 @@
     <Compile Include="Product_Add.Designer.cs">
       <DependentUpon>Product_Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profiling.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Profiling.Designer.cs">
-      <DependentUpon>Profiling.cs</DependentUpon>
-    </Compile>
     <Compile Include="PurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,9 +197,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Product_Add.resx">
       <DependentUpon>Product_Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Profiling.resx">
-      <DependentUpon>Profiling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrder.resx">
       <DependentUpon>PurchaseOrder.cs</DependentUpon>

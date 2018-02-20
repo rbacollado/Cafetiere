@@ -31,7 +31,7 @@ namespace SAD
         {
             inventory();
         }
-
+        
         private void inventory()
         {
             String inventoryquery = "SELECT itemInvID, item_ID, name, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, itemExpiry, itemStockedIn FROM items " +
@@ -56,6 +56,7 @@ namespace SAD
             inventory_dtgv.Columns["itemType"].HeaderText = "Type";
             inventory_dtgv.Columns["itemExpiry"].HeaderText = "Expiration Date";
             inventory_dtgv.Columns["itemStockedIn"].HeaderText = "Date";
+            
         }
 
         public static int itemInvID;
@@ -168,7 +169,5 @@ namespace SAD
             stockin.Show();
             this.Hide();
         }
-
-        
     }
 }

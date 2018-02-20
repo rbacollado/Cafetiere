@@ -14,7 +14,6 @@ C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.MainMenu.resource
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Order.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product_Add.resources
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Profiling.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.PurchaseOrder.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.PurchaseOrder_create.resources
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Reports.resources

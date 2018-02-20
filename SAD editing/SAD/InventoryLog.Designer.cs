@@ -34,8 +34,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.inventory_log = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.datetime_filter = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_log)).BeginInit();
@@ -49,7 +49,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(-8, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 50);
+            this.panel1.Size = new System.Drawing.Size(800, 59);
             this.panel1.TabIndex = 61;
             // 
             // btn_close
@@ -57,11 +57,11 @@
             this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
             this.btn_close.FlatAppearance.BorderSize = 0;
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_close.Location = new System.Drawing.Point(694, 0);
+            this.btn_close.Location = new System.Drawing.Point(692, 0);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(71, 50);
+            this.btn_close.Size = new System.Drawing.Size(82, 59);
             this.btn_close.TabIndex = 64;
             this.btn_close.Text = "BACK";
             this.btn_close.UseVisualStyleBackColor = false;
@@ -72,7 +72,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(23, 11);
+            this.label3.Location = new System.Drawing.Point(23, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 24);
             this.label3.TabIndex = 12;
@@ -117,6 +117,14 @@
             this.panel3.Size = new System.Drawing.Size(729, 40);
             this.panel3.TabIndex = 63;
             // 
+            // datetime_filter
+            // 
+            this.datetime_filter.Location = new System.Drawing.Point(122, 12);
+            this.datetime_filter.Name = "datetime_filter";
+            this.datetime_filter.Size = new System.Drawing.Size(200, 20);
+            this.datetime_filter.TabIndex = 65;
+            this.datetime_filter.ValueChanged += new System.EventHandler(this.datetime_filter_ValueChanged);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -128,19 +136,11 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Filter Details:";
             // 
-            // datetime_filter
-            // 
-            this.datetime_filter.Location = new System.Drawing.Point(122, 12);
-            this.datetime_filter.Name = "datetime_filter";
-            this.datetime_filter.Size = new System.Drawing.Size(200, 20);
-            this.datetime_filter.TabIndex = 65;
-            this.datetime_filter.ValueChanged += new System.EventHandler(this.datetime_filter_ValueChanged);
-            // 
             // InventoryLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 628);
+            this.ClientSize = new System.Drawing.Size(760, 633);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
