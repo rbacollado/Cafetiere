@@ -96,13 +96,18 @@ namespace SAD
 
             product_data.Columns["pprice"].DefaultCellStyle.Format = "c";
 
-           
+            if (product_data.Rows.Count < 1)
+            {
+                MessageBox.Show("Products Unavailable" ,"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
                 productpanel.Visible = true;
                 productpanel.Enabled = true;
 
                 productpanel.Size = new Size(380, 421);
                 productpanel.Location = new Point(11, 160);
-            
+            }
         }
 
         public static int selected_user_id;

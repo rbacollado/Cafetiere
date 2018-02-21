@@ -60,3 +60,9 @@ C:\Users\mady\Source\Repos\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.Genera
 C:\Users\mady\Source\Repos\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
 C:\Users\mady\Source\Repos\Cafetiere\SAD editing\SAD\obj\Debug\SAD.exe
 C:\Users\mady\Source\Repos\Cafetiere\SAD editing\SAD\obj\Debug\SAD.pdb
+<<<<<<< HEAD
+C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csprojResolveAssemblyReference.cache
+C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.exe
+C:\Users\mmntmaulana\Documents\GitHub\Cafetiere\SAD editing\SAD\obj\Debug\SAD.pdb
+=======
+>>>>>>> 6503a5df9b3b79dda7eea4b3b9fc14c2b0264f36
