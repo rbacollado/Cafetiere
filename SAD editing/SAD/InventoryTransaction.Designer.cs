@@ -64,6 +64,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel_stockout = new System.Windows.Forms.Panel();
+            this.cmb_remarks = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txt_amount = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txt_quantity = new System.Windows.Forms.NumericUpDown();
@@ -494,6 +496,8 @@
             // 
             this.panel_stockout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(84)))), ((int)(((byte)(123)))));
             this.panel_stockout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_stockout.Controls.Add(this.cmb_remarks);
+            this.panel_stockout.Controls.Add(this.label3);
             this.panel_stockout.Controls.Add(this.txt_amount);
             this.panel_stockout.Controls.Add(this.label17);
             this.panel_stockout.Controls.Add(this.txt_quantity);
@@ -505,17 +509,41 @@
             this.panel_stockout.Controls.Add(this.label14);
             this.panel_stockout.Controls.Add(this.btn_SOBack);
             this.panel_stockout.Controls.Add(this.label5);
-            this.panel_stockout.Location = new System.Drawing.Point(1062, 206);
+            this.panel_stockout.Location = new System.Drawing.Point(738, 206);
             this.panel_stockout.Margin = new System.Windows.Forms.Padding(2);
             this.panel_stockout.Name = "panel_stockout";
-            this.panel_stockout.Size = new System.Drawing.Size(17, 23);
+            this.panel_stockout.Size = new System.Drawing.Size(341, 394);
             this.panel_stockout.TabIndex = 22;
             this.panel_stockout.Visible = false;
+            // 
+            // cmb_remarks
+            // 
+            this.cmb_remarks.FormattingEnabled = true;
+            this.cmb_remarks.Items.AddRange(new object[] {
+            "Damaged",
+            "Consumed by pests",
+            "Expired"});
+            this.cmb_remarks.Location = new System.Drawing.Point(159, 243);
+            this.cmb_remarks.Name = "cmb_remarks";
+            this.cmb_remarks.Size = new System.Drawing.Size(118, 21);
+            this.cmb_remarks.TabIndex = 228;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(23, 243);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 20);
+            this.label3.TabIndex = 227;
+            this.label3.Text = "Remarks";
             // 
             // txt_amount
             // 
             this.txt_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_amount.Location = new System.Drawing.Point(159, 167);
+            this.txt_amount.Location = new System.Drawing.Point(159, 159);
             this.txt_amount.Name = "txt_amount";
             this.txt_amount.Size = new System.Drawing.Size(55, 24);
             this.txt_amount.TabIndex = 226;
@@ -528,7 +556,7 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(28, 169);
+            this.label17.Location = new System.Drawing.Point(23, 161);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(71, 20);
             this.label17.TabIndex = 225;
@@ -555,7 +583,7 @@
             this.btn_stockout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_stockout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_stockout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_stockout.Location = new System.Drawing.Point(85, 266);
+            this.btn_stockout.Location = new System.Drawing.Point(73, 310);
             this.btn_stockout.Name = "btn_stockout";
             this.btn_stockout.Size = new System.Drawing.Size(174, 26);
             this.btn_stockout.TabIndex = 220;
@@ -567,7 +595,7 @@
             // 
             this.txt_unit.Enabled = false;
             this.txt_unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_unit.Location = new System.Drawing.Point(159, 201);
+            this.txt_unit.Location = new System.Drawing.Point(159, 193);
             this.txt_unit.Name = "txt_unit";
             this.txt_unit.Size = new System.Drawing.Size(55, 24);
             this.txt_unit.TabIndex = 219;
@@ -580,7 +608,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(28, 203);
+            this.label16.Location = new System.Drawing.Point(23, 195);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(42, 20);
             this.label16.TabIndex = 218;
@@ -592,7 +620,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(28, 127);
+            this.label15.Location = new System.Drawing.Point(19, 127);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(76, 20);
             this.label15.TabIndex = 216;
@@ -614,7 +642,7 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(28, 89);
+            this.label14.Location = new System.Drawing.Point(19, 88);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 20);
             this.label14.TabIndex = 214;
@@ -741,5 +769,7 @@
         private System.Windows.Forms.NumericUpDown txt_quantity;
         private System.Windows.Forms.TextBox txt_amount;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cmb_remarks;
+        private System.Windows.Forms.Label label3;
     }
 }

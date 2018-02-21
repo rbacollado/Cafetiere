@@ -68,7 +68,7 @@ namespace SAD
             {
                 logdate = DateTime.Parse(rdr["LastLog"].ToString());
 
-                logdate_lbl.Text = logdate.ToString("yyyy-MM-dd");
+                logdate_lbl.Text = logdate.ToString("MMM dd yyyy");
             }
             conn.Close();
         }
@@ -97,18 +97,18 @@ namespace SAD
 
         private void btn_orders_Click(object sender, EventArgs e)
         {
-            /*Order order = new Order();
+            Order order = new Order();
             order.prevForm = this;
             order.Show();
-            this.Hide();*/
+            this.Hide();
         }
         
         private void btn_product_Click(object sender, EventArgs e)
         {
-            /*Product product = new Product();
+            Product product = new Product();
             product.prevForm = this;
             product.Show();
-            this.Hide();*/
+            this.Hide();
         }
 
         private void report_btn_Click(object sender, EventArgs e)

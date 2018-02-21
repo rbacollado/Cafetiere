@@ -33,7 +33,7 @@ namespace SAD
         
         private void inventorylog()
         {
-            string logquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate , logtype FROM person"
+            string logquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate , logtype, remarks FROM person"
                               + " INNER JOIN staff ON person.personid = staff.person_personid"
                               + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid;";
             conn.Open();
@@ -51,6 +51,7 @@ namespace SAD
             inventory_log.Columns["quantity"].HeaderText = "Quantity";
             inventory_log.Columns["logdate"].HeaderText = "Date";
             inventory_log.Columns["logtype"].HeaderText = "Activity";
+            inventory_log.Columns["remarks"].HeaderText = "Remarks";
         }
 
         private void InventoryLog_Load(object sender, EventArgs e)
@@ -63,7 +64,7 @@ namespace SAD
         }
         private void datetime_filter_ValueChanged(object sender, EventArgs e)
         {
-            string filterquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate , logtype FROM person"
+            string filterquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate, logtype, remarks FROM person"
                             + " INNER JOIN staff ON person.personid = staff.person_personid"
                             + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid"
                             + " WHERE logdate LIKE '%" + datetime_filter.Text + "%' ;";

@@ -318,8 +318,8 @@ namespace SAD
                         conn.Close();
                     }
                     
-                    string inventorylogQuery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType) " +
-                                               "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + item_name + "'," + item_quantity + ", current_timestamp(), 'Stock in (Wet Market)' );";
+                    string inventorylogQuery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType,remarks) " +
+                                               "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + item_name + "'," + item_quantity + ", current_timestamp(), 'Stock in (Wet Market)', 'Stocked in by " + SAD.Login.DisplayUserDetails.name + "');";
                     conn.Open();
                     MySqlCommand comm_inventorylog = new MySqlCommand(inventorylogQuery, conn);
                     comm_inventorylog.ExecuteNonQuery();
