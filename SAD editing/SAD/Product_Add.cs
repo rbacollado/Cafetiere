@@ -156,22 +156,30 @@ namespace SAD
 
         public void categoryCmbData()
         {
-            String query_categories = "SELECT * FROM category";
-
-            MySqlCommand comm_categories = new MySqlCommand(query_categories, conn);
-            comm_categories.CommandText = query_categories;
-            conn.Open();
-            MySqlDataReader drd_categories = comm_categories.ExecuteReader();
-
             cb_category.Items.Clear();
-            while (drd_categories.Read())
-            {
-                cb_category.Items.Add(drd_categories["category_name"].ToString());
-            }
-            conn.Close();
+            string query = "SELECT category_id, category_name FROM category";
+            cb_category.DataSource = getData(query);
+            cb_category.DisplayMember = "category_name";
+            cb_category.ValueMember = "category_id";
+
+            cb_category_SelectedIndexChanged(null, null);
+        }
+
+        public DataTable getData(string query)
+        {
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(comm);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
         }
 
         private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
         }

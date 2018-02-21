@@ -52,7 +52,7 @@ namespace SAD
                 btn_product.BackColor = Color.Gray;
             }
 
-            logDate();
+            //logDate();
             
         }
 

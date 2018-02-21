@@ -175,6 +175,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(385, 222);
             this.panel5.TabIndex = 0;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // cb_category
             // 
@@ -184,6 +185,7 @@
             this.cb_category.Name = "cb_category";
             this.cb_category.Size = new System.Drawing.Size(157, 28);
             this.cb_category.TabIndex = 106;
+            this.cb_category.Text = "Select Category";
             this.cb_category.SelectedIndexChanged += new System.EventHandler(this.cb_category_SelectedIndexChanged);
             // 
             // comboBox1
@@ -336,7 +338,6 @@
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox cb_category;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.NumericUpDown nud_pquantity;
         private System.Windows.Forms.TextBox txt_pcost;
@@ -347,5 +348,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_lname;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.ComboBox cb_category;
     }
 }
