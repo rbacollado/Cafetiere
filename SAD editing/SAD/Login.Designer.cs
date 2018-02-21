@@ -77,10 +77,9 @@
             this.txt_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_pass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
             this.txt_pass.Location = new System.Drawing.Point(47, 70);
-            this.txt_pass.Multiline = true;
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.PasswordChar = '●';
-            this.txt_pass.Size = new System.Drawing.Size(211, 28);
+            this.txt_pass.Size = new System.Drawing.Size(211, 29);
             this.txt_pass.TabIndex = 17;
             this.txt_pass.Text = "********";
             this.txt_pass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -92,7 +91,6 @@
             this.txt_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
             this.txt_user.Location = new System.Drawing.Point(47, 35);
-            this.txt_user.Multiline = true;
             this.txt_user.Name = "txt_user";
             this.txt_user.Size = new System.Drawing.Size(211, 29);
             this.txt_user.TabIndex = 15;
@@ -149,6 +147,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
+          
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

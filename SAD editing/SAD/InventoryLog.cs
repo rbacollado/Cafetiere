@@ -22,13 +22,66 @@ namespace SAD
         {
             InitializeComponent();
             conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root;");
+
         }
 
         private void btn_close_Click(object sender, EventArgs e)
         {
             prevForm.Show();
             this.Close();
+        }
+        
+        private void inventorylog()
+        {
+            string logquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate , logtype FROM person"
+                              + " INNER JOIN staff ON person.personid = staff.person_personid"
+                              + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid;";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(logquery, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt_log = new DataTable();
+            adp.Fill(dt_log);
 
+            inventory_log.DataSource = dt_log;
+
+            inventory_log.Columns["logid"].Visible = false;
+            inventory_log.Columns["StaffName"].HeaderText = "Staff Name";
+            inventory_log.Columns["itemName"].HeaderText = "Item";
+            inventory_log.Columns["quantity"].HeaderText = "Quantity";
+            inventory_log.Columns["logdate"].HeaderText = "Date";
+            inventory_log.Columns["logtype"].HeaderText = "Activity";
+        }
+
+        private void InventoryLog_Load(object sender, EventArgs e)
+        {
+            inventorylog();
+
+            datetime_filter.Format = DateTimePickerFormat.Custom;
+            datetime_filter.CustomFormat = "yyyy-MM-dd";
+
+        }
+        private void datetime_filter_ValueChanged(object sender, EventArgs e)
+        {
+            string filterquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate , logtype FROM person"
+                            + " INNER JOIN staff ON person.personid = staff.person_personid"
+                            + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid"
+                            + " WHERE logdate LIKE '%" + datetime_filter.Text + "%' ;";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(filterquery, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt_filter = new DataTable();
+            adp.Fill(dt_filter);
+
+            inventory_log.DataSource = dt_filter;
+
+            inventory_log.Columns["logid"].Visible = false;
+            inventory_log.Columns["StaffName"].HeaderText = "Staff Name";
+            inventory_log.Columns["itemName"].HeaderText = "Item";
+            inventory_log.Columns["quantity"].HeaderText = "Quantity";
+            inventory_log.Columns["logdate"].HeaderText = "Date";
+            inventory_log.Columns["logtype"].HeaderText = "Activity";
         }
     }
 }

@@ -47,8 +47,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-45, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(711, 59);
+            this.panel1.Size = new System.Drawing.Size(660, 59);
             this.panel1.TabIndex = 100;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button1
             // 
@@ -72,13 +73,14 @@
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.Black;
-            this.btn_add.Location = new System.Drawing.Point(425, 20);
+            this.btn_add.Location = new System.Drawing.Point(417, 20);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(109, 25);
             this.btn_add.TabIndex = 86;
             this.btn_add.Text = "Add Product";
             this.btn_add.UseVisualStyleBackColor = false;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click_1);
+            this.btn_add.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_add_MouseClick);
             // 
             // Back
             // 

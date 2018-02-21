@@ -42,6 +42,9 @@ namespace SAD
             DateTime now = DateTime.Today;
             date.Text = now.ToString("MM/dd/yy");
 
+            categoryCmbData();
+
+
         }
 
         public void load_products()
@@ -77,7 +80,7 @@ namespace SAD
 
         private void prod_MouseClick(object sender, MouseEventArgs e)
         {
-            /**String query = "SELECT productID, pname, pprice, pquantity FROM products";
+            String query = "SELECT productID, pname, pprice, pquantity FROM products";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -91,15 +94,20 @@ namespace SAD
             product_data.Columns["pprice"].HeaderText = "Price";
             product_data.Columns["pquantity"].HeaderText = "Quantity";
 
-            product_data.Columns["pprice"].DefaultCellStyle.Format = "c";**/
+            product_data.Columns["pprice"].DefaultCellStyle.Format = "c";
 
-           
+            if (product_data.Rows.Count < 1)
+            {
+                MessageBox.Show("Products Unavailable" ,"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
                 productpanel.Visible = true;
                 productpanel.Enabled = true;
 
                 productpanel.Size = new Size(380, 421);
                 productpanel.Location = new Point(11, 160);
-            
+            }
         }
 
         public static int selected_user_id;
@@ -393,36 +401,65 @@ namespace SAD
             }
         }
 
-        private void prodname_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void product_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void productpanel_Paint(object sender, PaintEventArgs e)
         {
-            categoryCmbData();
+
         }
 
-        public void categoryCmbData()
+       public void categoryCmbData()
         {
-            String query_categories = "SELECT * FROM category";
-
-            MySqlCommand comm_categories = new MySqlCommand(query_categories, conn);
-            comm_categories.CommandText = query_categories;
-            conn.Open();
-            MySqlDataReader drd_categories = comm_categories.ExecuteReader();
-
             cb_category.Items.Clear();
-            while (drd_categories.Read())
-            {
-                cb_category.Items.Add(drd_categories["category_name"].ToString());
-            }
-            conn.Close();
+            string query = "SELECT category_id, category_name FROM category";
+            cb_category.DataSource = getData(query);
+            cb_category.DisplayMember = "category_name";
+            cb_category.ValueMember = "category_id";
+
+            cb_category_SelectedIndexChanged(null, null);
         }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public DataTable getData(string query)
+        {
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(comm);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int val;
+            Int32.TryParse(cb_category.SelectedValue.ToString(), out val);
+            string query = "SELECT productID, pname, pprice, pquantity FROM products, category WHERE category_category_id = " + val + " AND category.category_id = products.category_category_id";
+            product_data.DataSource = getData(query);
+
+        }
+
+
+        /*<<<<<<< HEAD
+=======
+
+       private void prodname_TextChanged(object sender, EventArgs e)
+       {
+
+       }
+
+       private void product_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       {
+
+       }
+
+       private void productpanel_Paint(object sender, PaintEventArgs e)
+       {
+           categoryCmbData();
+       }
+
+      
+>>>>>>> 5bb68333316c59fd4e45917809e0f1bba3c15c49*/
     }
 }

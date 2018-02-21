@@ -14,7 +14,7 @@ namespace SAD
     public partial class Supplier : Form
     {
         MySqlConnection conn;
-        public Profiling prevForm { get; set; }
+        public Form prevForm { get; set; }
 
         public Supplier()
         {
@@ -95,7 +95,7 @@ namespace SAD
                 selected_data.selected_user_id = selected_id;
             }
 
-            string query = "SELECT firstname, lastname, purchaseOrdeDate, deliveryDate, deliveryStatus FROM person " +
+            string query = "SELECT CONCAT(firstname,' ' ,lastname) as ContactPerson, purchaseOrderDate FROM person " +
                             "INNER JOIN supplier on person.personid = supplier.person_personid " +
                             "INNER JOIN purchaseorder on supplier.supplierID = purchaseorder.supplier_supplierID " +
                             "WHERE personid = " + selected_data.selected_user_id + " ";

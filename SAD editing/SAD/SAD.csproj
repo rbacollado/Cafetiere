@@ -94,9 +94,7 @@
     <Compile Include="Product_Add.Designer.cs">
       <DependentUpon>Product_Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profiling.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Profiling.cs" />
     <Compile Include="Profiling.Designer.cs">
       <DependentUpon>Profiling.cs</DependentUpon>
     </Compile>

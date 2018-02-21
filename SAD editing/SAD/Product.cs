@@ -26,8 +26,10 @@ namespace SAD
         private void Product_Load(object sender, EventArgs e)
         {
             loadAll();
-         
         }
+
+       
+        
 
         private void loadAll()
         {
@@ -66,7 +68,7 @@ namespace SAD
             this.Close();
         }
 
-        private int selected_product_id;
+       // private int selected_product_id;
        /* private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -98,6 +100,16 @@ namespace SAD
             addcategory.prevForm = this;
             addcategory.Show();
             this.Hide();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_add_MouseClick(object sender, MouseEventArgs e)
+        {
+           
         }
     }
 }
