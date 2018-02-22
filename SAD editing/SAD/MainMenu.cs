@@ -101,6 +101,8 @@ namespace SAD
             order.prevForm = this;
             order.Show();
             this.Hide();
+
+
         }
         
         private void btn_product_Click(object sender, EventArgs e)

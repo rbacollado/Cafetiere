@@ -41,7 +41,7 @@
             this.dinein = new System.Windows.Forms.RadioButton();
             this.paymentpanel = new System.Windows.Forms.Panel();
             this.discountTxt = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.discountpanel = new System.Windows.Forms.Label();
             this.pay = new System.Windows.Forms.Button();
             this.backbtnSales = new System.Windows.Forms.Button();
             this.changetxt = new System.Windows.Forms.TextBox();
@@ -75,6 +75,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.checkout = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cb_discountType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -126,9 +128,9 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel6.Controls.Add(this.productpanel);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.dinein);
-            this.panel6.Controls.Add(this.paymentpanel);
             this.panel6.Controls.Add(this.takeout);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.btn_clear);
@@ -233,8 +235,10 @@
             // paymentpanel
             // 
             this.paymentpanel.BackColor = System.Drawing.Color.Brown;
+            this.paymentpanel.Controls.Add(this.cb_discountType);
+            this.paymentpanel.Controls.Add(this.label15);
             this.paymentpanel.Controls.Add(this.discountTxt);
-            this.paymentpanel.Controls.Add(this.label8);
+            this.paymentpanel.Controls.Add(this.discountpanel);
             this.paymentpanel.Controls.Add(this.pay);
             this.paymentpanel.Controls.Add(this.backbtnSales);
             this.paymentpanel.Controls.Add(this.changetxt);
@@ -244,33 +248,36 @@
             this.paymentpanel.Controls.Add(this.label10);
             this.paymentpanel.Controls.Add(this.label9);
             this.paymentpanel.Controls.Add(this.label6);
-            this.paymentpanel.Location = new System.Drawing.Point(350, 434);
+            this.paymentpanel.Location = new System.Drawing.Point(430, 160);
             this.paymentpanel.Name = "paymentpanel";
-            this.paymentpanel.Size = new System.Drawing.Size(35, 56);
+            this.paymentpanel.Size = new System.Drawing.Size(482, 405);
             this.paymentpanel.TabIndex = 208;
             this.paymentpanel.Visible = false;
+            this.paymentpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paymentpanel_Paint);
             // 
             // discountTxt
             // 
+            this.discountTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.discountTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discountTxt.Location = new System.Drawing.Point(186, 128);
+            this.discountTxt.Location = new System.Drawing.Point(184, 157);
             this.discountTxt.Name = "discountTxt";
-            this.discountTxt.Size = new System.Drawing.Size(126, 29);
+            this.discountTxt.Size = new System.Drawing.Size(171, 29);
             this.discountTxt.TabIndex = 93;
             this.discountTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.discountTxt.TextChanged += new System.EventHandler(this.discountTxt_TextChanged);
+            this.discountTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.discountTxt_KeyPress);
             // 
-            // label8
+            // discountpanel
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(18, 128);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(147, 25);
-            this.label8.TabIndex = 92;
-            this.label8.Text = "Discount (%)";
+            this.discountpanel.AutoSize = true;
+            this.discountpanel.BackColor = System.Drawing.Color.Transparent;
+            this.discountpanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountpanel.ForeColor = System.Drawing.Color.White;
+            this.discountpanel.Location = new System.Drawing.Point(16, 161);
+            this.discountpanel.Name = "discountpanel";
+            this.discountpanel.Size = new System.Drawing.Size(147, 25);
+            this.discountpanel.TabIndex = 92;
+            this.discountpanel.Text = "Discount (%)";
             // 
             // pay
             // 
@@ -278,7 +285,7 @@
             this.pay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pay.ForeColor = System.Drawing.Color.Black;
-            this.pay.Location = new System.Drawing.Point(91, 327);
+            this.pay.Location = new System.Drawing.Point(105, 287);
             this.pay.Name = "pay";
             this.pay.Size = new System.Drawing.Size(91, 36);
             this.pay.TabIndex = 91;
@@ -292,7 +299,7 @@
             this.backbtnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backbtnSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backbtnSales.ForeColor = System.Drawing.Color.Black;
-            this.backbtnSales.Location = new System.Drawing.Point(217, 327);
+            this.backbtnSales.Location = new System.Drawing.Point(226, 287);
             this.backbtnSales.Name = "backbtnSales";
             this.backbtnSales.Size = new System.Drawing.Size(93, 36);
             this.backbtnSales.TabIndex = 90;
@@ -304,18 +311,18 @@
             // 
             this.changetxt.Enabled = false;
             this.changetxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changetxt.Location = new System.Drawing.Point(186, 218);
+            this.changetxt.Location = new System.Drawing.Point(184, 240);
             this.changetxt.Name = "changetxt";
-            this.changetxt.Size = new System.Drawing.Size(126, 29);
+            this.changetxt.Size = new System.Drawing.Size(171, 29);
             this.changetxt.TabIndex = 89;
             this.changetxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // amountPaid
             // 
             this.amountPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountPaid.Location = new System.Drawing.Point(186, 173);
+            this.amountPaid.Location = new System.Drawing.Point(184, 199);
             this.amountPaid.Name = "amountPaid";
-            this.amountPaid.Size = new System.Drawing.Size(126, 29);
+            this.amountPaid.Size = new System.Drawing.Size(171, 29);
             this.amountPaid.TabIndex = 88;
             this.amountPaid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.amountPaid.TextChanged += new System.EventHandler(this.amountPaid_TextChanged);
@@ -327,7 +334,7 @@
             this.totalDue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalDue.Location = new System.Drawing.Point(184, 82);
             this.totalDue.Name = "totalDue";
-            this.totalDue.Size = new System.Drawing.Size(126, 29);
+            this.totalDue.Size = new System.Drawing.Size(171, 29);
             this.totalDue.TabIndex = 87;
             this.totalDue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -337,7 +344,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(18, 218);
+            this.label11.Location = new System.Drawing.Point(16, 244);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(93, 25);
             this.label11.TabIndex = 79;
@@ -349,7 +356,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(18, 173);
+            this.label10.Location = new System.Drawing.Point(16, 206);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(143, 25);
             this.label10.TabIndex = 78;
@@ -361,7 +368,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(16, 82);
+            this.label9.Location = new System.Drawing.Point(16, 88);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 25);
             this.label9.TabIndex = 77;
@@ -373,7 +380,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(-214, 12);
+            this.label6.Location = new System.Drawing.Point(-202, 13);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(1044, 33);
             this.label6.TabIndex = 75;
@@ -544,9 +551,9 @@
             this.productpanel.Controls.Add(this.label14);
             this.productpanel.Controls.Add(this.product_data);
             this.productpanel.Controls.Add(this.label7);
-            this.productpanel.Location = new System.Drawing.Point(494, 148);
+            this.productpanel.Location = new System.Drawing.Point(135, 133);
             this.productpanel.Name = "productpanel";
-            this.productpanel.Size = new System.Drawing.Size(390, 442);
+            this.productpanel.Size = new System.Drawing.Size(175, 180);
             this.productpanel.TabIndex = 86;
             this.productpanel.Visible = false;
             this.productpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.productpanel_Paint);
@@ -689,13 +696,38 @@
             this.panel2.Size = new System.Drawing.Size(318, 68);
             this.panel2.TabIndex = 210;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(16, 124);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(170, 25);
+            this.label15.TabIndex = 96;
+            this.label15.Text = "Discount Type:";
+            // 
+            // cb_discountType
+            // 
+            this.cb_discountType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_discountType.FormattingEnabled = true;
+            this.cb_discountType.Items.AddRange(new object[] {
+            "Senior Citizen",
+            "PWD"});
+            this.cb_discountType.Location = new System.Drawing.Point(184, 118);
+            this.cb_discountType.Name = "cb_discountType";
+            this.cb_discountType.Size = new System.Drawing.Size(171, 32);
+            this.cb_discountType.TabIndex = 210;
+            this.cb_discountType.SelectedIndexChanged += new System.EventHandler(this.cb_discountType_SelectedIndexChanged);
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(782, 615);
-            this.Controls.Add(this.productpanel);
+            this.ClientSize = new System.Drawing.Size(1011, 615);
+            this.Controls.Add(this.paymentpanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel6);
@@ -774,8 +806,10 @@
         private System.Windows.Forms.RadioButton takeout;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox discountTxt;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cb_category;
+        private System.Windows.Forms.Label discountpanel;
         private System.Windows.Forms.Label label14;
+        public System.Windows.Forms.ComboBox cb_category;
+        private System.Windows.Forms.Label label15;
+        public System.Windows.Forms.ComboBox cb_discountType;
     }
 }
