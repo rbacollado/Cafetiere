@@ -88,10 +88,36 @@ namespace SAD
 
         private void btn_add_Click_1(object sender, EventArgs e)
         {
+            
+            String query = "Select * from Category";
+            conn.Open();
+
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            
             Product_Add addproduct = new Product_Add();
-            addproduct.prevForm = this;
-            addproduct.Show();
-            this.Hide();
+            if (dt != null)
+            {
+
+                addproduct.Show();
+                addproduct.prevForm = this;
+                this.Hide();
+            }
+            else
+            {
+                
+
+                MessageBox.Show("No Category Found! Please add some categories first!");
+                Category_Add add = new Category_Add();
+                add.Show();
+                add.prevForm = this;
+                this.Hide();
+            }
+            
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

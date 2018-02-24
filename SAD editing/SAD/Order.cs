@@ -20,14 +20,19 @@ namespace SAD
         public Order()
         {
             InitializeComponent();
-            conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root;"); 
+            conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root;");
+
+            
         }
        
+
 
         DataTable order = new DataTable();
 
         private void Order_Load(object sender, EventArgs e)
         {
+           
+
             encoderLbl.Text = SAD.Login.DisplayUserDetails.name;
             encoderPos.Text = SAD.Login.DisplayUserDetails.usertype;
          
@@ -43,6 +48,10 @@ namespace SAD
             date.Text = now.ToString("MM/dd/yy");
 
             categoryCmbData();
+
+            discountTxt.BackColor = Color.Gray;
+            discountTxt.Enabled = false;
+
 
 
         }
@@ -100,9 +109,9 @@ namespace SAD
                 productpanel.Visible = true;
                 productpanel.Enabled = true;
 
-                productpanel.Size = new Size(380, 421);
-                productpanel.Location = new Point(11, 160);
-            
+                productpanel.Size = new Size(380, 441);
+                productpanel.Location = new Point(12, 160);
+
         }
 
         public static int selected_user_id;
@@ -282,7 +291,7 @@ namespace SAD
                 takeout.Visible = false;
 
                 paymentpanel.Size = new Size(380, 441);
-                paymentpanel.Location = new Point(0, 97);
+                paymentpanel.Location = new Point(12, 160);
             }
             else
             {
@@ -349,6 +358,9 @@ namespace SAD
 
         private void pay_Click(object sender, EventArgs e)
         {
+
+            
+
             DialogResult verify_payment;
 
             verify_payment = MessageBox.Show("Are you sure?", "Verification", MessageBoxButtons.YesNo);
@@ -356,9 +368,12 @@ namespace SAD
             if (verify_payment == DialogResult.Yes)
             {
                 
-                string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderDiscount)" 
+                string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderDiscount, orderDiscountType)" 
                         + " VALUES((SELECT staff.staffid FROM staff INNER JOIN person ON person.personid = staff.person_personid AND CONCAT(person.firstname, ' ' , person.lastname) LIKE '%" + SAD.Login.DisplayUserDetails.name + "%'), " 
-                        + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + double.Parse(discountTxt.Text) + "')";
+                        + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + double.Parse(discountTxt.Text) + "','" + cb_discountType.Text + "')";
+
+               
+
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query_order, conn);
                 comm.ExecuteNonQuery();
@@ -435,6 +450,30 @@ namespace SAD
             string query = "SELECT productID, pname, pprice, pquantity FROM products, category WHERE category_category_id = " + val + " AND category.category_id = products.category_category_id";
             product_data.DataSource = getData(query);
 
+        }
+
+       
+
+        private void paymentpanel_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void cb_discountType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            
+                discountTxt.BackColor = Color.White;
+                discountTxt.Enabled = true;
+        }
+
+        private void discountTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
         }
 
 
