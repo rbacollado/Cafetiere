@@ -244,9 +244,9 @@
             this.paymentpanel.Controls.Add(this.label10);
             this.paymentpanel.Controls.Add(this.label9);
             this.paymentpanel.Controls.Add(this.label6);
-            this.paymentpanel.Location = new System.Drawing.Point(350, 434);
+            this.paymentpanel.Location = new System.Drawing.Point(48, 63);
             this.paymentpanel.Name = "paymentpanel";
-            this.paymentpanel.Size = new System.Drawing.Size(35, 56);
+            this.paymentpanel.Size = new System.Drawing.Size(337, 427);
             this.paymentpanel.TabIndex = 208;
             this.paymentpanel.Visible = false;
             // 

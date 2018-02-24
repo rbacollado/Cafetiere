@@ -41,6 +41,9 @@ namespace SAD
 
             iExpiry_txt.Format = DateTimePickerFormat.Custom;
             iExpiry_txt.CustomFormat = "yyyy-MM-dd";
+
+            itemload();
+
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -64,22 +67,7 @@ namespace SAD
 
         private void iName_txt_MouseClick_1(object sender, MouseEventArgs e)
         {
-            String queryitems = "SELECT itemsID, name, price, unit, amount, expirable FROM items ";
-
-            conn.Open();
-            MySqlCommand commitems = new MySqlCommand(queryitems, conn);
-            MySqlDataAdapter adpitems = new MySqlDataAdapter(commitems);
-            conn.Close();
-            DataTable dtitems = new DataTable();
-            adpitems.Fill(dtitems);
-
-            item_data.DataSource = dtitems;
-            item_data.Columns["itemsID"].Visible = false;
-            item_data.Columns["name"].HeaderText = "Name";
-            item_data.Columns["price"].HeaderText = "Price";
-            item_data.Columns["unit"].HeaderText = "Unit";
-            item_data.Columns["amount"].HeaderText = "Amount";
-            item_data.Columns["expirable"].HeaderText = "Expirable";
+            
 
             if (item_data.Rows.Count < 1)
             {
@@ -95,12 +83,36 @@ namespace SAD
                 btn_remove.Visible = false;
                 item_panel.Visible = true;
                 item_panel.Enabled = true;
-                item_panel.Size = new Size(402, 432);
-                item_panel.Location = new Point(1, 124);
+                item_panel.Size = new Size(495, 383);
+                item_panel.Location = new Point(18, 124);
+
+                item_data.Columns["name"].Width = 160;
+                item_data.Columns["price"].Width = 80;
+                
             }
         }
 
-        
+        public void itemload()
+        {
+            String queryitems = "SELECT itemsID, name, price, unit, amount, expirable FROM items ";
+
+            conn.Open();
+            MySqlCommand commitems = new MySqlCommand(queryitems, conn);
+            MySqlDataAdapter adpitems = new MySqlDataAdapter(commitems);
+            conn.Close();
+            DataTable dtitems = new DataTable();
+            adpitems.Fill(dtitems);
+            
+            item_data.DataSource = dtitems;
+            item_data.Columns["itemsID"].Visible = false;
+            item_data.Columns["name"].HeaderText = "Name";
+            item_data.Columns["price"].HeaderText = "Price";
+            item_data.Columns["unit"].HeaderText = "Unit";
+            item_data.Columns["amount"].HeaderText = "Amount";
+            item_data.Columns["expirable"].HeaderText = "Expirable";
+
+           
+        }
 
         public int item_idselected;
         private void item_data_CellClick(object sender, DataGridViewCellEventArgs e)

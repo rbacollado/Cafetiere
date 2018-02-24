@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,17 +30,41 @@ namespace SAD
 
         private void InventoryTransaction_Load(object sender, EventArgs e)
         {
-            inventory();
+            inventory_status();
+            loadTobeRemoved();
+           
+            DateTime now = DateTime.Today;
+            date_lbl.Text = now.ToString("MM-dd-yyyy");
+
         }
-        
-        private void inventory()
+
+        public void item_expires()
         {
+            foreach (DataGridViewRow row in inventory_dtgv.Rows)
+            {
+               
+                DateTime  expired = DateTime.Parse(row.Cells[9].Value.ToString());
+                DateTime now = DateTime.Now;
+
+                MessageBox.Show(expired.ToString());
+
+                if (now > expired)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void inventory_status()
+        {
+
             String inventoryquery = "SELECT itemInvID, item_ID, name, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, itemExpiry, itemStockedIn FROM items " +
                                     "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID;";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(inventoryquery, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
+
             DataTable dt_log = new DataTable();
             adp.Fill(dt_log);
 
@@ -56,6 +81,19 @@ namespace SAD
             inventory_dtgv.Columns["itemType"].HeaderText = "Type";
             inventory_dtgv.Columns["itemExpiry"].HeaderText = "Expiration Date";
             inventory_dtgv.Columns["itemStockedIn"].HeaderText = "Date";
+
+            foreach (DataGridViewRow row in inventory_dtgv.Rows)
+            {
+                //MessageBox.Show(row.Cells["itemExpiry"].Value.ToString());
+                DateTime dt = DateTime.ParseExact(date_lbl.Text.ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+
+                string now = dt.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
+
+                /*if (now > row.Cells["itemExpiry"].Value.ToString())
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }*/
+            }
             
         }
 
@@ -101,7 +139,7 @@ namespace SAD
         {
             if (cmb_remarks.Text == "")
             {
-                MessageBox.Show("");
+                MessageBox.Show("Please select a remark.");
             }
             else
             {
@@ -113,7 +151,7 @@ namespace SAD
                 conn.Close();
 
 
-                String updateAvail = "UPDATE items_inventory SET itemStatus = 'Unavailable' WHERE itemQuantity <= 0;";
+                String updateAvail = "UPDATE items_inventory SET itemStatus = 'Unavailable' WHERE itemQuantity = 0;";
 
                 conn.Open();
                 MySqlCommand comm_Avail = new MySqlCommand(updateAvail, conn);
@@ -121,13 +159,14 @@ namespace SAD
                 conn.Close();
 
                 String updateLogquery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType,remarks) " +
-                                                   "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + txt_name.Text + "'," + txt_quantity.Text + ", current_timestamp(), 'Stock out(Manual)', '" + cmb_remarks.Text + "' );";
+                                                    "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + txt_name.Text + "'," + txt_quantity.Text + ", current_timestamp(), 'Stock out(Manual)', '" + cmb_remarks.Text + "' );";
                 conn.Open();
                 MySqlCommand comm_inventorylog = new MySqlCommand(updateLogquery, conn);
                 comm_inventorylog.ExecuteNonQuery();
                 conn.Close();
 
-                inventory();
+                inventory_status();
+                
             }
             
         }
@@ -138,7 +177,7 @@ namespace SAD
             panel_stockout.Enabled = true;
             panel_stockout.Size = new Size(341, 353);
             panel_stockout.Location = new Point(738, 206);
-            loadTobeRemoved();
+            
         }
         
         private void btn_SOBack_Click(object sender, EventArgs e)

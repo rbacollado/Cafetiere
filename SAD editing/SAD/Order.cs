@@ -252,7 +252,9 @@ namespace SAD
                     total();
                 
                 }
-            }catch (Exception exception)
+
+            }
+            catch (Exception exception)
             {
                 MessageBox.Show("An error has occured. Please Try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
