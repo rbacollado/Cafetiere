@@ -39,7 +39,7 @@ namespace SAD
         {
             string user = txt_user.Text;
             string pass = txt_pass.Text;
-            string query = "SELECT staffid, username, password, firstname, lastname, position FROM staff, person WHERE username = '" + user + "' AND password = '" + pass + "' AND person.personid = staff.person_personid";
+            string query = "SELECT staffid, username, password, firstname, lastname, position FROM staff, person WHERE username = '" + user + "' AND password = '" + pass + "' AND person.personid = staff.person_personid AND status LIKE 'Active'";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);

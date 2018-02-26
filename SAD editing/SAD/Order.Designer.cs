@@ -248,15 +248,10 @@
             this.paymentpanel.Controls.Add(this.label10);
             this.paymentpanel.Controls.Add(this.label9);
             this.paymentpanel.Controls.Add(this.label6);
-<<<<<<< HEAD
+
             this.paymentpanel.Location = new System.Drawing.Point(48, 63);
             this.paymentpanel.Name = "paymentpanel";
             this.paymentpanel.Size = new System.Drawing.Size(337, 427);
-=======
-            this.paymentpanel.Location = new System.Drawing.Point(430, 160);
-            this.paymentpanel.Name = "paymentpanel";
-            this.paymentpanel.Size = new System.Drawing.Size(482, 405);
->>>>>>> 95ae9aa2da638373b594be45fa6fe46c0929e151
             this.paymentpanel.TabIndex = 208;
             this.paymentpanel.Visible = false;
             this.paymentpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paymentpanel_Paint);

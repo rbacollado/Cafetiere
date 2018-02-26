@@ -27,33 +27,88 @@ namespace SAD
 
         }
 
-
         private void InventoryTransaction_Load(object sender, EventArgs e)
         {
+            this.inventory_dtgv.ClearSelection();
             inventory_status();
             loadTobeRemoved();
-           
+            //item_expires();
+
             DateTime now = DateTime.Today;
             date_lbl.Text = now.ToString("MM-dd-yyyy");
-
         }
 
-        public void item_expires()
+        private void inventory_dtgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            foreach (DataGridViewRow row in inventory_dtgv.Rows)
+            String query_expired = "SELECT itemInvID, item_ID, name, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, itemExpiry, itemStockedIn FROM items " +
+                                  "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID AND itemStatus = 'Available' AND itemType = 'Ingredient'; ";
+
+            MySqlCommand comm_expired = new MySqlCommand(query_expired, conn);
+            comm_expired.CommandText = query_expired;
+
+            conn.Open();
+
+            MySqlDataReader drd_expire = comm_expired.ExecuteReader();
+
+            while (drd_expire.Read())
             {
-               
-                DateTime  expired = DateTime.Parse(row.Cells[9].Value.ToString());
-                DateTime now = DateTime.Now;
+                string item_expirydate = drd_expire["itemExpiry"].ToString();
+                string item_type = drd_expire["itemType"].ToString();
 
-                MessageBox.Show(expired.ToString());
+                DateTime now = DateTime.Now.Date;
 
-                if (now > expired)
+                if (item_type != "Non-ingredient")
                 {
-                    row.DefaultCellStyle.BackColor = Color.Red;
+
+                    for (int i = 0; i < inventory_dtgv.Rows.Count - 1; i++)
+                    {
+                        if (now > DateTime.Parse(item_expirydate))
+                        {
+                            inventory_dtgv.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                        }
+                    }
+
                 }
             }
+            conn.Close();
         }
+        /*public void item_expires()
+        {
+            String query_expired = "SELECT itemInvID, item_ID, name, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, itemExpiry, itemStockedIn FROM items " +
+                                   "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID AND itemStatus = 'Available' AND itemType = 'Ingredient'; ";
+
+            MySqlCommand comm_expired = new MySqlCommand(query_expired, conn);
+            comm_expired.CommandText = query_expired;
+
+            conn.Open();
+
+            MySqlDataReader drd_expire = comm_expired.ExecuteReader();
+
+            while (drd_expire.Read())
+            {
+                string item_expirydate = drd_expire["itemExpiry"].ToString();
+                string item_type = drd_expire["itemType"].ToString();
+
+                DateTime now = DateTime.Now.Date;
+
+                if (item_type != "Non-ingredient")
+                {
+                    MessageBox.Show(item_expirydate.ToString(), "Expire");
+                    MessageBox.Show(now.ToString(), "Now");
+
+                    for (int i = 0; i < inventory_dtgv.Rows.Count - 1; i++)
+                    {
+                        if ( now > DateTime.Parse(item_expirydate))
+                        {
+                            inventory_dtgv.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                        }
+                    }
+
+                }
+                
+            }
+            conn.Close();   
+        }*/
 
         private void inventory_status()
         {
@@ -62,6 +117,7 @@ namespace SAD
                                     "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID;";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(inventoryquery, conn);
+            comm.CommandText = inventoryquery;
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
 
@@ -82,18 +138,6 @@ namespace SAD
             inventory_dtgv.Columns["itemExpiry"].HeaderText = "Expiration Date";
             inventory_dtgv.Columns["itemStockedIn"].HeaderText = "Date";
 
-            foreach (DataGridViewRow row in inventory_dtgv.Rows)
-            {
-                //MessageBox.Show(row.Cells["itemExpiry"].Value.ToString());
-                DateTime dt = DateTime.ParseExact(date_lbl.Text.ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-
-                string now = dt.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
-
-                /*if (now > row.Cells["itemExpiry"].Value.ToString())
-                {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                }*/
-            }
             
         }
 
@@ -215,5 +259,7 @@ namespace SAD
             stockin.Show();
             this.Hide();
         }
+
+        
     }
 }

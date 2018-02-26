@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.date_lbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -77,7 +78,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btn_SOBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.date_lbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -104,6 +104,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1228, 58);
             this.panel1.TabIndex = 0;
+            // 
+            // date_lbl
+            // 
+            this.date_lbl.AutoSize = true;
+            this.date_lbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.date_lbl.Location = new System.Drawing.Point(925, 20);
+            this.date_lbl.Name = "date_lbl";
+            this.date_lbl.Size = new System.Drawing.Size(113, 25);
+            this.date_lbl.TabIndex = 4;
+            this.date_lbl.Text = "date_now";
             // 
             // label1
             // 
@@ -164,6 +175,7 @@
             this.inventory_dtgv.Size = new System.Drawing.Size(701, 503);
             this.inventory_dtgv.TabIndex = 206;
             this.inventory_dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_dtgv_CellClick);
+            this.inventory_dtgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.inventory_dtgv_CellFormatting);
             // 
             // panel8
             // 
@@ -511,15 +523,16 @@
             this.panel_stockout.Controls.Add(this.label14);
             this.panel_stockout.Controls.Add(this.btn_SOBack);
             this.panel_stockout.Controls.Add(this.label5);
-            this.panel_stockout.Location = new System.Drawing.Point(738, 415);
+            this.panel_stockout.Location = new System.Drawing.Point(738, 183);
             this.panel_stockout.Margin = new System.Windows.Forms.Padding(2);
             this.panel_stockout.Name = "panel_stockout";
-            this.panel_stockout.Size = new System.Drawing.Size(26, 73);
+            this.panel_stockout.Size = new System.Drawing.Size(332, 305);
             this.panel_stockout.TabIndex = 22;
             this.panel_stockout.Visible = false;
             // 
             // cmb_remarks
             // 
+            this.cmb_remarks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_remarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_remarks.FormattingEnabled = true;
             this.cmb_remarks.Items.AddRange(new object[] {
@@ -677,17 +690,6 @@
             this.label5.Size = new System.Drawing.Size(143, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "STOCK OUT";
-            // 
-            // date_lbl
-            // 
-            this.date_lbl.AutoSize = true;
-            this.date_lbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.date_lbl.Location = new System.Drawing.Point(925, 20);
-            this.date_lbl.Name = "date_lbl";
-            this.date_lbl.Size = new System.Drawing.Size(113, 25);
-            this.date_lbl.TabIndex = 4;
-            this.date_lbl.Text = "date_now";
             // 
             // InventoryTransaction
             // 

@@ -128,7 +128,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label2.Location = new System.Drawing.Point(376, 29);
+            this.label2.Location = new System.Drawing.Point(265, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 18);
             this.label2.TabIndex = 68;
@@ -136,7 +136,7 @@
             // 
             // end_filter
             // 
-            this.end_filter.Location = new System.Drawing.Point(421, 29);
+            this.end_filter.Location = new System.Drawing.Point(310, 25);
             this.end_filter.Name = "end_filter";
             this.end_filter.Size = new System.Drawing.Size(146, 20);
             this.end_filter.TabIndex = 67;
@@ -147,7 +147,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label1.Location = new System.Drawing.Point(155, 29);
+            this.label1.Location = new System.Drawing.Point(44, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 18);
             this.label1.TabIndex = 66;
@@ -155,7 +155,7 @@
             // 
             // start_filter
             // 
-            this.start_filter.Location = new System.Drawing.Point(204, 29);
+            this.start_filter.Location = new System.Drawing.Point(93, 25);
             this.start_filter.Name = "start_filter";
             this.start_filter.Size = new System.Drawing.Size(146, 20);
             this.start_filter.TabIndex = 65;
@@ -166,11 +166,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label6.Location = new System.Drawing.Point(3, 4);
+            this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 25);
+            this.label6.Size = new System.Drawing.Size(64, 25);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Filter Details:";
+            this.label6.Text = "Filter:";
             // 
             // InventoryLog
             // 
