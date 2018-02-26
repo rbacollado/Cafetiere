@@ -89,7 +89,7 @@ namespace SAD
 
         private void prod_MouseClick(object sender, MouseEventArgs e)
         {
-            String query = "SELECT productID, pname, pprice, pquantity FROM products";
+            String query = "SELECT productID, pname, pprice FROM products";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -101,7 +101,7 @@ namespace SAD
             product_data.Columns["productID"].Visible = false;
             product_data.Columns["pname"].HeaderText = "Name";
             product_data.Columns["pprice"].HeaderText = "Price";
-            product_data.Columns["pquantity"].HeaderText = "Quantity";
+           
 
             product_data.Columns["pprice"].DefaultCellStyle.Format = "c";
 
@@ -109,8 +109,8 @@ namespace SAD
                 productpanel.Visible = true;
                 productpanel.Enabled = true;
 
-                productpanel.Size = new Size(380, 441);
-                productpanel.Location = new Point(12, 160);
+                productpanel.Size = new Size(380, 443);
+                productpanel.Location = new Point(11, 160);
 
         }
 
@@ -352,6 +352,9 @@ namespace SAD
 
             dinein.Visible = true;
             takeout.Visible = true;
+
+           
+            
         }
 
         private void pay_Click(object sender, EventArgs e)
@@ -366,9 +369,24 @@ namespace SAD
             if (verify_payment == DialogResult.Yes)
             {
                 
-                string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderDiscount, orderDiscountType)" 
-                        + " VALUES((SELECT staff.staffid FROM staff INNER JOIN person ON person.personid = staff.person_personid AND CONCAT(person.firstname, ' ' , person.lastname) LIKE '%" + SAD.Login.DisplayUserDetails.name + "%'), " 
-                        + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + double.Parse(discountTxt.Text) + "','" + cb_discountType.Text + "')";
+                string discountType;
+                string discount;
+
+                if (discountTypelbl.Visible == false && cb_discountType.Visible == false && discountlbl.Visible == false && discountTxt.Visible == false)
+                {
+                    discountType = "No Discount";
+                    discount = "0";
+                }
+                else
+                {
+                    discountType = cb_discountType.Text;
+                    discount = discountTxt.Text;
+                }
+
+
+                string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderPayment, orderDiscount, orderDiscountType)"
+                        + " VALUES((SELECT staff.staffid FROM staff INNER JOIN person ON person.personid = staff.person_personid AND CONCAT(person.firstname, ' ' , person.lastname) LIKE '%" + SAD.Login.DisplayUserDetails.name + "%'), "
+                        + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + decimal.Parse(amountPaid.Text) + "','" + double.Parse(discount) + "','" + discountType + "')";
 
                
 
@@ -408,6 +426,8 @@ namespace SAD
                 prodname.Text = "";
                 priceTxt.Text = "";
                 MessageBox.Show("Order added!");
+                ordered_products.Columns.Clear();
+                
             }
         }
 
@@ -472,6 +492,26 @@ namespace SAD
             {
                 e.Handled = true;
             }
+        }
+
+        private void discountCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (discountCheck.Checked)
+            {
+                discountlbl.Visible = true;
+                discountTypelbl.Visible = true;
+                discountTxt.Visible = true;
+                cb_discountType.Visible = true;
+            }
+            else
+            {
+                discountlbl.Visible = false;
+                discountTypelbl.Visible = false;
+                discountTxt.Visible = false;
+                cb_discountType.Visible = false;
+            }
+           
+            
         }
 
 
