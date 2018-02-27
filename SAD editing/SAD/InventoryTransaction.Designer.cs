@@ -175,7 +175,8 @@
             this.inventory_dtgv.Size = new System.Drawing.Size(701, 503);
             this.inventory_dtgv.TabIndex = 206;
             this.inventory_dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_dtgv_CellClick);
-           // 
+            this.inventory_dtgv.SelectionChanged += new System.EventHandler(this.inventory_dtgv_SelectionChanged);
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));

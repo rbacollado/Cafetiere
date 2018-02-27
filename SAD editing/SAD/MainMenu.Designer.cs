@@ -35,7 +35,6 @@
             this.btn_orders = new System.Windows.Forms.Button();
             this.btn_profiling = new System.Windows.Forms.Button();
             this.btn_inventory = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -81,8 +80,8 @@
             this.btn_settings = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.restock_items = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -103,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.restock_items)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -222,17 +222,6 @@
             this.btn_inventory.UseVisualStyleBackColor = false;
             this.btn_inventory.Click += new System.EventHandler(this.btn_inventory_Click);
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(139, 386);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(387, 203);
-            this.dataGridView2.TabIndex = 88;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
@@ -240,7 +229,7 @@
             this.panel6.Location = new System.Drawing.Point(139, 351);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(387, 35);
+            this.panel6.Size = new System.Drawing.Size(387, 48);
             this.panel6.TabIndex = 87;
             // 
             // label6
@@ -257,6 +246,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.MintCream;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(139, 192);
@@ -760,11 +751,31 @@
             this.panel14.Size = new System.Drawing.Size(248, 170);
             this.panel14.TabIndex = 96;
             // 
+            // restock_items
+            // 
+            this.restock_items.AllowUserToAddRows = false;
+            this.restock_items.AllowUserToDeleteRows = false;
+            this.restock_items.AllowUserToResizeColumns = false;
+            this.restock_items.AllowUserToResizeRows = false;
+            this.restock_items.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.restock_items.BackgroundColor = System.Drawing.Color.MintCream;
+            this.restock_items.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.restock_items.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.restock_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.restock_items.Location = new System.Drawing.Point(139, 391);
+            this.restock_items.Name = "restock_items";
+            this.restock_items.ReadOnly = true;
+            this.restock_items.RowHeadersVisible = false;
+            this.restock_items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.restock_items.Size = new System.Drawing.Size(387, 176);
+            this.restock_items.TabIndex = 207;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 707);
+            this.Controls.Add(this.restock_items);
             this.Controls.Add(this.profiling_panel);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel13);
@@ -775,7 +786,6 @@
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.dataGridView1);
@@ -789,7 +799,6 @@
             this.Text = "MainMenu";
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -820,6 +829,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.restock_items)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -833,7 +843,6 @@
         private System.Windows.Forms.Button btn_profiling;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnDash;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -879,5 +888,6 @@
         private System.Windows.Forms.Button btn_settings;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.DataGridView restock_items;
     }
 }

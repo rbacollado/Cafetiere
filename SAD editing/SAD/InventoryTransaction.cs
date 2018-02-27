@@ -29,8 +29,7 @@ namespace SAD
 
         private void InventoryTransaction_Load(object sender, EventArgs e)
         {
-            inventory_dtgv.ClearSelection();
-
+           
             inventory_status();
             loadTobeRemoved();
             item_expires();
@@ -42,8 +41,8 @@ namespace SAD
         
         public void item_expires()
         {
-            String query_expired = "SELECT itemInvID, item_ID, name, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m /%d /%y') as itemExpiry, itemStockedIn FROM items " +
-                                    "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID AND itemType = 'Ingredient' AND current_date() > itemExpiry;";
+            String query_expired = "SELECT itemInvID, date_format(itemExpiry, '%m /%d /%y') as itemExpiry FROM items_inventory " +
+                                    "WHERE itemType = 'Ingredient' AND current_date() >= itemExpiry;";
 
             MySqlCommand comm_expired = new MySqlCommand(query_expired, conn);
             comm_expired.CommandText = query_expired;
@@ -61,7 +60,6 @@ namespace SAD
                         inventory_dtgv.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                         inventory_dtgv.Rows[i].DefaultCellStyle.ForeColor = Color.White;
                     }
-                   
                 }
             }
             conn.Close();
@@ -216,6 +214,9 @@ namespace SAD
             this.Hide();
         }
 
-        
+        private void inventory_dtgv_SelectionChanged(object sender, EventArgs e)
+        {
+            this.inventory_dtgv.ClearSelection();
+        }
     }
 }
