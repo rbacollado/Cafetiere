@@ -52,8 +52,33 @@ namespace SAD
                 btn_product.BackColor = Color.Gray;
             }
 
-            //logDate();
+            logDate();
+            restock();
             
+        }
+
+        public void restock()
+        {
+            String restockquery = "SELECT itemInvID, item_ID, name, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m/%d/%y') as itemExpiry FROM items " +
+                                  "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID AND itemStatus like 'Unavailable' AND (itemExpiry > current_date() OR itemExpiry = '0000-00-00');";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(restockquery, conn);
+            comm.CommandText = restockquery;
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt_log = new DataTable();
+            adp.Fill(dt_log);
+
+            restock_items.DataSource = dt_log;
+
+            restock_items.Columns["item_ID"].Visible = false;
+            restock_items.Columns["itemInvID"].Visible = false;
+            restock_items.Columns["name"].HeaderText = "Name";
+            restock_items.Columns["itemQuantity"].HeaderText = "Quantity";
+            restock_items.Columns["itemStatus"].HeaderText = "Status";
+            restock_items.Columns["itemType"].HeaderText = "Type";
+            restock_items.Columns["itemExpiry"].HeaderText = "Expiration Date";
+
         }
 
         public void logDate()
@@ -91,6 +116,7 @@ namespace SAD
         {
             profiling_panel.Visible = true;
             profiling_panel.Enabled = true;
+            restock_items.Visible = false;
             profiling_panel.Size = new Size(640, 529);
             profiling_panel.Location = new Point(139, 91);
         }
@@ -101,8 +127,6 @@ namespace SAD
             order.prevForm = this;
             order.Show();
             this.Hide();
-
-
         }
         
         private void btn_product_Click(object sender, EventArgs e)
@@ -149,6 +173,7 @@ namespace SAD
         private void btn_close_Click(object sender, EventArgs e)
         {
             profiling_panel.Visible = false;
+            restock_items.Visible = true;
         }
     }
 }

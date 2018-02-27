@@ -200,9 +200,7 @@ namespace SAD
                     item_name = dtgv_poline["Name"].ToString();
                     poID = int.Parse(dtgv_poline["purchaseOrder_purchaseOrderID"].ToString());
                     item_quantity = int.Parse(dtgv_poline["Quantity"].ToString());
-
-                    MessageBox.Show(item_expirydate);
-
+                    
                     for(int i = 0; i < items_stockin.Rows.Count; i++)
                     {
                         if (id == int.Parse(items_stockin.Rows[i].Cells["polID"].Value.ToString()) && poID == int.Parse(items_stockin.Rows[i].Cells["purchaseID"].Value.ToString()) && item_quantity <= int.Parse(items_stockin.Rows[i].Cells["Quantity"].Value.ToString()))

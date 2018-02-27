@@ -34,7 +34,10 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.inventory_log = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.datetime_filter = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.end_filter = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.start_filter = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -82,9 +85,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.panel4.Controls.Add(this.inventory_log);
-            this.panel4.Location = new System.Drawing.Point(19, 105);
+            this.panel4.Location = new System.Drawing.Point(19, 128);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(729, 520);
+            this.panel4.Size = new System.Drawing.Size(729, 497);
             this.panel4.TabIndex = 62;
             // 
             // inventory_log
@@ -104,37 +107,70 @@
             this.inventory_log.ReadOnly = true;
             this.inventory_log.RowHeadersVisible = false;
             this.inventory_log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventory_log.Size = new System.Drawing.Size(693, 487);
+            this.inventory_log.Size = new System.Drawing.Size(693, 478);
             this.inventory_log.TabIndex = 208;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
-            this.panel3.Controls.Add(this.datetime_filter);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.end_filter);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.start_filter);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(19, 64);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(729, 40);
+            this.panel3.Size = new System.Drawing.Size(729, 58);
             this.panel3.TabIndex = 63;
             // 
-            // datetime_filter
+            // label2
             // 
-            this.datetime_filter.Location = new System.Drawing.Point(122, 12);
-            this.datetime_filter.Name = "datetime_filter";
-            this.datetime_filter.Size = new System.Drawing.Size(200, 20);
-            this.datetime_filter.TabIndex = 65;
-            this.datetime_filter.ValueChanged += new System.EventHandler(this.datetime_filter_ValueChanged);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label2.Location = new System.Drawing.Point(265, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 18);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "End:";
+            // 
+            // end_filter
+            // 
+            this.end_filter.Location = new System.Drawing.Point(310, 25);
+            this.end_filter.Name = "end_filter";
+            this.end_filter.Size = new System.Drawing.Size(146, 20);
+            this.end_filter.TabIndex = 67;
+            this.end_filter.ValueChanged += new System.EventHandler(this.end_filter_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label1.Location = new System.Drawing.Point(44, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 18);
+            this.label1.TabIndex = 66;
+            this.label1.Text = "Start:";
+            // 
+            // start_filter
+            // 
+            this.start_filter.Location = new System.Drawing.Point(93, 25);
+            this.start_filter.Name = "start_filter";
+            this.start_filter.Size = new System.Drawing.Size(146, 20);
+            this.start_filter.TabIndex = 65;
+            this.start_filter.ValueChanged += new System.EventHandler(this.datetime_filter_ValueChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label6.Location = new System.Drawing.Point(17, 12);
+            this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 18);
+            this.label6.Size = new System.Drawing.Size(64, 25);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Filter Details:";
+            this.label6.Text = "Filter:";
             // 
             // InventoryLog
             // 
@@ -167,7 +203,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.DataGridView inventory_log;
-        private System.Windows.Forms.DateTimePicker datetime_filter;
+        private System.Windows.Forms.DateTimePicker start_filter;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker end_filter;
+        private System.Windows.Forms.Label label1;
     }
 }

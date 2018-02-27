@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.date_lbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -97,18 +98,30 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.date_lbl);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1228, 58);
             this.panel1.TabIndex = 0;
             // 
+            // date_lbl
+            // 
+            this.date_lbl.AutoSize = true;
+            this.date_lbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.date_lbl.Location = new System.Drawing.Point(925, 20);
+            this.date_lbl.Name = "date_lbl";
+            this.date_lbl.Size = new System.Drawing.Size(113, 25);
+            this.date_lbl.TabIndex = 4;
+            this.date_lbl.Text = "date_now";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label1.Location = new System.Drawing.Point(432, 20);
+            this.label1.Location = new System.Drawing.Point(7, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(311, 25);
             this.label1.TabIndex = 0;
@@ -140,7 +153,7 @@
             this.panel4.Controls.Add(this.inventory_dtgv);
             this.panel4.Location = new System.Drawing.Point(9, 198);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(707, 550);
+            this.panel4.Size = new System.Drawing.Size(707, 516);
             this.panel4.TabIndex = 2;
             // 
             // inventory_dtgv
@@ -159,9 +172,10 @@
             this.inventory_dtgv.ReadOnly = true;
             this.inventory_dtgv.RowHeadersVisible = false;
             this.inventory_dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventory_dtgv.Size = new System.Drawing.Size(701, 541);
+            this.inventory_dtgv.Size = new System.Drawing.Size(701, 503);
             this.inventory_dtgv.TabIndex = 206;
             this.inventory_dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_dtgv_CellClick);
+            this.inventory_dtgv.SelectionChanged += new System.EventHandler(this.inventory_dtgv_SelectionChanged);
             // 
             // panel8
             // 
@@ -509,15 +523,17 @@
             this.panel_stockout.Controls.Add(this.label14);
             this.panel_stockout.Controls.Add(this.btn_SOBack);
             this.panel_stockout.Controls.Add(this.label5);
-            this.panel_stockout.Location = new System.Drawing.Point(738, 206);
+            this.panel_stockout.Location = new System.Drawing.Point(738, 183);
             this.panel_stockout.Margin = new System.Windows.Forms.Padding(2);
             this.panel_stockout.Name = "panel_stockout";
-            this.panel_stockout.Size = new System.Drawing.Size(341, 394);
+            this.panel_stockout.Size = new System.Drawing.Size(332, 305);
             this.panel_stockout.TabIndex = 22;
             this.panel_stockout.Visible = false;
             // 
             // cmb_remarks
             // 
+            this.cmb_remarks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_remarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_remarks.FormattingEnabled = true;
             this.cmb_remarks.Items.AddRange(new object[] {
             "Damaged",
@@ -525,7 +541,7 @@
             "Expired"});
             this.cmb_remarks.Location = new System.Drawing.Point(159, 243);
             this.cmb_remarks.Name = "cmb_remarks";
-            this.cmb_remarks.Size = new System.Drawing.Size(118, 21);
+            this.cmb_remarks.Size = new System.Drawing.Size(126, 26);
             this.cmb_remarks.TabIndex = 228;
             // 
             // label3
@@ -679,7 +695,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 767);
+            this.ClientSize = new System.Drawing.Size(1089, 721);
             this.Controls.Add(this.panel_stockout);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel11);
@@ -771,5 +787,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cmb_remarks;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label date_lbl;
     }
 }

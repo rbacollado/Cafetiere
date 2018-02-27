@@ -37,7 +37,11 @@ namespace SAD
             encoderLbl.Text = SAD.Login.DisplayUserDetails.name;
             encoderPos.Text = SAD.Login.DisplayUserDetails.usertype;
 
-            
+            //Load Items
+            ShowItems();
+
+            //Show Suppliers
+            ShowSuppliers();
 
             DateTime now = DateTime.Today;
             date.Text = now.ToString("MM/dd/yy");
@@ -75,9 +79,20 @@ namespace SAD
 
         private void supplier_txt_MouseClick(object sender, MouseEventArgs e)
         {
-            
+            supplierpanel.Visible = true;
+            supplierpanel.Enabled = true;
+            iQuantity_txt.Visible = false;
+            btn_remove.Visible = false;
+
+            supplierpanel.Size = new Size(475, 404);
+            supplierpanel.Location = new Point(3, 124);
+  
+        }
+
+        public void ShowSuppliers()
+        {
             String query = "SELECT supplierID, firstname, lastname, organization FROM person " +
-                           "INNER JOIN supplier ON person.personid = supplier.person_personid" ;
+                           "INNER JOIN supplier ON person.personid = supplier.person_personid";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -90,15 +105,6 @@ namespace SAD
             supplier_data.Columns["firstname"].HeaderText = "First Name";
             supplier_data.Columns["lastname"].HeaderText = "Last Name";
             supplier_data.Columns["organization"].HeaderText = "Organization";
-
-            supplierpanel.Visible = true;
-            supplierpanel.Enabled = true;
-            iQuantity_txt.Visible = false;
-            btn_remove.Visible = false;
-
-            supplierpanel.Size = new Size(389, 435);
-            supplierpanel.Location = new Point(0, 124);
-  
         }
 
         public static int selected_supplierid;
@@ -329,12 +335,15 @@ namespace SAD
             }
             else
             {
-                ShowItems();
+                
                 item_panel.Visible = true;
                 item_panel.Enabled = true;
-                item_panel.Size = new Size(383, 432);
-                item_panel.Location = new Point(3, 124);
+                item_panel.Size = new Size(480, 404);
+                item_panel.Location = new Point(0, 124);
                 btn_remove.Visible = false;
+
+                dtgv_items.Columns["name"].Width = 160;
+                dtgv_items.Columns["price"].Width = 80;
             }
             
         }

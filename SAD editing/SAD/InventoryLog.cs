@@ -57,17 +57,26 @@ namespace SAD
         private void InventoryLog_Load(object sender, EventArgs e)
         {
             inventorylog();
+            inventory_log.Columns["StaffName"].Width = 90;
+            inventory_log.Columns["logdate"].Width = 90;
+            inventory_log.Columns["quantity"].Width = 40;
+            inventory_log.Columns["logtype"].Width = 90;
+            inventory_log.Columns["remarks"].Width = 100;
 
-            datetime_filter.Format = DateTimePickerFormat.Custom;
-            datetime_filter.CustomFormat = "yyyy-MM-dd";
+            start_filter.Format = DateTimePickerFormat.Custom;
+            start_filter.CustomFormat = "yyyy-MM-dd";
+
+            end_filter.Format = DateTimePickerFormat.Custom;
+            end_filter.CustomFormat = "yyyy-MM-dd";
 
         }
-        private void datetime_filter_ValueChanged(object sender, EventArgs e)
+
+        public void filterData()
         {
             string filterquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate, logtype, remarks FROM person"
                             + " INNER JOIN staff ON person.personid = staff.person_personid"
                             + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid"
-                            + " WHERE logdate LIKE '%" + datetime_filter.Text + "%' ;";
+                            + " WHERE date(logdate) BETWEEN '" + start_filter.Text + "' AND '" + end_filter.Text + "';";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(filterquery, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -83,6 +92,16 @@ namespace SAD
             inventory_log.Columns["quantity"].HeaderText = "Quantity";
             inventory_log.Columns["logdate"].HeaderText = "Date";
             inventory_log.Columns["logtype"].HeaderText = "Activity";
+        }
+
+        private void datetime_filter_ValueChanged(object sender, EventArgs e)
+        {
+            filterData();
+        }
+
+        private void end_filter_ValueChanged(object sender, EventArgs e)
+        {
+            filterData();
         }
     }
 }
