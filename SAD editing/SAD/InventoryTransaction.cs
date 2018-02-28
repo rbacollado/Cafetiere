@@ -22,9 +22,7 @@ namespace SAD
         {
             InitializeComponent();
             conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root; Allow Zero Datetime=true");
-            lbl_position.Text = SAD.Login.DisplayUserDetails.usertype;
-            lbl_name.Text = SAD.Login.DisplayUserDetails.name;
-
+            
         }
 
         private void InventoryTransaction_Load(object sender, EventArgs e)
@@ -68,7 +66,7 @@ namespace SAD
         private void inventory_status()
         {
 
-            String inventoryquery = "SELECT itemInvID, item_ID, name, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, itemExpiry, itemStockedIn FROM items " +
+            String inventoryquery = "SELECT itemInvID, item_ID, name, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m/%d/%y') as itemExpiry , itemStockedIn FROM items " +
                                     "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID;";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(inventoryquery, conn);
@@ -103,6 +101,15 @@ namespace SAD
                 int selected_id = int.Parse(inventory_dtgv.Rows[e.RowIndex].Cells["itemInvID"].Value.ToString());
                 itemInvID = selected_id;
 
+                item_name.Text = inventory_dtgv.Rows[e.RowIndex].Cells["name"].Value.ToString();
+                itemUnit.Text = inventory_dtgv.Rows[e.RowIndex].Cells["unit"].Value.ToString();
+                itemAmount.Text = inventory_dtgv.Rows[e.RowIndex].Cells["amount"].Value.ToString();
+                itemCost.Text = inventory_dtgv.Rows[e.RowIndex].Cells["cost"].Value.ToString();
+                itemQuantity.Text = inventory_dtgv.Rows[e.RowIndex].Cells["itemQuantity"].Value.ToString();
+                itemStatus.Text = inventory_dtgv.Rows[e.RowIndex].Cells["itemStatus"].Value.ToString();
+                itemType.Text = inventory_dtgv.Rows[e.RowIndex].Cells["itemType"].Value.ToString();
+                itemExpiry.Text = inventory_dtgv.Rows[e.RowIndex].Cells["itemExpiry"].Value.ToString();
+
                 show_SOpanel.Visible = true;
                 pictureBox5.Visible = true;
                 loadTobeRemoved();
@@ -128,9 +135,7 @@ namespace SAD
                 txt_amount.Text = (drdInv["amount"].ToString());
                 txt_unit.Text = (drdInv["unit"].ToString());
             }
-            conn.Close();
-            
-
+            conn.Close(); 
         }
 
         private void btn_stockout_Click(object sender, EventArgs e)
@@ -142,39 +147,37 @@ namespace SAD
             else
             {
                 String removequery = "UPDATE items_inventory SET itemQuantity = itemQuantity - " + int.Parse(txt_quantity.Text) + " WHERE itemInvID = " + itemInvID + ";";
-
                 conn.Open();
                 MySqlCommand comm_Remove = new MySqlCommand(removequery, conn);
                 comm_Remove.ExecuteNonQuery();
                 conn.Close();
-
-
+                
                 String updateAvail = "UPDATE items_inventory SET itemStatus = 'Unavailable' WHERE itemQuantity = 0;";
-
                 conn.Open();
                 MySqlCommand comm_Avail = new MySqlCommand(updateAvail, conn);
                 comm_Avail.ExecuteNonQuery();
                 conn.Close();
 
                 String updateLogquery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType,remarks) " +
-                                                    "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + txt_name.Text + "'," + txt_quantity.Text + ", current_timestamp(), 'Stock out(Manual)', '" + cmb_remarks.Text + "' );";
+                                        "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + txt_name.Text + "'," + txt_quantity.Text + ", current_timestamp(), 'Stock out(Manual)', '" + cmb_remarks.Text + "' );";
                 conn.Open();
                 MySqlCommand comm_inventorylog = new MySqlCommand(updateLogquery, conn);
                 comm_inventorylog.ExecuteNonQuery();
                 conn.Close();
 
                 inventory_status();
-                
+                panel_stockout.Visible = false;
+                panel_stockout.Enabled = false;
+
             }
-            
         }
 
         private void show_SOpanel_Click(object sender, EventArgs e)
         {
             panel_stockout.Visible = true;
             panel_stockout.Enabled = true;
-            panel_stockout.Size = new Size(341, 353);
-            panel_stockout.Location = new Point(738, 206);
+            panel_stockout.Size = new Size(341, 287);
+            panel_stockout.Location = new Point(736, 352);
             
         }
         

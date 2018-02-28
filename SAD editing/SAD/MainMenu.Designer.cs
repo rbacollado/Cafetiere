@@ -785,10 +785,10 @@
             this.sales_panel.Controls.Add(this.order_btn);
             this.sales_panel.Controls.Add(this.report_btn);
             this.sales_panel.Controls.Add(this.panel17);
-            this.sales_panel.Location = new System.Drawing.Point(139, 514);
+            this.sales_panel.Location = new System.Drawing.Point(139, 507);
             this.sales_panel.Margin = new System.Windows.Forms.Padding(2);
             this.sales_panel.Name = "sales_panel";
-            this.sales_panel.Size = new System.Drawing.Size(53, 75);
+            this.sales_panel.Size = new System.Drawing.Size(49, 82);
             this.sales_panel.TabIndex = 208;
             this.sales_panel.Visible = false;
             // 

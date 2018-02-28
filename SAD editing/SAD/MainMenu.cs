@@ -59,7 +59,7 @@ namespace SAD
 
         public void notif_expiry()
         {
-            String notifexpiryquery = "SELECT SUM(itemQuantity) as num_expired FROM items_inventory " +
+            String notifexpiryquery = "SELECT COUNT(itemInvID) as num_expired FROM items_inventory " +
                                       "WHERE current_date() > itemExpiry AND itemStatus = 'Available' AND itemType = 'Ingredient';";
 
             MySqlCommand comm = new MySqlCommand(notifexpiryquery, conn);
@@ -72,7 +72,7 @@ namespace SAD
             {
                 string numExpired = drdNotif["num_expired"].ToString();
 
-                if (numExpired != "")
+                if (numExpired != "0")
                 {
                     MessageBox.Show("You have " + numExpired + " expired item(s).", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
