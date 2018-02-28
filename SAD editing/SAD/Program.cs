@@ -16,12 +16,9 @@ namespace SAD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
-            Application.Run(new Login());
-=======
 
-            Application.Run(new InventoryTransaction());
->>>>>>> cfc5568c8212f8bb5cc9b63c869cd4b12cb5c94a
+            Application.Run(new Login());
+
 
         }
     }

@@ -109,6 +109,7 @@
             this.inventory_log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.inventory_log.Size = new System.Drawing.Size(693, 478);
             this.inventory_log.TabIndex = 208;
+            this.inventory_log.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_log_CellContentClick);
             // 
             // panel3
             // 

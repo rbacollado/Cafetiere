@@ -218,5 +218,10 @@ namespace SAD
         {
             this.inventory_dtgv.ClearSelection();
         }
+
+        private void panel_stockout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
