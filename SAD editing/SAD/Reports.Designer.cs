@@ -31,7 +31,7 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.Back = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.sales = new System.Windows.Forms.DataGridView();
+            this.sales_report = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.end_filter = new System.Windows.Forms.DateTimePicker();
@@ -39,7 +39,7 @@
             this.start_filter = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sales_report)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,23 +78,24 @@
             this.label15.TabIndex = 12;
             this.label15.Text = "REPORTS";
             // 
-            // sales
+            // sales_report
             // 
-            this.sales.AllowUserToAddRows = false;
-            this.sales.AllowUserToDeleteRows = false;
-            this.sales.AllowUserToResizeColumns = false;
-            this.sales.AllowUserToResizeRows = false;
-            this.sales.BackgroundColor = System.Drawing.Color.MintCream;
-            this.sales.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.sales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.sales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sales.Location = new System.Drawing.Point(21, 119);
-            this.sales.Name = "sales";
-            this.sales.ReadOnly = true;
-            this.sales.RowHeadersVisible = false;
-            this.sales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.sales.Size = new System.Drawing.Size(486, 424);
-            this.sales.TabIndex = 207;
+            this.sales_report.AllowUserToAddRows = false;
+            this.sales_report.AllowUserToDeleteRows = false;
+            this.sales_report.AllowUserToResizeColumns = false;
+            this.sales_report.AllowUserToResizeRows = false;
+            this.sales_report.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.sales_report.BackgroundColor = System.Drawing.Color.MintCream;
+            this.sales_report.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.sales_report.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.sales_report.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sales_report.Location = new System.Drawing.Point(21, 119);
+            this.sales_report.Name = "sales_report";
+            this.sales_report.ReadOnly = true;
+            this.sales_report.RowHeadersVisible = false;
+            this.sales_report.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.sales_report.Size = new System.Drawing.Size(486, 424);
+            this.sales_report.TabIndex = 207;
             // 
             // panel3
             // 
@@ -126,6 +127,7 @@
             this.end_filter.Name = "end_filter";
             this.end_filter.Size = new System.Drawing.Size(146, 20);
             this.end_filter.TabIndex = 67;
+            this.end_filter.ValueChanged += new System.EventHandler(this.end_filter_ValueChanged);
             // 
             // label1
             // 
@@ -144,6 +146,7 @@
             this.start_filter.Name = "start_filter";
             this.start_filter.Size = new System.Drawing.Size(146, 20);
             this.start_filter.TabIndex = 65;
+            this.start_filter.ValueChanged += new System.EventHandler(this.start_filter_ValueChanged);
             // 
             // label6
             // 
@@ -163,7 +166,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(530, 555);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.sales);
+            this.Controls.Add(this.sales_report);
             this.Controls.Add(this.panel15);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Reports";
@@ -172,7 +175,7 @@
             this.Load += new System.EventHandler(this.Reports_Load);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sales_report)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -184,7 +187,7 @@
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DataGridView sales;
+        private System.Windows.Forms.DataGridView sales_report;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker end_filter;

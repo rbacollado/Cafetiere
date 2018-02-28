@@ -79,10 +79,8 @@ namespace SAD
                
             }
             conn.Close();
-
         }
-
-
+        
         public void restock()
         {
             String restockquery = "SELECT itemInvID, item_ID, name, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m/%d/%y') as itemExpiry FROM items " +
