@@ -89,7 +89,7 @@ namespace SAD
 
         private void prod_MouseClick(object sender, MouseEventArgs e)
         {
-            String query = "SELECT productID, pname, pprice, pquantity FROM products";
+            String query = "SELECT productID, pname, pprice FROM products";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -101,7 +101,7 @@ namespace SAD
             product_data.Columns["productID"].Visible = false;
             product_data.Columns["pname"].HeaderText = "Name";
             product_data.Columns["pprice"].HeaderText = "Price";
-            product_data.Columns["pquantity"].HeaderText = "Quantity";
+           
 
             product_data.Columns["pprice"].DefaultCellStyle.Format = "c";
 
@@ -109,8 +109,8 @@ namespace SAD
                 productpanel.Visible = true;
                 productpanel.Enabled = true;
 
-                productpanel.Size = new Size(380, 441);
-                productpanel.Location = new Point(12, 160);
+                productpanel.Size = new Size(380, 443);
+                productpanel.Location = new Point(11, 160);
 
         }
 
@@ -290,8 +290,8 @@ namespace SAD
                 dinein.Visible = false;
                 takeout.Visible = false;
 
-                paymentpanel.Size = new Size(380, 441);
-                paymentpanel.Location = new Point(12, 160);
+                paymentpanel.Size = new Size(380, 444);
+                paymentpanel.Location = new Point(1, 97);
             }
             else
             {
@@ -354,62 +354,179 @@ namespace SAD
 
             dinein.Visible = true;
             takeout.Visible = true;
+
+           
+            
         }
 
         private void pay_Click(object sender, EventArgs e)
         {
 
-            
-
-            DialogResult verify_payment;
-
-            verify_payment = MessageBox.Show("Are you sure?", "Verification", MessageBoxButtons.YesNo);
-            
-            if (verify_payment == DialogResult.Yes)
+            if (discountTypelbl.Visible == false && cb_discountType.Visible == false && discountlbl.Visible == false && discountTxt.Visible == false)
             {
-                
-                string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderDiscount, orderDiscountType)" 
-                        + " VALUES((SELECT staff.staffid FROM staff INNER JOIN person ON person.personid = staff.person_personid AND CONCAT(person.firstname, ' ' , person.lastname) LIKE '%" + SAD.Login.DisplayUserDetails.name + "%'), " 
-                        + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + double.Parse(discountTxt.Text) + "','" + cb_discountType.Text + "')";
-
-               
-
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand(query_order, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-
-                for(int i = 0; i <= ordered_products.Rows.Count - 1; i++)
+                if (amountPaid.Text == "")
                 {
-                    string orderedname = ordered_products.Rows[i].Cells["Name"].Value.ToString();
+                    MessageBox.Show("Please fill uo the required information!");
+                }
+                else
+                {
+                    DialogResult verify_payment;
 
-                    string prod_query = "SELECT productID from products WHERE pname = '" + orderedname + "'";
-                    conn.Open();
-                    MySqlCommand command = new MySqlCommand(prod_query, conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(command);
-                    conn.Close();
-                    DataTable prod_datas = new DataTable();
-                    adp.Fill(prod_datas);
-                    string prod_data = prod_datas.Rows[0][0].ToString();
+                    verify_payment = MessageBox.Show("Are you sure?", "Verification", MessageBoxButtons.YesNo);
 
-                    string prodID = ordered_products.Rows[i].Cells["id"].Value.ToString();
-                    string pprice = ordered_products.Rows[i].Cells["Price"].Value.ToString();
-                    string pquantity = ordered_products.Rows[i].Cells["Quantity"].Value.ToString();
-                    string subtotal = ordered_products.Rows[i].Cells["Subtotal"].Value.ToString();
-                    string ordertype = ordered_products.Rows[i].Cells["OrderType"].Value.ToString();
+                    if (verify_payment == DialogResult.Yes)
+                    {
 
-                    string orderline_query = "INSERT INTO orderline(orderID, productID, orderType, orderPrice, orderQuantity, orderSubtotal)" +
-                                             "VALUES( (SELECT max(orderID) from `order`),'" + int.Parse(prod_data) + "','" + ordertype + "','" + double.Parse(pprice) +
-                                             "','" + int.Parse(pquantity) + "','" + decimal.Parse(subtotal) + "');";
-                    conn.Open();
-                    MySqlCommand orderline_comm = new MySqlCommand(orderline_query, conn);
-                    orderline_comm.ExecuteNonQuery();
-                    conn.Close();
+                        string discountType;
+                        string discount;
+
+                        if (discountTypelbl.Visible == false && cb_discountType.Visible == false && discountlbl.Visible == false && discountTxt.Visible == false)
+                        {
+                            discountType = "No Discount";
+                            discount = "0";
+                        }
+                        else
+                        {
+                            discountType = cb_discountType.Text;
+                            discount = discountTxt.Text;
+                        }
+
+
+                        string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderPayment, orderDiscount, orderDiscountType, orderChange)"
+                                + " VALUES((SELECT staff.staffid FROM staff INNER JOIN person ON person.personid = staff.person_personid AND CONCAT(person.firstname, ' ' , person.lastname) LIKE '%" + SAD.Login.DisplayUserDetails.name + "%'), "
+                                + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + decimal.Parse(amountPaid.Text) + "','" + double.Parse(discount) + "','" + discountType + "','" + decimal.Parse(changetxt.Text) + "')";
+
+
+
+                        conn.Open();
+                        MySqlCommand comm = new MySqlCommand(query_order, conn);
+                        comm.ExecuteNonQuery();
+                        conn.Close();
+
+                        for (int i = 0; i <= ordered_products.Rows.Count - 1; i++)
+                        {
+                            string orderedname = ordered_products.Rows[i].Cells["Name"].Value.ToString();
+
+                            string prod_query = "SELECT productID from products WHERE pname = '" + orderedname + "'";
+                            conn.Open();
+                            MySqlCommand command = new MySqlCommand(prod_query, conn);
+                            MySqlDataAdapter adp = new MySqlDataAdapter(command);
+                            conn.Close();
+                            DataTable prod_datas = new DataTable();
+                            adp.Fill(prod_datas);
+                            string prod_data = prod_datas.Rows[0][0].ToString();
+
+                            string prodID = ordered_products.Rows[i].Cells["id"].Value.ToString();
+                            string pprice = ordered_products.Rows[i].Cells["Price"].Value.ToString();
+                            string pquantity = ordered_products.Rows[i].Cells["Quantity"].Value.ToString();
+                            string subtotal = ordered_products.Rows[i].Cells["Subtotal"].Value.ToString();
+                            string ordertype = ordered_products.Rows[i].Cells["OrderType"].Value.ToString();
+
+                            string orderline_query = "INSERT INTO orderline(orderID, productID, orderType, orderPrice, orderQuantity, orderSubtotal)" +
+                                                     "VALUES( (SELECT max(orderID) from `order`),'" + int.Parse(prod_data) + "','" + ordertype + "','" + double.Parse(pprice) +
+                                                     "','" + int.Parse(pquantity) + "','" + decimal.Parse(subtotal) + "');";
+                            conn.Open();
+                            MySqlCommand orderline_comm = new MySqlCommand(orderline_query, conn);
+                            orderline_comm.ExecuteNonQuery();
+                            conn.Close();
+
+                        }
+                        prodname.Text = "";
+                        priceTxt.Text = "";
+                        MessageBox.Show("Order added!");
+                        subTotalTxt.Text = "0";
+                        priceTxt.Text = "0";
+                        paymentpanel.Visible = false;
+                        paymentpanel.Enabled = false;
+                        dinein.Visible = true;
+                        takeout.Visible = true;
+                        ordered_products.Columns.Clear();
+
+                    }
 
                 }
-                prodname.Text = "";
-                priceTxt.Text = "";
-                MessageBox.Show("Order added!");
+            }
+            else
+            {
+                if (amountPaid.Text == "" && discountTxt.Text == "" && cb_discountType.Text == "")
+                {
+                    MessageBox.Show("Please fill uo the required information!");
+                }
+                else
+                {
+                    DialogResult verify_payment;
+
+                    verify_payment = MessageBox.Show("Are you sure?", "Verification", MessageBoxButtons.YesNo);
+
+                    if (verify_payment == DialogResult.Yes)
+                    {
+
+                        string discountType;
+                        string discount;
+
+                        if (discountTypelbl.Visible == false && cb_discountType.Visible == false && discountlbl.Visible == false && discountTxt.Visible == false)
+                        {
+                            discountType = "No Discount";
+                            discount = "0";
+                        }
+                        else
+                        {
+                            discountType = cb_discountType.Text;
+                            discount = discountTxt.Text;
+                        }
+
+
+                        string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderPayment, orderDiscount, orderDiscountType, orderChange)"
+                                + " VALUES((SELECT staff.staffid FROM staff INNER JOIN person ON person.personid = staff.person_personid AND CONCAT(person.firstname, ' ' , person.lastname) LIKE '%" + SAD.Login.DisplayUserDetails.name + "%'), "
+                                + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + decimal.Parse(amountPaid.Text) + "','" + double.Parse(discount) + "','" + discountType + "','" + decimal.Parse(changetxt.Text) + "')";
+
+
+
+                        conn.Open();
+                        MySqlCommand comm = new MySqlCommand(query_order, conn);
+                        comm.ExecuteNonQuery();
+                        conn.Close();
+
+                        for (int i = 0; i <= ordered_products.Rows.Count - 1; i++)
+                        {
+                            string orderedname = ordered_products.Rows[i].Cells["Name"].Value.ToString();
+
+                            string prod_query = "SELECT productID from products WHERE pname = '" + orderedname + "'";
+                            conn.Open();
+                            MySqlCommand command = new MySqlCommand(prod_query, conn);
+                            MySqlDataAdapter adp = new MySqlDataAdapter(command);
+                            conn.Close();
+                            DataTable prod_datas = new DataTable();
+                            adp.Fill(prod_datas);
+                            string prod_data = prod_datas.Rows[0][0].ToString();
+
+                            string prodID = ordered_products.Rows[i].Cells["id"].Value.ToString();
+                            string pprice = ordered_products.Rows[i].Cells["Price"].Value.ToString();
+                            string pquantity = ordered_products.Rows[i].Cells["Quantity"].Value.ToString();
+                            string subtotal = ordered_products.Rows[i].Cells["Subtotal"].Value.ToString();
+                            string ordertype = ordered_products.Rows[i].Cells["OrderType"].Value.ToString();
+
+                            string orderline_query = "INSERT INTO orderline(orderID, productID, orderType, orderPrice, orderQuantity, orderSubtotal)" +
+                                                     "VALUES( (SELECT max(orderID) from `order`),'" + int.Parse(prod_data) + "','" + ordertype + "','" + double.Parse(pprice) +
+                                                     "','" + int.Parse(pquantity) + "','" + decimal.Parse(subtotal) + "');";
+                            conn.Open();
+                            MySqlCommand orderline_comm = new MySqlCommand(orderline_query, conn);
+                            orderline_comm.ExecuteNonQuery();
+                            conn.Close();
+
+                        }
+                        prodname.Text = "";
+                        priceTxt.Text = "";
+                        MessageBox.Show("Order added!");
+                        subTotalTxt.Text = "0";
+                        priceTxt.Text = "0";
+                        paymentpanel.Visible = false;
+                        paymentpanel.Enabled = false;
+                        dinein.Visible = true;
+                        takeout.Visible = true;
+                        ordered_products.Columns.Clear();
+                    }
+                }
             }
         }
 
@@ -474,6 +591,48 @@ namespace SAD
             {
                 e.Handled = true;
             }
+        }
+
+        private void discountCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (discountCheck.Checked)
+            {
+                discountlbl.Visible = true;
+                discountTypelbl.Visible = true;
+                discountTxt.Visible = true;
+                cb_discountType.Visible = true;
+                discountTypelbl.Location = new Point(16, 135);
+                cb_discountType.Location = new Point(184, 130);
+                discountlbl.Location = new Point(18, 172);
+                discountTxt.Location = new Point(184, 168);
+
+                amountPaidlbl.Location = new Point(18, 214);
+                amountPaid.Location = new Point(184, 212);
+                changelbl.Location = new Point(18, 251);
+                changetxt.Location = new Point(184, 247);
+
+            }
+            else
+            {
+                discountlbl.Visible = false;
+                discountTypelbl.Visible = false;
+                discountTxt.Visible = false;
+                cb_discountType.Visible = false;
+                amountPaidlbl.Location = new Point(18, 127);
+                amountPaid.Location = new Point(184, 123);
+                changelbl.Location = new Point(18, 164);
+                changetxt.Location = new Point(184, 160);
+            }
+           
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            paymentpanel.Visible = false;
+            paymentpanel.Enabled = false;
+            dinein.Visible = true;
+            takeout.Visible = true;
         }
 
 
