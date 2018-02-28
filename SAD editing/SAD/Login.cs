@@ -39,7 +39,7 @@ namespace SAD
         {
             string user = txt_user.Text;
             string pass = txt_pass.Text;
-            string query = "SELECT staffid, username, password, firstname, lastname, position FROM staff, person WHERE username = '" + user + "' AND password = '" + pass + "' AND person.personid = staff.person_personid AND status LIKE 'Active'";
+            string query = "SELECT staffid, username, password, firstname, lastname, position FROM staff, person WHERE username = '" + user + "' AND password = '" + pass + "' AND person.personid = staff.person_personid AND status = 'Active'";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -65,8 +65,6 @@ namespace SAD
                 DisplayUserDetails.usertype = usertype;
                 DisplayUserDetails.username = username;
                 DisplayUserDetails.password = password;
-
-                MessageBox.Show("Welcome " + lname + ", " + fname + "!", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.prevForm = this;

@@ -36,8 +36,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.inventory_dtgv = new System.Windows.Forms.DataGridView();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.txt_staffname = new System.Windows.Forms.TextBox();
-            this.txt_staffposition = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -78,6 +76,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btn_SOBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.lbl_position = new System.Windows.Forms.Label();
+            this.lbl_name = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -164,6 +164,7 @@
             this.inventory_dtgv.AllowUserToResizeRows = false;
             this.inventory_dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.inventory_dtgv.BackgroundColor = System.Drawing.Color.MintCream;
+            this.inventory_dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inventory_dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.inventory_dtgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.inventory_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -180,8 +181,8 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
-            this.panel8.Controls.Add(this.txt_staffname);
-            this.panel8.Controls.Add(this.txt_staffposition);
+            this.panel8.Controls.Add(this.lbl_name);
+            this.panel8.Controls.Add(this.lbl_position);
             this.panel8.Controls.Add(this.label13);
             this.panel8.Controls.Add(this.label12);
             this.panel8.Location = new System.Drawing.Point(738, 100);
@@ -189,43 +190,25 @@
             this.panel8.Size = new System.Drawing.Size(341, 101);
             this.panel8.TabIndex = 4;
             // 
-            // txt_staffname
-            // 
-            this.txt_staffname.Enabled = false;
-            this.txt_staffname.Location = new System.Drawing.Point(112, 58);
-            this.txt_staffname.Multiline = true;
-            this.txt_staffname.Name = "txt_staffname";
-            this.txt_staffname.Size = new System.Drawing.Size(188, 20);
-            this.txt_staffname.TabIndex = 4;
-            // 
-            // txt_staffposition
-            // 
-            this.txt_staffposition.Enabled = false;
-            this.txt_staffposition.Location = new System.Drawing.Point(112, 21);
-            this.txt_staffposition.Multiline = true;
-            this.txt_staffposition.Name = "txt_staffposition";
-            this.txt_staffposition.Size = new System.Drawing.Size(188, 23);
-            this.txt_staffposition.TabIndex = 3;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label13.Location = new System.Drawing.Point(30, 58);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 18);
+            this.label13.Size = new System.Drawing.Size(66, 24);
             this.label13.TabIndex = 2;
             this.label13.Text = "Name:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label12.Location = new System.Drawing.Point(30, 24);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 18);
+            this.label12.Size = new System.Drawing.Size(81, 24);
             this.label12.TabIndex = 1;
             this.label12.Text = "Position:";
             // 
@@ -523,10 +506,10 @@
             this.panel_stockout.Controls.Add(this.label14);
             this.panel_stockout.Controls.Add(this.btn_SOBack);
             this.panel_stockout.Controls.Add(this.label5);
-            this.panel_stockout.Location = new System.Drawing.Point(738, 183);
+            this.panel_stockout.Location = new System.Drawing.Point(1054, 454);
             this.panel_stockout.Margin = new System.Windows.Forms.Padding(2);
             this.panel_stockout.Name = "panel_stockout";
-            this.panel_stockout.Size = new System.Drawing.Size(332, 305);
+            this.panel_stockout.Size = new System.Drawing.Size(16, 34);
             this.panel_stockout.TabIndex = 22;
             this.panel_stockout.Visible = false;
             // 
@@ -691,6 +674,28 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "STOCK OUT";
             // 
+            // lbl_position
+            // 
+            this.lbl_position.AutoSize = true;
+            this.lbl_position.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_position.ForeColor = System.Drawing.Color.Transparent;
+            this.lbl_position.Location = new System.Drawing.Point(117, 28);
+            this.lbl_position.Name = "lbl_position";
+            this.lbl_position.Size = new System.Drawing.Size(68, 20);
+            this.lbl_position.TabIndex = 13;
+            this.lbl_position.Text = "postion";
+            // 
+            // lbl_name
+            // 
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_name.ForeColor = System.Drawing.Color.Transparent;
+            this.lbl_name.Location = new System.Drawing.Point(117, 58);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(53, 20);
+            this.lbl_name.TabIndex = 14;
+            this.lbl_name.Text = "name";
+            // 
             // InventoryTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -750,8 +755,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox txt_staffname;
-        private System.Windows.Forms.TextBox txt_staffposition;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -788,5 +791,7 @@
         private System.Windows.Forms.ComboBox cmb_remarks;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label date_lbl;
+        private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.Label lbl_position;
     }
 }

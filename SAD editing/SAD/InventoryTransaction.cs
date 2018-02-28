@@ -22,8 +22,8 @@ namespace SAD
         {
             InitializeComponent();
             conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root; Allow Zero Datetime=true");
-            txt_staffposition.Text = SAD.Login.DisplayUserDetails.usertype;
-            txt_staffname.Text = SAD.Login.DisplayUserDetails.name;
+            lbl_position.Text = SAD.Login.DisplayUserDetails.usertype;
+            lbl_name.Text = SAD.Login.DisplayUserDetails.name;
 
         }
 
@@ -92,7 +92,7 @@ namespace SAD
             inventory_dtgv.Columns["itemType"].HeaderText = "Type";
             inventory_dtgv.Columns["itemExpiry"].HeaderText = "Expiration Date";
             inventory_dtgv.Columns["itemStockedIn"].HeaderText = "Date";
-            
+            item_expires();
         }
 
         public static int itemInvID;

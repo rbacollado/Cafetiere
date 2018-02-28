@@ -54,8 +54,34 @@ namespace SAD
 
             logDate();
             restock();
-            
+            notif_expiry();
         }
+
+        public void notif_expiry()
+        {
+            String notifexpiryquery = "SELECT SUM(itemQuantity) as num_expired FROM items_inventory " +
+                                      "WHERE current_date() > itemExpiry AND itemStatus = 'Available' AND itemType = 'Ingredient';";
+
+            MySqlCommand comm = new MySqlCommand(notifexpiryquery, conn);
+            comm.CommandText = notifexpiryquery;
+
+            conn.Open();
+            MySqlDataReader drdNotif = comm.ExecuteReader();
+
+            while (drdNotif.Read())
+            {
+                string numExpired = drdNotif["num_expired"].ToString();
+
+                if (numExpired != "")
+                {
+                    MessageBox.Show("You have " + numExpired + " expired item(s).", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
+            }
+            conn.Close();
+
+        }
+
 
         public void restock()
         {
@@ -123,10 +149,13 @@ namespace SAD
 
         private void btn_orders_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
-            order.prevForm = this;
-            order.Show();
-            this.Hide();
+
+            sales_panel.Visible = true;
+            sales_panel.Enabled = true;
+
+            sales_panel.Size = new Size(643, 498);
+            sales_panel.Location = new Point(139, 91);
+            
         }
         
         private void btn_product_Click(object sender, EventArgs e)
@@ -174,6 +203,24 @@ namespace SAD
         {
             profiling_panel.Visible = false;
             restock_items.Visible = true;
+        }
+
+        private void sales_btn_back_Click(object sender, EventArgs e)
+        {
+            sales_panel.Visible = false;
+        }
+
+        private void order_btn_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+            order.prevForm = this;
+            order.Show();
+            this.Hide();
+        }
+
+        private void restock_items_SelectionChanged(object sender, EventArgs e)
+        {
+            this.restock_items.ClearSelection();
         }
     }
 }

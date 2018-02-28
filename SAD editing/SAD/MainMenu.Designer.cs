@@ -81,6 +81,11 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.restock_items = new System.Windows.Forms.DataGridView();
+            this.sales_panel = new System.Windows.Forms.Panel();
+            this.order_btn = new System.Windows.Forms.Button();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.sales_btn_back = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -103,6 +108,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.restock_items)).BeginInit();
+            this.sales_panel.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -664,13 +671,13 @@
             // 
             this.report_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(43)))), ((int)(((byte)(73)))));
             this.report_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.report_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.report_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.report_btn.Location = new System.Drawing.Point(0, 133);
+            this.report_btn.Location = new System.Drawing.Point(365, 195);
             this.report_btn.Name = "report_btn";
-            this.report_btn.Size = new System.Drawing.Size(248, 37);
+            this.report_btn.Size = new System.Drawing.Size(199, 113);
             this.report_btn.TabIndex = 97;
-            this.report_btn.Text = "REPORTS";
+            this.report_btn.Text = "REPORT";
             this.report_btn.UseVisualStyleBackColor = false;
             this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
             // 
@@ -741,14 +748,13 @@
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.panel14.Controls.Add(this.pictureBox5);
             this.panel14.Controls.Add(this.btn_settings);
-            this.panel14.Controls.Add(this.report_btn);
             this.panel14.Controls.Add(this.lbl_name);
             this.panel14.Controls.Add(this.pictureBox4);
             this.panel14.Controls.Add(this.lbl_type);
             this.panel14.Location = new System.Drawing.Point(530, 318);
             this.panel14.Margin = new System.Windows.Forms.Padding(2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(248, 170);
+            this.panel14.Size = new System.Drawing.Size(248, 136);
             this.panel14.TabIndex = 96;
             // 
             // restock_items
@@ -759,9 +765,11 @@
             this.restock_items.AllowUserToResizeRows = false;
             this.restock_items.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.restock_items.BackgroundColor = System.Drawing.Color.MintCream;
+            this.restock_items.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.restock_items.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.restock_items.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.restock_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.restock_items.GridColor = System.Drawing.SystemColors.Control;
             this.restock_items.Location = new System.Drawing.Point(139, 391);
             this.restock_items.Name = "restock_items";
             this.restock_items.ReadOnly = true;
@@ -769,12 +777,78 @@
             this.restock_items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.restock_items.Size = new System.Drawing.Size(387, 176);
             this.restock_items.TabIndex = 207;
+            this.restock_items.SelectionChanged += new System.EventHandler(this.restock_items_SelectionChanged);
+            // 
+            // sales_panel
+            // 
+            this.sales_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.sales_panel.Controls.Add(this.order_btn);
+            this.sales_panel.Controls.Add(this.report_btn);
+            this.sales_panel.Controls.Add(this.panel17);
+            this.sales_panel.Location = new System.Drawing.Point(139, 514);
+            this.sales_panel.Margin = new System.Windows.Forms.Padding(2);
+            this.sales_panel.Name = "sales_panel";
+            this.sales_panel.Size = new System.Drawing.Size(53, 75);
+            this.sales_panel.TabIndex = 208;
+            this.sales_panel.Visible = false;
+            // 
+            // order_btn
+            // 
+            this.order_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(43)))), ((int)(((byte)(73)))));
+            this.order_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.order_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.order_btn.ForeColor = System.Drawing.Color.Transparent;
+            this.order_btn.Location = new System.Drawing.Point(59, 195);
+            this.order_btn.Name = "order_btn";
+            this.order_btn.Size = new System.Drawing.Size(199, 113);
+            this.order_btn.TabIndex = 67;
+            this.order_btn.Text = "POS";
+            this.order_btn.UseVisualStyleBackColor = false;
+            this.order_btn.Click += new System.EventHandler(this.order_btn_Click);
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel17.Controls.Add(this.label13);
+            this.panel17.Controls.Add(this.sales_btn_back);
+            this.panel17.Location = new System.Drawing.Point(0, 0);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(709, 57);
+            this.panel17.TabIndex = 66;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Transparent;
+            this.label13.Location = new System.Drawing.Point(20, 19);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(106, 31);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "SALES";
+            // 
+            // sales_btn_back
+            // 
+            this.sales_btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.sales_btn_back.FlatAppearance.BorderSize = 0;
+            this.sales_btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sales_btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_btn_back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.sales_btn_back.Location = new System.Drawing.Point(561, -3);
+            this.sales_btn_back.Name = "sales_btn_back";
+            this.sales_btn_back.Size = new System.Drawing.Size(82, 61);
+            this.sales_btn_back.TabIndex = 65;
+            this.sales_btn_back.Text = "BACK";
+            this.sales_btn_back.UseVisualStyleBackColor = false;
+            this.sales_btn_back.Click += new System.EventHandler(this.sales_btn_back_Click);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 707);
+            this.Controls.Add(this.sales_panel);
             this.Controls.Add(this.restock_items);
             this.Controls.Add(this.profiling_panel);
             this.Controls.Add(this.panel14);
@@ -830,6 +904,9 @@
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.restock_items)).EndInit();
+            this.sales_panel.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -889,5 +966,10 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataGridView restock_items;
+        private System.Windows.Forms.Panel sales_panel;
+        private System.Windows.Forms.Button order_btn;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button sales_btn_back;
     }
 }

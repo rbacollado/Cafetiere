@@ -31,18 +31,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_close = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.inventory_log = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.end_filter = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.start_filter = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
+            this.inventory_log = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inventory_log)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventory_log)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -80,35 +78,6 @@
             this.label3.Size = new System.Drawing.Size(177, 24);
             this.label3.TabIndex = 12;
             this.label3.Text = "INVENTORY LOG";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.panel4.Controls.Add(this.inventory_log);
-            this.panel4.Location = new System.Drawing.Point(19, 128);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(729, 497);
-            this.panel4.TabIndex = 62;
-            // 
-            // inventory_log
-            // 
-            this.inventory_log.AllowUserToAddRows = false;
-            this.inventory_log.AllowUserToDeleteRows = false;
-            this.inventory_log.AllowUserToResizeColumns = false;
-            this.inventory_log.AllowUserToResizeRows = false;
-            this.inventory_log.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.inventory_log.BackgroundColor = System.Drawing.Color.White;
-            this.inventory_log.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.inventory_log.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.inventory_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.inventory_log.GridColor = System.Drawing.SystemColors.Control;
-            this.inventory_log.Location = new System.Drawing.Point(20, 15);
-            this.inventory_log.Name = "inventory_log";
-            this.inventory_log.ReadOnly = true;
-            this.inventory_log.RowHeadersVisible = false;
-            this.inventory_log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventory_log.Size = new System.Drawing.Size(693, 478);
-            this.inventory_log.TabIndex = 208;
             // 
             // panel3
             // 
@@ -172,12 +141,33 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Filter:";
             // 
+            // inventory_log
+            // 
+            this.inventory_log.AllowUserToAddRows = false;
+            this.inventory_log.AllowUserToDeleteRows = false;
+            this.inventory_log.AllowUserToResizeColumns = false;
+            this.inventory_log.AllowUserToResizeRows = false;
+            this.inventory_log.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.inventory_log.BackgroundColor = System.Drawing.Color.White;
+            this.inventory_log.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.inventory_log.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.inventory_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inventory_log.GridColor = System.Drawing.SystemColors.Control;
+            this.inventory_log.Location = new System.Drawing.Point(19, 128);
+            this.inventory_log.Name = "inventory_log";
+            this.inventory_log.ReadOnly = true;
+            this.inventory_log.RowHeadersVisible = false;
+            this.inventory_log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.inventory_log.Size = new System.Drawing.Size(729, 478);
+            this.inventory_log.TabIndex = 209;
+            // 
             // InventoryLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(760, 633);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.inventory_log);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -187,10 +177,9 @@
             this.Load += new System.EventHandler(this.InventoryLog_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.inventory_log)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventory_log)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -199,14 +188,13 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_close;
-        private System.Windows.Forms.DataGridView inventory_log;
         private System.Windows.Forms.DateTimePicker start_filter;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker end_filter;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView inventory_log;
     }
 }

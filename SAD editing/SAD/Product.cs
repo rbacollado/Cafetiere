@@ -27,10 +27,7 @@ namespace SAD
         {
             loadAll();
         }
-
-       
         
-
         private void loadAll()
         {
             string query = "SELECT * FROM Products";
