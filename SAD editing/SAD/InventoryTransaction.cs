@@ -30,17 +30,22 @@ namespace SAD
            
             inventory_status();
             loadTobeRemoved();
-            item_expires();
+            
 
             DateTime now = DateTime.Today;
             date_lbl.Text = now.ToString("MM-dd-yyyy");
         }
 
-        
+        private void inventory_dtgv_SelectionChanged(object sender, EventArgs e)
+        {
+            this.inventory_dtgv.ClearSelection();
+            item_expires();
+        }
+
         public void item_expires()
         {
             String query_expired = "SELECT itemInvID, date_format(itemExpiry, '%m /%d /%y') as itemExpiry FROM items_inventory " +
-                                    "WHERE itemType = 'Ingredient' AND current_date() >= itemExpiry;";
+                                    "WHERE (itemType = 'Ingredient' OR itemType = 'Product') AND current_date() > itemExpiry;";
 
             MySqlCommand comm_expired = new MySqlCommand(query_expired, conn);
             comm_expired.CommandText = query_expired;
@@ -217,9 +222,6 @@ namespace SAD
             this.Hide();
         }
 
-        private void inventory_dtgv_SelectionChanged(object sender, EventArgs e)
-        {
-            this.inventory_dtgv.ClearSelection();
-        }
+       
     }
 }

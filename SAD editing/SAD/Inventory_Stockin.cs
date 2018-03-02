@@ -25,6 +25,7 @@ namespace SAD
             OrderWM.Columns.Add("Name", typeof(string));
             OrderWM.Columns.Add("Price", typeof(string));
             OrderWM.Columns.Add("Quantity", typeof(int));
+            OrderWM.Columns.Add("Type", typeof(string));
             OrderWM.Columns.Add("ExpiryDate", typeof(string));
             OrderWM.Columns.Add("Subtotal", typeof(string));
         }
@@ -67,24 +68,25 @@ namespace SAD
 
         private void iName_txt_MouseClick_1(object sender, MouseEventArgs e)
         {
-            
-
             if (item_data.Rows.Count < 1)
             {
                 MessageBox.Show("No items Found");
                 Item_Add add = new Item_Add();
                 add.Show();
                 add.prevForm = this;
-                this.Hide();
-                
+                this.Hide();  
             }
             else
             {
                 btn_remove.Visible = false;
+
+                label12.Visible = false;
+                cmb_type.Visible = false;
+
                 item_panel.Visible = true;
                 item_panel.Enabled = true;
-                item_panel.Size = new Size(495, 383);
-                item_panel.Location = new Point(18, 124);
+                item_panel.Size = new Size(523, 423);
+                item_panel.Location = new Point(3, 124);
 
                 item_data.Columns["name"].Width = 160;
                 item_data.Columns["price"].Width = 80;
@@ -150,73 +152,98 @@ namespace SAD
                 {
                     iExpiry_txt.Visible = true;
                     label9.Visible = true;
-
+                    label12.Visible = true;
+                    cmb_type.Visible = true;
                 }
 
                 else
                 {
                     iExpiry_txt.Visible = false;
                     label9.Visible = false;
-
+                    label12.Visible = false;
+                    cmb_type.Visible = false;
                 }
 
                 iQuantity_txt.Enabled = true;
             }
             conn.Close();
         }
-
-
-
+        
         private void btn_add_Click(object sender, EventArgs e)
         {
             Boolean duplicate_item = false;
             int iditem = 0;
             
             string expiry;
+            string type;
             
-            if (iExpiry_txt.Visible == true && label9.Visible == true)
-            {
-                expiry = iExpiry_txt.Text;
-            }
-            else
-            {
-                expiry = "0000-00-00";
-
-            }
-
             // Check if items in the items_ordered datagrid
             for (int i = 0; i < items_purchased.Rows.Count; i++)
             {
-                if ((iName_txt.Text == items_purchased.Rows[i].Cells["Name"].Value.ToString()) && expiry == items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString())
+                if ((iName_txt.Text == items_purchased.Rows[i].Cells["Name"].Value.ToString()) && (iExpiry_txt.Text == items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString() || "0000-00-00" == items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString()) )
                 {
                     duplicate_item = true;
                     iditem = i;
                 }
             }
 
-            if ( iName_txt.Text == "" || iPrice_txt.Text == "" || iQuantity_txt.Text == "")
+            if (iExpiry_txt.Visible == true && label9.Visible == true  && label12.Visible == true && cmb_type.Visible == true)
             {
-                MessageBox.Show("Please complete order details!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (duplicate_item == true)
-            {
-                string iQuantity = items_purchased.Rows[iditem].Cells["Quantity"].Value.ToString();
-                string iPrice = items_purchased.Rows[iditem].Cells["Price"].Value.ToString();
-                items_purchased.Rows[iditem].Cells["Quantity"].Value = int.Parse(iQuantity_txt.Text) + int.Parse(iQuantity);
+                if (iName_txt.Text == "" || iPrice_txt.Text == "" || iQuantity_txt.Text == "" || cmb_type.Text == "")
+                {
+                    MessageBox.Show("Please complete order details!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (duplicate_item == true)
+                {
+                    string iQuantity = items_purchased.Rows[iditem].Cells["Quantity"].Value.ToString();
+                    string iPrice = items_purchased.Rows[iditem].Cells["Price"].Value.ToString();
+                    items_purchased.Rows[iditem].Cells["Quantity"].Value = int.Parse(iQuantity_txt.Text) + int.Parse(iQuantity);
 
-                decimal number = decimal.Parse(iPrice) * int.Parse(items_purchased.Rows[iditem].Cells["Quantity"].Value.ToString());
-                items_purchased.Rows[iditem].Cells["Subtotal"].Value = number.ToString();
-                total();
+                    decimal number = decimal.Parse(iPrice) * int.Parse(items_purchased.Rows[iditem].Cells["Quantity"].Value.ToString());
+                    items_purchased.Rows[iditem].Cells["Subtotal"].Value = number.ToString();
+                    total();
 
+                }
+                else
+                {
+                    expiry = iExpiry_txt.Text;
+                    type = cmb_type.Text;
+
+                    OrderWM.Rows.Add(iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, type, expiry, subtotal_txt.Text);
+                    items_purchased.DataSource = OrderWM;
+
+                    total();
+                }
             }
             else
             {
-                
-                OrderWM.Rows.Add(iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, expiry , subtotal_txt.Text);
-                items_purchased.DataSource = OrderWM;
-                
-                total();
+                if (iName_txt.Text == "" || iPrice_txt.Text == "" || iQuantity_txt.Text == "")
+                {
+                    MessageBox.Show("Please complete order details!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (duplicate_item == true)
+                {
+                    string iQuantity = items_purchased.Rows[iditem].Cells["Quantity"].Value.ToString();
+                    string iPrice = items_purchased.Rows[iditem].Cells["Price"].Value.ToString();
+                    items_purchased.Rows[iditem].Cells["Quantity"].Value = int.Parse(iQuantity_txt.Text) + int.Parse(iQuantity);
+
+                    decimal number = decimal.Parse(iPrice) * int.Parse(items_purchased.Rows[iditem].Cells["Quantity"].Value.ToString());
+                    items_purchased.Rows[iditem].Cells["Subtotal"].Value = number.ToString();
+                    total();
+
+                }
+                else
+                {
+                    expiry = "0000-00-00";
+                    type = "Non-Ingredient";
+
+                    OrderWM.Rows.Add(iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, type, expiry, subtotal_txt.Text);
+                    items_purchased.DataSource = OrderWM;
+
+                    total();
+                }
             }
+            
         }
 
         private void iPrice_txt_TextChanged(object sender, EventArgs e)
@@ -275,9 +302,8 @@ namespace SAD
         {
             string item_name;
             int item_quantity;
-            
             string item_expiry;
-            string type;
+            string item_type;
             
             if (items_purchased.Rows.Count < 1)
             {
@@ -290,6 +316,8 @@ namespace SAD
                     item_name = items_purchased.Rows[i].Cells["Name"].Value.ToString();
                     item_quantity = Int32.Parse(items_purchased.Rows[i].Cells["Quantity"].Value.ToString());
                     item_expiry = items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString();
+                    item_type = items_purchased.Rows[i].Cells["Type"].Value.ToString();
+
                     string duplicateItemsquery = "SELECT itemExpiry from items_inventory WHERE itemExpiry = '" + item_expiry +
                                                  "' AND item_ID = (SELECT itemsID FROM items WHERE name = '" + item_name + "');";
                     conn.Open();
@@ -300,16 +328,7 @@ namespace SAD
 
                     DataTable duplicateItems = new DataTable();
                     adp.Fill(duplicateItems);
-
-                    if (item_expiry == "0000-00-00")
-                    {
-                        type = "Non-Ingredient";
-                    }
-                    else
-                    {
-                        type = "Ingredient";
-                    }
-
+                    
                     if (duplicateItems.Rows.Count > 0)
                     {
                         string addItemQuantityquery = "UPDATE items_inventory SET itemStatus = 'Available', itemQuantity = itemQuantity + " + item_quantity +
@@ -323,7 +342,7 @@ namespace SAD
                     else
                     {
                         string addNewItemQuery = "INSERT INTO items_inventory (item_ID, itemQuantity, itemStatus, itemType, itemStockedIn, itemExpiry) " +
-                                                   "VALUES((SELECT itemsID from items WHERE name = '" + item_name + "'), " + item_quantity + ", 'Available', '" + type + "', current_timestamp(), '" + item_expiry + "');";
+                                                   "VALUES((SELECT itemsID from items WHERE name = '" + item_name + "'), " + item_quantity + ", 'Available', '" + item_type + "', current_timestamp(), '" + item_expiry + "');";
                         conn.Open();
                         MySqlCommand comm_NewItem = new MySqlCommand(addNewItemQuery, conn);
                         comm_NewItem.ExecuteNonQuery();

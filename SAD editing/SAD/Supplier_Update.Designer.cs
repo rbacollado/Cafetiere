@@ -50,6 +50,8 @@
             this.txt_fname = new System.Windows.Forms.TextBox();
             this.lbl_fname = new System.Windows.Forms.Label();
             this.txt_lname = new System.Windows.Forms.TextBox();
+            this.status = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel_add.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -138,6 +140,8 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.status);
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.update_supplier);
             this.panel2.Controls.Add(this.txt_organization);
             this.panel2.Controls.Add(this.label2);
@@ -330,6 +334,28 @@
             this.txt_lname.Size = new System.Drawing.Size(159, 27);
             this.txt_lname.TabIndex = 2;
             // 
+            // status
+            // 
+            this.status.AutoSize = true;
+            this.status.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.Location = new System.Drawing.Point(517, 175);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(71, 24);
+            this.status.TabIndex = 122;
+            this.status.Text = "Active";
+            this.status.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(345, 173);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 20);
+            this.label4.TabIndex = 121;
+            this.label4.Text = "Status:";
+            // 
             // Supplier_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,5 +403,7 @@
         private System.Windows.Forms.Label lbl_fname;
         private System.Windows.Forms.TextBox txt_lname;
         private System.Windows.Forms.Button update_supplier;
+        private System.Windows.Forms.CheckBox status;
+        private System.Windows.Forms.Label label4;
     }
 }

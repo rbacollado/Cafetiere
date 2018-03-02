@@ -37,6 +37,7 @@
             this.btn_clear = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.unit = new System.Windows.Forms.ComboBox();
             this.price = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.expirable = new System.Windows.Forms.CheckBox();
@@ -46,7 +47,6 @@
             this.lbl_fname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_lname = new System.Windows.Forms.Label();
-            this.unit = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -173,6 +173,19 @@
             this.panel5.Size = new System.Drawing.Size(440, 250);
             this.panel5.TabIndex = 0;
             // 
+            // unit
+            // 
+            this.unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unit.FormattingEnabled = true;
+            this.unit.Items.AddRange(new object[] {
+            "kg",
+            "ml",
+            "pcs"});
+            this.unit.Location = new System.Drawing.Point(128, 157);
+            this.unit.Name = "unit";
+            this.unit.Size = new System.Drawing.Size(131, 28);
+            this.unit.TabIndex = 232;
+            // 
             // price
             // 
             this.price.BackColor = System.Drawing.Color.White;
@@ -277,19 +290,6 @@
             this.lbl_lname.Size = new System.Drawing.Size(50, 25);
             this.lbl_lname.TabIndex = 102;
             this.lbl_lname.Text = "Unit";
-            // 
-            // unit
-            // 
-            this.unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unit.FormattingEnabled = true;
-            this.unit.Items.AddRange(new object[] {
-            "kg",
-            "ml",
-            "pcs"});
-            this.unit.Location = new System.Drawing.Point(128, 157);
-            this.unit.Name = "unit";
-            this.unit.Size = new System.Drawing.Size(58, 28);
-            this.unit.TabIndex = 232;
             // 
             // Item_Add
             // 

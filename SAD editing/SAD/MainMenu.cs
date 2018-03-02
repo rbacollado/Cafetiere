@@ -117,7 +117,15 @@ namespace SAD
             {
                 logdate = DateTime.Parse(rdr["LastLog"].ToString());
 
-                logdate_lbl.Text = logdate.ToString("MMM dd yyyy");
+                if (logdate.ToString() != "")
+                {
+                    logdate_lbl.Text = logdate.ToString("MMM dd yyyy");
+                }
+                else
+                {
+                    logdate_lbl.Text = "No Recent Changes";
+                }
+                
             }
             conn.Close();
         }
@@ -147,13 +155,10 @@ namespace SAD
 
         private void btn_orders_Click(object sender, EventArgs e)
         {
-
             sales_panel.Visible = true;
             sales_panel.Enabled = true;
-
             sales_panel.Size = new Size(643, 498);
             sales_panel.Location = new Point(139, 91);
-            
         }
         
         private void btn_product_Click(object sender, EventArgs e)
@@ -219,6 +224,14 @@ namespace SAD
         private void restock_items_SelectionChanged(object sender, EventArgs e)
         {
             this.restock_items.ClearSelection();
+        }
+
+        private void Archive_Click(object sender, EventArgs e)
+        {
+            Archive archive = new Archive();
+            archive.prevForm = this;
+            archive.Show();
+            this.Hide();
         }
     }
 }

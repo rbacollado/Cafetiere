@@ -24,8 +24,6 @@ namespace SAD
 
             
         }
-       
-
 
         DataTable order = new DataTable();
 
@@ -47,18 +45,54 @@ namespace SAD
             DateTime now = DateTime.Today;
             date.Text = now.ToString("MM/dd/yy");
 
-            categoryCmbData();
-
             discountTxt.BackColor = Color.Gray;
             discountTxt.Enabled = false;
 
+            loadprod_data();
 
+        }
 
+        
+        private void Back_Click(object sender, EventArgs e)
+        {
+            prevForm.Show();
+            this.Close();
+        }
+
+        public void loadprod_data()
+        {
+            String query = "SELECT productInvID, pname, pcategory, pprice FROM product_inventory, products " +
+                           "WHERE product_inventory.product_id = products.productID AND product_status = 'Available';";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            product_data.DataSource = dt;
+            product_data.Columns["productInvID"].Visible = false;
+            product_data.Columns["pname"].HeaderText = "Name";
+            product_data.Columns["pcategory"].HeaderText = "Category";
+            product_data.Columns["pprice"].HeaderText = "Price";
+            
+        }
+       
+        public static int selected_product;
+        private void product_data_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                selected_product = int.Parse(product_data.Rows[e.RowIndex].Cells["productInvID"].Value.ToString());
+              
+                load_products();
+            }
         }
 
         public void load_products()
         {
-            String query = "SELECT productID , pname, pprice, pquantity FROM products WHERE productID = " + selected_user_id +" ";
+            String query = "SELECT productInvID, pname, pcategory, pprice, product_quantity FROM product_inventory, products " +
+                            "WHERE product_inventory.product_id = products.productID AND product_status = 'Available' AND productInvID = " + selected_product + " ";
 
             MySqlCommand comm = new MySqlCommand(query, conn);
             comm.CommandText = query;
@@ -69,64 +103,38 @@ namespace SAD
             while (dataread.Read())
             {
                 prodname.Text = (dataread["pname"].ToString());
+                prodcategory.Text = (dataread["pcategory"].ToString());
                 priceTxt.Text = (dataread["pprice"].ToString());
-                quantityTxt.Maximum = int.Parse(dataread["pquantity"].ToString());
-                
+                quantityTxt.Maximum = int.Parse(dataread["product_quantity"].ToString());
+
                 quantityTxt.Enabled = true;
                 quantityTxt.Value = 1;
-                subTotalTxt.Text = priceTxt.Text ;
+                subTotalTxt.Text = priceTxt.Text;
 
             }
             conn.Close();
 
         }
 
-        private void Back_Click(object sender, EventArgs e)
+        private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
         {
-            prevForm.Show();
-            this.Close();
-        }
-
-        private void prod_MouseClick(object sender, MouseEventArgs e)
-        {
-            String query = "SELECT productID, pname, pprice FROM products";
+            string filterquery = "SELECT productInvID, pname, pcategory, pprice, product_quantity FROM product_inventory, products " +
+                                 "WHERE product_inventory.product_id = products.productID AND product_status = 'Available' AND pcategory = '"+ cb_category.Text +"';";
             conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlCommand comm = new MySqlCommand(filterquery, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
+            DataTable dt_filter = new DataTable();
+            adp.Fill(dt_filter);
 
-            product_data.DataSource = dt;
-            product_data.Columns["productID"].Visible = false;
+            product_data.DataSource = dt_filter;
+            product_data.Columns["productInvID"].Visible = false;
             product_data.Columns["pname"].HeaderText = "Name";
+            product_data.Columns["pcategory"].HeaderText = "Category";
             product_data.Columns["pprice"].HeaderText = "Price";
-           
-
-            product_data.Columns["pprice"].DefaultCellStyle.Format = "c";
-
-           
-                productpanel.Visible = true;
-                productpanel.Enabled = true;
-
-                productpanel.Size = new Size(380, 443);
-                productpanel.Location = new Point(11, 160);
-
+            
         }
 
-        public static int selected_user_id;
-        private void product_data_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                selected_user_id = int.Parse(product_data.Rows[e.RowIndex].Cells["productID"].Value.ToString());
-              
-                productpanel.Visible = false;
-                productpanel.Enabled = false;
-                load_products();
-            }
-        }       
-        
         private void btn_add_Click(object sender, EventArgs e)
         {
             Boolean duplicate_prod = false;
@@ -148,7 +156,7 @@ namespace SAD
             // Check if products in the ordered_products datagrid
             for (int i = 0; i < ordered_products.Rows.Count; i++)
             {
-                if ( selected_user_id == int.Parse(ordered_products.Rows[i].Cells["id"].Value.ToString()) && ordertype == ordered_products.Rows[i].Cells["OrderType"].Value.ToString() )
+                if (selected_product == int.Parse(ordered_products.Rows[i].Cells["id"].Value.ToString()) && ordertype == ordered_products.Rows[i].Cells["OrderType"].Value.ToString() )
                 {
                     duplicate_prod = true;
                     idprod = i;
@@ -161,7 +169,8 @@ namespace SAD
             }
             else if (duplicate_prod == true)
             {
-                if (quantityTxt.Maximum < ( quantityTxt.Value + int.Parse( ordered_products.Rows[idprod].Cells["Quantity"].Value.ToString()) ) ) 
+               
+                if (quantityTxt.Maximum < (quantityTxt.Value + int.Parse(ordered_products.Rows[idprod].Cells["Quantity"].Value.ToString())))
                 {
                     MessageBox.Show("Product Unavailable!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -174,6 +183,7 @@ namespace SAD
 
                     total();
                 }
+                
             }
             else
             {
@@ -187,10 +197,10 @@ namespace SAD
                 }
                 if(x == false)
                 {
-                    order.Rows.Add(selected_user_id, prodname.Text, priceTxt.Text, quantityTxt.Text, subTotalTxt.Text, ordertype);
+                    order.Rows.Add(selected_product, prodname.Text, priceTxt.Text, quantityTxt.Text, subTotalTxt.Text, ordertype);
                     ordered_products.DataSource = order;
                     ordered_products.Columns["id"].Visible = false;
-
+                    
                     total();
                 }
                 else
@@ -213,12 +223,12 @@ namespace SAD
                 }
                 TotalTB.Text = total.ToString("");
                 totalDue.Text = total.ToString();
-            }catch(Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("An error has occured. Please Try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
-
         }
 
         private void quantityTxt_ValueChanged(object sender, EventArgs e)
@@ -247,26 +257,45 @@ namespace SAD
 
         private void btn_remove_Click(object sender, EventArgs e)
         {
-            try
+            /*if (ordered_products.SelectedRows.Count <= 0)
             {
-                if (ordered_products.SelectedRows.Count <= 0)
+                MessageBox.Show("Please order first!");
+            }
+            else
+            {
+                foreach (DataGridViewRow orderedprod in this.ordered_products.Rows)
                 {
-                    MessageBox.Show("Please order first!");
-                }
-                else
-                {
-                    int row = ordered_products.CurrentCell.RowIndex;
-                    ordered_products.Rows.RemoveAt(row);
+                    string tempname = Convert.ToString(orderedprod.Cells["Name"].Value);
+                    int tempQTY = Convert.ToInt32(orderedprod.Cells["Quantity"].Value);
+                    TotalTB.Text = Convert.ToString(Convert.ToDouble(TotalTB.Text) - Convert.ToDouble(orderedprod.Cells["Price"].Value));
 
-                    total();
+                    foreach (DataGridViewRow prod_data in this.product_data.Rows)
+                    {
+
+                        if (Convert.ToString(prod_data.Cells["pname"].Value) == tempname)
+                        {
+                            int QTY = Convert.ToInt32(prod_data.Cells["pquantity"].Value);
+
+                            int add = QTY + tempQTY;
+                            prod_data.Cells["pquantity"].Value = Convert.ToString(add);
+                            ordered_products.Rows.RemoveAt(orderedprod.Index);
+
+                        }
+                    }
+                }
+                foreach (DataGridViewRow row in ordered_products.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    decimal sum = 0;
+                    for (int i = 0; i < ordered_products.Rows.Count; i++)
+                    {
+                        sum += Convert.ToDecimal(ordered_products.Rows[i].Cells["Subtotal"].Value);
+                    }
+                    TotalTB.Text = Convert.ToString(sum);
+                }
                 
-                }
-
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("An error has occured. Please Try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            }*/
         }
 
         private void btn_clear_Click(object sender, EventArgs e)
@@ -534,18 +563,7 @@ namespace SAD
         {
 
         }
-
-       public void categoryCmbData()
-        {
-            cb_category.Items.Clear();
-            string query = "SELECT category_id, category_name FROM category";
-            cb_category.DataSource = getData(query);
-            cb_category.DisplayMember = "category_name";
-            cb_category.ValueMember = "category_id";
-
-            cb_category_SelectedIndexChanged(null, null);
-        }
-
+        
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
@@ -560,17 +578,7 @@ namespace SAD
             return table;
         }
 
-        private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int val;
-            Int32.TryParse(cb_category.SelectedValue.ToString(), out val);
-            string query = "SELECT productID, pname, pprice, pquantity FROM products, category WHERE category_category_id = " + val + " AND category.category_id = products.category_category_id";
-            product_data.DataSource = getData(query);
-
-        }
-
-       
-
+        
         private void paymentpanel_Paint(object sender, PaintEventArgs e)
         {
             

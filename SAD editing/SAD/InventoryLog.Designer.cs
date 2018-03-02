@@ -32,6 +32,8 @@
             this.btn_close = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmb_filter = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.end_filter = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,9 +62,9 @@
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_close.Location = new System.Drawing.Point(692, 0);
+            this.btn_close.Location = new System.Drawing.Point(677, 0);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(82, 59);
+            this.btn_close.Size = new System.Drawing.Size(97, 59);
             this.btn_close.TabIndex = 64;
             this.btn_close.Text = "BACK";
             this.btn_close.UseVisualStyleBackColor = false;
@@ -82,22 +84,50 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.cmb_filter);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.end_filter);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.start_filter);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Location = new System.Drawing.Point(19, 64);
+            this.panel3.Location = new System.Drawing.Point(-28, 64);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(729, 58);
+            this.panel3.Size = new System.Drawing.Size(820, 58);
             this.panel3.TabIndex = 63;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label4.Location = new System.Drawing.Point(538, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 18);
+            this.label4.TabIndex = 124;
+            this.label4.Text = "Activity:";
+            // 
+            // cmb_filter
+            // 
+            this.cmb_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_filter.FormattingEnabled = true;
+            this.cmb_filter.Items.AddRange(new object[] {
+            "All",
+            "Stock in (Wet Market)",
+            "Stock in (Purchased)",
+            "Stock out(Manual)"});
+            this.cmb_filter.Location = new System.Drawing.Point(610, 25);
+            this.cmb_filter.Name = "cmb_filter";
+            this.cmb_filter.Size = new System.Drawing.Size(121, 21);
+            this.cmb_filter.TabIndex = 123;
+            this.cmb_filter.SelectedIndexChanged += new System.EventHandler(this.cmb_filter_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label2.Location = new System.Drawing.Point(265, 25);
+            this.label2.Location = new System.Drawing.Point(310, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 18);
             this.label2.TabIndex = 68;
@@ -105,7 +135,7 @@
             // 
             // end_filter
             // 
-            this.end_filter.Location = new System.Drawing.Point(310, 25);
+            this.end_filter.Location = new System.Drawing.Point(355, 26);
             this.end_filter.Name = "end_filter";
             this.end_filter.Size = new System.Drawing.Size(146, 20);
             this.end_filter.TabIndex = 67;
@@ -116,7 +146,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label1.Location = new System.Drawing.Point(44, 25);
+            this.label1.Location = new System.Drawing.Point(109, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 18);
             this.label1.TabIndex = 66;
@@ -124,7 +154,7 @@
             // 
             // start_filter
             // 
-            this.start_filter.Location = new System.Drawing.Point(93, 25);
+            this.start_filter.Location = new System.Drawing.Point(158, 26);
             this.start_filter.Name = "start_filter";
             this.start_filter.Size = new System.Drawing.Size(146, 20);
             this.start_filter.TabIndex = 65;
@@ -133,11 +163,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Location = new System.Drawing.Point(40, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 25);
+            this.label6.Size = new System.Drawing.Size(58, 23);
             this.label6.TabIndex = 3;
             this.label6.Text = "Filter:";
             // 
@@ -158,7 +188,7 @@
             this.inventory_log.ReadOnly = true;
             this.inventory_log.RowHeadersVisible = false;
             this.inventory_log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventory_log.Size = new System.Drawing.Size(729, 478);
+            this.inventory_log.Size = new System.Drawing.Size(717, 478);
             this.inventory_log.TabIndex = 209;
             // 
             // InventoryLog
@@ -196,5 +226,7 @@
         private System.Windows.Forms.DateTimePicker end_filter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView inventory_log;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmb_filter;
     }
 }

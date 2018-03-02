@@ -33,8 +33,8 @@ namespace SAD
                 string query = "INSERT INTO person(firstname, lastname, address, contact, email, person_type)"
                     + "VALUES('" + txt_fname.Text + "','" + txt_lname.Text + "','" + txt_address.Text + "','" + mtxt_contact.Text + "','" + txt_email.Text + "','SUPPLIER')";
 
-                string query1 = "INSERT INTO supplier (person_personid, organization, date_added, date_modified)" +
-                                "VALUES( (SELECT MAX(personid) from person) ,'"+ txt_organization.Text + "', current_timestamp(), current_timestamp() )";
+                string query1 = "INSERT INTO supplier (person_personid, organization, status, date_added, date_modified)" +
+                                "VALUES( (SELECT MAX(personid) from person) ,'"+ txt_organization.Text + "', 'Active', current_timestamp(), current_timestamp() )";
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 comm.ExecuteNonQuery();

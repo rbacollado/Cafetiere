@@ -58,14 +58,8 @@
             this.btn_SOBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.item_name = new System.Windows.Forms.Label();
-            this.itemUnit = new System.Windows.Forms.Label();
-            this.itemAmount = new System.Windows.Forms.Label();
-            this.itemCost = new System.Windows.Forms.Label();
-            this.itemQuantity = new System.Windows.Forms.Label();
-            this.itemStatus = new System.Windows.Forms.Label();
-            this.itemType = new System.Windows.Forms.Label();
-            this.itemExpiry = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -73,8 +67,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.itemExpiry = new System.Windows.Forms.Label();
+            this.itemType = new System.Windows.Forms.Label();
+            this.itemStatus = new System.Windows.Forms.Label();
+            this.itemQuantity = new System.Windows.Forms.Label();
+            this.itemCost = new System.Windows.Forms.Label();
+            this.itemAmount = new System.Windows.Forms.Label();
+            this.itemUnit = new System.Windows.Forms.Label();
+            this.item_name = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_dtgv)).BeginInit();
@@ -496,93 +496,25 @@
             this.panel2.Size = new System.Drawing.Size(341, 283);
             this.panel2.TabIndex = 207;
             // 
-            // item_name
+            // panel13
             // 
-            this.item_name.AutoSize = true;
-            this.item_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.item_name.ForeColor = System.Drawing.Color.Transparent;
-            this.item_name.Location = new System.Drawing.Point(3, 50);
-            this.item_name.Name = "item_name";
-            this.item_name.Size = new System.Drawing.Size(53, 20);
-            this.item_name.TabIndex = 15;
-            this.item_name.Text = "name";
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.panel13.Controls.Add(this.label4);
+            this.panel13.Location = new System.Drawing.Point(0, -6);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(343, 31);
+            this.panel13.TabIndex = 30;
             // 
-            // itemUnit
+            // label4
             // 
-            this.itemUnit.AutoSize = true;
-            this.itemUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemUnit.ForeColor = System.Drawing.Color.Transparent;
-            this.itemUnit.Location = new System.Drawing.Point(88, 96);
-            this.itemUnit.Name = "itemUnit";
-            this.itemUnit.Size = new System.Drawing.Size(39, 20);
-            this.itemUnit.TabIndex = 16;
-            this.itemUnit.Text = "unit";
-            // 
-            // itemAmount
-            // 
-            this.itemAmount.AutoSize = true;
-            this.itemAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemAmount.ForeColor = System.Drawing.Color.Transparent;
-            this.itemAmount.Location = new System.Drawing.Point(13, 96);
-            this.itemAmount.Name = "itemAmount";
-            this.itemAmount.Size = new System.Drawing.Size(69, 20);
-            this.itemAmount.TabIndex = 17;
-            this.itemAmount.Text = "amount";
-            // 
-            // itemCost
-            // 
-            this.itemCost.AutoSize = true;
-            this.itemCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemCost.ForeColor = System.Drawing.Color.Transparent;
-            this.itemCost.Location = new System.Drawing.Point(30, 149);
-            this.itemCost.Name = "itemCost";
-            this.itemCost.Size = new System.Drawing.Size(43, 20);
-            this.itemCost.TabIndex = 18;
-            this.itemCost.Text = "cost";
-            // 
-            // itemQuantity
-            // 
-            this.itemQuantity.AutoSize = true;
-            this.itemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemQuantity.ForeColor = System.Drawing.Color.Transparent;
-            this.itemQuantity.Location = new System.Drawing.Point(211, 44);
-            this.itemQuantity.Name = "itemQuantity";
-            this.itemQuantity.Size = new System.Drawing.Size(73, 20);
-            this.itemQuantity.TabIndex = 19;
-            this.itemQuantity.Text = "quantity";
-            // 
-            // itemStatus
-            // 
-            this.itemStatus.AutoSize = true;
-            this.itemStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemStatus.ForeColor = System.Drawing.Color.Transparent;
-            this.itemStatus.Location = new System.Drawing.Point(211, 102);
-            this.itemStatus.Name = "itemStatus";
-            this.itemStatus.Size = new System.Drawing.Size(59, 20);
-            this.itemStatus.TabIndex = 20;
-            this.itemStatus.Text = "status";
-            // 
-            // itemType
-            // 
-            this.itemType.AutoSize = true;
-            this.itemType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemType.ForeColor = System.Drawing.Color.Transparent;
-            this.itemType.Location = new System.Drawing.Point(211, 148);
-            this.itemType.Name = "itemType";
-            this.itemType.Size = new System.Drawing.Size(43, 20);
-            this.itemType.TabIndex = 21;
-            this.itemType.Text = "type";
-            // 
-            // itemExpiry
-            // 
-            this.itemExpiry.AutoSize = true;
-            this.itemExpiry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemExpiry.ForeColor = System.Drawing.Color.Transparent;
-            this.itemExpiry.Location = new System.Drawing.Point(130, 229);
-            this.itemExpiry.Name = "itemExpiry";
-            this.itemExpiry.Size = new System.Drawing.Size(55, 20);
-            this.itemExpiry.TabIndex = 22;
-            this.itemExpiry.Text = "expiry";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label4.Location = new System.Drawing.Point(115, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 18);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Item Details";
             // 
             // label21
             // 
@@ -633,7 +565,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label9.Location = new System.Drawing.Point(191, 25);
+            this.label9.Location = new System.Drawing.Point(191, 28);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(62, 18);
             this.label9.TabIndex = 26;
@@ -661,25 +593,85 @@
             this.label8.TabIndex = 25;
             this.label8.Text = "Cost";
             // 
-            // panel13
+            // itemExpiry
             // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.panel13.Controls.Add(this.label4);
-            this.panel13.Location = new System.Drawing.Point(0, -6);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(343, 31);
-            this.panel13.TabIndex = 30;
+            this.itemExpiry.AutoSize = true;
+            this.itemExpiry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemExpiry.ForeColor = System.Drawing.Color.Transparent;
+            this.itemExpiry.Location = new System.Drawing.Point(130, 229);
+            this.itemExpiry.Name = "itemExpiry";
+            this.itemExpiry.Size = new System.Drawing.Size(0, 20);
+            this.itemExpiry.TabIndex = 22;
             // 
-            // label4
+            // itemType
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label4.Location = new System.Drawing.Point(115, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 18);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Item Details";
+            this.itemType.AutoSize = true;
+            this.itemType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemType.ForeColor = System.Drawing.Color.Transparent;
+            this.itemType.Location = new System.Drawing.Point(211, 148);
+            this.itemType.Name = "itemType";
+            this.itemType.Size = new System.Drawing.Size(0, 20);
+            this.itemType.TabIndex = 21;
+            // 
+            // itemStatus
+            // 
+            this.itemStatus.AutoSize = true;
+            this.itemStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemStatus.ForeColor = System.Drawing.Color.Transparent;
+            this.itemStatus.Location = new System.Drawing.Point(211, 102);
+            this.itemStatus.Name = "itemStatus";
+            this.itemStatus.Size = new System.Drawing.Size(0, 20);
+            this.itemStatus.TabIndex = 20;
+            // 
+            // itemQuantity
+            // 
+            this.itemQuantity.AutoSize = true;
+            this.itemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemQuantity.ForeColor = System.Drawing.Color.Transparent;
+            this.itemQuantity.Location = new System.Drawing.Point(200, 46);
+            this.itemQuantity.Name = "itemQuantity";
+            this.itemQuantity.Size = new System.Drawing.Size(0, 20);
+            this.itemQuantity.TabIndex = 19;
+            // 
+            // itemCost
+            // 
+            this.itemCost.AutoSize = true;
+            this.itemCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemCost.ForeColor = System.Drawing.Color.Transparent;
+            this.itemCost.Location = new System.Drawing.Point(30, 149);
+            this.itemCost.Name = "itemCost";
+            this.itemCost.Size = new System.Drawing.Size(0, 20);
+            this.itemCost.TabIndex = 18;
+            // 
+            // itemAmount
+            // 
+            this.itemAmount.AutoSize = true;
+            this.itemAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemAmount.ForeColor = System.Drawing.Color.Transparent;
+            this.itemAmount.Location = new System.Drawing.Point(13, 96);
+            this.itemAmount.Name = "itemAmount";
+            this.itemAmount.Size = new System.Drawing.Size(0, 20);
+            this.itemAmount.TabIndex = 17;
+            // 
+            // itemUnit
+            // 
+            this.itemUnit.AutoSize = true;
+            this.itemUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemUnit.ForeColor = System.Drawing.Color.Transparent;
+            this.itemUnit.Location = new System.Drawing.Point(88, 96);
+            this.itemUnit.Name = "itemUnit";
+            this.itemUnit.Size = new System.Drawing.Size(0, 20);
+            this.itemUnit.TabIndex = 16;
+            // 
+            // item_name
+            // 
+            this.item_name.AutoSize = true;
+            this.item_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_name.ForeColor = System.Drawing.Color.Transparent;
+            this.item_name.Location = new System.Drawing.Point(3, 50);
+            this.item_name.Name = "item_name";
+            this.item_name.Size = new System.Drawing.Size(0, 20);
+            this.item_name.TabIndex = 15;
             // 
             // InventoryTransaction
             // 

@@ -25,6 +25,35 @@ namespace SAD
             salesLoad();
         }
 
+        private void cmb_ordertype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_ordertype.Text == "All")
+            {
+                filterData();
+            }
+            else
+            {
+                string filterquery = "SELECT concat(firstname, ' ',lastname) as Staffname, orderDate, orderTotal, orderType FROM person"
+                           + " INNER JOIN staff ON person.personid = staff.person_personid"
+                           + " INNER JOIN `order` ON staff.staffid = `order`.staff_staffid"
+                           + " INNER JOIN orderline ON `order`.orderID = orderline.orderID"
+                           + " WHERE date(orderDate) BETWEEN '" + start_filter.Text + "' AND '" + end_filter.Text + "' AND orderType = '"+ cmb_ordertype.Text +"';";
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(filterquery, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                conn.Close();
+                DataTable dt_filter = new DataTable();
+                adp.Fill(dt_filter);
+
+                sales_report.DataSource = dt_filter;
+
+                sales_report.Columns["StaffName"].HeaderText = "Staff Name";
+                sales_report.Columns["orderTotal"].HeaderText = "Total";
+                sales_report.Columns["orderType"].HeaderText = "Type";
+                sales_report.Columns["orderDate"].HeaderText = "Date";
+            }
+        }
+
         public void filterData()
         {
             string filterquery = "SELECT concat(firstname, ' ',lastname) as Staffname, orderDate, orderTotal, orderType FROM person"
@@ -103,5 +132,7 @@ namespace SAD
         {
             filterData();
         }
+
+        
     }
 }

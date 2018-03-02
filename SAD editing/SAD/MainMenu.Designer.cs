@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_logout = new System.Windows.Forms.Button();
-            this.btnDash = new System.Windows.Forms.Button();
-            this.btn_product = new System.Windows.Forms.Button();
-            this.btn_orders = new System.Windows.Forms.Button();
-            this.btn_profiling = new System.Windows.Forms.Button();
-            this.btn_inventory = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -54,18 +48,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.timeText = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.logdate_lbl = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -75,10 +66,8 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.report_btn = new System.Windows.Forms.Button();
             this.lbl_type = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_name = new System.Windows.Forms.Label();
             this.btn_settings = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.restock_items = new System.Windows.Forms.DataGridView();
             this.sales_panel = new System.Windows.Forms.Panel();
@@ -86,6 +75,18 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.sales_btn_back = new System.Windows.Forms.Button();
+            this.Archive = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_logout = new System.Windows.Forms.Button();
+            this.btnDash = new System.Windows.Forms.Button();
+            this.btn_product = new System.Windows.Forms.Button();
+            this.btn_orders = new System.Windows.Forms.Button();
+            this.btn_profiling = new System.Windows.Forms.Button();
+            this.btn_inventory = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -94,22 +95,22 @@
             this.profiling_panel.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.restock_items)).BeginInit();
             this.sales_panel.SuspendLayout();
             this.panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -126,108 +127,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(129, 755);
             this.panel2.TabIndex = 67;
-            // 
-            // btn_logout
-            // 
-            this.btn_logout.BackColor = System.Drawing.Color.Transparent;
-            this.btn_logout.FlatAppearance.BorderSize = 0;
-            this.btn_logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
-            this.btn_logout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_logout.Image = global::SAD.Properties.Resources.logout__2_;
-            this.btn_logout.Location = new System.Drawing.Point(2, 568);
-            this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(129, 143);
-            this.btn_logout.TabIndex = 61;
-            this.btn_logout.Text = "\r\n\r\n\r\n\r\n\r\n\r\n  SIGN OUT";
-            this.btn_logout.UseVisualStyleBackColor = false;
-            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
-            // 
-            // btnDash
-            // 
-            this.btnDash.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnDash.FlatAppearance.BorderSize = 0;
-            this.btnDash.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDash.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDash.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDash.Image = global::SAD.Properties.Resources.dashboard__1_;
-            this.btnDash.Location = new System.Drawing.Point(2, -9);
-            this.btnDash.Margin = new System.Windows.Forms.Padding(2, 6, 2, 2);
-            this.btnDash.Name = "btnDash";
-            this.btnDash.Size = new System.Drawing.Size(130, 109);
-            this.btnDash.TabIndex = 66;
-            this.btnDash.Text = "\r\n\r\n\r\n\r\n\r\n\r\n  DASHBOARD";
-            this.btnDash.UseVisualStyleBackColor = true;
-            // 
-            // btn_product
-            // 
-            this.btn_product.BackColor = System.Drawing.Color.Transparent;
-            this.btn_product.FlatAppearance.BorderSize = 0;
-            this.btn_product.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btn_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_product.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
-            this.btn_product.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_product.Image = global::SAD.Properties.Resources._002_commerce;
-            this.btn_product.Location = new System.Drawing.Point(-6, 207);
-            this.btn_product.Name = "btn_product";
-            this.btn_product.Size = new System.Drawing.Size(135, 124);
-            this.btn_product.TabIndex = 64;
-            this.btn_product.Text = "\r\n\r\n\r\n\r\n\r\n\r\n    PRODUCT";
-            this.btn_product.UseVisualStyleBackColor = false;
-            this.btn_product.Click += new System.EventHandler(this.btn_product_Click);
-            // 
-            // btn_orders
-            // 
-            this.btn_orders.BackColor = System.Drawing.Color.Transparent;
-            this.btn_orders.FlatAppearance.BorderSize = 0;
-            this.btn_orders.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btn_orders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_orders.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
-            this.btn_orders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_orders.Image = global::SAD.Properties.Resources._004_charts;
-            this.btn_orders.Location = new System.Drawing.Point(0, 437);
-            this.btn_orders.Name = "btn_orders";
-            this.btn_orders.Size = new System.Drawing.Size(129, 125);
-            this.btn_orders.TabIndex = 62;
-            this.btn_orders.Text = "\r\n\r\n\r\n\r\n\r\n\r\nORDERS";
-            this.btn_orders.UseVisualStyleBackColor = false;
-            this.btn_orders.Click += new System.EventHandler(this.btn_orders_Click);
-            // 
-            // btn_profiling
-            // 
-            this.btn_profiling.BackColor = System.Drawing.Color.Transparent;
-            this.btn_profiling.FlatAppearance.BorderSize = 0;
-            this.btn_profiling.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btn_profiling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_profiling.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
-            this.btn_profiling.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_profiling.Image = global::SAD.Properties.Resources._001_users;
-            this.btn_profiling.Location = new System.Drawing.Point(0, 100);
-            this.btn_profiling.Name = "btn_profiling";
-            this.btn_profiling.Size = new System.Drawing.Size(129, 109);
-            this.btn_profiling.TabIndex = 61;
-            this.btn_profiling.Text = "\r\n\r\n\r\n\r\n\r\n\r\n PROFILING";
-            this.btn_profiling.UseVisualStyleBackColor = false;
-            this.btn_profiling.Click += new System.EventHandler(this.btn_profiling_Click);
-            // 
-            // btn_inventory
-            // 
-            this.btn_inventory.BackColor = System.Drawing.Color.Transparent;
-            this.btn_inventory.FlatAppearance.BorderSize = 0;
-            this.btn_inventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btn_inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
-            this.btn_inventory.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_inventory.Image = global::SAD.Properties.Resources._003_clipboard_with_a_list;
-            this.btn_inventory.Location = new System.Drawing.Point(0, 326);
-            this.btn_inventory.Name = "btn_inventory";
-            this.btn_inventory.Size = new System.Drawing.Size(129, 109);
-            this.btn_inventory.TabIndex = 63;
-            this.btn_inventory.Text = "\r\n\r\n\r\n\r\n\r\n\r\n INVENTORY";
-            this.btn_inventory.UseVisualStyleBackColor = false;
-            this.btn_inventory.Click += new System.EventHandler(this.btn_inventory_Click);
             // 
             // panel6
             // 
@@ -456,17 +355,6 @@
             this.panel1.Size = new System.Drawing.Size(812, 69);
             this.panel1.TabIndex = 60;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::SAD.Properties.Resources.money_bag__1_;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 49);
-            this.pictureBox1.TabIndex = 75;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
@@ -524,17 +412,6 @@
             this.panel7.Size = new System.Drawing.Size(182, 64);
             this.panel7.TabIndex = 89;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::SAD.Properties.Resources.boy;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(8, 8);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(53, 45);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(68)))), ((int)(((byte)(173)))));
@@ -579,17 +456,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(182, 64);
             this.panel9.TabIndex = 91;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::SAD.Properties.Resources.calendar;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(8, 8);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(50, 45);
-            this.pictureBox3.TabIndex = 81;
-            this.pictureBox3.TabStop = false;
             // 
             // panel11
             // 
@@ -693,18 +559,6 @@
             this.lbl_type.TabIndex = 65;
             this.lbl_type.Text = "type";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::SAD.Properties.Resources.boy;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(5, 14);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(74, 67);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
             // lbl_name
             // 
             this.lbl_name.AutoSize = true;
@@ -731,21 +585,10 @@
             this.btn_settings.UseVisualStyleBackColor = false;
             this.btn_settings.Click += new System.EventHandler(this.btn_settings_Click);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.pictureBox5.BackgroundImage = global::SAD.Properties.Resources.settings__1_;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(35, 107);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(21, 21);
-            this.pictureBox5.TabIndex = 82;
-            this.pictureBox5.TabStop = false;
-            // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel14.Controls.Add(this.Archive);
             this.panel14.Controls.Add(this.pictureBox5);
             this.panel14.Controls.Add(this.btn_settings);
             this.panel14.Controls.Add(this.lbl_name);
@@ -754,7 +597,7 @@
             this.panel14.Location = new System.Drawing.Point(530, 318);
             this.panel14.Margin = new System.Windows.Forms.Padding(2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(248, 136);
+            this.panel14.Size = new System.Drawing.Size(248, 173);
             this.panel14.TabIndex = 96;
             // 
             // restock_items
@@ -785,10 +628,10 @@
             this.sales_panel.Controls.Add(this.order_btn);
             this.sales_panel.Controls.Add(this.report_btn);
             this.sales_panel.Controls.Add(this.panel17);
-            this.sales_panel.Location = new System.Drawing.Point(139, 507);
+            this.sales_panel.Location = new System.Drawing.Point(139, 555);
             this.sales_panel.Margin = new System.Windows.Forms.Padding(2);
             this.sales_panel.Name = "sales_panel";
-            this.sales_panel.Size = new System.Drawing.Size(49, 82);
+            this.sales_panel.Size = new System.Drawing.Size(38, 84);
             this.sales_panel.TabIndex = 208;
             this.sales_panel.Visible = false;
             // 
@@ -802,7 +645,7 @@
             this.order_btn.Name = "order_btn";
             this.order_btn.Size = new System.Drawing.Size(199, 113);
             this.order_btn.TabIndex = 67;
-            this.order_btn.Text = "POS";
+            this.order_btn.Text = "ORDER";
             this.order_btn.UseVisualStyleBackColor = false;
             this.order_btn.Click += new System.EventHandler(this.order_btn_Click);
             // 
@@ -842,6 +685,179 @@
             this.sales_btn_back.Text = "BACK";
             this.sales_btn_back.UseVisualStyleBackColor = false;
             this.sales_btn_back.Click += new System.EventHandler(this.sales_btn_back_Click);
+            // 
+            // Archive
+            // 
+            this.Archive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.Archive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Archive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.Archive.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Archive.Location = new System.Drawing.Point(0, 133);
+            this.Archive.Name = "Archive";
+            this.Archive.Size = new System.Drawing.Size(248, 41);
+            this.Archive.TabIndex = 83;
+            this.Archive.Text = "Archive";
+            this.Archive.UseVisualStyleBackColor = false;
+            this.Archive.Click += new System.EventHandler(this.Archive_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.pictureBox5.BackgroundImage = global::SAD.Properties.Resources.settings__1_;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(35, 107);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(21, 21);
+            this.pictureBox5.TabIndex = 82;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::SAD.Properties.Resources.boy;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Location = new System.Drawing.Point(5, 14);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(74, 67);
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::SAD.Properties.Resources.calendar;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 45);
+            this.pictureBox3.TabIndex = 81;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::SAD.Properties.Resources.boy;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(53, 45);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::SAD.Properties.Resources.money_bag__1_;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 49);
+            this.pictureBox1.TabIndex = 75;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_logout
+            // 
+            this.btn_logout.BackColor = System.Drawing.Color.Transparent;
+            this.btn_logout.FlatAppearance.BorderSize = 0;
+            this.btn_logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
+            this.btn_logout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_logout.Image = global::SAD.Properties.Resources.logout__2_;
+            this.btn_logout.Location = new System.Drawing.Point(2, 568);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(129, 143);
+            this.btn_logout.TabIndex = 61;
+            this.btn_logout.Text = "\r\n\r\n\r\n\r\n\r\n\r\n  SIGN OUT";
+            this.btn_logout.UseVisualStyleBackColor = false;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            // 
+            // btnDash
+            // 
+            this.btnDash.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnDash.FlatAppearance.BorderSize = 0;
+            this.btnDash.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDash.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDash.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDash.Image = global::SAD.Properties.Resources.dashboard__1_;
+            this.btnDash.Location = new System.Drawing.Point(2, -9);
+            this.btnDash.Margin = new System.Windows.Forms.Padding(2, 6, 2, 2);
+            this.btnDash.Name = "btnDash";
+            this.btnDash.Size = new System.Drawing.Size(130, 109);
+            this.btnDash.TabIndex = 66;
+            this.btnDash.Text = "\r\n\r\n\r\n\r\n\r\n\r\n  DASHBOARD";
+            this.btnDash.UseVisualStyleBackColor = true;
+            // 
+            // btn_product
+            // 
+            this.btn_product.BackColor = System.Drawing.Color.Transparent;
+            this.btn_product.FlatAppearance.BorderSize = 0;
+            this.btn_product.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btn_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_product.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
+            this.btn_product.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_product.Image = global::SAD.Properties.Resources._002_commerce;
+            this.btn_product.Location = new System.Drawing.Point(-6, 207);
+            this.btn_product.Name = "btn_product";
+            this.btn_product.Size = new System.Drawing.Size(135, 124);
+            this.btn_product.TabIndex = 64;
+            this.btn_product.Text = "\r\n\r\n\r\n\r\n\r\n\r\n    PRODUCT";
+            this.btn_product.UseVisualStyleBackColor = false;
+            this.btn_product.Click += new System.EventHandler(this.btn_product_Click);
+            // 
+            // btn_orders
+            // 
+            this.btn_orders.BackColor = System.Drawing.Color.Transparent;
+            this.btn_orders.FlatAppearance.BorderSize = 0;
+            this.btn_orders.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btn_orders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_orders.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
+            this.btn_orders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_orders.Image = global::SAD.Properties.Resources._004_charts;
+            this.btn_orders.Location = new System.Drawing.Point(0, 437);
+            this.btn_orders.Name = "btn_orders";
+            this.btn_orders.Size = new System.Drawing.Size(129, 125);
+            this.btn_orders.TabIndex = 62;
+            this.btn_orders.Text = "\r\n\r\n\r\n\r\n\r\n\r\nSALES";
+            this.btn_orders.UseVisualStyleBackColor = false;
+            this.btn_orders.Click += new System.EventHandler(this.btn_orders_Click);
+            // 
+            // btn_profiling
+            // 
+            this.btn_profiling.BackColor = System.Drawing.Color.Transparent;
+            this.btn_profiling.FlatAppearance.BorderSize = 0;
+            this.btn_profiling.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btn_profiling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_profiling.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
+            this.btn_profiling.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_profiling.Image = global::SAD.Properties.Resources._001_users;
+            this.btn_profiling.Location = new System.Drawing.Point(0, 100);
+            this.btn_profiling.Name = "btn_profiling";
+            this.btn_profiling.Size = new System.Drawing.Size(129, 109);
+            this.btn_profiling.TabIndex = 61;
+            this.btn_profiling.Text = "\r\n\r\n\r\n\r\n\r\n\r\n PROFILING";
+            this.btn_profiling.UseVisualStyleBackColor = false;
+            this.btn_profiling.Click += new System.EventHandler(this.btn_profiling_Click);
+            // 
+            // btn_inventory
+            // 
+            this.btn_inventory.BackColor = System.Drawing.Color.Transparent;
+            this.btn_inventory.FlatAppearance.BorderSize = 0;
+            this.btn_inventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btn_inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
+            this.btn_inventory.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_inventory.Image = global::SAD.Properties.Resources._003_clipboard_with_a_list;
+            this.btn_inventory.Location = new System.Drawing.Point(0, 326);
+            this.btn_inventory.Name = "btn_inventory";
+            this.btn_inventory.Size = new System.Drawing.Size(129, 109);
+            this.btn_inventory.TabIndex = 63;
+            this.btn_inventory.Text = "\r\n\r\n\r\n\r\n\r\n\r\n INVENTORY";
+            this.btn_inventory.UseVisualStyleBackColor = false;
+            this.btn_inventory.Click += new System.EventHandler(this.btn_inventory_Click);
             // 
             // MainMenu
             // 
@@ -885,28 +901,28 @@
             this.panel16.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.restock_items)).EndInit();
             this.sales_panel.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -971,5 +987,6 @@
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button sales_btn_back;
+        private System.Windows.Forms.Button Archive;
     }
 }

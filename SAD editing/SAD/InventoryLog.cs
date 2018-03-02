@@ -71,12 +71,41 @@ namespace SAD
 
         }
 
+        private void cmb_filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_filter.Text == "All")
+            {
+                filterData();
+            } else
+            {
+                string filterquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate, logtype, remarks FROM person"
+                                + " INNER JOIN staff ON person.personid = staff.person_personid"
+                                + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid"
+                                + " WHERE logtype LIKE '" + cmb_filter.Text + "' AND date(logdate) BETWEEN '" + start_filter.Text + "' AND '" + end_filter.Text + "' AND quantity > 0;";
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(filterquery, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                conn.Close();
+                DataTable dt_filter = new DataTable();
+                adp.Fill(dt_filter);
+
+                inventory_log.DataSource = dt_filter;
+
+                inventory_log.Columns["logid"].Visible = false;
+                inventory_log.Columns["StaffName"].HeaderText = "Staff Name";
+                inventory_log.Columns["itemName"].HeaderText = "Item";
+                inventory_log.Columns["quantity"].HeaderText = "Quantity";
+                inventory_log.Columns["logdate"].HeaderText = "Date";
+                inventory_log.Columns["logtype"].HeaderText = "Activity";
+            }
+                     
+        }
         public void filterData()
         {
             string filterquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate, logtype, remarks FROM person"
                             + " INNER JOIN staff ON person.personid = staff.person_personid"
                             + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid"
-                            + " WHERE date(logdate) BETWEEN '" + start_filter.Text + "' AND '" + end_filter.Text + "';";
+                            + " WHERE date(logdate) BETWEEN '" + start_filter.Text + "' AND '" + end_filter.Text + "' AND quantity > 0 ;";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(filterquery, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);

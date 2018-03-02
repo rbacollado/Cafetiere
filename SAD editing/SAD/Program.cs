@@ -16,7 +16,7 @@ namespace SAD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InventoryTransaction());
+            Application.Run(new Order());
         }
     }
 }

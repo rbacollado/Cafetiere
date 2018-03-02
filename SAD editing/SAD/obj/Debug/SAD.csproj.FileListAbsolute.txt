@@ -90,3 +90,4 @@ C:\Users\mmntmaulana\Desktop\Cafetiere\Cafetiere\SAD editing\SAD\obj\Debug\SAD.c
 C:\Users\mmntmaulana\Desktop\Cafetiere\Cafetiere\SAD editing\SAD\obj\Debug\SAD.csproj.CoreCompileInputs.cache
 C:\Users\mmntmaulana\Desktop\Cafetiere\Cafetiere\SAD editing\SAD\obj\Debug\SAD.exe
 C:\Users\mmntmaulana\Desktop\Cafetiere\Cafetiere\SAD editing\SAD\obj\Debug\SAD.pdb
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Archive.resources
