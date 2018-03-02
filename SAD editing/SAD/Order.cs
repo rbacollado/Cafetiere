@@ -49,6 +49,10 @@ namespace SAD
             discountTxt.Enabled = false;
 
             loadprod_data();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 520095aa666c1d60bdbfe2a40c33b0879c08b890
 
         }
 
@@ -105,8 +109,14 @@ namespace SAD
                 prodname.Text = (dataread["pname"].ToString());
                 prodcategory.Text = (dataread["pcategory"].ToString());
                 priceTxt.Text = (dataread["pprice"].ToString());
+<<<<<<< HEAD
                 quantityTxt.Maximum = int.Parse(dataread["product_quantity"].ToString());
 
+=======
+
+                quantityTxt.Maximum = int.Parse(dataread["pquantity"].ToString());
+                
+>>>>>>> 520095aa666c1d60bdbfe2a40c33b0879c08b890
                 quantityTxt.Enabled = true;
                 quantityTxt.Value = 1;
                 subTotalTxt.Text = priceTxt.Text;
@@ -116,10 +126,24 @@ namespace SAD
 
         }
 
+<<<<<<< HEAD
         private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
         {
             string filterquery = "SELECT productInvID, pname, pcategory, pprice, product_quantity FROM product_inventory, products " +
                                  "WHERE product_inventory.product_id = products.productID AND product_status = 'Available' AND pcategory = '"+ cb_category.Text +"';";
+=======
+        private void Back_Click(object sender, EventArgs e)
+        {
+            prevForm.Show();
+            this.Close();
+        }
+
+        
+
+        public void loadprod_data()
+        {
+            String query = "SELECT productID, pname, pprice, pquantity FROM products";
+>>>>>>> 520095aa666c1d60bdbfe2a40c33b0879c08b890
             conn.Open();
             MySqlCommand comm = new MySqlCommand(filterquery, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -132,9 +156,29 @@ namespace SAD
             product_data.Columns["pname"].HeaderText = "Name";
             product_data.Columns["pcategory"].HeaderText = "Category";
             product_data.Columns["pprice"].HeaderText = "Price";
+<<<<<<< HEAD
             
         }
 
+=======
+            product_data.Columns["pquantity"].HeaderText = "Quantity";
+
+
+            product_data.Columns["pprice"].DefaultCellStyle.Format = "c";
+
+        }
+
+        public static int selected_user_id;
+        private void product_data_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                selected_user_id = int.Parse(product_data.Rows[e.RowIndex].Cells["productID"].Value.ToString());
+                load_products();
+            }
+        }       
+        
+>>>>>>> 520095aa666c1d60bdbfe2a40c33b0879c08b890
         private void btn_add_Click(object sender, EventArgs e)
         {
             Boolean duplicate_prod = false;
@@ -257,6 +301,7 @@ namespace SAD
 
         private void btn_remove_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             /*if (ordered_products.SelectedRows.Count <= 0)
             {
                 MessageBox.Show("Please order first!");
@@ -264,6 +309,10 @@ namespace SAD
             else
             {
                 foreach (DataGridViewRow orderedprod in this.ordered_products.Rows)
+=======
+            
+                if (ordered_products.SelectedRows.Count <= 0)
+>>>>>>> 520095aa666c1d60bdbfe2a40c33b0879c08b890
                 {
                     string tempname = Convert.ToString(orderedprod.Cells["Name"].Value);
                     int tempQTY = Convert.ToInt32(orderedprod.Cells["Quantity"].Value);
@@ -294,8 +343,14 @@ namespace SAD
                     }
                     TotalTB.Text = Convert.ToString(sum);
                 }
+<<<<<<< HEAD
                 
             }*/
+=======
+
+            
+            
+>>>>>>> 520095aa666c1d60bdbfe2a40c33b0879c08b890
         }
 
         private void btn_clear_Click(object sender, EventArgs e)
@@ -313,14 +368,26 @@ namespace SAD
         {
             if (ordered_products.SelectedRows.Count > 0)
             {
-                paymentpanel.Visible = true;
-                paymentpanel.Enabled = true;
+                DialogResult verify_payment;
 
-                dinein.Visible = false;
-                takeout.Visible = false;
+                verify_payment = MessageBox.Show("Are you sure?", "Verification", MessageBoxButtons.YesNo);
 
-                paymentpanel.Size = new Size(380, 444);
-                paymentpanel.Location = new Point(1, 97);
+                if (verify_payment == DialogResult.Yes)
+                {
+                    paymentpanel.Visible = true;
+                    paymentpanel.Enabled = true;
+                    paymentpanel.Size = new Size(382, 441);
+                    paymentpanel.Location = new Point(0, 1);
+
+                    prodname.Text = "";
+                    priceTxt.Text = "";
+                    subTotalTxt.Text = "0";
+                    priceTxt.Text = "0";
+
+                    dinein.Checked = false;
+                    takeout.Checked = false;
+                }
+                    
             }
             else
             {
@@ -345,6 +412,11 @@ namespace SAD
                 decimal totaldue = decimal.Parse(amountPaid.Text) - decimal.Parse(totalDue.Text); 
 
                 changetxt.Text = totaldue.ToString();
+                
+                if (Convert.ToDecimal(changetxt.Text) < 0)
+                {
+                    changetxt.Clear();
+                }
             }
             else
             {
@@ -395,7 +467,11 @@ namespace SAD
             {
                 if (amountPaid.Text == "")
                 {
-                    MessageBox.Show("Please fill uo the required information!");
+                    MessageBox.Show("Please fill up the required information!");
+                }
+                else if (changetxt.Text == "")
+                {
+                    MessageBox.Show("Insufficient Payment!");
                 }
                 else
                 {
@@ -467,9 +543,18 @@ namespace SAD
                         priceTxt.Text = "0";
                         paymentpanel.Visible = false;
                         paymentpanel.Enabled = false;
-                        dinein.Visible = true;
-                        takeout.Visible = true;
-                        ordered_products.Columns.Clear();
+                        discountCheck.Checked = false;
+                        totalDue.Clear();
+                        amountPaid.Clear();
+                        changetxt.Clear();
+                        discountTxt.Clear();
+                        quantityTxt.Value = 1;
+                        quantityTxt.Enabled = false;
+
+
+                        dinein.Checked = false;
+                        takeout.Checked = false;
+                        this.Show();
 
                     }
 
@@ -477,9 +562,13 @@ namespace SAD
             }
             else
             {
-                if (amountPaid.Text == "" && discountTxt.Text == "" && cb_discountType.Text == "")
+                if (amountPaid.Text == "" || discountTxt.Text == "" || cb_discountType.Text == "")
                 {
-                    MessageBox.Show("Please fill uo the required information!");
+                    MessageBox.Show("Please fill up the required information!");
+                }
+                else if (changetxt.Text == "")
+                {
+                    MessageBox.Show("Insufficient Payment!");
                 }
                 else
                 {
@@ -534,7 +623,7 @@ namespace SAD
                             string pquantity = ordered_products.Rows[i].Cells["Quantity"].Value.ToString();
                             string subtotal = ordered_products.Rows[i].Cells["Subtotal"].Value.ToString();
                             string ordertype = ordered_products.Rows[i].Cells["OrderType"].Value.ToString();
-
+    
                             string orderline_query = "INSERT INTO orderline(orderID, productID, orderType, orderPrice, orderQuantity, orderSubtotal)" +
                                                      "VALUES( (SELECT max(orderID) from `order`),'" + int.Parse(prod_data) + "','" + ordertype + "','" + double.Parse(pprice) +
                                                      "','" + int.Parse(pquantity) + "','" + decimal.Parse(subtotal) + "');";
@@ -547,13 +636,22 @@ namespace SAD
                         prodname.Text = "";
                         priceTxt.Text = "";
                         MessageBox.Show("Order added!");
+
                         subTotalTxt.Text = "0";
                         priceTxt.Text = "0";
                         paymentpanel.Visible = false;
                         paymentpanel.Enabled = false;
-                        dinein.Visible = true;
-                        takeout.Visible = true;
-                        ordered_products.Columns.Clear();
+                        discountCheck.Checked = false;
+                        totalDue.Clear();
+                        amountPaid.Clear();
+                        changetxt.Clear();
+                        discountTxt.Clear();
+                        quantityTxt.Value = 1;
+                        quantityTxt.Enabled = false;
+
+                        dinein.Checked = false;
+                        takeout.Checked = false;
+                        this.Show();
                     }
                 }
             }
@@ -637,13 +735,10 @@ namespace SAD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            paymentpanel.Visible = false;
-            paymentpanel.Enabled = false;
-            dinein.Visible = true;
-            takeout.Visible = true;
+            
         }
 
-
+        
         /*<<<<<<< HEAD
 =======
 

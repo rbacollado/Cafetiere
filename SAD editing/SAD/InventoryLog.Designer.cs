@@ -81,6 +81,39 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "INVENTORY LOG";
             // 
+<<<<<<< HEAD
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel4.Controls.Add(this.inventory_log);
+            this.panel4.Location = new System.Drawing.Point(19, 128);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(729, 497);
+            this.panel4.TabIndex = 62;
+            // 
+            // inventory_log
+            // 
+            this.inventory_log.AllowUserToAddRows = false;
+            this.inventory_log.AllowUserToDeleteRows = false;
+            this.inventory_log.AllowUserToResizeColumns = false;
+            this.inventory_log.AllowUserToResizeRows = false;
+            this.inventory_log.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.inventory_log.BackgroundColor = System.Drawing.Color.White;
+            this.inventory_log.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.inventory_log.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.inventory_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inventory_log.GridColor = System.Drawing.SystemColors.Control;
+            this.inventory_log.Location = new System.Drawing.Point(20, 15);
+            this.inventory_log.Name = "inventory_log";
+            this.inventory_log.ReadOnly = true;
+            this.inventory_log.RowHeadersVisible = false;
+            this.inventory_log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.inventory_log.Size = new System.Drawing.Size(693, 478);
+            this.inventory_log.TabIndex = 208;
+            this.inventory_log.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_log_CellContentClick);
+            // 
+=======
+>>>>>>> 88c0d99f0bd16032f48d067188a6f6ff1f07c3f8
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));

@@ -132,5 +132,10 @@ namespace SAD
         {
             filterData();
         }
+
+        private void inventory_log_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
