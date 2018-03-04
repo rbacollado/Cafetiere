@@ -48,15 +48,14 @@ namespace SAD
             product_list.Columns["pname"].HeaderText = "Name";
             product_list.Columns["pcategory"].HeaderText = "Category";
             product_list.Columns["pprice"].HeaderText = "Price (₱)";
-            product_list.Columns["pstatus"].HeaderText = "Availability";
-            product_list.Columns["pquantity"].HeaderText = "Quantity";
+
             product_list.Columns["pcost"].HeaderText = "Cost";
-            product_list.Columns["category_category_id"].Visible = false;
+
             product_list.Columns[0].Width = 50;
             product_list.Columns[1].Width = 150;
             product_list.Columns[2].Width = 120;
-            product_list.Columns[4].Width = 135;
-            product_list.Columns[5].Width = 110;
+            product_list.Columns[3].Width = 135;
+            product_list.Columns[4].Width = 110;
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -79,5 +78,12 @@ namespace SAD
             this.Close();
         }
 
+        private void prodInv_btn_Click(object sender, EventArgs e)
+        {
+            Product_Inventory prodInv = new Product_Inventory();
+            prodInv.Show();
+            prodInv.prevForm = this;
+            this.Hide();
+        }
     }
 }

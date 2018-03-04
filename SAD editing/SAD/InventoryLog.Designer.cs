@@ -81,15 +81,7 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "INVENTORY LOG";
             // 
-<<<<<<< HEAD
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.panel4.Controls.Add(this.inventory_log);
-            this.panel4.Location = new System.Drawing.Point(19, 128);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(729, 497);
-            this.panel4.TabIndex = 62;
+
             // 
             // inventory_log
             // 
@@ -112,8 +104,7 @@
             this.inventory_log.TabIndex = 208;
             this.inventory_log.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_log_CellContentClick);
             // 
-=======
->>>>>>> 88c0d99f0bd16032f48d067188a6f6ff1f07c3f8
+
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));

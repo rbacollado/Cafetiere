@@ -222,18 +222,6 @@ namespace SAD
             this.Hide();
         }
 
-<<<<<<< HEAD
-       
-=======
-        private void inventory_dtgv_SelectionChanged(object sender, EventArgs e)
-        {
-            this.inventory_dtgv.ClearSelection();
-        }
 
-        private void panel_stockout_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
->>>>>>> 520095aa666c1d60bdbfe2a40c33b0879c08b890
     }
 }

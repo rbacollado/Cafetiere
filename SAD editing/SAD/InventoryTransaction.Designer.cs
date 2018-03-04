@@ -310,7 +310,7 @@
             this.panel_stockout.Size = new System.Drawing.Size(29, 25);
             this.panel_stockout.TabIndex = 22;
             this.panel_stockout.Visible = false;
-            this.panel_stockout.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_stockout_Paint);
+          
             // 
             // cmb_remarks
             // 
