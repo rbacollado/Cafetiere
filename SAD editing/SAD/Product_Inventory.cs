@@ -13,7 +13,7 @@ namespace SAD
 {
     public partial class Product_Inventory : Form
     {
-        public Product prevForm { get; set; }
+        public Form prevForm { get; set; }
 
         MySqlConnection conn;
 
@@ -34,7 +34,8 @@ namespace SAD
 
         private void loadprodInv()
         {
-            string query = "SELECT prodInv_id, pname, pcategory, prodQuantity, prodStatus FROM products, product_inventory WHERE products.productID = product_inventory.product_ID";
+            string query = "SELECT prodInv_id, pname, pcategory, prodQuantity, product_status FROM products, product_inventory " + 
+                           " WHERE products.productID = product_inventory.product_ID";
 
             conn.Open();
 
@@ -52,7 +53,7 @@ namespace SAD
             prodInv.Columns["pname"].HeaderText = "Name";
             prodInv.Columns["pcategory"].HeaderText = "Category";
             prodInv.Columns["prodQuantity"].HeaderText = "Quantity";
-            prodInv.Columns["prodStatus"].HeaderText = "Status";
+            prodInv.Columns["product_status"].HeaderText = "Status";
 
             prodInv.Columns[0].Width = 50;
             prodInv.Columns[1].Width = 150;
@@ -76,7 +77,7 @@ namespace SAD
 
             if (nud_prodqty.Value > 0)
             {
-                String updateStatus = "UPDATE product_inventory SET prodStatus = 'Available'";
+                String updateStatus = "UPDATE product_inventory SET product_status = 'Available'";
                 conn.Open();
                 MySqlCommand comm_status = new MySqlCommand(updateStatus, conn);
                 comm_status.ExecuteNonQuery();
@@ -84,7 +85,7 @@ namespace SAD
             }
             else if (nud_prodqty.Value == 0)
             {
-                String updateStatus = "UPDATE product_inventory SET prodStatus = 'Not Available'";
+                String updateStatus = "UPDATE product_inventory SET product_status = 'Not Available'";
                 conn.Open();
                 MySqlCommand comm_status = new MySqlCommand(updateStatus, conn);
                 comm_status.ExecuteNonQuery();
@@ -130,7 +131,7 @@ namespace SAD
             conn.Close();
         }
 
-        private void Back_Click(object sender, EventArgs e)
+        private void btn_close_Click(object sender, EventArgs e)
         {
             prevForm.Show();
             this.Close();

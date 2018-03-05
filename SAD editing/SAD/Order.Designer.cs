@@ -82,6 +82,13 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.stockleft = new System.Windows.Forms.TextBox();
+            this.ProdID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityTxt)).BeginInit();
@@ -117,7 +124,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-6, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(979, 54);
+            this.panel1.Size = new System.Drawing.Size(1087, 54);
             this.panel1.TabIndex = 101;
             // 
             // Back
@@ -125,7 +132,7 @@
             this.Back.BackColor = System.Drawing.Color.Tomato;
             this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back.Location = new System.Drawing.Point(873, 2);
+            this.Back.Location = new System.Drawing.Point(984, 0);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(103, 54);
             this.Back.TabIndex = 85;
@@ -212,11 +219,6 @@
             this.quantityTxt.Size = new System.Drawing.Size(191, 29);
             this.quantityTxt.TabIndex = 79;
             this.quantityTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.quantityTxt.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.quantityTxt.ValueChanged += new System.EventHandler(this.quantityTxt_ValueChanged);
             // 
             // dinein
@@ -590,6 +592,7 @@
             this.cb_category.Size = new System.Drawing.Size(254, 33);
             this.cb_category.TabIndex = 209;
             this.cb_category.Text = "All Products";
+            this.cb_category.SelectedIndexChanged += new System.EventHandler(this.cb_category_SelectedIndexChanged);
             // 
             // product_data
             // 
@@ -607,6 +610,7 @@
             this.product_data.Size = new System.Drawing.Size(362, 378);
             this.product_data.TabIndex = 0;
             this.product_data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_data_CellClick);
+            this.product_data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_data_CellContentClick);
             // 
             // ordered_products
             // 
@@ -618,12 +622,19 @@
             this.ordered_products.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.ordered_products.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.ordered_products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ordered_products.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProdID,
+            this.Name,
+            this.Price,
+            this.Quantity,
+            this.Subtotal,
+            this.OrderType});
             this.ordered_products.Location = new System.Drawing.Point(647, 254);
             this.ordered_products.Name = "ordered_products";
             this.ordered_products.ReadOnly = true;
             this.ordered_products.RowHeadersVisible = false;
             this.ordered_products.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ordered_products.Size = new System.Drawing.Size(303, 338);
+            this.ordered_products.Size = new System.Drawing.Size(421, 338);
             this.ordered_products.TabIndex = 205;
             // 
             // TotalTB
@@ -631,7 +642,7 @@
             this.TotalTB.BackColor = System.Drawing.SystemColors.Window;
             this.TotalTB.Enabled = false;
             this.TotalTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalTB.Location = new System.Drawing.Point(69, 14);
+            this.TotalTB.Location = new System.Drawing.Point(169, 9);
             this.TotalTB.Name = "TotalTB";
             this.TotalTB.Size = new System.Drawing.Size(113, 29);
             this.TotalTB.TabIndex = 208;
@@ -640,11 +651,11 @@
             // Total
             // 
             this.Total.AutoSize = true;
-            this.Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Total.ForeColor = System.Drawing.Color.White;
-            this.Total.Location = new System.Drawing.Point(12, 19);
+            this.Total.Location = new System.Drawing.Point(103, 13);
             this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(51, 24);
+            this.Total.Size = new System.Drawing.Size(60, 25);
             this.Total.TabIndex = 207;
             this.Total.Text = "Total";
             // 
@@ -655,7 +666,7 @@
             this.panel10.Location = new System.Drawing.Point(647, 214);
             this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(304, 35);
+            this.panel10.Size = new System.Drawing.Size(421, 35);
             this.panel10.TabIndex = 209;
             // 
             // label4
@@ -664,7 +675,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(36, 9);
+            this.label4.Location = new System.Drawing.Point(112, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(233, 24);
             this.label4.TabIndex = 74;
@@ -675,7 +686,7 @@
             this.checkout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.checkout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkout.Location = new System.Drawing.Point(188, 12);
+            this.checkout.Location = new System.Drawing.Point(288, 7);
             this.checkout.Name = "checkout";
             this.checkout.Size = new System.Drawing.Size(113, 35);
             this.checkout.TabIndex = 210;
@@ -689,10 +700,10 @@
             this.panel2.Controls.Add(this.checkout);
             this.panel2.Controls.Add(this.Total);
             this.panel2.Controls.Add(this.TotalTB);
-            this.panel2.Location = new System.Drawing.Point(647, 589);
+            this.panel2.Location = new System.Drawing.Point(647, 590);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(304, 51);
+            this.panel2.Size = new System.Drawing.Size(421, 50);
             this.panel2.TabIndex = 210;
             // 
             // panel9
@@ -760,7 +771,7 @@
             this.panel13.Location = new System.Drawing.Point(398, 58);
             this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(553, 150);
+            this.panel13.Size = new System.Drawing.Size(670, 150);
             this.panel13.TabIndex = 218;
             // 
             // label11
@@ -769,7 +780,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Tempus Sans ITC", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(118, 94);
+            this.label11.Location = new System.Drawing.Point(209, 114);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(313, 31);
             this.label11.TabIndex = 75;
@@ -779,20 +790,69 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Tempus Sans ITC", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Tempus Sans ITC", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(138, 10);
+            this.label7.Location = new System.Drawing.Point(152, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(279, 84);
+            this.label7.Size = new System.Drawing.Size(418, 126);
             this.label7.TabIndex = 74;
             this.label7.Text = "Cafetiere\r\n";
+            // 
+            // stockleft
+            // 
+            this.stockleft.Enabled = false;
+            this.stockleft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stockleft.Location = new System.Drawing.Point(543, 410);
+            this.stockleft.Name = "stockleft";
+            this.stockleft.ReadOnly = true;
+            this.stockleft.Size = new System.Drawing.Size(191, 26);
+            this.stockleft.TabIndex = 211;
+            this.stockleft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ProdID
+            // 
+            this.ProdID.HeaderText = "Product ID";
+            this.ProdID.Name = "ProdID";
+            this.ProdID.ReadOnly = true;
+            this.ProdID.Visible = false;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
+            // 
+            // OrderType
+            // 
+            this.OrderType.HeaderText = "Order Type";
+            this.OrderType.Name = "OrderType";
+            this.OrderType.ReadOnly = true;
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(967, 654);
+            this.ClientSize = new System.Drawing.Size(1080, 654);
+            this.Controls.Add(this.stockleft);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_remove);
@@ -806,7 +866,7 @@
             this.Controls.Add(this.ordered_products);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Order";
+
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);
@@ -835,6 +895,7 @@
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -893,5 +954,12 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox stockleft;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderType;
     }
 }

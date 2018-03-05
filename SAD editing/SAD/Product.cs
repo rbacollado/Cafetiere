@@ -51,11 +51,36 @@ namespace SAD
 
             product_list.Columns["pcost"].HeaderText = "Cost";
 
-            product_list.Columns[0].Width = 50;
-            product_list.Columns[1].Width = 150;
-            product_list.Columns[2].Width = 120;
-            product_list.Columns[3].Width = 135;
-            product_list.Columns[4].Width = 110;
+        }
+
+        private void product_list_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                int productID;
+
+                int selected_id = int.Parse(product_list.Rows[e.RowIndex].Cells["productID"].Value.ToString());
+                productID = selected_id;
+
+                String recipeQuery = "SELECT ingredientName, recipeQuantity, recipeUnit FROM ingredients, recipe " +
+                                     "WHERE ingredients.ingredientsID = recipe.ingredients_ingredientsID AND recipe.products_productID = " + selected_id + ";";
+                                   
+
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(recipeQuery, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                conn.Close();
+
+                DataTable recipe = new DataTable();
+                adp.Fill(recipe);
+
+                product_recipe.DataSource = recipe;
+
+                product_recipe.Columns["ingredientName"].HeaderText = "Ingredient Name";
+                product_recipe.Columns["recipeQuantity"].HeaderText = "Quantity Used";
+                product_recipe.Columns["recipeUnit"].HeaderText = "Unit";
+               
+            }
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -64,14 +89,7 @@ namespace SAD
             this.Close();
         }
 
-        private void btn_add_Click_1(object sender, EventArgs e)
-        {
-            Product_Add addproduct = new Product_Add();
-            addproduct.Show();
-            addproduct.prevForm = this;
-            this.Hide();
-        }
-
+     
         private void btn_close_Click(object sender, EventArgs e)
         {
             prevForm.Show();
@@ -85,5 +103,15 @@ namespace SAD
             prodInv.prevForm = this;
             this.Hide();
         }
+
+        private void create_btn_Click(object sender, EventArgs e)
+        {
+            Product_Add addproduct = new Product_Add();
+            addproduct.Show();
+            addproduct.prevForm = this;
+            this.Hide();
+        }
+
+        
     }
 }
