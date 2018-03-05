@@ -130,6 +130,7 @@
             this.product_update.TabIndex = 118;
             this.product_update.Text = "Update";
             this.product_update.UseVisualStyleBackColor = false;
+            this.product_update.Click += new System.EventHandler(this.product_update_Click);
             // 
             // label4
             // 
@@ -159,6 +160,7 @@
             this.product_recipe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.product_recipe.Size = new System.Drawing.Size(353, 464);
             this.product_recipe.TabIndex = 120;
+            this.product_recipe.SelectionChanged += new System.EventHandler(this.product_recipe_SelectionChanged);
             // 
             // label2
             // 

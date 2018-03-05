@@ -1,6 +1,6 @@
 ﻿namespace SAD
 {
-    partial class Product_Add
+    partial class Product_Update
     {
         /// <summary>
         /// Required designer variable.
@@ -52,20 +52,20 @@
             this.pname_txt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.pcost_txt = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ingredient_used = new System.Windows.Forms.DataGridView();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.create_btn = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pcost_txt = new System.Windows.Forms.TextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ingredient_used = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.ingredient_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.item_data)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ingredient_used)).BeginInit();
-            this.panel10.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredient_used)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,10 +73,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.panel1.Controls.Add(this.btn_close);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(994, 59);
-            this.panel1.TabIndex = 109;
+            this.panel1.TabIndex = 110;
             // 
             // btn_close
             // 
@@ -91,7 +91,6 @@
             this.btn_close.TabIndex = 65;
             this.btn_close.Text = "BACK";
             this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // label1
             // 
@@ -99,11 +98,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(286, 31);
+            this.label1.Size = new System.Drawing.Size(305, 31);
             this.label1.TabIndex = 38;
-            this.label1.Text = "PRODUCT DETAILS";
+            this.label1.Text = "PRODUCTS DETAILS";
             // 
             // panel6
             // 
@@ -128,11 +127,11 @@
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.label16);
             this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(1, 64);
+            this.panel6.Location = new System.Drawing.Point(0, 65);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(446, 488);
-            this.panel6.TabIndex = 206;
+            this.panel6.TabIndex = 207;
             // 
             // add_btn
             // 
@@ -147,7 +146,6 @@
             this.add_btn.TabIndex = 244;
             this.add_btn.Text = "ADD";
             this.add_btn.UseVisualStyleBackColor = false;
-            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
             // ingredient_panel
             // 
@@ -178,7 +176,6 @@
             this.item_data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.item_data.Size = new System.Drawing.Size(414, 242);
             this.item_data.TabIndex = 0;
-            this.item_data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.item_data_CellClick);
             // 
             // label9
             // 
@@ -291,7 +288,6 @@
             this.ingredientname_txt.TabIndex = 215;
             this.ingredientname_txt.Tag = "";
             this.ingredientname_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ingredientname_txt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ingredientname_txt_MouseClick);
             // 
             // cmb_category
             // 
@@ -335,7 +331,6 @@
             this.btn_remove.TabIndex = 227;
             this.btn_remove.Text = "REMOVE";
             this.btn_remove.UseVisualStyleBackColor = false;
-            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
             // 
             // pprice_txt
             // 
@@ -393,16 +388,31 @@
             this.label16.TabIndex = 75;
             this.label16.Text = " PRODUCT RECIPE                                                       ";
             // 
-            // pcost_txt
+            // panel2
             // 
-            this.pcost_txt.Enabled = false;
-            this.pcost_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pcost_txt.Location = new System.Drawing.Point(152, 11);
-            this.pcost_txt.Name = "pcost_txt";
-            this.pcost_txt.Size = new System.Drawing.Size(151, 24);
-            this.pcost_txt.TabIndex = 231;
-            this.pcost_txt.Tag = "";
-            this.pcost_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.panel2.Controls.Add(this.create_btn);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.pcost_txt);
+            this.panel2.Location = new System.Drawing.Point(451, 500);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(492, 51);
+            this.panel2.TabIndex = 219;
+            // 
+            // create_btn
+            // 
+            this.create_btn.BackColor = System.Drawing.Color.Gold;
+            this.create_btn.FlatAppearance.BorderSize = 0;
+            this.create_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.create_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.create_btn.ForeColor = System.Drawing.Color.Black;
+            this.create_btn.Location = new System.Drawing.Point(391, 0);
+            this.create_btn.Name = "create_btn";
+            this.create_btn.Size = new System.Drawing.Size(101, 51);
+            this.create_btn.TabIndex = 215;
+            this.create_btn.Text = "UPDATE";
+            this.create_btn.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
@@ -416,34 +426,26 @@
             this.label10.TabIndex = 230;
             this.label10.Text = "Product Cost";
             // 
-            // ingredient_used
+            // pcost_txt
             // 
-            this.ingredient_used.AllowUserToAddRows = false;
-            this.ingredient_used.AllowUserToDeleteRows = false;
-            this.ingredient_used.AllowUserToResizeColumns = false;
-            this.ingredient_used.AllowUserToResizeRows = false;
-            this.ingredient_used.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ingredient_used.BackgroundColor = System.Drawing.Color.MintCream;
-            this.ingredient_used.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.ingredient_used.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.ingredient_used.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ingredient_used.Location = new System.Drawing.Point(451, 97);
-            this.ingredient_used.Name = "ingredient_used";
-            this.ingredient_used.ReadOnly = true;
-            this.ingredient_used.RowHeadersVisible = false;
-            this.ingredient_used.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ingredient_used.Size = new System.Drawing.Size(492, 395);
-            this.ingredient_used.TabIndex = 208;
+            this.pcost_txt.Enabled = false;
+            this.pcost_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pcost_txt.Location = new System.Drawing.Point(152, 11);
+            this.pcost_txt.Name = "pcost_txt";
+            this.pcost_txt.Size = new System.Drawing.Size(151, 24);
+            this.pcost_txt.TabIndex = 231;
+            this.pcost_txt.Tag = "";
+            this.pcost_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.panel10.Controls.Add(this.label3);
-            this.panel10.Location = new System.Drawing.Point(451, 64);
+            this.panel10.Location = new System.Drawing.Point(451, 67);
             this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(492, 34);
-            this.panel10.TabIndex = 212;
+            this.panel10.TabIndex = 218;
             // 
             // label3
             // 
@@ -457,34 +459,26 @@
             this.label3.TabIndex = 74;
             this.label3.Text = "INGREDIENTS USED";
             // 
-            // panel2
+            // ingredient_used
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.panel2.Controls.Add(this.create_btn);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.pcost_txt);
-            this.panel2.Location = new System.Drawing.Point(451, 497);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(492, 51);
-            this.panel2.TabIndex = 216;
+            this.ingredient_used.AllowUserToAddRows = false;
+            this.ingredient_used.AllowUserToDeleteRows = false;
+            this.ingredient_used.AllowUserToResizeColumns = false;
+            this.ingredient_used.AllowUserToResizeRows = false;
+            this.ingredient_used.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ingredient_used.BackgroundColor = System.Drawing.Color.MintCream;
+            this.ingredient_used.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.ingredient_used.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.ingredient_used.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ingredient_used.Location = new System.Drawing.Point(451, 100);
+            this.ingredient_used.Name = "ingredient_used";
+            this.ingredient_used.ReadOnly = true;
+            this.ingredient_used.RowHeadersVisible = false;
+            this.ingredient_used.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ingredient_used.Size = new System.Drawing.Size(492, 395);
+            this.ingredient_used.TabIndex = 217;
             // 
-            // create_btn
-            // 
-            this.create_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.create_btn.FlatAppearance.BorderSize = 0;
-            this.create_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.create_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.create_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.create_btn.Location = new System.Drawing.Point(391, 0);
-            this.create_btn.Name = "create_btn";
-            this.create_btn.Size = new System.Drawing.Size(101, 51);
-            this.create_btn.TabIndex = 215;
-            this.create_btn.Text = "CREATE";
-            this.create_btn.UseVisualStyleBackColor = false;
-            this.create_btn.Click += new System.EventHandler(this.create_btn_Click);
-            // 
-            // Product_Add
+            // Product_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -492,60 +486,60 @@
             this.ClientSize = new System.Drawing.Size(944, 558);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel10);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.ingredient_used);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Product_Add";
+            this.Name = "Product_Update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Product_Add";
-            this.Load += new System.EventHandler(this.Product_Add_Load);
+            this.Text = "Product_Update";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ingredient_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.item_data)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ingredient_used)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredient_used)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button add_btn;
+        private System.Windows.Forms.Panel ingredient_panel;
+        private System.Windows.Forms.DataGridView item_data;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox ingredientprice_txt;
+        private System.Windows.Forms.ComboBox cmb_unit;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox ingredientquantity_txt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox ingredientname_txt;
+        private System.Windows.Forms.ComboBox cmb_category;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btn_remove;
         private System.Windows.Forms.TextBox pprice_txt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox pname_txt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox pcost_txt;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cmb_category;
-        private System.Windows.Forms.DataGridView ingredient_used;
-        private System.Windows.Forms.TextBox ingredientname_txt;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox ingredientquantity_txt;
-        private System.Windows.Forms.ComboBox cmb_unit;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button create_btn;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox ingredientprice_txt;
-        private System.Windows.Forms.Panel ingredient_panel;
-        private System.Windows.Forms.DataGridView item_data;
-        private System.Windows.Forms.Button add_btn;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox pcost_txt;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView ingredient_used;
     }
 }

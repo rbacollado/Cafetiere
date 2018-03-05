@@ -142,6 +142,12 @@
     <Compile Include="Product_Inventory.Designer.cs">
       <DependentUpon>Product_Inventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Product_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product_Update.Designer.cs">
+      <DependentUpon>Product_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="PurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Product_Inventory.resx">
       <DependentUpon>Product_Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product_Update.resx">
+      <DependentUpon>Product_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrder.resx">
       <DependentUpon>PurchaseOrder.cs</DependentUpon>

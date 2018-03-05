@@ -112,6 +112,17 @@ namespace SAD
             this.Hide();
         }
 
-        
+        private void product_recipe_SelectionChanged(object sender, EventArgs e)
+        {
+            this.product_recipe.ClearSelection();
+        }
+
+        private void product_update_Click(object sender, EventArgs e)
+        {
+            Product_Update prodUpdate = new Product_Update();
+            prodUpdate.Show();
+            prodUpdate.prevForm = this;
+            this.Hide();
+        }
     }
 }
