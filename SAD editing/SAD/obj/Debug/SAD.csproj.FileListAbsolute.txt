@@ -175,3 +175,4 @@ C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\bin\Debug\zh-CHS\Microsoft.Repo
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.exe.config
 C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product_Inventory.resources
+C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product_Update.resources

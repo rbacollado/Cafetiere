@@ -66,37 +66,7 @@ namespace SAD
         {
             qtypanel.Visible = true;
         }
-
-        private void updateqty_Click(object sender, EventArgs e)
-        {
-            String updateqty = "UPDATE product_inventory SET prodQuantity = " + nud_prodqty.Value;
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(updateqty, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
-
-            if (nud_prodqty.Value > 0)
-            {
-                String updateStatus = "UPDATE product_inventory SET product_status = 'Available'";
-                conn.Open();
-                MySqlCommand comm_status = new MySqlCommand(updateStatus, conn);
-                comm_status.ExecuteNonQuery();
-                conn.Close();
-            }
-            else if (nud_prodqty.Value == 0)
-            {
-                String updateStatus = "UPDATE product_inventory SET product_status = 'Not Available'";
-                conn.Open();
-                MySqlCommand comm_status = new MySqlCommand(updateStatus, conn);
-                comm_status.ExecuteNonQuery();
-                conn.Close();
-            }
-
-            MessageBox.Show("Quantity updated!");
-            qtypanel.Visible = false;
-            loadprodInv();
-        }
-
+        
         public static int prodInvID;
         private void prodInv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -112,9 +82,41 @@ namespace SAD
             }
         }
 
+        private void updateqty_Click_1(object sender, EventArgs e)
+        {
+            String updateqty = "UPDATE product_inventory SET prodQuantity = " + nud_prodqty.Value + " WHERE prodInv_id = " + prodInvID;
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(updateqty, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+            if (nud_prodqty.Value > 0)
+            {
+                String updateStatus = "UPDATE product_inventory SET product_status = 'Available' WHERE prodInv_id = " + prodInvID;
+                conn.Open();
+                MySqlCommand comm_status = new MySqlCommand(updateStatus, conn);
+                comm_status.ExecuteNonQuery();
+                conn.Close();
+            }
+            else if (nud_prodqty.Value == 0)
+            {
+                String updateStatus = "UPDATE product_inventory SET product_status = 'Not Available' WHERE prodInv_id = " + prodInvID;
+                conn.Open();
+                MySqlCommand comm_status = new MySqlCommand(updateStatus, conn);
+                comm_status.ExecuteNonQuery();
+                conn.Close();
+            }
+
+            MessageBox.Show("Quantity updated!");
+            qtypanel.Visible = false;
+            btn_add.Enabled = false;
+            btn_add.BackColor = Color.Gray;
+            loadprodInv();
+        }
+
         public void loadQTY()
         {
-            String prodInvquery = "SELECT prodQuantity FROM product_inventory WHERE prodInv_id = " + prodInvID;
+            String prodInvquery = "SELECT pname, prodQuantity FROM product_inventory, products WHERE products.productID = product_inventory.product_ID AND prodInv_id = " + prodInvID;
 
             MySqlCommand comm = new MySqlCommand(prodInvquery, conn);
             comm.CommandText = prodInvquery;
@@ -124,7 +126,7 @@ namespace SAD
 
             while (drdInv.Read())
             {
-
+                prodLabel.Text = (drdInv["pname"].ToString());
                 nud_prodqty.Text = (drdInv["prodQuantity"].ToString());
 
             }
@@ -136,5 +138,17 @@ namespace SAD
             prevForm.Show();
             this.Close();
         }
+
+        private void close_btn_Click(object sender, EventArgs e)
+        {
+            qtypanel.Visible = false;
+        }
+
+        private void btn_add_Click_1(object sender, EventArgs e)
+        {
+            qtypanel.Visible = true;
+        }
+
+       
     }
 }

@@ -147,6 +147,8 @@
             // 
             this.product_recipe.AllowUserToAddRows = false;
             this.product_recipe.AllowUserToDeleteRows = false;
+            this.product_recipe.AllowUserToResizeColumns = false;
+            this.product_recipe.AllowUserToResizeRows = false;
             this.product_recipe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.product_recipe.BackgroundColor = System.Drawing.Color.White;
             this.product_recipe.BorderStyle = System.Windows.Forms.BorderStyle.None;

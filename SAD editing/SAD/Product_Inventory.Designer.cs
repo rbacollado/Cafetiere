@@ -36,10 +36,14 @@
             this.qtypanel = new System.Windows.Forms.Panel();
             this.updateqty = new System.Windows.Forms.Button();
             this.nud_prodqty = new System.Windows.Forms.NumericUpDown();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.prodLabel = new System.Windows.Forms.Label();
+            this.close_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prodInv)).BeginInit();
             this.qtypanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_prodqty)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,6 +85,7 @@
             this.btn_add.TabIndex = 89;
             this.btn_add.Text = "Update Quantity";
             this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click_1);
             // 
             // label1
             // 
@@ -112,15 +117,18 @@
             this.prodInv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.prodInv.Size = new System.Drawing.Size(634, 328);
             this.prodInv.TabIndex = 110;
+            this.prodInv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodInv_CellClick);
             // 
             // qtypanel
             // 
             this.qtypanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.qtypanel.Controls.Add(this.close_btn);
+            this.qtypanel.Controls.Add(this.panel2);
             this.qtypanel.Controls.Add(this.updateqty);
             this.qtypanel.Controls.Add(this.nud_prodqty);
-            this.qtypanel.Location = new System.Drawing.Point(261, 157);
+            this.qtypanel.Location = new System.Drawing.Point(198, 120);
             this.qtypanel.Name = "qtypanel";
-            this.qtypanel.Size = new System.Drawing.Size(136, 98);
+            this.qtypanel.Size = new System.Drawing.Size(239, 164);
             this.qtypanel.TabIndex = 111;
             // 
             // updateqty
@@ -130,21 +138,57 @@
             this.updateqty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateqty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateqty.ForeColor = System.Drawing.Color.Black;
-            this.updateqty.Location = new System.Drawing.Point(14, 58);
+            this.updateqty.Location = new System.Drawing.Point(67, 104);
             this.updateqty.Name = "updateqty";
             this.updateqty.Size = new System.Drawing.Size(109, 25);
             this.updateqty.TabIndex = 111;
             this.updateqty.Text = "Update";
             this.updateqty.UseVisualStyleBackColor = false;
+            this.updateqty.Click += new System.EventHandler(this.updateqty_Click_1);
             // 
             // nud_prodqty
             // 
             this.nud_prodqty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nud_prodqty.Location = new System.Drawing.Point(26, 23);
+            this.nud_prodqty.Location = new System.Drawing.Point(79, 69);
             this.nud_prodqty.Name = "nud_prodqty";
             this.nud_prodqty.Size = new System.Drawing.Size(85, 29);
             this.nud_prodqty.TabIndex = 110;
             this.nud_prodqty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.panel2.Controls.Add(this.prodLabel);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(239, 48);
+            this.panel2.TabIndex = 209;
+            // 
+            // prodLabel
+            // 
+            this.prodLabel.AutoSize = true;
+            this.prodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prodLabel.ForeColor = System.Drawing.Color.White;
+            this.prodLabel.Location = new System.Drawing.Point(42, 13);
+            this.prodLabel.Name = "prodLabel";
+            this.prodLabel.Size = new System.Drawing.Size(146, 24);
+            this.prodLabel.TabIndex = 111;
+            this.prodLabel.Text = " Product name";
+            // 
+            // close_btn
+            // 
+            this.close_btn.BackColor = System.Drawing.Color.Firebrick;
+            this.close_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.close_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.close_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.close_btn.ForeColor = System.Drawing.Color.Black;
+            this.close_btn.Location = new System.Drawing.Point(67, 135);
+            this.close_btn.Name = "close_btn";
+            this.close_btn.Size = new System.Drawing.Size(109, 25);
+            this.close_btn.TabIndex = 210;
+            this.close_btn.Text = "Close";
+            this.close_btn.UseVisualStyleBackColor = false;
+            this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
             // 
             // Product_Inventory
             // 
@@ -165,6 +209,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.prodInv)).EndInit();
             this.qtypanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nud_prodqty)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -179,5 +225,8 @@
         private System.Windows.Forms.Button updateqty;
         private System.Windows.Forms.NumericUpDown nud_prodqty;
         private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label prodLabel;
+        private System.Windows.Forms.Button close_btn;
     }
 }

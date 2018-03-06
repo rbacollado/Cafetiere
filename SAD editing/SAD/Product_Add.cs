@@ -74,7 +74,7 @@ namespace SAD
             MySqlDataAdapter adpitems = new MySqlDataAdapter(commitems);
             conn.Close();
             DataTable dtitems = new DataTable();
-            adpitems.Fill(dtitems);
+            adpitems.Fill(dtitems); 
 
             item_data.DataSource = dtitems;
             item_data.Columns["itemInvID"].Visible = false;
@@ -134,21 +134,8 @@ namespace SAD
 
         }
 
-        private void btn_remove_Click(object sender, EventArgs e)
-        {
-            if (ingredient_used.SelectedRows.Count <= 0)
-            {
-                MessageBox.Show("Please select an ingredient first!");
-            }
-            else
-            {
-                int row = ingredient_used.CurrentCell.RowIndex;
-                ingredient_used.Rows.RemoveAt(row);
+        
 
-                getCost();
-
-            }
-        }
         public void getCost()
         {
             // Total
@@ -175,7 +162,6 @@ namespace SAD
             if (dt.Rows.Count == 1)
             {
                 MessageBox.Show("Product Already Exist!", "Duplicate Product", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
             }
             else
             {
@@ -246,6 +232,22 @@ namespace SAD
 
         }
 
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            if (ingredient_used.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Please select an ingredient first!");
+            }
+            else
+            {
+                int row = ingredient_used.CurrentCell.RowIndex;
+                ingredient_used.Rows.RemoveAt(row);
+
+                getCost();
+
+            }
+
+        }
 
     }
 }

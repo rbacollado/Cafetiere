@@ -53,6 +53,11 @@ namespace SAD
 
         }
 
+        public class selected_data
+        {
+            public static int prodID;
+        }
+
         private void product_list_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -61,6 +66,7 @@ namespace SAD
 
                 int selected_id = int.Parse(product_list.Rows[e.RowIndex].Cells["productID"].Value.ToString());
                 productID = selected_id;
+                selected_data.prodID = selected_id; 
 
                 String recipeQuery = "SELECT ingredientName, recipeQuantity, recipeUnit FROM ingredients, recipe " +
                                      "WHERE ingredients.ingredientsID = recipe.ingredients_ingredientsID AND recipe.products_productID = " + selected_id + ";";
