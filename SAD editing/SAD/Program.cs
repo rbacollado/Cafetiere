@@ -17,7 +17,7 @@ namespace SAD
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Product());
+            Application.Run(new Login());
 
         }
     }

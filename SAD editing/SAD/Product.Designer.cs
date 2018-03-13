@@ -29,15 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.prodInv_btn = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.product_list = new System.Windows.Forms.DataGridView();
             this.product_update = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.product_recipe = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.create_btn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.product_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product_recipe)).BeginInit();
@@ -46,28 +45,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.prodInv_btn);
             this.panel1.Controls.Add(this.btn_close);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-45, -2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1009, 59);
             this.panel1.TabIndex = 100;
-            // 
-            // prodInv_btn
-            // 
-            this.prodInv_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.prodInv_btn.FlatAppearance.BorderSize = 0;
-            this.prodInv_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prodInv_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prodInv_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.prodInv_btn.Location = new System.Drawing.Point(559, 2);
-            this.prodInv_btn.Name = "prodInv_btn";
-            this.prodInv_btn.Size = new System.Drawing.Size(130, 59);
-            this.prodInv_btn.TabIndex = 122;
-            this.prodInv_btn.Text = "PRODUCT INVENTORY";
-            this.prodInv_btn.UseVisualStyleBackColor = false;
-            this.prodInv_btn.Click += new System.EventHandler(this.prodInv_btn_Click);
             // 
             // btn_close
             // 
@@ -92,9 +75,9 @@
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(57, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 31);
+            this.label1.Size = new System.Drawing.Size(178, 31);
             this.label1.TabIndex = 38;
-            this.label1.Text = "MENU";
+            this.label1.Text = "MAIN MENU";
             // 
             // product_list
             // 
@@ -131,17 +114,6 @@
             this.product_update.Text = "Update";
             this.product_update.UseVisualStyleBackColor = false;
             this.product_update.Click += new System.EventHandler(this.product_update_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(13, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 25);
-            this.label4.TabIndex = 119;
-            this.label4.Text = "PRODUCT LIST";
             // 
             // product_recipe
             // 
@@ -190,6 +162,17 @@
             this.create_btn.UseVisualStyleBackColor = false;
             this.create_btn.Click += new System.EventHandler(this.create_btn_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(13, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(177, 25);
+            this.label4.TabIndex = 119;
+            this.label4.Text = "PRODUCT LIST";
+            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,10 +207,9 @@
         private System.Windows.Forms.DataGridView product_list;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button product_update;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView product_recipe;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button prodInv_btn;
         private System.Windows.Forms.Button create_btn;
+        private System.Windows.Forms.Label label4;
     }
 }

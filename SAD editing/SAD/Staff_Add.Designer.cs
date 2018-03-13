@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Back = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel_add = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,7 +56,6 @@
             this.lbl_fname = new System.Windows.Forms.Label();
             this.txt_lname = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            this.panel_add.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -96,37 +94,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ADD STAFF";
             // 
-            // panel_add
-            // 
-            this.panel_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.panel_add.Controls.Add(this.panel4);
-            this.panel_add.Controls.Add(this.panel3);
-            this.panel_add.Controls.Add(this.panel2);
-            this.panel_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel_add.Location = new System.Drawing.Point(8, 64);
-            this.panel_add.Margin = new System.Windows.Forms.Padding(2);
-            this.panel_add.Name = "panel_add";
-            this.panel_add.Size = new System.Drawing.Size(711, 361);
-            this.panel_add.TabIndex = 113;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.panel4.Location = new System.Drawing.Point(19, 50);
+            this.panel4.Location = new System.Drawing.Point(17, 114);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(675, 13);
-            this.panel4.TabIndex = 106;
+            this.panel4.TabIndex = 109;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(19, 13);
+            this.panel3.Location = new System.Drawing.Point(17, 77);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(675, 37);
-            this.panel3.TabIndex = 105;
+            this.panel3.TabIndex = 108;
             // 
             // label5
             // 
@@ -164,11 +149,11 @@
             this.panel2.Controls.Add(this.txt_fname);
             this.panel2.Controls.Add(this.lbl_fname);
             this.panel2.Controls.Add(this.txt_lname);
-            this.panel2.Location = new System.Drawing.Point(19, 15);
+            this.panel2.Location = new System.Drawing.Point(17, 79);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(675, 326);
-            this.panel2.TabIndex = 107;
+            this.panel2.TabIndex = 110;
             // 
             // lbl_usertype
             // 
@@ -205,7 +190,6 @@
             this.btn_clear.TabIndex = 12;
             this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = false;
-            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btn_add
             // 
@@ -220,7 +204,6 @@
             this.btn_add.TabIndex = 9;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = false;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // label4
             // 
@@ -409,8 +392,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(727, 439);
-            this.Controls.Add(this.panel_add);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Staff_Add";
@@ -419,7 +405,6 @@
             this.Load += new System.EventHandler(this.Staff_Add_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel_add.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -432,15 +417,15 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel_add;
+        private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btn_clear;
-        private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbl_usertype;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btn_clear;
+        private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_confpass;
@@ -457,6 +442,5 @@
         private System.Windows.Forms.TextBox txt_fname;
         private System.Windows.Forms.Label lbl_fname;
         private System.Windows.Forms.TextBox txt_lname;
-        private System.Windows.Forms.Button Back;
     }
 }

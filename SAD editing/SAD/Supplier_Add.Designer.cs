@@ -31,11 +31,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Back = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel_add = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_organization = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_clear = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.txt_email = new System.Windows.Forms.TextBox();
@@ -48,10 +49,7 @@
             this.txt_fname = new System.Windows.Forms.TextBox();
             this.lbl_fname = new System.Windows.Forms.Label();
             this.txt_lname = new System.Windows.Forms.TextBox();
-            this.txt_organization = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel_add.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +69,7 @@
             this.Back.BackColor = System.Drawing.Color.Tomato;
             this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back.Location = new System.Drawing.Point(889, 3);
+            this.Back.Location = new System.Drawing.Point(868, 1);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(112, 60);
             this.Back.TabIndex = 88;
@@ -90,37 +88,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ADD SUPPLIER";
             // 
-            // panel_add
-            // 
-            this.panel_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.panel_add.Controls.Add(this.panel4);
-            this.panel_add.Controls.Add(this.panel3);
-            this.panel_add.Controls.Add(this.panel2);
-            this.panel_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel_add.Location = new System.Drawing.Point(11, 62);
-            this.panel_add.Margin = new System.Windows.Forms.Padding(2);
-            this.panel_add.Name = "panel_add";
-            this.panel_add.Size = new System.Drawing.Size(711, 344);
-            this.panel_add.TabIndex = 114;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.panel4.Location = new System.Drawing.Point(19, 50);
+            this.panel4.Location = new System.Drawing.Point(17, 110);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(675, 13);
-            this.panel4.TabIndex = 106;
+            this.panel4.TabIndex = 109;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(19, 13);
+            this.panel3.Location = new System.Drawing.Point(17, 73);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(675, 37);
-            this.panel3.TabIndex = 105;
+            this.panel3.TabIndex = 108;
             // 
             // label5
             // 
@@ -152,11 +137,35 @@
             this.panel2.Controls.Add(this.txt_fname);
             this.panel2.Controls.Add(this.lbl_fname);
             this.panel2.Controls.Add(this.txt_lname);
-            this.panel2.Location = new System.Drawing.Point(19, 15);
+            this.panel2.Location = new System.Drawing.Point(17, 75);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(675, 304);
-            this.panel2.TabIndex = 107;
+            this.panel2.TabIndex = 110;
+            // 
+            // txt_organization
+            // 
+            this.txt_organization.BackColor = System.Drawing.Color.White;
+            this.txt_organization.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_organization.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_organization.ForeColor = System.Drawing.Color.Black;
+            this.txt_organization.Location = new System.Drawing.Point(499, 139);
+            this.txt_organization.Multiline = true;
+            this.txt_organization.Name = "txt_organization";
+            this.txt_organization.Size = new System.Drawing.Size(159, 27);
+            this.txt_organization.TabIndex = 78;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(345, 139);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 20);
+            this.label2.TabIndex = 79;
+            this.label2.Text = "Organization:";
             // 
             // btn_clear
             // 
@@ -171,7 +180,6 @@
             this.btn_clear.TabIndex = 12;
             this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = false;
-            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btn_add
             // 
@@ -186,7 +194,6 @@
             this.btn_add.TabIndex = 9;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = false;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // txt_email
             // 
@@ -306,36 +313,15 @@
             this.txt_lname.Size = new System.Drawing.Size(159, 27);
             this.txt_lname.TabIndex = 2;
             // 
-            // txt_organization
-            // 
-            this.txt_organization.BackColor = System.Drawing.Color.White;
-            this.txt_organization.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_organization.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_organization.ForeColor = System.Drawing.Color.Black;
-            this.txt_organization.Location = new System.Drawing.Point(499, 139);
-            this.txt_organization.Multiline = true;
-            this.txt_organization.Name = "txt_organization";
-            this.txt_organization.Size = new System.Drawing.Size(159, 27);
-            this.txt_organization.TabIndex = 78;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(345, 139);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 20);
-            this.label2.TabIndex = 79;
-            this.label2.Text = "Organization:";
-            // 
             // Supplier_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 436);
-            this.Controls.Add(this.panel_add);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.ClientSize = new System.Drawing.Size(708, 396);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Supplier_Add";
@@ -343,7 +329,6 @@
             this.Text = "Supplier_Add";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel_add.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -357,11 +342,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel_add;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txt_organization;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.TextBox txt_email;
@@ -374,7 +360,5 @@
         private System.Windows.Forms.TextBox txt_fname;
         private System.Windows.Forms.Label lbl_fname;
         private System.Windows.Forms.TextBox txt_lname;
-        private System.Windows.Forms.TextBox txt_organization;
-        private System.Windows.Forms.Label label2;
     }
 }

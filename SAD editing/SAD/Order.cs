@@ -90,7 +90,7 @@ namespace SAD
 
         public void loadSelectedCategory()
         {
-            string category = "SELECT prodInv_id, product_ID, pname, pprice, prodQuantity FROM products, product_inventory WHERE products.productID = product_inventory.product_ID AND pcategory = '" + cb_category.Text.ToLower() + "'";
+            string category = "SELECT productInvID, productID, pname, pprice, product_quantity FROM products, product_inventory WHERE products.productID = product_inventory.productInvID AND pcategory = '" + cb_category.Text.ToLower() + "'";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(category, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -103,7 +103,7 @@ namespace SAD
 
         public void loadprodInv_data()
         {
-            String query = "SELECT prodInv_id, product_ID, pname, pprice, prodQuantity FROM products, product_inventory WHERE products.productID = product_inventory.product_ID";
+            String query = "SELECT productInvID, product_ID, pname, pprice, product_quantity FROM products, product_inventory WHERE products.productID = product_inventory.productInvID";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -112,11 +112,11 @@ namespace SAD
             adp.Fill(dt);
 
             product_data.DataSource = dt;
-            product_data.Columns["prodInv_id"].Visible = false;
+            product_data.Columns["productInvID"].Visible = false;
             product_data.Columns["product_ID"].Visible = false;
             product_data.Columns["pname"].HeaderText = "Name";
             product_data.Columns["pprice"].HeaderText = "Price";
-            product_data.Columns["prodQuantity"].HeaderText = "Quantity";
+            product_data.Columns["product_quantity"].HeaderText = "Quantity";
 
 
             product_data.Columns["pprice"].DefaultCellStyle.Format = "c";
@@ -280,18 +280,7 @@ namespace SAD
                 }
 
             }
-
-
-
-
-
-
-
-
-
-
-
-
+            
             /* Boolean duplicate_prod = false;
              int idprod = 0;
 

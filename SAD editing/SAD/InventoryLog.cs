@@ -35,7 +35,7 @@ namespace SAD
         {
             string logquery = "SELECT logid, CONCAT(firstname, ' ', lastname) as StaffName, itemName, quantity, logdate , logtype, remarks FROM person"
                               + " INNER JOIN staff ON person.personid = staff.person_personid"
-                              + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid where quantity > 0;";
+                              + " INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid WHERE quantity > 0;";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(logquery, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -136,6 +136,13 @@ namespace SAD
         private void inventory_log_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        //public static int logid;
+        private void print_Click(object sender, EventArgs e)
+        {
+            /*logid = Convert.ToInt32(log_id.Text);
+            new InventoryLog_Reports(logid).ShowDialog();*/
         }
     }
 }

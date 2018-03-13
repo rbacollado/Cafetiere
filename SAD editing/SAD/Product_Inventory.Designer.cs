@@ -29,33 +29,44 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_products = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
-            this.btn_add = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.prodInv = new System.Windows.Forms.DataGridView();
-            this.qtypanel = new System.Windows.Forms.Panel();
-            this.updateqty = new System.Windows.Forms.Button();
-            this.nud_prodqty = new System.Windows.Forms.NumericUpDown();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.prodLabel = new System.Windows.Forms.Label();
-            this.close_btn = new System.Windows.Forms.Button();
+            this.batch_items = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_use = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.prodInv)).BeginInit();
-            this.qtypanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_prodqty)).BeginInit();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.batch_items)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.btn_products);
             this.panel1.Controls.Add(this.btn_close);
-            this.panel1.Controls.Add(this.btn_add);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-285, -6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1228, 64);
+            this.panel1.Size = new System.Drawing.Size(1412, 64);
             this.panel1.TabIndex = 3;
+            // 
+            // btn_products
+            // 
+            this.btn_products.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btn_products.FlatAppearance.BorderSize = 0;
+            this.btn_products.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_products.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_products.Location = new System.Drawing.Point(858, 19);
+            this.btn_products.Name = "btn_products";
+            this.btn_products.Size = new System.Drawing.Size(103, 32);
+            this.btn_products.TabIndex = 126;
+            this.btn_products.Text = "PRODUCTS";
+            this.btn_products.UseVisualStyleBackColor = false;
+            this.btn_products.Click += new System.EventHandler(this.btn_products_Click);
             // 
             // btn_close
             // 
@@ -64,28 +75,13 @@
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_close.Location = new System.Drawing.Point(847, 3);
+            this.btn_close.Location = new System.Drawing.Point(969, 3);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(97, 61);
             this.btn_close.TabIndex = 90;
             this.btn_close.Text = "BACK";
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            // 
-            // btn_add
-            // 
-            this.btn_add.BackColor = System.Drawing.Color.Gold;
-            this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.ForeColor = System.Drawing.Color.Black;
-            this.btn_add.Location = new System.Drawing.Point(690, 3);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(136, 60);
-            this.btn_add.TabIndex = 89;
-            this.btn_add.Text = "Update Quantity";
-            this.btn_add.UseVisualStyleBackColor = false;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click_1);
             // 
             // label1
             // 
@@ -94,110 +90,98 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label1.Location = new System.Drawing.Point(297, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 25);
+            this.label1.Size = new System.Drawing.Size(205, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "PRODUCT INVENTORY";
+            this.label1.Text = "PRODUCT BATCH";
             // 
-            // prodInv
+            // batch_items
             // 
-            this.prodInv.AllowUserToAddRows = false;
-            this.prodInv.AllowUserToDeleteRows = false;
-            this.prodInv.AllowUserToResizeColumns = false;
-            this.prodInv.AllowUserToResizeRows = false;
-            this.prodInv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.prodInv.BackgroundColor = System.Drawing.Color.White;
-            this.prodInv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.prodInv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.prodInv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.prodInv.Location = new System.Drawing.Point(12, 73);
-            this.prodInv.MultiSelect = false;
-            this.prodInv.Name = "prodInv";
-            this.prodInv.ReadOnly = true;
-            this.prodInv.RowHeadersVisible = false;
-            this.prodInv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.prodInv.Size = new System.Drawing.Size(634, 328);
-            this.prodInv.TabIndex = 110;
-            this.prodInv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodInv_CellClick);
+            this.batch_items.AllowUserToAddRows = false;
+            this.batch_items.AllowUserToDeleteRows = false;
+            this.batch_items.AllowUserToResizeColumns = false;
+            this.batch_items.AllowUserToResizeRows = false;
+            this.batch_items.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.batch_items.BackgroundColor = System.Drawing.Color.White;
+            this.batch_items.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.batch_items.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.batch_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.batch_items.Location = new System.Drawing.Point(12, 97);
+            this.batch_items.MultiSelect = false;
+            this.batch_items.Name = "batch_items";
+            this.batch_items.ReadOnly = true;
+            this.batch_items.RowHeadersVisible = false;
+            this.batch_items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.batch_items.Size = new System.Drawing.Size(340, 413);
+            this.batch_items.TabIndex = 111;
             // 
-            // qtypanel
+            // dataGridView1
             // 
-            this.qtypanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.qtypanel.Controls.Add(this.close_btn);
-            this.qtypanel.Controls.Add(this.panel2);
-            this.qtypanel.Controls.Add(this.updateqty);
-            this.qtypanel.Controls.Add(this.nud_prodqty);
-            this.qtypanel.Location = new System.Drawing.Point(198, 120);
-            this.qtypanel.Name = "qtypanel";
-            this.qtypanel.Size = new System.Drawing.Size(239, 164);
-            this.qtypanel.TabIndex = 111;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(421, 97);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(344, 413);
+            this.dataGridView1.TabIndex = 112;
             // 
-            // updateqty
+            // label3
             // 
-            this.updateqty.BackColor = System.Drawing.Color.Gold;
-            this.updateqty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.updateqty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateqty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateqty.ForeColor = System.Drawing.Color.Black;
-            this.updateqty.Location = new System.Drawing.Point(67, 104);
-            this.updateqty.Name = "updateqty";
-            this.updateqty.Size = new System.Drawing.Size(109, 25);
-            this.updateqty.TabIndex = 111;
-            this.updateqty.Text = "Update";
-            this.updateqty.UseVisualStyleBackColor = false;
-            this.updateqty.Click += new System.EventHandler(this.updateqty_Click_1);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(7, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(247, 25);
+            this.label3.TabIndex = 124;
+            this.label3.Text = "BATCH INGREDIENTS";
             // 
-            // nud_prodqty
+            // label5
             // 
-            this.nud_prodqty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nud_prodqty.Location = new System.Drawing.Point(79, 69);
-            this.nud_prodqty.Name = "nud_prodqty";
-            this.nud_prodqty.Size = new System.Drawing.Size(85, 29);
-            this.nud_prodqty.TabIndex = 110;
-            this.nud_prodqty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(416, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(220, 25);
+            this.label5.TabIndex = 125;
+            this.label5.Text = "BATCH PRODUCTS";
             // 
-            // panel2
+            // btn_use
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.panel2.Controls.Add(this.prodLabel);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(239, 48);
-            this.panel2.TabIndex = 209;
-            // 
-            // prodLabel
-            // 
-            this.prodLabel.AutoSize = true;
-            this.prodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prodLabel.ForeColor = System.Drawing.Color.White;
-            this.prodLabel.Location = new System.Drawing.Point(42, 13);
-            this.prodLabel.Name = "prodLabel";
-            this.prodLabel.Size = new System.Drawing.Size(146, 24);
-            this.prodLabel.TabIndex = 111;
-            this.prodLabel.Text = " Product name";
-            // 
-            // close_btn
-            // 
-            this.close_btn.BackColor = System.Drawing.Color.Firebrick;
-            this.close_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.close_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.close_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.close_btn.ForeColor = System.Drawing.Color.Black;
-            this.close_btn.Location = new System.Drawing.Point(67, 135);
-            this.close_btn.Name = "close_btn";
-            this.close_btn.Size = new System.Drawing.Size(109, 25);
-            this.close_btn.TabIndex = 210;
-            this.close_btn.Text = "Close";
-            this.close_btn.UseVisualStyleBackColor = false;
-            this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
+            this.btn_use.BackColor = System.Drawing.Color.White;
+            this.btn_use.FlatAppearance.BorderSize = 0;
+            this.btn_use.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_use.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_use.ForeColor = System.Drawing.Color.Black;
+            this.btn_use.Location = new System.Drawing.Point(358, 240);
+            this.btn_use.Name = "btn_use";
+            this.btn_use.Size = new System.Drawing.Size(57, 31);
+            this.btn_use.TabIndex = 217;
+            this.btn_use.Text = "USE";
+            this.btn_use.UseVisualStyleBackColor = false;
+            this.btn_use.Click += new System.EventHandler(this.btn_use_Click);
             // 
             // Product_Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(658, 413);
-            this.Controls.Add(this.qtypanel);
-            this.Controls.Add(this.prodInv);
+            this.ClientSize = new System.Drawing.Size(776, 530);
+            this.Controls.Add(this.btn_use);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.batch_items);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Product_Inventory";
@@ -206,27 +190,23 @@
             this.Load += new System.EventHandler(this.Product_Inventory_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.prodInv)).EndInit();
-            this.qtypanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nud_prodqty)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.batch_items)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView prodInv;
-        private System.Windows.Forms.Panel qtypanel;
-        private System.Windows.Forms.Button updateqty;
-        private System.Windows.Forms.NumericUpDown nud_prodqty;
         private System.Windows.Forms.Button btn_close;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label prodLabel;
-        private System.Windows.Forms.Button close_btn;
+        private System.Windows.Forms.DataGridView batch_items;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_products;
+        private System.Windows.Forms.Button btn_use;
     }
 }

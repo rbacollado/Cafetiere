@@ -166,5 +166,13 @@ namespace SAD
         {
             this.inventory_records.ClearSelection();
         }
+
+        private void Archive_Click(object sender, EventArgs e)
+        {
+            Staff_Archive sArchive = new Staff_Archive();
+            sArchive.prevForm = this;
+            sArchive.Show();
+            this.Hide();
+        }
     }
 }

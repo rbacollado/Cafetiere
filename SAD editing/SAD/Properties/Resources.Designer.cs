@@ -163,6 +163,16 @@ namespace SAD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hotel_supplier {
+            get {
+                object obj = ResourceManager.GetObject("hotel-supplier", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logout__2_ {
             get {
                 object obj = ResourceManager.GetObject("logout__2_", resourceCulture);
@@ -246,6 +256,16 @@ namespace SAD.Properties {
         internal static System.Drawing.Bitmap shopping_basket__1_ {
             get {
                 object obj = ResourceManager.GetObject("shopping_basket__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap staff_data_folder_interface_symbol {
+            get {
+                object obj = ResourceManager.GetObject("staff-data-folder-interface-symbol", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

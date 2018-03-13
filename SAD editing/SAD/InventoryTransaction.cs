@@ -27,7 +27,7 @@ namespace SAD
 
         private void InventoryTransaction_Load(object sender, EventArgs e)
         {
-           
+
             inventory_status();
             loadTobeRemoved();
             
@@ -56,7 +56,7 @@ namespace SAD
             {
                 int itemInvID = int.Parse(drd_expire["itemInvID"].ToString());
                 
-                for (int i = 0; i < inventory_dtgv.Rows.Count - 1; i++)
+                for (int i = 0; i < inventory_dtgv.Rows.Count ; i++)
                 {
                     if (itemInvID == int.Parse(inventory_dtgv.Rows[i].Cells["itemInvID"].Value.ToString()))
                     {
@@ -151,25 +151,57 @@ namespace SAD
             }
             else
             {
-                String removequery = "UPDATE items_inventory SET itemQuantity = itemQuantity - " + int.Parse(txt_quantity.Text) + " WHERE itemInvID = " + itemInvID + ";";
-                conn.Open();
-                MySqlCommand comm_Remove = new MySqlCommand(removequery, conn);
-                comm_Remove.ExecuteNonQuery();
-                conn.Close();
+                if (cmb_remarks.Text == "Used for Products")
+                {
+                    String remove = "UPDATE items_inventory SET itemQuantity = itemQuantity - " + int.Parse(txt_quantity.Text) + " WHERE itemInvID = " + itemInvID + ";";
+                    conn.Open();
+                    MySqlCommand commremove = new MySqlCommand(remove, conn);
+                    commremove.ExecuteNonQuery();
+                    conn.Close();
+
+                    String updateStatus = "UPDATE items_inventory SET itemStatus = 'Unavailable' WHERE itemQuantity = 0;";
+                    conn.Open();
+                    MySqlCommand commupdate = new MySqlCommand(updateStatus, conn);
+                    commupdate.ExecuteNonQuery();
+                    conn.Close();
+                    
+                    String addtoBatchIngredients = "INSERT INTO batch_ingredients (log_stockout, ingredientName, ingredientQuantity, ingredientAmount, ingredientUnit, batch_ingredient_date) " +
+                                            "VALUES( (SELECT max(logid) FROM inventorylog),'" + txt_name.Text + "'," + txt_quantity.Text +  "," + txt_amount.Text + ",'" + txt_unit.Text + "', current_timestamp() );";
+                    conn.Open();
+                    MySqlCommand commAddBatch = new MySqlCommand(addtoBatchIngredients, conn);
+                    commAddBatch.ExecuteNonQuery();
+                    conn.Close();
+
+                    String updateLogquery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType,remarks) " +
+                                            "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + txt_name.Text + "'," + txt_quantity.Text + ", current_timestamp(), 'Stock out(Manual)', '" + cmb_remarks.Text + "' );";
+                    conn.Open();
+                    MySqlCommand comm_inventorylog = new MySqlCommand(updateLogquery, conn);
+                    comm_inventorylog.ExecuteNonQuery();
+                    conn.Close();
+
+                }
+                else
+                {
+                    String removequery = "UPDATE items_inventory SET itemQuantity = itemQuantity - " + int.Parse(txt_quantity.Text) + " WHERE itemInvID = " + itemInvID + ";";
+                    conn.Open();
+                    MySqlCommand comm_Remove = new MySqlCommand(removequery, conn);
+                    comm_Remove.ExecuteNonQuery();
+                    conn.Close();
+
+                    String updateAvail = "UPDATE items_inventory SET itemStatus = 'Unavailable' WHERE itemQuantity = 0;";
+                    conn.Open();
+                    MySqlCommand comm_Avail = new MySqlCommand(updateAvail, conn);
+                    comm_Avail.ExecuteNonQuery();
+                    conn.Close();
+
+                    String updateLogquery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType,remarks) " +
+                                            "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + txt_name.Text + "'," + txt_quantity.Text + ", current_timestamp(), 'Stock out(Manual)', '" + cmb_remarks.Text + "' );";
+                    conn.Open();
+                    MySqlCommand comm_inventorylog = new MySqlCommand(updateLogquery, conn);
+                    comm_inventorylog.ExecuteNonQuery();
+                    conn.Close();
+                }
                 
-                String updateAvail = "UPDATE items_inventory SET itemStatus = 'Unavailable' WHERE itemQuantity = 0;";
-                conn.Open();
-                MySqlCommand comm_Avail = new MySqlCommand(updateAvail, conn);
-                comm_Avail.ExecuteNonQuery();
-                conn.Close();
-
-                String updateLogquery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType,remarks) " +
-                                        "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + txt_name.Text + "'," + txt_quantity.Text + ", current_timestamp(), 'Stock out(Manual)', '" + cmb_remarks.Text + "' );";
-                conn.Open();
-                MySqlCommand comm_inventorylog = new MySqlCommand(updateLogquery, conn);
-                comm_inventorylog.ExecuteNonQuery();
-                conn.Close();
-
                 inventory_status();
                 panel_stockout.Visible = false;
                 panel_stockout.Enabled = false;

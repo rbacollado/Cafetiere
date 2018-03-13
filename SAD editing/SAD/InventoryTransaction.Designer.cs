@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.date_lbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_close = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.inventory_dtgv = new System.Windows.Forms.DataGridView();
@@ -39,7 +40,6 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btn_close = new System.Windows.Forms.Button();
             this.btn_logs = new System.Windows.Forms.Button();
             this.show_SOpanel = new System.Windows.Forms.Button();
             this.btn_PO = new System.Windows.Forms.Button();
@@ -93,6 +93,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.panel1.Controls.Add(this.date_lbl);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btn_close);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1228, 58);
@@ -103,7 +104,7 @@
             this.date_lbl.AutoSize = true;
             this.date_lbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.date_lbl.Location = new System.Drawing.Point(925, 20);
+            this.date_lbl.Location = new System.Drawing.Point(676, 20);
             this.date_lbl.Name = "date_lbl";
             this.date_lbl.Size = new System.Drawing.Size(113, 25);
             this.date_lbl.TabIndex = 4;
@@ -119,6 +120,21 @@
             this.label1.Size = new System.Drawing.Size(311, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "INVENTORY MANAGEMENT";
+            // 
+            // btn_close
+            // 
+            this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_close.Location = new System.Drawing.Point(1008, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(83, 58);
+            this.btn_close.TabIndex = 5;
+            this.btn_close.Text = "BACK";
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // panel3
             // 
@@ -168,13 +184,12 @@
             this.panel10.Controls.Add(this.pictureBox8);
             this.panel10.Controls.Add(this.pictureBox5);
             this.panel10.Controls.Add(this.pictureBox4);
-            this.panel10.Controls.Add(this.btn_close);
             this.panel10.Controls.Add(this.btn_logs);
             this.panel10.Controls.Add(this.show_SOpanel);
             this.panel10.Controls.Add(this.btn_PO);
             this.panel10.Location = new System.Drawing.Point(736, 353);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(341, 203);
+            this.panel10.Size = new System.Drawing.Size(341, 167);
             this.panel10.TabIndex = 6;
             // 
             // stockin_btn
@@ -184,7 +199,7 @@
             this.stockin_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stockin_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockin_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.stockin_btn.Location = new System.Drawing.Point(0, 120);
+            this.stockin_btn.Location = new System.Drawing.Point(0, 81);
             this.stockin_btn.Name = "stockin_btn";
             this.stockin_btn.Size = new System.Drawing.Size(341, 44);
             this.stockin_btn.TabIndex = 7;
@@ -197,7 +212,7 @@
             this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.pictureBox8.BackgroundImage = global::SAD.Properties.Resources.clipboard__1_;
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(40, 85);
+            this.pictureBox8.Location = new System.Drawing.Point(40, 46);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(43, 29);
             this.pictureBox8.TabIndex = 10;
@@ -208,7 +223,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
             this.pictureBox5.BackgroundImage = global::SAD.Properties.Resources.remove;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(42, 46);
+            this.pictureBox5.Location = new System.Drawing.Point(41, 131);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(41, 29);
             this.pictureBox5.TabIndex = 7;
@@ -226,21 +241,6 @@
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
             // 
-            // btn_close
-            // 
-            this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_close.Location = new System.Drawing.Point(0, 161);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(341, 40);
-            this.btn_close.TabIndex = 5;
-            this.btn_close.Text = "Close";
-            this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            // 
             // btn_logs
             // 
             this.btn_logs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
@@ -248,7 +248,7 @@
             this.btn_logs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_logs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_logs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_logs.Location = new System.Drawing.Point(0, 77);
+            this.btn_logs.Location = new System.Drawing.Point(0, 39);
             this.btn_logs.Name = "btn_logs";
             this.btn_logs.Size = new System.Drawing.Size(341, 44);
             this.btn_logs.TabIndex = 4;
@@ -263,11 +263,11 @@
             this.show_SOpanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.show_SOpanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.show_SOpanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.show_SOpanel.Location = new System.Drawing.Point(0, 39);
+            this.show_SOpanel.Location = new System.Drawing.Point(0, 125);
             this.show_SOpanel.Name = "show_SOpanel";
             this.show_SOpanel.Size = new System.Drawing.Size(341, 40);
             this.show_SOpanel.TabIndex = 1;
-            this.show_SOpanel.Text = "Remove Item";
+            this.show_SOpanel.Text = "Stock Out";
             this.show_SOpanel.UseVisualStyleBackColor = false;
             this.show_SOpanel.Visible = false;
             this.show_SOpanel.Click += new System.EventHandler(this.show_SOpanel_Click);
@@ -304,13 +304,12 @@
             this.panel_stockout.Controls.Add(this.label14);
             this.panel_stockout.Controls.Add(this.btn_SOBack);
             this.panel_stockout.Controls.Add(this.label5);
-            this.panel_stockout.Location = new System.Drawing.Point(1048, 614);
+            this.panel_stockout.Location = new System.Drawing.Point(736, 587);
             this.panel_stockout.Margin = new System.Windows.Forms.Padding(2);
             this.panel_stockout.Name = "panel_stockout";
-            this.panel_stockout.Size = new System.Drawing.Size(29, 25);
+            this.panel_stockout.Size = new System.Drawing.Size(13, 75);
             this.panel_stockout.TabIndex = 22;
             this.panel_stockout.Visible = false;
-          
             // 
             // cmb_remarks
             // 
@@ -320,7 +319,8 @@
             this.cmb_remarks.Items.AddRange(new object[] {
             "Damaged",
             "Consumed by pests",
-            "Expired"});
+            "Expired",
+            "Used for Products"});
             this.cmb_remarks.Location = new System.Drawing.Point(159, 214);
             this.cmb_remarks.Name = "cmb_remarks";
             this.cmb_remarks.Size = new System.Drawing.Size(126, 26);

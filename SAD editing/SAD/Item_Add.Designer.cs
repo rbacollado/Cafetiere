@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_clear = new System.Windows.Forms.Button();
@@ -48,7 +47,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_lname = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -89,24 +87,11 @@
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.panel6.Controls.Add(this.panel3);
-            this.panel6.Controls.Add(this.btn_clear);
-            this.panel6.Controls.Add(this.btn_add);
-            this.panel6.Controls.Add(this.panel5);
-            this.panel6.Location = new System.Drawing.Point(11, 72);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(486, 326);
-            this.panel6.TabIndex = 109;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(20, 19);
+            this.panel3.Location = new System.Drawing.Point(34, 86);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(440, 37);
@@ -131,7 +116,7 @@
             this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_clear.ForeColor = System.Drawing.Color.Black;
-            this.btn_clear.Location = new System.Drawing.Point(378, 276);
+            this.btn_clear.Location = new System.Drawing.Point(392, 343);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(82, 37);
             this.btn_clear.TabIndex = 10;
@@ -145,7 +130,7 @@
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.Black;
-            this.btn_add.Location = new System.Drawing.Point(290, 276);
+            this.btn_add.Location = new System.Drawing.Point(304, 343);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(82, 37);
             this.btn_add.TabIndex = 7;
@@ -167,7 +152,7 @@
             this.panel5.Controls.Add(this.lbl_fname);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.lbl_lname);
-            this.panel5.Location = new System.Drawing.Point(20, 21);
+            this.panel5.Location = new System.Drawing.Point(34, 88);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(440, 250);
@@ -175,12 +160,14 @@
             // 
             // unit
             // 
+            this.unit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unit.FormattingEnabled = true;
             this.unit.Items.AddRange(new object[] {
             "kg",
-            "ml",
-            "pcs"});
+            "lbs",
+            "pcs",
+            "ml"});
             this.unit.Location = new System.Drawing.Point(128, 157);
             this.unit.Name = "unit";
             this.unit.Size = new System.Drawing.Size(131, 28);
@@ -295,9 +282,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 409);
-            this.Controls.Add(this.panel6);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.ClientSize = new System.Drawing.Size(525, 409);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.btn_clear);
+            this.Controls.Add(this.btn_add);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Item_Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -305,7 +296,6 @@
             this.Load += new System.EventHandler(this.Item_Add_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -319,7 +309,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_close;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_clear;

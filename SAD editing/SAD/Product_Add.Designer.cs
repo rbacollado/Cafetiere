@@ -299,12 +299,18 @@
             this.cmb_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_category.FormattingEnabled = true;
             this.cmb_category.Items.AddRange(new object[] {
-            "Beverage",
-            "Add on",
-            "Best Seller",
-            "Side Dish",
-            "Tipid Meal",
-            "Special Meal"});
+            "All Day Breakfast",
+            "Extras",
+            "Pasta",
+            "Burgers & Sandwiches",
+            "Fries & Nachos",
+            "Frappe",
+            "Milkshakes",
+            "House Specials",
+            "All Time Favorite",
+            "Hot & Cold Beverages",
+            "Fresh Fruit Shakes",
+            "Coolers"});
             this.cmb_category.Location = new System.Drawing.Point(215, 83);
             this.cmb_category.Name = "cmb_category";
             this.cmb_category.Size = new System.Drawing.Size(152, 26);

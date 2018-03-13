@@ -123,7 +123,7 @@ namespace SAD
                 }
                 else
                 {
-                    logdate_lbl.Text = "No Recent Changes";
+                    logdate_lbl.Text = "None";
                 }
                 
             }
@@ -144,10 +144,24 @@ namespace SAD
             this.Hide();
         }
 
+        private void btnDash_Click(object sender, EventArgs e)
+        {
+            btnDash.BackColor = Color.FromArgb(192, 57, 43);
+            btn_orders.BackColor = Color.FromArgb(51, 51, 51);
+            btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
+            restock_items.Visible = true;
+            sales_panel.Visible = false;
+            profiling_panel.Visible = false;
+        }
+
         private void btn_profiling_Click(object sender, EventArgs e)
         {
             profiling_panel.Visible = true;
             profiling_panel.Enabled = true;
+            sales_panel.Visible = false;
+            btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
+            btnDash.BackColor = Color.FromArgb(51, 51, 51);
+            btn_orders.BackColor = Color.FromArgb(51, 51, 51);
             restock_items.Visible = false;
             profiling_panel.Size = new Size(640, 529);
             profiling_panel.Location = new Point(139, 91);
@@ -157,15 +171,20 @@ namespace SAD
         {
             sales_panel.Visible = true;
             sales_panel.Enabled = true;
-            sales_panel.Size = new Size(643, 498);
+            profiling_panel.Visible = false;
+            btn_orders.BackColor = Color.FromArgb(192, 57, 43);
+            btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
+            btnDash.BackColor = Color.FromArgb(51, 51, 51);
+            sales_panel.Size = new Size(640, 529);
             sales_panel.Location = new Point(139, 91);
+
         }
         
         private void btn_product_Click(object sender, EventArgs e)
         {
-            Product product = new Product();
-            product.prevForm = this;
-            product.Show();
+            Product_Inventory prodInv = new Product_Inventory();
+            prodInv.prevForm = this;
+            prodInv.Show();
             this.Hide();
         }
 
@@ -201,18 +220,7 @@ namespace SAD
             supplier.Show();
             this.Hide();
         }
-
-        private void btn_close_Click(object sender, EventArgs e)
-        {
-            profiling_panel.Visible = false;
-            restock_items.Visible = true;
-        }
-
-        private void sales_btn_back_Click(object sender, EventArgs e)
-        {
-            sales_panel.Visible = false;
-        }
-
+        
         private void order_btn_Click(object sender, EventArgs e)
         {
             Order order = new Order();
@@ -226,12 +234,6 @@ namespace SAD
             this.restock_items.ClearSelection();
         }
 
-        private void Archive_Click(object sender, EventArgs e)
-        {
-            Archive archive = new Archive();
-            archive.prevForm = this;
-            archive.Show();
-            this.Hide();
-        }
+        
     }
 }

@@ -189,9 +189,9 @@
             this.item_panel.Controls.Add(this.btn_item);
             this.item_panel.Controls.Add(this.label10);
             this.item_panel.Controls.Add(this.item_data);
-            this.item_panel.Location = new System.Drawing.Point(3, 433);
+            this.item_panel.Location = new System.Drawing.Point(3, 427);
             this.item_panel.Name = "item_panel";
-            this.item_panel.Size = new System.Drawing.Size(27, 114);
+            this.item_panel.Size = new System.Drawing.Size(29, 120);
             this.item_panel.TabIndex = 224;
             this.item_panel.Visible = false;
             // 
@@ -231,6 +231,7 @@
             this.item_data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.item_data.BackgroundColor = System.Drawing.Color.White;
             this.item_data.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.item_data.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.item_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.item_data.Location = new System.Drawing.Point(38, 66);
             this.item_data.Name = "item_data";

@@ -68,6 +68,12 @@
             this.cb_category = new System.Windows.Forms.ComboBox();
             this.product_data = new System.Windows.Forms.DataGridView();
             this.ordered_products = new System.Windows.Forms.DataGridView();
+            this.ProdID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalTB = new System.Windows.Forms.TextBox();
             this.Total = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -80,15 +86,9 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.stockleft = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.stockleft = new System.Windows.Forms.TextBox();
-            this.ProdID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityTxt)).BeginInit();
@@ -364,9 +364,9 @@
             this.paymentpanel.Controls.Add(this.amountPaidlbl);
             this.paymentpanel.Controls.Add(this.label9);
             this.paymentpanel.Controls.Add(this.label6);
-            this.paymentpanel.Location = new System.Drawing.Point(0, 1);
+            this.paymentpanel.Location = new System.Drawing.Point(264, 253);
             this.paymentpanel.Name = "paymentpanel";
-            this.paymentpanel.Size = new System.Drawing.Size(76, 73);
+            this.paymentpanel.Size = new System.Drawing.Size(46, 57);
             this.paymentpanel.TabIndex = 208;
             this.paymentpanel.Visible = false;
             this.paymentpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paymentpanel_Paint);
@@ -579,27 +579,38 @@
             // 
             // cb_category
             // 
+            this.cb_category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_category.FormattingEnabled = true;
             this.cb_category.Items.AddRange(new object[] {
-            "Main Dishes",
-            "Side Dishes",
+            "All Day Breakfast",
+            "Extras",
             "Pasta",
-            "Desserts",
-            "Beverages"});
+            "Burgers & Sandwiches",
+            "Fries & Nachos",
+            "Frappe",
+            "Milkshakes",
+            "House Specials",
+            "All Time Favorite",
+            "Hot & Cold Beverages",
+            "Fresh Fruit Shakes",
+            "Coolers"});
             this.cb_category.Location = new System.Drawing.Point(116, 6);
             this.cb_category.Name = "cb_category";
             this.cb_category.Size = new System.Drawing.Size(254, 33);
             this.cb_category.TabIndex = 209;
-            this.cb_category.Text = "All Products";
             this.cb_category.SelectedIndexChanged += new System.EventHandler(this.cb_category_SelectedIndexChanged);
             // 
             // product_data
             // 
             this.product_data.AllowUserToAddRows = false;
             this.product_data.AllowUserToDeleteRows = false;
+            this.product_data.AllowUserToResizeColumns = false;
+            this.product_data.AllowUserToResizeRows = false;
             this.product_data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.product_data.BackgroundColor = System.Drawing.Color.White;
+            this.product_data.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.product_data.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.product_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.product_data.Location = new System.Drawing.Point(9, 8);
             this.product_data.Name = "product_data";
@@ -636,6 +647,43 @@
             this.ordered_products.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ordered_products.Size = new System.Drawing.Size(421, 338);
             this.ordered_products.TabIndex = 205;
+            // 
+            // ProdID
+            // 
+            this.ProdID.HeaderText = "Product ID";
+            this.ProdID.Name = "ProdID";
+            this.ProdID.ReadOnly = true;
+            this.ProdID.Visible = false;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
+            // 
+            // OrderType
+            // 
+            this.OrderType.HeaderText = "Order Type";
+            this.OrderType.Name = "OrderType";
+            this.OrderType.ReadOnly = true;
             // 
             // TotalTB
             // 
@@ -765,6 +813,7 @@
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.Peru;
+            this.panel13.Controls.Add(this.stockleft);
             this.panel13.Controls.Add(this.label11);
             this.panel13.Controls.Add(this.label7);
             this.panel13.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -774,6 +823,18 @@
             this.panel13.Size = new System.Drawing.Size(670, 150);
             this.panel13.TabIndex = 218;
             // 
+            // stockleft
+            // 
+            this.stockleft.Enabled = false;
+            this.stockleft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stockleft.Location = new System.Drawing.Point(5, 121);
+            this.stockleft.Name = "stockleft";
+            this.stockleft.ReadOnly = true;
+            this.stockleft.Size = new System.Drawing.Size(191, 26);
+            this.stockleft.TabIndex = 211;
+            this.stockleft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.stockleft.Visible = false;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -782,7 +843,7 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(209, 114);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(313, 31);
+            this.label11.Size = new System.Drawing.Size(321, 31);
             this.label11.TabIndex = 75;
             this.label11.Text = "fresh ● flavorful ● delicious";
             // 
@@ -798,61 +859,12 @@
             this.label7.TabIndex = 74;
             this.label7.Text = "Cafetiere\r\n";
             // 
-            // stockleft
-            // 
-            this.stockleft.Enabled = false;
-            this.stockleft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockleft.Location = new System.Drawing.Point(543, 410);
-            this.stockleft.Name = "stockleft";
-            this.stockleft.ReadOnly = true;
-            this.stockleft.Size = new System.Drawing.Size(191, 26);
-            this.stockleft.TabIndex = 211;
-            this.stockleft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ProdID
-            // 
-            this.ProdID.HeaderText = "Product ID";
-            this.ProdID.Name = "ProdID";
-            this.ProdID.ReadOnly = true;
-            this.ProdID.Visible = false;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
-            // 
-            // OrderType
-            // 
-            this.OrderType.HeaderText = "Order Type";
-            this.OrderType.Name = "OrderType";
-            this.OrderType.ReadOnly = true;
-            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(1080, 654);
-            this.Controls.Add(this.stockleft);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_remove);
@@ -866,7 +878,7 @@
             this.Controls.Add(this.ordered_products);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-
+            
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);
@@ -895,7 +907,6 @@
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

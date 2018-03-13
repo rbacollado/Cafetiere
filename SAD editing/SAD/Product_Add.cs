@@ -175,12 +175,12 @@ namespace SAD
                     productComm.ExecuteNonQuery();
                     conn.Close();
 
-                    string insertproductInv = "INSERT INTO product_inventory(product_ID, prodQuantity, product_status)" + 
+                    /*string insertproductInv = "INSERT INTO product_inventory(product_ID, prodQuantity, product_status)" + 
                                                 " VALUES((SELECT MAX(productID) from Products), 0, 'Not Available')";
                     conn.Open();
                     MySqlCommand productInvcomm = new MySqlCommand(insertproductInv, conn);
                     productInvcomm.ExecuteNonQuery();
-                    conn.Close();
+                    conn.Close();*/
 
                     for (int i = 0; i <= ingredient_used.Rows.Count - 1; i++)
                     {

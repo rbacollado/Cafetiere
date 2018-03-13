@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.Archive = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sales_records)).BeginInit();
@@ -71,13 +72,13 @@
             this.dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv.BackgroundColor = System.Drawing.Color.White;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv.Location = new System.Drawing.Point(12, 73);
+            this.dtgv.Location = new System.Drawing.Point(12, 91);
             this.dtgv.MultiSelect = false;
             this.dtgv.Name = "dtgv";
             this.dtgv.ReadOnly = true;
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv.Size = new System.Drawing.Size(939, 195);
+            this.dtgv.Size = new System.Drawing.Size(939, 177);
             this.dtgv.TabIndex = 111;
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
             this.dtgv.SelectionChanged += new System.EventHandler(this.dtgv_SelectionChanged);
@@ -85,10 +86,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.Archive);
             this.panel1.Controls.Add(this.staff_update);
             this.panel1.Controls.Add(this.staff_add);
-            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.Back);
             this.panel1.Location = new System.Drawing.Point(-14, 0);
@@ -101,7 +101,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label6.Location = new System.Drawing.Point(687, 42);
+            this.label6.Location = new System.Drawing.Point(16, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 18);
             this.label6.TabIndex = 122;
@@ -114,7 +114,7 @@
             this.staff_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.staff_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staff_update.ForeColor = System.Drawing.Color.Black;
-            this.staff_update.Location = new System.Drawing.Point(485, 24);
+            this.staff_update.Location = new System.Drawing.Point(624, 24);
             this.staff_update.Name = "staff_update";
             this.staff_update.Size = new System.Drawing.Size(103, 37);
             this.staff_update.TabIndex = 117;
@@ -127,7 +127,7 @@
             this.staff_add.BackColor = System.Drawing.Color.YellowGreen;
             this.staff_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.staff_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staff_add.Location = new System.Drawing.Point(378, 24);
+            this.staff_add.Location = new System.Drawing.Point(517, 24);
             this.staff_add.Name = "staff_add";
             this.staff_add.Size = new System.Drawing.Size(101, 37);
             this.staff_add.TabIndex = 116;
@@ -142,7 +142,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.comboBox1.Location = new System.Drawing.Point(739, 43);
+            this.comboBox1.Location = new System.Drawing.Point(68, 69);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 121;
@@ -244,15 +244,32 @@
             this.label4.TabIndex = 120;
             this.label4.Text = "INVENTORY";
             // 
+            // Archive
+            // 
+            this.Archive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.Archive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Archive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.Archive.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Archive.Location = new System.Drawing.Point(774, 35);
+            this.Archive.Name = "Archive";
+            this.Archive.Size = new System.Drawing.Size(86, 32);
+            this.Archive.TabIndex = 123;
+            this.Archive.Text = "Archive";
+            this.Archive.UseVisualStyleBackColor = false;
+            this.Archive.Click += new System.EventHandler(this.Archive_Click);
+            // 
             // Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(963, 591);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.inventory_records);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.sales_records);
             this.Controls.Add(this.dtgv);
             this.Controls.Add(this.panel1);
@@ -288,5 +305,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Archive;
     }
 }

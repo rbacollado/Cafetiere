@@ -21,134 +21,66 @@ namespace SAD
         {
             InitializeComponent();
             conn = new MySqlConnection("SERVER=localhost; DATABASE=Cafetiere; uid=root; pwd=root;");
+
+            batch_prod.Columns.Add("ID", typeof(string));
+            batch_prod.Columns.Add("Name", typeof(string));
+            batch_prod.Columns.Add("Quantity", typeof(string));
+            batch_prod.Columns.Add("Produced", typeof(string));
+            batch_prod.Columns.Add("Date", typeof(string));
         }
+
+        DataTable batch_prod = new DataTable();
 
         private void Product_Inventory_Load(object sender, EventArgs e)
         {
-            loadprodInv();
-            loadQTY();
-            qtypanel.Visible = false;
-            btn_add.Enabled = false;
-            btn_add.BackColor = Color.Gray;
+            
+            loadBatch();
+
         }
 
-        private void loadprodInv()
+        public void loadBatch()
         {
-            string query = "SELECT prodInv_id, pname, pcategory, prodQuantity, product_status FROM products, product_inventory " + 
-                           " WHERE products.productID = product_inventory.product_ID";
+            string batchingredientsQuery = "SELECT * FROM batch_ingredients;";
 
             conn.Open();
 
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            MySqlCommand batch_ingredientcomm = new MySqlCommand(batchingredientsQuery, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(batch_ingredientcomm);
 
             conn.Close();
 
-            DataTable dt = new DataTable();
+            DataTable dt_batch = new DataTable();
 
-            adp.Fill(dt);
+            adp.Fill(dt_batch);
 
-            prodInv.DataSource = dt;
-            prodInv.Columns["prodInv_id"].Visible = false;
-            prodInv.Columns["pname"].HeaderText = "Name";
-            prodInv.Columns["pcategory"].HeaderText = "Category";
-            prodInv.Columns["prodQuantity"].HeaderText = "Quantity";
-            prodInv.Columns["product_status"].HeaderText = "Status";
-
-            prodInv.Columns[0].Width = 50;
-            prodInv.Columns[1].Width = 150;
-            prodInv.Columns[2].Width = 120;
-            prodInv.Columns[3].Width = 135;
-            prodInv.Columns[4].Width = 110;
-        }
-
-        private void btn_add_Click(object sender, EventArgs e)
-        {
-            qtypanel.Visible = true;
+            batch_items.DataSource = dt_batch;
+            batch_items.Columns["batchIngredient_id"].Visible = false;
+            batch_items.Columns["log_stockout"].Visible = false;
+            batch_items.Columns["ingredientName"].HeaderText = "Ingredient Name";
+            batch_items.Columns["ingredientQuantity"].HeaderText = "Ingredient Quantity";
+            batch_items.Columns["ingredientAmount"].HeaderText = "Ingredient Amount";
+            batch_items.Columns["ingredientUnit"].HeaderText = "Ingredient Unit";
+            batch_items.Columns["batch_ingredient_date"].HeaderText = "Date";
+            
         }
         
-        public static int prodInvID;
-        private void prodInv_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                int selected_id = int.Parse(prodInv.Rows[e.RowIndex].Cells["prodInv_id"].Value.ToString());
-                prodInvID = selected_id;
-
-                nud_prodqty.Text = prodInv.Rows[e.RowIndex].Cells["prodQuantity"].Value.ToString();
-                btn_add.Enabled = true;
-                btn_add.BackColor = Color.Gold;
-                loadQTY();
-            }
-        }
-
-        private void updateqty_Click_1(object sender, EventArgs e)
-        {
-            String updateqty = "UPDATE product_inventory SET prodQuantity = " + nud_prodqty.Value + " WHERE prodInv_id = " + prodInvID;
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(updateqty, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
-
-            if (nud_prodqty.Value > 0)
-            {
-                String updateStatus = "UPDATE product_inventory SET product_status = 'Available' WHERE prodInv_id = " + prodInvID;
-                conn.Open();
-                MySqlCommand comm_status = new MySqlCommand(updateStatus, conn);
-                comm_status.ExecuteNonQuery();
-                conn.Close();
-            }
-            else if (nud_prodqty.Value == 0)
-            {
-                String updateStatus = "UPDATE product_inventory SET product_status = 'Not Available' WHERE prodInv_id = " + prodInvID;
-                conn.Open();
-                MySqlCommand comm_status = new MySqlCommand(updateStatus, conn);
-                comm_status.ExecuteNonQuery();
-                conn.Close();
-            }
-
-            MessageBox.Show("Quantity updated!");
-            qtypanel.Visible = false;
-            btn_add.Enabled = false;
-            btn_add.BackColor = Color.Gray;
-            loadprodInv();
-        }
-
-        public void loadQTY()
-        {
-            String prodInvquery = "SELECT pname, prodQuantity FROM product_inventory, products WHERE products.productID = product_inventory.product_ID AND prodInv_id = " + prodInvID;
-
-            MySqlCommand comm = new MySqlCommand(prodInvquery, conn);
-            comm.CommandText = prodInvquery;
-
-            conn.Open();
-            MySqlDataReader drdInv = comm.ExecuteReader();
-
-            while (drdInv.Read())
-            {
-                prodLabel.Text = (drdInv["pname"].ToString());
-                nud_prodqty.Text = (drdInv["prodQuantity"].ToString());
-
-            }
-            conn.Close();
-        }
-
         private void btn_close_Click(object sender, EventArgs e)
         {
             prevForm.Show();
             this.Close();
         }
 
-        private void close_btn_Click(object sender, EventArgs e)
+        private void btn_products_Click(object sender, EventArgs e)
         {
-            qtypanel.Visible = false;
+            Product prod = new Product();
+            prod.Show();
+            prod.prevForm = this;
+            this.Hide();
         }
 
-        private void btn_add_Click_1(object sender, EventArgs e)
+        private void btn_use_Click(object sender, EventArgs e)
         {
-            qtypanel.Visible = true;
-        }
 
-       
+        }
     }
 }

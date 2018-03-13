@@ -13,7 +13,7 @@ namespace SAD
 {
     public partial class Product : Form
     {
-        public MainMenu prevForm { get; set; }
+        public Form prevForm { get; set; }
 
         MySqlConnection conn;
 

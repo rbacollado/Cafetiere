@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -77,10 +81,21 @@
     <Compile Include="Category_Add.Designer.cs">
       <DependentUpon>Category_Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryLog_Reports.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryLog_Reports.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="InventoryLog.cs">
       <SubType>Form</SubType>
@@ -187,6 +202,12 @@
     <Compile Include="Staff_Add.Designer.cs">
       <DependentUpon>Staff_Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff_Archive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff_Archive.Designer.cs">
+      <DependentUpon>Staff_Archive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Staff_Update.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +226,12 @@
     <Compile Include="Supplier_Add.Designer.cs">
       <DependentUpon>Supplier_Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Supplier_Archive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supplier_Archive.Designer.cs">
+      <DependentUpon>Supplier_Archive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Supplier_Update.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +243,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Category_Add.resx">
       <DependentUpon>Category_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryLog_Reports.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InventoryLog_Reports.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryLog.resx">
       <DependentUpon>InventoryLog.cs</DependentUpon>
@@ -278,6 +309,9 @@
     <EmbeddedResource Include="Staff_Add.resx">
       <DependentUpon>Staff_Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Staff_Archive.resx">
+      <DependentUpon>Staff_Archive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Staff_Update.resx">
       <DependentUpon>Staff_Update.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Supplier_Add.resx">
       <DependentUpon>Supplier_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supplier_Archive.resx">
+      <DependentUpon>Supplier_Archive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Supplier_Update.resx">
       <DependentUpon>Supplier_Update.cs</DependentUpon>
@@ -300,6 +337,17 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -373,6 +421,8 @@
     <None Include="Resources\clipboard %281%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\staff-data-folder-interface-symbol.png" />
+    <None Include="Resources\hotel-supplier.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -386,6 +436,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
