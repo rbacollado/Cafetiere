@@ -90,6 +90,9 @@ namespace SAD
             this.Close();
         }
 
-       
+        private void btn_add_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
