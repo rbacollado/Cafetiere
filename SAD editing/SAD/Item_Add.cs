@@ -89,6 +89,13 @@ namespace SAD
             }
         }
 
-      
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            name.Text = "";
+            amount.Text = "";
+            price.Text = "";
+            unit.Text = "";
+            expirable.Checked = false;
+        }
     }
 }

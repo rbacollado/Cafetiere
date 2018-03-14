@@ -22,7 +22,15 @@ namespace SAD
             conn = new MySqlConnection("SERVER=localhost; DATABASE=Cafetiere; uid=root; pwd=root;");
         }
 
-        private void btn_add_Click(object sender, EventArgs e)
+        
+       
+        private void Back_Click(object sender, EventArgs e)
+        {
+            prevForm.Show();
+            this.Close();
+        }
+
+        private void btn_add_Click_1(object sender, EventArgs e)
         {
             if (txt_fname.Text == "" || txt_lname.Text == "" || txt_address.Text == "" || mtxt_contact.Text == "" || txt_organization.Text == "")
             {
@@ -34,7 +42,7 @@ namespace SAD
                     + "VALUES('" + txt_fname.Text + "','" + txt_lname.Text + "','" + txt_address.Text + "','" + mtxt_contact.Text + "','" + txt_email.Text + "','SUPPLIER')";
 
                 string query1 = "INSERT INTO supplier (person_personid, organization, status, date_added, date_modified)" +
-                                "VALUES( (SELECT MAX(personid) from person) ,'"+ txt_organization.Text + "', 'Active', current_timestamp(), current_timestamp() )";
+                                "VALUES( (SELECT MAX(personid) from person) ,'" + txt_organization.Text + "', 'Active', current_timestamp(), current_timestamp() )";
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 comm.ExecuteNonQuery();
@@ -51,19 +59,13 @@ namespace SAD
             }
         }
 
-        private void btn_clear_Click(object sender, EventArgs e)
+        private void btn_clear_Click_1(object sender, EventArgs e)
         {
             txt_fname.Clear();
             txt_lname.Clear();
             txt_address.Clear();
             mtxt_contact.Clear();
             txt_organization.Clear();
-        }
-
-        private void Back_Click(object sender, EventArgs e)
-        {
-            prevForm.Show();
-            this.Close();
         }
     }
 }

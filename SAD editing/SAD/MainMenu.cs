@@ -174,12 +174,16 @@ namespace SAD
             restock_items.Visible = true;
             sales_panel.Visible = false;
             profiling_panel.Visible = false;
+            panel3.Visible = true;
+            items_list.Visible = true;
         }
 
         private void btn_profiling_Click(object sender, EventArgs e)
         {
             profiling_panel.Visible = true;
             profiling_panel.Enabled = true;
+            panel3.Visible = false;
+            items_list.Visible = false;
             sales_panel.Visible = false;
             btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
             btnDash.BackColor = Color.FromArgb(51, 51, 51);
@@ -194,6 +198,8 @@ namespace SAD
             sales_panel.Visible = true;
             sales_panel.Enabled = true;
             profiling_panel.Visible = false;
+            panel3.Visible = false;
+            items_list.Visible = false;
             btn_orders.BackColor = Color.FromArgb(192, 57, 43);
             btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
             btnDash.BackColor = Color.FromArgb(51, 51, 51);

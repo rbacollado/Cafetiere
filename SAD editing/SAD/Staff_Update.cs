@@ -65,7 +65,10 @@ namespace SAD
 
         public int staffid = SAD.Staff.selected_data.selected_user_id;
 
-        private void update_staff_Click(object sender, EventArgs e)
+        
+
+
+        private void update_staff_Click_1(object sender, EventArgs e)
         {
             if (txt_fname.Text == "" || txt_lname.Text == "" || txt_address.Text == "" || mtxt_contact.Text == "" || cb_usertype.Text == "" || txt_username.Text == "" || txt_pass.Text == "")
             {
@@ -89,11 +92,11 @@ namespace SAD
                 }
 
 
-                string query = "UPDATE person set firstname = '" + txt_fname.Text + "', lastname = '"+ txt_lname.Text + "', address = '" + txt_address.Text 
-                                + "', contact = '" + mtxt_contact.Text + "', email = '" + txt_email.Text + "' WHERE personid = " + staffid ;
+                string query = "UPDATE person set firstname = '" + txt_fname.Text + "', lastname = '" + txt_lname.Text + "', address = '" + txt_address.Text
+                                + "', contact = '" + mtxt_contact.Text + "', email = '" + txt_email.Text + "' WHERE personid = " + staffid;
 
                 string query1 = "UPDATE staff set position = '" + cb_usertype.Text + "', username = '" + txt_username.Text + "', password = '" + txt_pass.Text
-                                + "', status = '" +  statusval + "', date_modified = current_timestamp() WHERE person_personid = " + staffid ;
+                                + "', status = '" + statusval + "', date_modified = current_timestamp() WHERE person_personid = " + staffid;
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -112,7 +115,7 @@ namespace SAD
             }
         }
 
-        private void btn_clear_Click(object sender, EventArgs e)
+        private void btn_clear_Click_1(object sender, EventArgs e)
         {
             txt_fname.Clear();
             txt_lname.Clear();
@@ -121,12 +124,11 @@ namespace SAD
             cb_usertype.Text = "";
             txt_username.Clear();
             txt_pass.Clear();
-            
+
             txt_username.Enabled = true;
             txt_username.BackColor = Color.White;
             txt_pass.Enabled = true;
             txt_pass.BackColor = Color.White;
-          
         }
     }
 }
