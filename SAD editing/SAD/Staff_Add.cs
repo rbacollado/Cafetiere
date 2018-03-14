@@ -27,7 +27,16 @@ namespace SAD
 
         }
 
-        private void btn_add_Click(object sender, EventArgs e)
+       
+
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            prevForm.Show();
+            this.Close();
+        }
+
+        private void btn_add_Click_1(object sender, EventArgs e)
         {
             if (txt_fname.Text == "" || txt_lname.Text == "" || txt_address.Text == "" || mtxt_contact.Text == "" || cb_usertype.Text == "" || txt_username.Text == "" || txt_pass.Text == "")
             {
@@ -64,7 +73,7 @@ namespace SAD
             }
         }
 
-        private void btn_clear_Click(object sender, EventArgs e)
+        private void btn_clear_Click_1(object sender, EventArgs e)
         {
             txt_fname.Clear();
             txt_lname.Clear();
@@ -83,13 +92,5 @@ namespace SAD
             btn_add.Enabled = true;
             btn_add.BackColor = Color.PaleGreen;
         }
-
-        private void Back_Click(object sender, EventArgs e)
-        {
-            prevForm.Show();
-            this.Close();
-        }
-
-       
     }
 }

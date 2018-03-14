@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_clear = new System.Windows.Forms.Button();
@@ -38,13 +39,12 @@
             this.price = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.expirable = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.expire = new System.Windows.Forms.Label();
             this.amount = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.TextBox();
             this.lbl_fname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_lname = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1041, 76);
             this.panel1.TabIndex = 64;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(151, 18);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(178, 41);
+            this.label15.TabIndex = 90;
+            this.label15.Text = "ADD ITEM";
             // 
             // btn_close
             // 
@@ -99,6 +112,7 @@
             this.btn_clear.TabIndex = 10;
             this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = false;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btn_add
             // 
@@ -124,7 +138,7 @@
             this.panel5.Controls.Add(this.price);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.expirable);
-            this.panel5.Controls.Add(this.label12);
+            this.panel5.Controls.Add(this.expire);
             this.panel5.Controls.Add(this.amount);
             this.panel5.Controls.Add(this.name);
             this.panel5.Controls.Add(this.lbl_fname);
@@ -146,7 +160,7 @@
             "lbs",
             "pcs",
             "ml"});
-            this.unit.Location = new System.Drawing.Point(128, 157);
+            this.unit.Location = new System.Drawing.Point(131, 157);
             this.unit.Name = "unit";
             this.unit.Size = new System.Drawing.Size(131, 28);
             this.unit.TabIndex = 232;
@@ -184,17 +198,17 @@
             this.expirable.TabIndex = 229;
             this.expirable.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // expire
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(149, 202);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 20);
-            this.label12.TabIndex = 228;
-            this.label12.Text = "Expirable";
+            this.expire.AutoSize = true;
+            this.expire.BackColor = System.Drawing.Color.Transparent;
+            this.expire.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expire.ForeColor = System.Drawing.Color.White;
+            this.expire.Location = new System.Drawing.Point(149, 202);
+            this.expire.Name = "expire";
+            this.expire.Size = new System.Drawing.Size(83, 20);
+            this.expire.TabIndex = 228;
+            this.expire.Text = "Expirable";
             // 
             // amount
             // 
@@ -256,19 +270,6 @@
             this.lbl_lname.TabIndex = 102;
             this.lbl_lname.Text = "Unit";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(151, 18);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(178, 41);
-            this.label15.TabIndex = 90;
-            this.label15.Text = "ADD ITEM";
-            // 
             // Item_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,7 +307,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_lname;
         private System.Windows.Forms.CheckBox expirable;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label expire;
         private System.Windows.Forms.TextBox price;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox unit;

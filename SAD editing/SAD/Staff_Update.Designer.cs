@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.Back = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.txt_fname = new System.Windows.Forms.TextBox();
             this.lbl_fname = new System.Windows.Forms.Label();
             this.txt_lname = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,6 +68,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1228, 64);
             this.panel1.TabIndex = 114;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(209, 14);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(189, 41);
+            this.label15.TabIndex = 90;
+            this.label15.Text = "EDIT STAFF";
             // 
             // Back
             // 
@@ -172,6 +185,7 @@
             this.update_staff.TabIndex = 118;
             this.update_staff.Text = "UPDATE";
             this.update_staff.UseVisualStyleBackColor = false;
+            this.update_staff.Click += new System.EventHandler(this.update_staff_Click_1);
             // 
             // lbl_usertype
             // 
@@ -210,6 +224,7 @@
             this.btn_clear.TabIndex = 12;
             this.btn_clear.Text = "CLEAR";
             this.btn_clear.UseVisualStyleBackColor = false;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click_1);
             // 
             // label7
             // 
@@ -378,19 +393,6 @@
             this.txt_lname.Name = "txt_lname";
             this.txt_lname.Size = new System.Drawing.Size(159, 27);
             this.txt_lname.TabIndex = 2;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(209, 14);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(189, 41);
-            this.label15.TabIndex = 90;
-            this.label15.Text = "EDIT STAFF";
             // 
             // Staff_Update
             // 
