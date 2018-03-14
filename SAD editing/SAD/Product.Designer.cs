@@ -29,71 +29,43 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.Back = new System.Windows.Forms.Button();
+            this.btn_close = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtgv = new System.Windows.Forms.DataGridView();
+            this.product_list = new System.Windows.Forms.DataGridView();
+            this.product_update = new System.Windows.Forms.Button();
+            this.product_recipe = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.create_btn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.product_list)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.product_recipe)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btn_add);
-            this.panel1.Controls.Add(this.Back);
+            this.panel1.Controls.Add(this.btn_close);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-45, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(660, 59);
+            this.panel1.Size = new System.Drawing.Size(1009, 59);
             this.panel1.TabIndex = 100;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button1
+            // btn_close
             // 
-            this.button1.BackColor = System.Drawing.Color.PaleGreen;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(273, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 25);
-            this.button1.TabIndex = 87;
-            this.button1.Text = "Add Category";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btn_add
-            // 
-            this.btn_add.BackColor = System.Drawing.Color.PaleGreen;
-            this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.ForeColor = System.Drawing.Color.Black;
-            this.btn_add.Location = new System.Drawing.Point(417, 20);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(109, 25);
-            this.btn_add.TabIndex = 86;
-            this.btn_add.Text = "Add Product";
-            this.btn_add.UseVisualStyleBackColor = false;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click_1);
-            this.btn_add.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_add_MouseClick);
-            // 
-            // Back
-            // 
-            this.Back.BackColor = System.Drawing.Color.Tomato;
-            this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back.Location = new System.Drawing.Point(568, 0);
-            this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(89, 59);
-            this.Back.TabIndex = 85;
-            this.Back.Text = "Back";
-            this.Back.UseVisualStyleBackColor = false;
-            this.Back.Click += new System.EventHandler(this.Back_Click);
+            this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_close.Location = new System.Drawing.Point(706, 2);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(97, 59);
+            this.btn_close.TabIndex = 87;
+            this.btn_close.Text = "BACK";
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // label1
             // 
@@ -103,32 +75,116 @@
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(57, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 31);
+            this.label1.Size = new System.Drawing.Size(178, 31);
             this.label1.TabIndex = 38;
-            this.label1.Text = "PRODUCTS";
+            this.label1.Text = "MAIN MENU";
             // 
-            // dtgv
+            // product_list
             // 
-            this.dtgv.AllowUserToAddRows = false;
-            this.dtgv.AllowUserToDeleteRows = false;
-            this.dtgv.BackgroundColor = System.Drawing.Color.White;
-            this.dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv.Location = new System.Drawing.Point(18, 63);
-            this.dtgv.MultiSelect = false;
-            this.dtgv.Name = "dtgv";
-            this.dtgv.ReadOnly = true;
-            this.dtgv.RowHeadersVisible = false;
-            this.dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv.Size = new System.Drawing.Size(581, 466);
-            this.dtgv.TabIndex = 108;
+            this.product_list.AllowUserToAddRows = false;
+            this.product_list.AllowUserToDeleteRows = false;
+            this.product_list.AllowUserToResizeColumns = false;
+            this.product_list.AllowUserToResizeRows = false;
+            this.product_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.product_list.BackgroundColor = System.Drawing.Color.White;
+            this.product_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.product_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.product_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.product_list.Location = new System.Drawing.Point(17, 136);
+            this.product_list.MultiSelect = false;
+            this.product_list.Name = "product_list";
+            this.product_list.ReadOnly = true;
+            this.product_list.RowHeadersVisible = false;
+            this.product_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.product_list.Size = new System.Drawing.Size(352, 464);
+            this.product_list.TabIndex = 108;
+            this.product_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_list_CellClick);
+            // 
+            // product_update
+            // 
+            this.product_update.BackColor = System.Drawing.Color.Gold;
+            this.product_update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.product_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.product_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.product_update.ForeColor = System.Drawing.Color.Black;
+            this.product_update.Location = new System.Drawing.Point(116, 62);
+            this.product_update.Name = "product_update";
+            this.product_update.Size = new System.Drawing.Size(88, 26);
+            this.product_update.TabIndex = 118;
+            this.product_update.Text = "Update";
+            this.product_update.UseVisualStyleBackColor = false;
+            this.product_update.Click += new System.EventHandler(this.product_update_Click);
+            // 
+            // product_recipe
+            // 
+            this.product_recipe.AllowUserToAddRows = false;
+            this.product_recipe.AllowUserToDeleteRows = false;
+            this.product_recipe.AllowUserToResizeColumns = false;
+            this.product_recipe.AllowUserToResizeRows = false;
+            this.product_recipe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.product_recipe.BackgroundColor = System.Drawing.Color.White;
+            this.product_recipe.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.product_recipe.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.product_recipe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.product_recipe.Location = new System.Drawing.Point(390, 136);
+            this.product_recipe.MultiSelect = false;
+            this.product_recipe.Name = "product_recipe";
+            this.product_recipe.ReadOnly = true;
+            this.product_recipe.RowHeadersVisible = false;
+            this.product_recipe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.product_recipe.Size = new System.Drawing.Size(353, 464);
+            this.product_recipe.TabIndex = 120;
+            this.product_recipe.SelectionChanged += new System.EventHandler(this.product_recipe_SelectionChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(385, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(212, 25);
+            this.label2.TabIndex = 121;
+            this.label2.Text = "PRODUCT RECIPE";
+            // 
+            // create_btn
+            // 
+            this.create_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.create_btn.FlatAppearance.BorderSize = 0;
+            this.create_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.create_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.create_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.create_btn.Location = new System.Drawing.Point(22, 62);
+            this.create_btn.Name = "create_btn";
+            this.create_btn.Size = new System.Drawing.Size(88, 26);
+            this.create_btn.TabIndex = 216;
+            this.create_btn.Text = "CREATE";
+            this.create_btn.UseVisualStyleBackColor = false;
+            this.create_btn.Click += new System.EventHandler(this.create_btn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(13, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(177, 25);
+            this.label4.TabIndex = 119;
+            this.label4.Text = "PRODUCT LIST";
             // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 541);
-            this.Controls.Add(this.dtgv);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.ClientSize = new System.Drawing.Size(755, 612);
+            this.Controls.Add(this.create_btn);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.product_recipe);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.product_update);
+            this.Controls.Add(this.product_list);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Product";
@@ -137,8 +193,10 @@
             this.Load += new System.EventHandler(this.Product_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.product_list)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.product_recipe)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -146,9 +204,12 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dtgv;
-        private System.Windows.Forms.Button Back;
-        private System.Windows.Forms.Button btn_add;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView product_list;
+        private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Button product_update;
+        private System.Windows.Forms.DataGridView product_recipe;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button create_btn;
+        private System.Windows.Forms.Label label4;
     }
 }

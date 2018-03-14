@@ -15,7 +15,7 @@ namespace SAD
     {
         MySqlConnection conn;
 
-        public MainMenu prevForm { get; set; }
+        public Form prevForm { get; set; }
 
         public Reports()
         {
@@ -24,13 +24,12 @@ namespace SAD
 
             salesLoad();
         }
-
+        
         public void filterData()
         {
-            string filterquery = "SELECT concat(firstname, ' ',lastname) as Staffname, orderDate, orderTotal, orderType FROM person"
-                            + " INNER JOIN staff ON person.personid = staff.person_personid"
-                            + " INNER JOIN `order` ON staff.staffid = `order`.staff_staffid"
-                            + " INNER JOIN orderline ON `order`.orderID = orderline.orderID"
+            string filterquery = "SELECT orderID, concat(firstname, ' ',lastname) as Staffname, orderDate, orderTotal, orderPayment, orderDiscount, orderDiscountType, orderChange FROM person "
+                            + "INNER JOIN staff ON person.personid = staff.person_personid "
+                            + "INNER JOIN `order` ON staff.staffid = `order`.staff_staffid "
                             + " WHERE date(orderDate) BETWEEN '" + start_filter.Text + "' AND '" + end_filter.Text + "';";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(filterquery, conn);
@@ -41,19 +40,55 @@ namespace SAD
 
             sales_report.DataSource = dt_filter;
 
-            sales_report.Columns["StaffName"].HeaderText = "Staff Name";
-            sales_report.Columns["orderTotal"].HeaderText = "Total";
-            sales_report.Columns["orderType"].HeaderText = "Type";
-            sales_report.Columns["orderDate"].HeaderText = "Date";
-            
+            sales_report.DataSource = dt_filter;
+            sales_report.Columns["orderID"].Visible = false;
+            sales_report.Columns["StaffName"].HeaderText = "Staff";
+            sales_report.Columns["orderDate"].HeaderText = "Sales Date";
+            sales_report.Columns["orderTotal"].HeaderText = "Sales Total";
+            sales_report.Columns["orderPayment"].HeaderText = "Payment";
+            sales_report.Columns["orderChange"].HeaderText = "Change";
+            sales_report.Columns["orderDiscount"].HeaderText = "Discount %";
+            sales_report.Columns["orderDiscountType"].HeaderText = "Discount Type";
+
+        }
+
+        private void sales_report_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                int orderID;
+
+                int selected_id = int.Parse(sales_report.Rows[e.RowIndex].Cells["orderID"].Value.ToString());
+                orderID = selected_id;
+
+                String orderLinequery = "SELECT pname, pcategory, orderPrice, orderQuantity, orderSubtotal, orderType FROM products " +
+                                        "INNER JOIN orderline ON products.productID = orderline.productID WHERE  orderline.orderID = " + orderID + ";";
+
+
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(orderLinequery, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                conn.Close();
+
+                DataTable recipe = new DataTable();
+                adp.Fill(recipe);
+
+                sales_details.DataSource = recipe;
+
+                sales_details.Columns["pname"].HeaderText = "Name";
+                sales_details.Columns["pcategory"].HeaderText = "Category";
+                sales_details.Columns["orderPrice"].HeaderText = "Price";
+                sales_details.Columns["orderQuantity"].HeaderText = "Order Quantity";
+                sales_details.Columns["orderSubtotal"].HeaderText = "Subtotal";
+                sales_details.Columns["orderType"].HeaderText = "Order Type";
+            }
         }
 
         private void salesLoad()
         {
-            string query = "SELECT concat(firstname, ' ',lastname) as Staffname, orderDate, orderTotal, orderType FROM person " +
+            string query = "SELECT orderID, concat(firstname, ' ',lastname) as Staffname, orderDate, orderTotal, orderPayment, orderDiscount, orderDiscountType, orderChange FROM person " +
                            "INNER JOIN staff ON person.personid = staff.person_personid " +
-                           "INNER JOIN `order` ON staff.staffid = `order`.staff_staffid " +
-                           "INNER JOIN orderline ON `order`.orderID = orderline.orderID ";
+                           "INNER JOIN `order` ON staff.staffid = `order`.staff_staffid;";
 
             conn.Open();
 
@@ -67,19 +102,20 @@ namespace SAD
             adp.Fill(dt);
 
             sales_report.DataSource = dt;
+            sales_report.Columns["orderID"].Visible= false;
             sales_report.Columns["StaffName"].HeaderText = "Staff";
-            sales_report.Columns["orderTotal"].HeaderText = "Sales Total";
-            sales_report.Columns["orderType"].HeaderText = "Sales Type";
             sales_report.Columns["orderDate"].HeaderText = "Sales Date";
+            sales_report.Columns["orderTotal"].HeaderText = "Sales Total";
+            sales_report.Columns["orderPayment"].HeaderText = "Payment";
+            sales_report.Columns["orderChange"].HeaderText = "Change";
+            sales_report.Columns["orderDiscount"].HeaderText = "Discount %";
+            sales_report.Columns["orderDiscountType"].HeaderText = "Discount Type";
             
         }
 
         private void Reports_Load(object sender, EventArgs e)
         {
-            sales_report.Columns["StaffName"].Width = 100;
-            sales_report.Columns["orderDate"].Width = 150;
-            sales_report.Columns["orderTotal"].Width = 120;
-            sales_report.Columns["orderType"].Width = 130;
+            
 
             start_filter.Format = DateTimePickerFormat.Custom;
             start_filter.CustomFormat = "yyyy-MM-dd";
@@ -103,5 +139,6 @@ namespace SAD
         {
             filterData();
         }
+        
     }
 }

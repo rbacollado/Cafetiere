@@ -55,6 +55,28 @@ namespace SAD
             logDate();
             restock();
             notif_expiry();
+            item_list();
+        }
+
+        public void item_list()
+        {
+            String itemsquery = "SELECT itemsID, name, price, unit, amount FROM items ";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(itemsquery, conn);
+            comm.CommandText = itemsquery;
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt_log = new DataTable();
+            adp.Fill(dt_log);
+
+            items_list.DataSource = dt_log;
+
+            items_list.Columns["itemsID"].Visible = false;
+            items_list.Columns["name"].HeaderText = "Name";
+            items_list.Columns["price"].HeaderText = "Price";
+            items_list.Columns["unit"].HeaderText = "Unit";
+            items_list.Columns["amount"].HeaderText = "Amount";
+            
         }
 
         public void notif_expiry()
@@ -117,7 +139,15 @@ namespace SAD
             {
                 logdate = DateTime.Parse(rdr["LastLog"].ToString());
 
-                logdate_lbl.Text = logdate.ToString("MMM dd yyyy");
+                if (logdate.ToString() != "")
+                {
+                    logdate_lbl.Text = logdate.ToString("MMM dd yyyy");
+                }
+                else
+                {
+                    logdate_lbl.Text = "None";
+                }
+                
             }
             conn.Close();
         }
@@ -136,10 +166,24 @@ namespace SAD
             this.Hide();
         }
 
+        private void btnDash_Click(object sender, EventArgs e)
+        {
+            btnDash.BackColor = Color.FromArgb(192, 57, 43);
+            btn_orders.BackColor = Color.FromArgb(51, 51, 51);
+            btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
+            restock_items.Visible = true;
+            sales_panel.Visible = false;
+            profiling_panel.Visible = false;
+        }
+
         private void btn_profiling_Click(object sender, EventArgs e)
         {
             profiling_panel.Visible = true;
             profiling_panel.Enabled = true;
+            sales_panel.Visible = false;
+            btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
+            btnDash.BackColor = Color.FromArgb(51, 51, 51);
+            btn_orders.BackColor = Color.FromArgb(51, 51, 51);
             restock_items.Visible = false;
             profiling_panel.Size = new Size(640, 529);
             profiling_panel.Location = new Point(139, 91);
@@ -147,20 +191,22 @@ namespace SAD
 
         private void btn_orders_Click(object sender, EventArgs e)
         {
-
             sales_panel.Visible = true;
             sales_panel.Enabled = true;
-
-            sales_panel.Size = new Size(643, 498);
+            profiling_panel.Visible = false;
+            btn_orders.BackColor = Color.FromArgb(192, 57, 43);
+            btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
+            btnDash.BackColor = Color.FromArgb(51, 51, 51);
+            sales_panel.Size = new Size(640, 529);
             sales_panel.Location = new Point(139, 91);
-            
+
         }
         
         private void btn_product_Click(object sender, EventArgs e)
         {
-            Product product = new Product();
-            product.prevForm = this;
-            product.Show();
+            Product_Inventory prodInv = new Product_Inventory();
+            prodInv.prevForm = this;
+            prodInv.Show();
             this.Hide();
         }
 
@@ -196,18 +242,7 @@ namespace SAD
             supplier.Show();
             this.Hide();
         }
-
-        private void btn_close_Click(object sender, EventArgs e)
-        {
-            profiling_panel.Visible = false;
-            restock_items.Visible = true;
-        }
-
-        private void sales_btn_back_Click(object sender, EventArgs e)
-        {
-            sales_panel.Visible = false;
-        }
-
+        
         private void order_btn_Click(object sender, EventArgs e)
         {
             Order order = new Order();
@@ -220,5 +255,7 @@ namespace SAD
         {
             this.restock_items.ClearSelection();
         }
+
+        
     }
 }

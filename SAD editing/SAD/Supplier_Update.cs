@@ -42,7 +42,7 @@ namespace SAD
 
         private void Supplier_Update_Load(object sender, EventArgs e)
         {
-            String query = "SELECT firstname, lastname, address, contact, email, organization FROM person, supplier " +
+            String query = "SELECT firstname, lastname, address, contact, email, organization, status FROM person, supplier " +
                             "WHERE person.personid = supplier.person_personid AND personid = " + supplierid;
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -58,6 +58,16 @@ namespace SAD
                 mtxt_contact.Text = (drd["contact"].ToString());
                 txt_email.Text = (drd["email"].ToString());
                 txt_organization.Text = (drd["organization"].ToString());
+
+                if ((drd["status"].ToString()) == "Active")
+                {
+                    status.Checked = true;
+
+                }
+                else if ((drd["status"].ToString()) == "Inactive")
+                {
+                    status.Checked = false;
+                }
             }
             conn.Close();
         }
@@ -71,11 +81,21 @@ namespace SAD
            
             else
             {
+                string statusval = "Inactive";
+
+                if (status.Checked == true)
+                {
+                    statusval = "Active";
+                }
+                else
+                {
+                    statusval = "Inactive";
+                }
 
                 string query = "UPDATE person set firstname = '" + txt_fname.Text + "', lastname = '" + txt_lname.Text + "', address = '" + txt_address.Text
                                 + "', contact = '" + mtxt_contact.Text + "', email = '" + txt_email.Text + "' WHERE personid = " + supplierid;
 
-                string query1 = "UPDATE supplier set organization = '" + txt_organization.Text + "', date_modified = current_timestamp() WHERE person_personid = " + supplierid;
+                string query1 = "UPDATE supplier set organization = '" + txt_organization.Text + "',status = '" + statusval + "', date_modified = current_timestamp() WHERE person_personid = " + supplierid;
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);

@@ -42,12 +42,14 @@ namespace SAD
             purchasing_list();
 
             if (!ToBeStocked.Columns.Contains("purchaseID") || !ToBeStocked.Columns.Contains("polID") || 
-                !ToBeStocked.Columns.Contains("Name") || !ToBeStocked.Columns.Contains("Quantity") || !ToBeStocked.Columns.Contains("ExpiryDate") )
+                !ToBeStocked.Columns.Contains("Name") || !ToBeStocked.Columns.Contains("Quantity") ||
+                !ToBeStocked.Columns.Contains("Type") || !ToBeStocked.Columns.Contains("ExpiryDate") )
             {
                 ToBeStocked.Columns.Add("purchaseID", typeof(int));
                 ToBeStocked.Columns.Add("polID", typeof(int));
                 ToBeStocked.Columns.Add("Name", typeof(string));
                 ToBeStocked.Columns.Add("Quantity", typeof(int));
+                ToBeStocked.Columns.Add("Type", typeof(string));
                 ToBeStocked.Columns.Add("ExpiryDate", typeof(string));
 
                 items_stockin.DataSource = ToBeStocked;
@@ -104,7 +106,7 @@ namespace SAD
                 int selected_id = int.Parse(item_purchased.Rows[e.RowIndex].Cells["id"].Value.ToString());
                 polineID = selected_id;
 
-                String POLinequery = "SELECT POLineID AS polID, DATE_FORMAT(itemExipiryDate, '%Y/%m/%d %H:%i %p') AS ExipirationDate, POLineItemName as Name, POLinePrice as Price, POLineQuantity as Quantity, POLineSubtotal as Subtotal " +
+                String POLinequery = "SELECT POLineID AS polID, DATE_FORMAT(itemExipiryDate, '%Y/%m/%d %H:%i %p') AS ExipirationDate, POLineItemName as Name, POLinePrice as Price, POLineQuantity as Quantity, itemType as Type, POLineSubtotal as Subtotal " +
                                     "FROM purchaseorder_line, items WHERE purchaseOrder_purchaseOrderID = " + selected_id + " AND items.itemsID = purchaseorder_line.items_itemsID ;";
 
                 conn.Open();
@@ -120,6 +122,7 @@ namespace SAD
                 item_poLine.Columns["ExipirationDate"].HeaderText = "Expiration Date";
                 item_poLine.Columns["Name"].HeaderText = "Name";
                 item_poLine.Columns["Quantity"].HeaderText = "Quantity";
+                item_poLine.Columns["Type"].HeaderText = "Type";
                 item_poLine.Columns["Price"].HeaderText = "Price";
                 item_poLine.Columns["Subtotal"].HeaderText = "Subtotal";
             }
@@ -171,6 +174,7 @@ namespace SAD
             int poID;
             int item_quantity;
             string item_expirydate;
+            string item_type;
             Boolean stocked_in = false;
 
             String duplicatePOLinequery = "SELECT POLineID FROM purchaseorder_line "+ 
@@ -185,7 +189,7 @@ namespace SAD
             if (duplicate.Rows.Count < 1)
             {
 
-                String POLinequery = "SELECT POLineID as id, items.name as Name, itemsID, purchaseOrder_purchaseOrderID, POLineQuantity as Quantity, DATE_FORMAT(itemExipiryDate, '%Y/%m/%d') as Exipiration " +
+                String POLinequery = "SELECT POLineID as id, items.name as Name, itemsID, purchaseOrder_purchaseOrderID, POLineQuantity as Quantity, itemType as Type, DATE_FORMAT(itemExipiryDate, '%Y/%m/%d') as Exipiration " +
                                      "FROM purchaseorder_line, items WHERE purchaseorder_line.items_itemsID = items.itemsID AND POLineID = " + polineID + "";
                 MySqlCommand commPOLinequery = new MySqlCommand(POLinequery, conn);
                 commPOLinequery.CommandText = POLinequery;
@@ -198,6 +202,7 @@ namespace SAD
                     item_expirydate = dtgv_poline["Exipiration"].ToString();
                     itemsID = int.Parse(dtgv_poline["itemsID"].ToString());
                     item_name = dtgv_poline["Name"].ToString();
+                    item_type = dtgv_poline["Type"].ToString(); 
                     poID = int.Parse(dtgv_poline["purchaseOrder_purchaseOrderID"].ToString());
                     item_quantity = int.Parse(dtgv_poline["Quantity"].ToString());
                     
@@ -211,7 +216,7 @@ namespace SAD
                     if (stocked_in == false)
                     {
 
-                        ToBeStocked.Rows.Add(poID, id, item_name, item_quantity, item_expirydate);
+                        ToBeStocked.Rows.Add(poID, id, item_name, item_quantity, item_type, item_expirydate);
                     }
                     else
                     {
@@ -262,6 +267,7 @@ namespace SAD
                     item_name = items_stockin.Rows[i].Cells["Name"].Value.ToString();
                     item_quantity = int.Parse(items_stockin.Rows[i].Cells["Quantity"].Value.ToString());
                     item_expiry = items_stockin.Rows[i].Cells["ExpiryDate"].Value.ToString();
+                    type = items_stockin.Rows[i].Cells["Type"].Value.ToString();
 
                     string duplicateItemsquery = "SELECT itemExpiry from items_inventory  WHERE itemExpiry = '" + item_expiry + 
                                                  "' AND item_ID = (SELECT itemsID FROM items WHERE name = '" + item_name + "');";
@@ -273,15 +279,7 @@ namespace SAD
                     DataTable duplicateItems = new DataTable();
                     adp.Fill(duplicateItems);
 
-                    if (item_expiry == "0000/00/00")
-                    {
-                        type = "Non-Ingredient";
-                    }
-                    else
-                    {
-                        type = "Ingredient";
-                    }
-
+                    
                     if (duplicateItems.Rows.Count > 0)
                     {
                         string addItemQuantityquery = "UPDATE items_inventory SET itemStatus = 'Available', itemQuantity = itemQuantity + " + item_quantity + 

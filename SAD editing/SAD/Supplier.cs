@@ -153,5 +153,13 @@ namespace SAD
         {
             this.records.ClearSelection();
         }
+
+        private void Archive_Click(object sender, EventArgs e)
+        {
+            Supplier_Archive sArchive = new Supplier_Archive();
+            sArchive.prevForm = this;
+            sArchive.Show();
+            this.Hide();
+        }
     }
 }
