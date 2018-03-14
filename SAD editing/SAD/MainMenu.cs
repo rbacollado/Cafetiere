@@ -55,6 +55,28 @@ namespace SAD
             logDate();
             restock();
             notif_expiry();
+            item_list();
+        }
+
+        public void item_list()
+        {
+            String itemsquery = "SELECT itemsID, name, price, unit, amount FROM items ";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(itemsquery, conn);
+            comm.CommandText = itemsquery;
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt_log = new DataTable();
+            adp.Fill(dt_log);
+
+            items_list.DataSource = dt_log;
+
+            items_list.Columns["itemsID"].Visible = false;
+            items_list.Columns["name"].HeaderText = "Name";
+            items_list.Columns["price"].HeaderText = "Price";
+            items_list.Columns["unit"].HeaderText = "Unit";
+            items_list.Columns["amount"].HeaderText = "Amount";
+            
         }
 
         public void notif_expiry()
