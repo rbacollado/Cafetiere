@@ -75,6 +75,49 @@
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+<<<<<<< HEAD
+=======
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(23, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(177, 24);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "INVENTORY LOG";
+            // 
+
+
+            // panel4
+            // 
+          
+            // 
+            // inventory_log
+            // 
+            this.inventory_log.AllowUserToAddRows = false;
+            this.inventory_log.AllowUserToDeleteRows = false;
+            this.inventory_log.AllowUserToResizeColumns = false;
+            this.inventory_log.AllowUserToResizeRows = false;
+            this.inventory_log.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.inventory_log.BackgroundColor = System.Drawing.Color.White;
+            this.inventory_log.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.inventory_log.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.inventory_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inventory_log.GridColor = System.Drawing.SystemColors.Control;
+            this.inventory_log.Location = new System.Drawing.Point(20, 15);
+            this.inventory_log.Name = "inventory_log";
+            this.inventory_log.ReadOnly = true;
+            this.inventory_log.RowHeadersVisible = false;
+            this.inventory_log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.inventory_log.Size = new System.Drawing.Size(693, 478);
+            this.inventory_log.TabIndex = 208;
+            this.inventory_log.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_log_CellContentClick);
+            // 
+
+
+>>>>>>> 970bacc91e7fc59a533b85e8d3894d5d27418c58
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));

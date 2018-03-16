@@ -92,5 +92,19 @@ namespace SAD
             btn_add.Enabled = true;
             btn_add.BackColor = Color.PaleGreen;
         }
+<<<<<<< HEAD
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            prevForm.Show();
+            this.Close();
+        }
+
+        private void btn_add_Click_1(object sender, EventArgs e)
+        {
+
+        }
+=======
+>>>>>>> 406e0d0854ec5de328b06d716a56a8bcf23e13ed
     }
 }
