@@ -31,23 +31,26 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_products = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.batch_items = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_use = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.batch_items)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btn_products);
             this.panel1.Controls.Add(this.btn_close);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-285, -6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1412, 64);
@@ -83,17 +86,6 @@
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label1.Location = new System.Drawing.Point(297, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "PRODUCT BATCH";
-            // 
             // batch_items
             // 
             this.batch_items.AllowUserToAddRows = false;
@@ -111,7 +103,7 @@
             this.batch_items.ReadOnly = true;
             this.batch_items.RowHeadersVisible = false;
             this.batch_items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.batch_items.Size = new System.Drawing.Size(340, 413);
+            this.batch_items.Size = new System.Drawing.Size(340, 261);
             this.batch_items.TabIndex = 111;
             // 
             // dataGridView1
@@ -131,28 +123,28 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(344, 413);
+            this.dataGridView1.Size = new System.Drawing.Size(344, 261);
             this.dataGridView1.TabIndex = 112;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(7, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(247, 25);
+            this.label3.Size = new System.Drawing.Size(216, 25);
             this.label3.TabIndex = 124;
             this.label3.Text = "BATCH INGREDIENTS";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(416, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(220, 25);
+            this.label5.Size = new System.Drawing.Size(192, 25);
             this.label5.TabIndex = 125;
             this.label5.Text = "BATCH PRODUCTS";
             // 
@@ -171,12 +163,58 @@
             this.btn_use.UseVisualStyleBackColor = false;
             this.btn_use.Click += new System.EventHandler(this.btn_use_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(12, 376);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(230, 25);
+            this.label2.TabIndex = 218;
+            this.label2.Text = "PRODUCT INVENTORY";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(297, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(298, 41);
+            this.label1.TabIndex = 127;
+            this.label1.Text = "PRODUCT BATCH";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeColumns = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 404);
+            this.dataGridView2.MultiSelect = false;
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(753, 240);
+            this.dataGridView2.TabIndex = 219;
+            // 
             // Product_Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(776, 527);
+            this.ClientSize = new System.Drawing.Size(776, 656);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_use);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -192,6 +230,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.batch_items)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,7 +239,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.DataGridView batch_items;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -208,5 +246,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_products;
         private System.Windows.Forms.Button btn_use;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

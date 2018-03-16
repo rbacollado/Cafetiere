@@ -30,7 +30,6 @@
         {
             this.panel15 = new System.Windows.Forms.Panel();
             this.Back = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
             this.sales_report = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.sales_details = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.print = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sales_report)).BeginInit();
             this.panel3.SuspendLayout();
@@ -50,8 +50,8 @@
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.panel15.Controls.Add(this.Back);
             this.panel15.Controls.Add(this.label15);
+            this.panel15.Controls.Add(this.Back);
             this.panel15.Location = new System.Drawing.Point(-3, 0);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(993, 62);
@@ -60,8 +60,8 @@
             // Back
             // 
             this.Back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Back.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.Back.Location = new System.Drawing.Point(868, 0);
             this.Back.Name = "Back";
@@ -70,17 +70,6 @@
             this.Back.Text = "BACK";
             this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Transparent;
-            this.label15.Location = new System.Drawing.Point(30, 14);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(137, 29);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "REPORTS";
             // 
             // sales_report
             // 
@@ -186,11 +175,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(12, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(207, 29);
+            this.label3.Size = new System.Drawing.Size(171, 28);
             this.label3.TabIndex = 210;
             this.label3.Text = "SALES DETAILS";
             // 
@@ -200,12 +189,25 @@
             this.print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.print.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.print.ForeColor = System.Drawing.Color.Black;
-            this.print.Location = new System.Drawing.Point(433, 109);
+            this.print.Location = new System.Drawing.Point(859, 108);
             this.print.Name = "print";
             this.print.Size = new System.Drawing.Size(79, 29);
             this.print.TabIndex = 100;
             this.print.Text = "PRINT";
             this.print.UseVisualStyleBackColor = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(391, 9);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(218, 41);
+            this.label15.TabIndex = 99;
+            this.label15.Text = "R E P O R T S";
             // 
             // Reports
             // 
@@ -239,7 +241,6 @@
 
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button Back;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView sales_report;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
@@ -250,5 +251,6 @@
         private System.Windows.Forms.DataGridView sales_details;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button print;
+        private System.Windows.Forms.Label label15;
     }
 }

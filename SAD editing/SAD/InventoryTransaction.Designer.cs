@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.date_lbl = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.inventory_dtgv = new System.Windows.Forms.DataGridView();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.stockin_btn = new System.Windows.Forms.Button();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -72,12 +77,11 @@
             this.itemAmount = new System.Windows.Forms.Label();
             this.itemUnit = new System.Windows.Forms.Label();
             this.item_name = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_dtgv)).BeginInit();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -85,7 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_quantity)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -98,6 +101,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1228, 58);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(5, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(289, 41);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "I N V E N T O R Y";
             // 
             // date_lbl
             // 
@@ -136,10 +152,34 @@
             this.inventory_dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inventory_dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.inventory_dtgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventory_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.inventory_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.inventory_dtgv.DefaultCellStyle = dataGridViewCellStyle2;
             this.inventory_dtgv.Location = new System.Drawing.Point(12, 89);
             this.inventory_dtgv.Name = "inventory_dtgv";
             this.inventory_dtgv.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventory_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.inventory_dtgv.RowHeadersVisible = false;
             this.inventory_dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.inventory_dtgv.Size = new System.Drawing.Size(707, 550);
@@ -161,6 +201,17 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(341, 167);
             this.panel10.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.pictureBox1.BackgroundImage = global::SAD.Properties.Resources.shopping_basket__1_;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(40, 89);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 29);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // stockin_btn
             // 
@@ -274,10 +325,10 @@
             this.panel_stockout.Controls.Add(this.label14);
             this.panel_stockout.Controls.Add(this.btn_SOBack);
             this.panel_stockout.Controls.Add(this.label5);
-            this.panel_stockout.Location = new System.Drawing.Point(736, 587);
-            this.panel_stockout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_stockout.Location = new System.Drawing.Point(736, 525);
+            this.panel_stockout.Margin = new System.Windows.Forms.Padding(2);
             this.panel_stockout.Name = "panel_stockout";
-            this.panel_stockout.Size = new System.Drawing.Size(13, 75);
+            this.panel_stockout.Size = new System.Drawing.Size(339, 174);
             this.panel_stockout.TabIndex = 22;
             this.panel_stockout.Visible = false;
             // 
@@ -343,6 +394,7 @@
             0,
             0,
             0});
+            this.txt_quantity.ValueChanged += new System.EventHandler(this.txt_quantity_ValueChanged);
             // 
             // btn_stockout
             // 
@@ -644,19 +696,6 @@
             this.item_name.Size = new System.Drawing.Size(0, 20);
             this.item_name.TabIndex = 15;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(5, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(289, 41);
-            this.label1.TabIndex = 63;
-            this.label1.Text = "I N V E N T O R Y";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -669,17 +708,6 @@
             this.label6.Size = new System.Drawing.Size(184, 25);
             this.label6.TabIndex = 62;
             this.label6.Text = "ITEM PURCHASED";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.pictureBox1.BackgroundImage = global::SAD.Properties.Resources.shopping_basket__1_;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(40, 89);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(43, 29);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
             // 
             // InventoryTransaction
             // 
@@ -702,6 +730,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_dtgv)).EndInit();
             this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -712,7 +741,6 @@
             this.panel2.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

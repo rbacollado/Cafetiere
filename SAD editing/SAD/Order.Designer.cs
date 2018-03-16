@@ -830,7 +830,7 @@
             this.stockleft.Location = new System.Drawing.Point(5, 121);
             this.stockleft.Name = "stockleft";
             this.stockleft.ReadOnly = true;
-            this.stockleft.Size = new System.Drawing.Size(191, 26);
+            this.stockleft.Size = new System.Drawing.Size(54, 26);
             this.stockleft.TabIndex = 211;
             this.stockleft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.stockleft.Visible = false;
@@ -878,7 +878,7 @@
             this.Controls.Add(this.ordered_products);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            
+          
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);

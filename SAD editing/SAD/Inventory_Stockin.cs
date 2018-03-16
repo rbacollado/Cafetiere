@@ -28,6 +28,8 @@ namespace SAD
             OrderWM.Columns.Add("Type", typeof(string));
             OrderWM.Columns.Add("ExpiryDate", typeof(string));
             OrderWM.Columns.Add("Subtotal", typeof(string));
+
+            itemload();
         }
 
         DataTable OrderWM = new DataTable();
@@ -43,7 +45,7 @@ namespace SAD
             iExpiry_txt.Format = DateTimePickerFormat.Custom;
             iExpiry_txt.CustomFormat = "yyyy-MM-dd";
 
-            itemload();
+           
 
         }
 
@@ -94,9 +96,9 @@ namespace SAD
             }
         }
 
-        public void itemload()
+       public void itemload()
         {
-            String queryitems = "SELECT itemsID, name, price, unit, amount, expirable FROM items ";
+            String queryitems = "SELECT itemsID, name, price, unit, amount, expirable FROM items; ";
 
             conn.Open();
             MySqlCommand commitems = new MySqlCommand(queryitems, conn);
@@ -104,7 +106,7 @@ namespace SAD
             conn.Close();
             DataTable dtitems = new DataTable();
             adpitems.Fill(dtitems);
-            
+
             item_data.DataSource = dtitems;
             item_data.Columns["itemsID"].Visible = false;
             item_data.Columns["name"].HeaderText = "Name";
@@ -112,10 +114,7 @@ namespace SAD
             item_data.Columns["unit"].HeaderText = "Unit";
             item_data.Columns["amount"].HeaderText = "Amount";
             item_data.Columns["expirable"].HeaderText = "Expirable";
-
-           
         }
-
         public int item_idselected;
         private void item_data_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -376,6 +375,19 @@ namespace SAD
                 items_purchased.Rows.RemoveAt(row);
                 total();
             }
+        }
+
+        private void iQuantity_txt_ValueChanged(object sender, EventArgs e)
+        {
+            string iprice = iPrice_txt.Text;
+            string iquantity = iQuantity_txt.Value.ToString();
+            int parseQuantity = int.Parse(iquantity);
+
+            decimal parsePrice = decimal.Parse(iprice);
+            decimal subtotal = parsePrice * parseQuantity;
+            string string_subtotal = subtotal.ToString();
+
+            subtotal_txt.Text = string_subtotal;
         }
     }
 }

@@ -262,6 +262,21 @@ namespace SAD
             this.restock_items.ClearSelection();
         }
 
-        
+        private void items_list_SelectionChanged(object sender, EventArgs e)
+        {
+            this.items_list.ClearSelection();
+        }
+
+        private void MainMenu_VisibleChanged(object sender, EventArgs e)
+        {
+            btnDash.BackColor = Color.FromArgb(192, 57, 43);
+            btn_orders.BackColor = Color.FromArgb(51, 51, 51);
+            btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
+            restock_items.Visible = true;
+            sales_panel.Visible = false;
+            profiling_panel.Visible = false;
+            panel3.Visible = true;
+            items_list.Visible = true;
+        }
     }
 }

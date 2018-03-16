@@ -35,6 +35,7 @@
             this.label_pass = new System.Windows.Forms.Label();
             this.label_user = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btn_cancel
@@ -133,12 +134,21 @@
             this.label2.TabIndex = 61;
             this.label2.Text = "C A F E T I E R E";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(402, 120);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(3, 166);
+            this.panel1.TabIndex = 62;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(824, 412);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label_pass);
             this.Controls.Add(this.label_user);
@@ -164,6 +174,7 @@
         private System.Windows.Forms.Label label_pass;
         private System.Windows.Forms.Label label_user;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

@@ -96,7 +96,7 @@
             this.product_list.ReadOnly = true;
             this.product_list.RowHeadersVisible = false;
             this.product_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.product_list.Size = new System.Drawing.Size(352, 464);
+            this.product_list.Size = new System.Drawing.Size(352, 439);
             this.product_list.TabIndex = 108;
             this.product_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_list_CellClick);
             // 
@@ -132,7 +132,7 @@
             this.product_recipe.ReadOnly = true;
             this.product_recipe.RowHeadersVisible = false;
             this.product_recipe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.product_recipe.Size = new System.Drawing.Size(353, 464);
+            this.product_recipe.Size = new System.Drawing.Size(353, 439);
             this.product_recipe.TabIndex = 120;
             this.product_recipe.SelectionChanged += new System.EventHandler(this.product_recipe_SelectionChanged);
             // 
@@ -178,7 +178,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(755, 612);
+            this.ClientSize = new System.Drawing.Size(755, 607);
             this.Controls.Add(this.create_btn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.product_recipe);

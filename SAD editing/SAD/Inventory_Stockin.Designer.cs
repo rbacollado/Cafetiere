@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.date = new System.Windows.Forms.Label();
             this.cmb_type = new System.Windows.Forms.ComboBox();
+            this.encoderPos = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.encoderLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_remove = new System.Windows.Forms.Button();
             this.item_panel = new System.Windows.Forms.Panel();
             this.btn_item = new System.Windows.Forms.Button();
@@ -51,10 +58,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.iName_txt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.encoderPos = new System.Windows.Forms.Label();
-            this.date = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.encoderLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.stockin_btn = new System.Windows.Forms.Button();
             this.Total = new System.Windows.Forms.Label();
@@ -139,6 +142,18 @@
             this.panel6.Size = new System.Drawing.Size(527, 550);
             this.panel6.TabIndex = 206;
             // 
+            // date
+            // 
+            this.date.AutoSize = true;
+            this.date.BackColor = System.Drawing.Color.Transparent;
+            this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date.ForeColor = System.Drawing.Color.White;
+            this.date.Location = new System.Drawing.Point(428, 37);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(50, 24);
+            this.date.TabIndex = 210;
+            this.date.Text = "date";
+            // 
             // cmb_type
             // 
             this.cmb_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -153,6 +168,18 @@
             this.cmb_type.TabIndex = 233;
             this.cmb_type.Visible = false;
             // 
+            // encoderPos
+            // 
+            this.encoderPos.AutoSize = true;
+            this.encoderPos.BackColor = System.Drawing.Color.Transparent;
+            this.encoderPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encoderPos.ForeColor = System.Drawing.Color.White;
+            this.encoderPos.Location = new System.Drawing.Point(49, 61);
+            this.encoderPos.Name = "encoderPos";
+            this.encoderPos.Size = new System.Drawing.Size(83, 24);
+            this.encoderPos.TabIndex = 211;
+            this.encoderPos.Text = "position";
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -165,6 +192,30 @@
             this.label12.TabIndex = 232;
             this.label12.Text = "Item Type";
             this.label12.Visible = false;
+            // 
+            // encoderLbl
+            // 
+            this.encoderLbl.AutoSize = true;
+            this.encoderLbl.BackColor = System.Drawing.Color.Transparent;
+            this.encoderLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encoderLbl.ForeColor = System.Drawing.Color.White;
+            this.encoderLbl.Location = new System.Drawing.Point(49, 37);
+            this.encoderLbl.Name = "encoderLbl";
+            this.encoderLbl.Size = new System.Drawing.Size(62, 24);
+            this.encoderLbl.TabIndex = 73;
+            this.encoderLbl.Text = "name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 25);
+            this.label1.TabIndex = 73;
+            this.label1.Text = "Encoder: ";
             // 
             // btn_remove
             // 
@@ -187,9 +238,9 @@
             this.item_panel.Controls.Add(this.btn_item);
             this.item_panel.Controls.Add(this.label10);
             this.item_panel.Controls.Add(this.item_data);
-            this.item_panel.Location = new System.Drawing.Point(3, 395);
+            this.item_panel.Location = new System.Drawing.Point(8, 124);
             this.item_panel.Name = "item_panel";
-            this.item_panel.Size = new System.Drawing.Size(35, 152);
+            this.item_panel.Size = new System.Drawing.Size(76, 101);
             this.item_panel.TabIndex = 224;
             this.item_panel.Visible = false;
             // 
@@ -230,11 +281,35 @@
             this.item_data.BackgroundColor = System.Drawing.Color.White;
             this.item_data.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.item_data.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.item_data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.item_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.item_data.DefaultCellStyle = dataGridViewCellStyle2;
             this.item_data.Location = new System.Drawing.Point(38, 66);
             this.item_data.Name = "item_data";
             this.item_data.ReadOnly = true;
             this.item_data.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.item_data.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.item_data.RowHeadersVisible = false;
             this.item_data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.item_data.Size = new System.Drawing.Size(459, 314);
@@ -255,6 +330,7 @@
             0,
             0,
             0});
+            this.iQuantity_txt.ValueChanged += new System.EventHandler(this.iQuantity_txt_ValueChanged);
             // 
             // subtotal_txt
             // 
@@ -388,54 +464,6 @@
             this.label6.Size = new System.Drawing.Size(96, 19);
             this.label6.TabIndex = 212;
             this.label6.Text = "Item Name";
-            // 
-            // encoderPos
-            // 
-            this.encoderPos.AutoSize = true;
-            this.encoderPos.BackColor = System.Drawing.Color.Transparent;
-            this.encoderPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.encoderPos.ForeColor = System.Drawing.Color.White;
-            this.encoderPos.Location = new System.Drawing.Point(49, 61);
-            this.encoderPos.Name = "encoderPos";
-            this.encoderPos.Size = new System.Drawing.Size(83, 24);
-            this.encoderPos.TabIndex = 211;
-            this.encoderPos.Text = "position";
-            // 
-            // date
-            // 
-            this.date.AutoSize = true;
-            this.date.BackColor = System.Drawing.Color.Transparent;
-            this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date.ForeColor = System.Drawing.Color.White;
-            this.date.Location = new System.Drawing.Point(428, 37);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(50, 24);
-            this.date.TabIndex = 210;
-            this.date.Text = "date";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 25);
-            this.label1.TabIndex = 73;
-            this.label1.Text = "Encoder: ";
-            // 
-            // encoderLbl
-            // 
-            this.encoderLbl.AutoSize = true;
-            this.encoderLbl.BackColor = System.Drawing.Color.Transparent;
-            this.encoderLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.encoderLbl.ForeColor = System.Drawing.Color.White;
-            this.encoderLbl.Location = new System.Drawing.Point(49, 37);
-            this.encoderLbl.Name = "encoderLbl";
-            this.encoderLbl.Size = new System.Drawing.Size(62, 24);
-            this.encoderLbl.TabIndex = 73;
-            this.encoderLbl.Text = "name";
             // 
             // label2
             // 

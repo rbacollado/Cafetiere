@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btnDash = new System.Windows.Forms.Button();
@@ -221,7 +227,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label6.Location = new System.Drawing.Point(12, 9);
+            this.label6.Location = new System.Drawing.Point(2, 8);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(111, 19);
@@ -234,10 +240,10 @@
             this.profiling_panel.Controls.Add(this.btn_supplier);
             this.profiling_panel.Controls.Add(this.btn_staff);
             this.profiling_panel.Controls.Add(this.panel16);
-            this.profiling_panel.Location = new System.Drawing.Point(731, 339);
+            this.profiling_panel.Location = new System.Drawing.Point(753, 91);
             this.profiling_panel.Margin = new System.Windows.Forms.Padding(2);
             this.profiling_panel.Name = "profiling_panel";
-            this.profiling_panel.Size = new System.Drawing.Size(48, 117);
+            this.profiling_panel.Size = new System.Drawing.Size(26, 176);
             this.profiling_panel.TabIndex = 98;
             this.profiling_panel.Visible = false;
             // 
@@ -433,7 +439,7 @@
             this.report_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.report_btn.Image = global::SAD.Properties.Resources.money_bag__1_;
-            this.report_btn.Location = new System.Drawing.Point(343, 164);
+            this.report_btn.Location = new System.Drawing.Point(356, 164);
             this.report_btn.Name = "report_btn";
             this.report_btn.Size = new System.Drawing.Size(199, 143);
             this.report_btn.TabIndex = 97;
@@ -529,11 +535,35 @@
             this.restock_items.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.restock_items.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.restock_items.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.restock_items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.restock_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.restock_items.DefaultCellStyle = dataGridViewCellStyle8;
             this.restock_items.GridColor = System.Drawing.SystemColors.Control;
             this.restock_items.Location = new System.Drawing.Point(139, 127);
             this.restock_items.Name = "restock_items";
             this.restock_items.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.restock_items.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.restock_items.RowHeadersVisible = false;
             this.restock_items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.restock_items.Size = new System.Drawing.Size(387, 209);
@@ -546,10 +576,10 @@
             this.sales_panel.Controls.Add(this.order_btn);
             this.sales_panel.Controls.Add(this.report_btn);
             this.sales_panel.Controls.Add(this.panel17);
-            this.sales_panel.Location = new System.Drawing.Point(701, 339);
+            this.sales_panel.Location = new System.Drawing.Point(783, 91);
             this.sales_panel.Margin = new System.Windows.Forms.Padding(2);
             this.sales_panel.Name = "sales_panel";
-            this.sales_panel.Size = new System.Drawing.Size(26, 94);
+            this.sales_panel.Size = new System.Drawing.Size(26, 157);
             this.sales_panel.TabIndex = 208;
             this.sales_panel.Visible = false;
             // 
@@ -560,7 +590,7 @@
             this.order_btn.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.order_btn.ForeColor = System.Drawing.Color.Transparent;
             this.order_btn.Image = global::SAD.Properties.Resources.point_of_service;
-            this.order_btn.Location = new System.Drawing.Point(52, 160);
+            this.order_btn.Location = new System.Drawing.Point(118, 164);
             this.order_btn.Name = "order_btn";
             this.order_btn.Size = new System.Drawing.Size(199, 141);
             this.order_btn.TabIndex = 67;
@@ -601,24 +631,49 @@
             this.items_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.items_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.items_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.items_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.items_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.items_list.DefaultCellStyle = dataGridViewCellStyle11;
             this.items_list.GridColor = System.Drawing.SystemColors.Control;
-            this.items_list.Location = new System.Drawing.Point(139, 384);
+            this.items_list.Location = new System.Drawing.Point(139, 402);
             this.items_list.Name = "items_list";
             this.items_list.ReadOnly = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.items_list.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.items_list.RowHeadersVisible = false;
             this.items_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.items_list.Size = new System.Drawing.Size(640, 209);
+            this.items_list.Size = new System.Drawing.Size(640, 251);
             this.items_list.TabIndex = 210;
+            this.items_list.SelectionChanged += new System.EventHandler(this.items_list_SelectionChanged);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(139, 348);
+            this.panel3.Location = new System.Drawing.Point(139, 364);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(640, 48);
+            this.panel3.Size = new System.Drawing.Size(640, 54);
             this.panel3.TabIndex = 209;
             // 
             // label3
@@ -626,7 +681,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Location = new System.Drawing.Point(2, 13);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 19);
@@ -658,6 +713,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
             this.Load += new System.EventHandler(this.MainMenu_Load);
+            this.VisibleChanged += new System.EventHandler(this.MainMenu_VisibleChanged);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();

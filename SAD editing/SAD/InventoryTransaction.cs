@@ -27,7 +27,7 @@ namespace SAD
 
         private void InventoryTransaction_Load(object sender, EventArgs e)
         {
-
+            
             inventory_status();
             loadTobeRemoved();
             
@@ -40,6 +40,33 @@ namespace SAD
         {
             this.inventory_dtgv.ClearSelection();
             item_expires();
+            restock();
+        }
+
+        public void restock()
+        {
+            String restockquery = "SELECT itemInvID, item_ID, name, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m/%d/%y') as itemExpiry FROM items " +
+                                  "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID AND itemStatus like 'Unavailable' AND (itemExpiry > current_date() OR itemExpiry = '0000-00-00');";
+
+            MySqlCommand comm_restock = new MySqlCommand(restockquery, conn);
+            comm_restock.CommandText = restockquery;
+            conn.Open();
+            MySqlDataReader drd_restock = comm_restock.ExecuteReader();
+
+            while (drd_restock.Read())
+            {
+                int itemInvID = int.Parse(drd_restock["itemInvID"].ToString());
+
+                for (int i = 0; i < inventory_dtgv.Rows.Count; i++)
+                {
+                    if (itemInvID == int.Parse(inventory_dtgv.Rows[i].Cells["itemInvID"].Value.ToString()))
+                    {
+                        inventory_dtgv.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
+                        inventory_dtgv.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+                    }
+                }
+            }
+            conn.Close();
         }
 
         public void item_expires()
@@ -96,6 +123,7 @@ namespace SAD
             inventory_dtgv.Columns["itemExpiry"].HeaderText = "Expiration Date";
             inventory_dtgv.Columns["itemStockedIn"].HeaderText = "Date";
             item_expires();
+            restock();
         }
 
         public static int itemInvID;
@@ -141,6 +169,23 @@ namespace SAD
                 txt_unit.Text = (drdInv["unit"].ToString());
             }
             conn.Close(); 
+        }
+
+        private void txt_quantity_ValueChanged(object sender, EventArgs e)
+        {
+
+            string quantity = txt_quantity.Value.ToString();
+            int parseQuantity = int.Parse(quantity);
+
+            if (parseQuantity == txt_quantity.Maximum)
+            {
+                txt_quantity.ForeColor = System.Drawing.Color.Red;
+
+            }
+            else
+            {
+                txt_quantity.ForeColor = System.Drawing.Color.Black;
+            }
         }
 
         private void btn_stockout_Click(object sender, EventArgs e)
@@ -253,7 +298,6 @@ namespace SAD
             stockin.Show();
             this.Hide();
         }
-
-
+        
     }
 }

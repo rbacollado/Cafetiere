@@ -348,7 +348,7 @@ namespace SAD
             {
                 MessageBox.Show("Choose a supplier first!");
             }
-            else if (dtgv_items.Rows.Count < 1)
+            else if (item_data.Rows.Count < 1)
             {
                 MessageBox.Show("No items Found");
                 Item_Add add = new Item_Add();
@@ -361,14 +361,14 @@ namespace SAD
                 
                 item_panel.Visible = true;
                 item_panel.Enabled = true;
-                item_panel.Size = new Size(480, 404);
-                item_panel.Location = new Point(0, 124);
+                item_panel.Size = new Size(470, 404);
+                item_panel.Location = new Point(8, 125);
                 btn_remove.Visible = false;
                 label12.Visible = false;
                 cmb_type.Visible = false;
 
-                dtgv_items.Columns["name"].Width = 160;
-                dtgv_items.Columns["price"].Width = 80;
+                item_data.Columns["name"].Width = 160;
+                item_data.Columns["price"].Width = 80;
             }
             
         }
@@ -383,21 +383,21 @@ namespace SAD
             DataTable dtitems = new DataTable();
             adpitems.Fill(dtitems);
 
-            dtgv_items.DataSource = dtitems;
-            dtgv_items.Columns["itemsID"].Visible = false;
-            dtgv_items.Columns["name"].HeaderText = "Name";
-            dtgv_items.Columns["price"].HeaderText = "Price";
-            dtgv_items.Columns["unit"].HeaderText = "Unit";
-            dtgv_items.Columns["amount"].HeaderText = "Amount";
-            dtgv_items.Columns["expirable"].HeaderText = "Expirable";
+            item_data.DataSource = dtitems;
+            item_data.Columns["itemsID"].Visible = false;
+            item_data.Columns["name"].HeaderText = "Name";
+            item_data.Columns["price"].HeaderText = "Price";
+            item_data.Columns["unit"].HeaderText = "Unit";
+            item_data.Columns["amount"].HeaderText = "Amount";
+            item_data.Columns["expirable"].HeaderText = "Expirable";
 
         }
         public int item_idselected;
-        private void dtgv_items_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void item_data_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
-                item_idselected = int.Parse(dtgv_items.Rows[e.RowIndex].Cells["itemsID"].Value.ToString());
+                item_idselected = int.Parse(item_data.Rows[e.RowIndex].Cells["itemsID"].Value.ToString());
 
                 item_panel.Visible = false;
                 item_panel.Enabled = false;
