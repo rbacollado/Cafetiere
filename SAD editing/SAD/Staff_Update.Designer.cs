@@ -54,6 +54,8 @@
             this.txt_fname = new System.Windows.Forms.TextBox();
             this.lbl_fname = new System.Windows.Forms.Label();
             this.txt_lname = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_mname = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -122,6 +124,8 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.txt_mname);
             this.panel2.Controls.Add(this.status);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.update_staff);
@@ -265,6 +269,7 @@
             // cb_usertype
             // 
             this.cb_usertype.BackColor = System.Drawing.Color.White;
+            this.cb_usertype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_usertype.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_usertype.ForeColor = System.Drawing.Color.Black;
             this.cb_usertype.FormattingEnabled = true;
@@ -282,7 +287,7 @@
             this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_email.ForeColor = System.Drawing.Color.Black;
-            this.txt_email.Location = new System.Drawing.Point(162, 199);
+            this.txt_email.Location = new System.Drawing.Point(161, 230);
             this.txt_email.Multiline = true;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(159, 27);
@@ -294,7 +299,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Transparent;
-            this.label10.Location = new System.Drawing.Point(12, 197);
+            this.label10.Location = new System.Drawing.Point(11, 228);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 19);
             this.label10.TabIndex = 77;
@@ -303,7 +308,7 @@
             // mtxt_contact
             // 
             this.mtxt_contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxt_contact.Location = new System.Drawing.Point(161, 165);
+            this.mtxt_contact.Location = new System.Drawing.Point(160, 196);
             this.mtxt_contact.Mask = "0000-000-0000";
             this.mtxt_contact.Name = "mtxt_contact";
             this.mtxt_contact.PromptChar = '#';
@@ -316,7 +321,7 @@
             this.txt_address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_address.ForeColor = System.Drawing.Color.Black;
-            this.txt_address.Location = new System.Drawing.Point(161, 132);
+            this.txt_address.Location = new System.Drawing.Point(160, 163);
             this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";
             this.txt_address.Size = new System.Drawing.Size(159, 27);
@@ -328,7 +333,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(8, 164);
+            this.label6.Location = new System.Drawing.Point(7, 195);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(142, 19);
             this.label6.TabIndex = 75;
@@ -340,7 +345,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(12, 132);
+            this.label3.Location = new System.Drawing.Point(11, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 19);
             this.label3.TabIndex = 73;
@@ -352,7 +357,7 @@
             this.lbl_lname.BackColor = System.Drawing.Color.Transparent;
             this.lbl_lname.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_lname.ForeColor = System.Drawing.Color.Transparent;
-            this.lbl_lname.Location = new System.Drawing.Point(12, 101);
+            this.lbl_lname.Location = new System.Drawing.Point(11, 132);
             this.lbl_lname.Name = "lbl_lname";
             this.lbl_lname.Size = new System.Drawing.Size(88, 19);
             this.lbl_lname.TabIndex = 70;
@@ -388,11 +393,34 @@
             this.txt_lname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_lname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_lname.ForeColor = System.Drawing.Color.Black;
-            this.txt_lname.Location = new System.Drawing.Point(161, 99);
+            this.txt_lname.Location = new System.Drawing.Point(160, 130);
             this.txt_lname.Multiline = true;
             this.txt_lname.Name = "txt_lname";
             this.txt_lname.Size = new System.Drawing.Size(159, 27);
             this.txt_lname.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(10, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 19);
+            this.label1.TabIndex = 122;
+            this.label1.Text = "Middlename:";
+            // 
+            // txt_mname
+            // 
+            this.txt_mname.BackColor = System.Drawing.Color.White;
+            this.txt_mname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_mname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_mname.ForeColor = System.Drawing.Color.Black;
+            this.txt_mname.Location = new System.Drawing.Point(160, 99);
+            this.txt_mname.Name = "txt_mname";
+            this.txt_mname.Size = new System.Drawing.Size(159, 26);
+            this.txt_mname.TabIndex = 121;
             // 
             // Staff_Update
             // 
@@ -446,5 +474,7 @@
         private System.Windows.Forms.Label lbl_fname;
         private System.Windows.Forms.TextBox txt_lname;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_mname;
     }
 }

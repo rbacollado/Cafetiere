@@ -34,7 +34,83 @@ namespace SAD
         private void Product_Inventory_Load(object sender, EventArgs e)
         {
             
-            loadBatch();
+            loadprodInv();
+        
+        }
+
+        
+        public void loadprodInv()
+        {
+            string query = "SELECT productInvID, productID, pname, pcategory, product_quantity, product_status FROM products, product_inventory WHERE products.productID = product_inventory.product_ID";
+
+            conn.Open();
+
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+
+            conn.Close();
+
+            DataTable dt = new DataTable();
+
+            adp.Fill(dt);
+
+            prodInv.DataSource = dt;
+            prodInv.Columns["productInvID"].Visible = false;
+            prodInv.Columns["productID"].Visible = false;
+            prodInv.Columns["pname"].HeaderText = "Name";
+            prodInv.Columns["pcategory"].HeaderText = "Category";
+            prodInv.Columns["product_quantity"].HeaderText = "Quantity";
+            prodInv.Columns["product_status"].HeaderText = "Status";
+            
+        }
+
+        
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            prevForm.Show();
+            this.Close();
+        }
+
+        public static int prodID;
+        private void prodInv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                int selected_invID = int.Parse(prodInv.Rows[e.RowIndex].Cells["productInvID"].Value.ToString());
+                int selected_id = int.Parse(prodInv.Rows[e.RowIndex].Cells["productID"].Value.ToString());
+                prodID = selected_id;
+
+                add.Size = new Size(129, 25);
+                add.Location = new Point(692, 73);
+                add.Enabled = true;
+                add.Visible = true;
+
+                loadRecipe();
+                loadBatch();
+
+            }
+        }
+
+        public void loadRecipe()
+        {
+            String recipeQuery = "SELECT ingredientName, ingredientDesc, recipeQuantity, recipeUnit FROM ingredients, recipe " +
+                                 "WHERE ingredients.ingredientsID = recipe.ingredients_ingredientsID AND recipe.products_productID = " + prodID + ";";
+
+            
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(recipeQuery, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+
+            DataTable recipe = new DataTable();
+            adp.Fill(recipe);
+
+            product_recipe.DataSource = recipe;
+
+            product_recipe.Columns["ingredientName"].HeaderText = "Name";
+            product_recipe.Columns["ingredientDesc"].HeaderText = "Desc";
+            product_recipe.Columns["recipeQuantity"].HeaderText = "Quantity Used";
+            product_recipe.Columns["recipeUnit"].HeaderText = "Unit";
 
         }
 
@@ -56,18 +132,24 @@ namespace SAD
             batch_items.DataSource = dt_batch;
             batch_items.Columns["batchIngredient_id"].Visible = false;
             batch_items.Columns["log_stockout"].Visible = false;
-            batch_items.Columns["ingredientName"].HeaderText = "Ingredient Name";
-            batch_items.Columns["ingredientQuantity"].HeaderText = "Ingredient Quantity";
-            batch_items.Columns["ingredientAmount"].HeaderText = "Ingredient Amount";
-            batch_items.Columns["ingredientUnit"].HeaderText = "Ingredient Unit";
+            batch_items.Columns["ingredientName"].HeaderText = "Name";
+            batch_items.Columns["ingredientDescription"].HeaderText = "Desc";
+            batch_items.Columns["ingredientQuantity"].HeaderText = "Qty";
+            batch_items.Columns["ingredientAmount"].HeaderText = "Amt";
+            batch_items.Columns["ingredientUnit"].HeaderText = "Unit";
             batch_items.Columns["batch_ingredient_date"].HeaderText = "Date";
-            
         }
-        
-        private void btn_close_Click(object sender, EventArgs e)
+
+        private void add_Click(object sender, EventArgs e)
         {
-            prevForm.Show();
-            this.Close();
+            add_panel.Visible = true;
+            add_panel.Enabled = true;
+        }
+
+        private void close_panel_Click(object sender, EventArgs e)
+        {
+            add_panel.Visible = false;
+            add_panel.Enabled = false;
         }
 
         private void btn_products_Click(object sender, EventArgs e)
@@ -78,7 +160,15 @@ namespace SAD
             this.Hide();
         }
 
-        private void btn_use_Click(object sender, EventArgs e)
+        private void btn_productInv_Click(object sender, EventArgs e)
+        {
+            Product_Batch prodInv = new Product_Batch();
+            prodInv.Show();
+            prodInv.prevForm = this;
+            this.Hide();
+        }
+
+        private void add_panel_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -46,6 +46,7 @@ namespace SAD
             dtgv.Columns["username"].Visible = false;
             dtgv.Columns["password"].Visible = false;
             dtgv.Columns["firstname"].HeaderText = "Firstname";
+            dtgv.Columns["middlename"].HeaderText = "Middlename";
             dtgv.Columns["lastname"].HeaderText = "Lastname";
             dtgv.Columns["address"].HeaderText = "Address";
             dtgv.Columns["contact"].HeaderText = "Contact Number";
@@ -124,39 +125,7 @@ namespace SAD
             this.Hide();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string filterquery = "SELECT* FROM person , staff WHERE person.personid = staff.person_personid AND status = '" + comboBox1.Text + "'";
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(filterquery, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt_filter = new DataTable();
-            adp.Fill(dt_filter);
-
-            dtgv.DataSource = dt_filter;
-            dtgv.Columns["personid"].Visible = false;
-            dtgv.Columns["staffid"].Visible = false;
-            dtgv.Columns["person_type"].Visible = false;
-            dtgv.Columns["person_personid"].Visible = false;
-            dtgv.Columns["username"].Visible = false;
-            dtgv.Columns["password"].Visible = false;
-            dtgv.Columns["firstname"].HeaderText = "Firstname";
-            dtgv.Columns["lastname"].HeaderText = "Lastname";
-            dtgv.Columns["address"].HeaderText = "Address";
-            dtgv.Columns["contact"].HeaderText = "Contact Number";
-            dtgv.Columns["email"].HeaderText = "Email";
-            dtgv.Columns["position"].HeaderText = "Position";
-            dtgv.Columns["status"].HeaderText = "Status";
-            dtgv.Columns["date_added"].HeaderText = "Date Added";
-            dtgv.Columns["date_modified"].HeaderText = "Date Modified";
-        }
-
-        private void dtgv_SelectionChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+       
         private void sales_records_SelectionChanged(object sender, EventArgs e)
         {
             this.sales_records.ClearSelection();

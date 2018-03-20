@@ -60,7 +60,7 @@ namespace SAD
 
         public void item_list()
         {
-            String itemsquery = "SELECT itemsID, name, price, unit, amount FROM items ";
+            String itemsquery = "SELECT itemsID, name, description, price, unit, amount FROM items ";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(itemsquery, conn);
             comm.CommandText = itemsquery;
@@ -73,6 +73,7 @@ namespace SAD
 
             items_list.Columns["itemsID"].Visible = false;
             items_list.Columns["name"].HeaderText = "Name";
+            items_list.Columns["description"].HeaderText = "Description";
             items_list.Columns["price"].HeaderText = "Price";
             items_list.Columns["unit"].HeaderText = "Unit";
             items_list.Columns["amount"].HeaderText = "Amount";
@@ -129,23 +130,23 @@ namespace SAD
 
         public void logDate()
         {
-            DateTime logdate;
+           
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT max(logdate) as LastLog FROM inventorylog;";
+            cmd.CommandText = "SELECT max(date_format(logdate, '%m /%d /%y')) as LastLog FROM inventorylog;";
             MySqlDataReader rdr = cmd.ExecuteReader();
             while(rdr.Read())
             {
-                logdate = DateTime.Parse(rdr["LastLog"].ToString());
+                string logdate = rdr["LastLog"].ToString();
 
-                if (logdate.ToString() != "")
+                if (logdate.ToString() == "")
                 {
-                    logdate_lbl.Text = logdate.ToString("MMM dd yyyy");
+                    logdate_lbl.Text = "None";
                 }
                 else
                 {
-                    logdate_lbl.Text = "None";
+                    logdate_lbl.Text = logdate.ToString();
                 }
                 
             }
@@ -210,9 +211,9 @@ namespace SAD
         
         private void btn_product_Click(object sender, EventArgs e)
         {
-            Product_Inventory prodInv = new Product_Inventory();
-            prodInv.prevForm = this;
-            prodInv.Show();
+            Product_Inventory prod = new Product_Inventory();
+            prod.prevForm = this;
+            prod.Show();
             this.Hide();
         }
 
@@ -269,6 +270,10 @@ namespace SAD
 
         private void MainMenu_VisibleChanged(object sender, EventArgs e)
         {
+            logDate();
+            restock();
+            item_list();
+
             btnDash.BackColor = Color.FromArgb(192, 57, 43);
             btn_orders.BackColor = Color.FromArgb(51, 51, 51);
             btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
@@ -277,6 +282,14 @@ namespace SAD
             profiling_panel.Visible = false;
             panel3.Visible = true;
             items_list.Visible = true;
+        }
+
+        private void btn_item_Click(object sender, EventArgs e)
+        {
+            Item_Add itemadd = new Item_Add();
+            itemadd.prevForm = this;
+            itemadd.Show();
+            this.Hide();
         }
     }
 }

@@ -19,10 +19,17 @@ namespace SAD
             InitializeComponent();
             conn = new MySqlConnection("SERVER=localhost; DATABASE=Cafetiere; uid=root; pwd=root;");
         }
-        public MainMenu prevForm { get; set; }
+        public Form prevForm { get; set; }
         
-        private void btn_updateUser_Click_1(object sender, EventArgs e)
+        private void Back_Click(object sender, EventArgs e)
         {
+            prevForm.Show();
+            this.Close();
+        }
+        
+        private void btn_updateUser_Click(object sender, EventArgs e)
+        {
+
             if (SAD.Login.DisplayUserDetails.username == txt_username.Text)
             {
                 MessageBox.Show("Username did not change.", "Same Username", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -43,14 +50,14 @@ namespace SAD
                 DataTable dt = new DataTable();
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 adp.Fill(dt);
-               
+
                 if (dt.Rows.Count == 1)
                 {
                     MessageBox.Show("Username Already Exist!", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    string query = "UPDATE Staff SET username = '" + txt_username.Text + "'WHERE staff_id = '" + SAD.Login.DisplayUserDetails.staff_id + "';";
+                    string query = "UPDATE Staff SET username = '" + txt_username.Text + "'WHERE staffid = '" + SAD.Login.DisplayUserDetails.staff_id + "';";
                     conn.Open();
                     MySqlCommand comm2 = new MySqlCommand(query, conn);
                     comm2.ExecuteNonQuery();
@@ -61,16 +68,10 @@ namespace SAD
             }
         }
 
-        private void Back_Click(object sender, EventArgs e)
-        {
-            prevForm.Show();
-            this.Close();
-        }
-
-        private void btn_updatePass_Click_1(object sender, EventArgs e)
+        private void btn_updatePass_Click(object sender, EventArgs e)
         {
             string query = "UPDATE Staff " +
-          "SET password = '" + txt_newpass.Text + "'WHERE staff_id = '" + SAD.Login.DisplayUserDetails.staff_id + "';";
+         "SET password = '" + txt_newpass.Text + "'WHERE staffid = '" + SAD.Login.DisplayUserDetails.staff_id + "';";
 
             if (txt_oldpass.Text != SAD.Login.DisplayUserDetails.password)
             {

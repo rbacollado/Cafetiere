@@ -35,6 +35,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.iDesc_txt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
             this.cmb_type = new System.Windows.Forms.ComboBox();
             this.encoderPos = new System.Windows.Forms.Label();
@@ -113,6 +115,8 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel6.Controls.Add(this.iDesc_txt);
+            this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.date);
             this.panel6.Controls.Add(this.cmb_type);
             this.panel6.Controls.Add(this.encoderPos);
@@ -142,15 +146,39 @@
             this.panel6.Size = new System.Drawing.Size(527, 550);
             this.panel6.TabIndex = 206;
             // 
+            // iDesc_txt
+            // 
+            this.iDesc_txt.Enabled = false;
+            this.iDesc_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iDesc_txt.Location = new System.Drawing.Point(242, 171);
+            this.iDesc_txt.Name = "iDesc_txt";
+            this.iDesc_txt.Size = new System.Drawing.Size(151, 24);
+            this.iDesc_txt.TabIndex = 235;
+            this.iDesc_txt.Tag = "";
+            this.iDesc_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.iDesc_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.iDesc_txt_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(102, 173);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 19);
+            this.label5.TabIndex = 234;
+            this.label5.Text = "Item Description";
+            // 
             // date
             // 
             this.date.AutoSize = true;
             this.date.BackColor = System.Drawing.Color.Transparent;
-            this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date.ForeColor = System.Drawing.Color.White;
             this.date.Location = new System.Drawing.Point(428, 37);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(50, 24);
+            this.date.Size = new System.Drawing.Size(45, 19);
             this.date.TabIndex = 210;
             this.date.Text = "date";
             // 
@@ -162,7 +190,7 @@
             this.cmb_type.Items.AddRange(new object[] {
             "Ingredient",
             "Product"});
-            this.cmb_type.Location = new System.Drawing.Point(240, 395);
+            this.cmb_type.Location = new System.Drawing.Point(240, 406);
             this.cmb_type.Name = "cmb_type";
             this.cmb_type.Size = new System.Drawing.Size(153, 26);
             this.cmb_type.TabIndex = 233;
@@ -174,7 +202,7 @@
             this.encoderPos.BackColor = System.Drawing.Color.Transparent;
             this.encoderPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.encoderPos.ForeColor = System.Drawing.Color.White;
-            this.encoderPos.Location = new System.Drawing.Point(49, 61);
+            this.encoderPos.Location = new System.Drawing.Point(31, 61);
             this.encoderPos.Name = "encoderPos";
             this.encoderPos.Size = new System.Drawing.Size(83, 24);
             this.encoderPos.TabIndex = 211;
@@ -186,7 +214,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(111, 395);
+            this.label12.Location = new System.Drawing.Point(102, 406);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(84, 19);
             this.label12.TabIndex = 232;
@@ -199,7 +227,7 @@
             this.encoderLbl.BackColor = System.Drawing.Color.Transparent;
             this.encoderLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.encoderLbl.ForeColor = System.Drawing.Color.White;
-            this.encoderLbl.Location = new System.Drawing.Point(49, 37);
+            this.encoderLbl.Location = new System.Drawing.Point(31, 37);
             this.encoderLbl.Name = "encoderLbl";
             this.encoderLbl.Size = new System.Drawing.Size(62, 24);
             this.encoderLbl.TabIndex = 73;
@@ -240,7 +268,7 @@
             this.item_panel.Controls.Add(this.item_data);
             this.item_panel.Location = new System.Drawing.Point(8, 124);
             this.item_panel.Name = "item_panel";
-            this.item_panel.Size = new System.Drawing.Size(76, 101);
+            this.item_panel.Size = new System.Drawing.Size(65, 161);
             this.item_panel.TabIndex = 224;
             this.item_panel.Visible = false;
             // 
@@ -251,7 +279,7 @@
             this.btn_item.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_item.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_item.Location = new System.Drawing.Point(353, 38);
+            this.btn_item.Location = new System.Drawing.Point(356, 11);
             this.btn_item.Name = "btn_item";
             this.btn_item.Size = new System.Drawing.Size(144, 25);
             this.btn_item.TabIndex = 209;
@@ -265,7 +293,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(32, 33);
+            this.label10.Location = new System.Drawing.Point(0, 5);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(97, 31);
             this.label10.TabIndex = 207;
@@ -283,7 +311,7 @@
             this.item_data.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -292,19 +320,19 @@
             this.item_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.item_data.DefaultCellStyle = dataGridViewCellStyle2;
-            this.item_data.Location = new System.Drawing.Point(38, 66);
+            this.item_data.Location = new System.Drawing.Point(6, 38);
             this.item_data.Name = "item_data";
             this.item_data.ReadOnly = true;
             this.item_data.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -312,7 +340,7 @@
             this.item_data.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.item_data.RowHeadersVisible = false;
             this.item_data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.item_data.Size = new System.Drawing.Size(459, 314);
+            this.item_data.Size = new System.Drawing.Size(507, 372);
             this.item_data.TabIndex = 0;
             this.item_data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.item_data_CellClick);
             // 
@@ -320,7 +348,7 @@
             // 
             this.iQuantity_txt.Enabled = false;
             this.iQuantity_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iQuantity_txt.Location = new System.Drawing.Point(241, 241);
+            this.iQuantity_txt.Location = new System.Drawing.Point(241, 252);
             this.iQuantity_txt.Name = "iQuantity_txt";
             this.iQuantity_txt.Size = new System.Drawing.Size(152, 24);
             this.iQuantity_txt.TabIndex = 223;
@@ -336,7 +364,7 @@
             // 
             this.subtotal_txt.Enabled = false;
             this.subtotal_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subtotal_txt.Location = new System.Drawing.Point(242, 292);
+            this.subtotal_txt.Location = new System.Drawing.Point(242, 303);
             this.subtotal_txt.Name = "subtotal_txt";
             this.subtotal_txt.ReadOnly = true;
             this.subtotal_txt.Size = new System.Drawing.Size(151, 24);
@@ -350,7 +378,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(111, 292);
+            this.label11.Location = new System.Drawing.Point(102, 305);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(109, 19);
             this.label11.TabIndex = 221;
@@ -390,7 +418,7 @@
             // 
             this.iExpiry_txt.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iExpiry_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iExpiry_txt.Location = new System.Drawing.Point(240, 343);
+            this.iExpiry_txt.Location = new System.Drawing.Point(240, 354);
             this.iExpiry_txt.Name = "iExpiry_txt";
             this.iExpiry_txt.Size = new System.Drawing.Size(153, 24);
             this.iExpiry_txt.TabIndex = 219;
@@ -401,7 +429,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(111, 343);
+            this.label9.Location = new System.Drawing.Point(102, 354);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 19);
             this.label9.TabIndex = 218;
@@ -413,7 +441,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(111, 241);
+            this.label8.Location = new System.Drawing.Point(99, 253);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(112, 19);
             this.label8.TabIndex = 216;
@@ -422,13 +450,14 @@
             // iPrice_txt
             // 
             this.iPrice_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iPrice_txt.Location = new System.Drawing.Point(242, 191);
+            this.iPrice_txt.Location = new System.Drawing.Point(240, 211);
             this.iPrice_txt.Name = "iPrice_txt";
-            this.iPrice_txt.Size = new System.Drawing.Size(151, 24);
+            this.iPrice_txt.Size = new System.Drawing.Size(153, 24);
             this.iPrice_txt.TabIndex = 215;
             this.iPrice_txt.Tag = "";
             this.iPrice_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.iPrice_txt.TextChanged += new System.EventHandler(this.iPrice_txt_TextChanged);
+            this.iPrice_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.iPrice_txt_KeyPress);
             // 
             // label7
             // 
@@ -436,7 +465,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(111, 191);
+            this.label7.Location = new System.Drawing.Point(102, 211);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 19);
             this.label7.TabIndex = 214;
@@ -459,7 +488,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(111, 137);
+            this.label6.Location = new System.Drawing.Point(99, 137);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 19);
             this.label6.TabIndex = 212;
@@ -612,5 +641,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox iDesc_txt;
+        private System.Windows.Forms.Label label5;
     }
 }

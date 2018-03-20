@@ -39,7 +39,7 @@ namespace SAD
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            if (name.Text == "" || price.Text == "" || unit.Text == ""  )
+            if (name.Text == "" || price.Text == "" || unit.Text == "" || description.Text == "")
             {
                 MessageBox.Show("Please fill up all fields", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -68,8 +68,8 @@ namespace SAD
 
                 }
 
-                string itemaddquery = "INSERT INTO items(name,price,unit,amount,expirable,date_added,date_modified)" +
-                               "VALUES('" + name.Text + "','" + price.Text + "','" + unit.Text + "','" + amount1 + "','" + expirable1 + "', current_timestamp(),current_timestamp())";
+                string itemaddquery = "INSERT INTO items(name,description,price,unit,amount,expirable,date_added,date_modified)" +
+                               "VALUES('" + name.Text + "','" + description.Text +"','" + price.Text + "','" + unit.Text + "','" + amount1 + "','" + expirable1 + "', current_timestamp(),current_timestamp())";
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(itemaddquery, conn);
                 comm.ExecuteNonQuery();
@@ -96,6 +96,43 @@ namespace SAD
             price.Text = "";
             unit.Text = "";
             expirable.Checked = false;
+        }
+        //Validations
+        private void price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void description_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void amount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

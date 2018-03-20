@@ -44,6 +44,7 @@ namespace SAD
             dtgv.Columns["person_personid"].Visible = false;
            
             dtgv.Columns["firstname"].HeaderText = "Firstname";
+            dtgv.Columns["middlename"].HeaderText = "Middlename";
             dtgv.Columns["lastname"].HeaderText = "Lastname";
             dtgv.Columns["address"].HeaderText = "Address";
             dtgv.Columns["contact"].HeaderText = "Contact Number";
@@ -66,36 +67,7 @@ namespace SAD
             
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string query = "SELECT * FROM person , supplier WHERE person.personid = supplier.person_personid AND status = '" + comboBox1.Text + "'";
-
-            conn.Open();
-
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-
-            conn.Close();
-
-            DataTable dt = new DataTable();
-
-            adp.Fill(dt);
-
-            dtgv.DataSource = dt;
-            dtgv.Columns["personid"].Visible = false;
-            dtgv.Columns["supplierID"].Visible = false;
-            dtgv.Columns["person_type"].Visible = false;
-            dtgv.Columns["person_personid"].Visible = false;
-            dtgv.Columns["firstname"].HeaderText = "Firstname";
-            dtgv.Columns["lastname"].HeaderText = "Lastname";
-            dtgv.Columns["address"].HeaderText = "Address";
-            dtgv.Columns["contact"].HeaderText = "Contact Number";
-            dtgv.Columns["email"].HeaderText = "Email";
-            dtgv.Columns["organization"].HeaderText = "Organization";
-            dtgv.Columns["date_added"].HeaderText = "Date Added";
-            dtgv.Columns["date_modified"].HeaderText = "Date Modified";
-        }
-
+        
         private void supplier_add_Click(object sender, EventArgs e)
         {
             Supplier_Add addsupplier= new Supplier_Add();

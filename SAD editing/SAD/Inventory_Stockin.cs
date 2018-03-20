@@ -23,6 +23,7 @@ namespace SAD
             conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root; Allow Zero Datetime=true");
 
             OrderWM.Columns.Add("Name", typeof(string));
+            OrderWM.Columns.Add("Description", typeof(string));
             OrderWM.Columns.Add("Price", typeof(string));
             OrderWM.Columns.Add("Quantity", typeof(int));
             OrderWM.Columns.Add("Type", typeof(string));
@@ -87,18 +88,23 @@ namespace SAD
 
                 item_panel.Visible = true;
                 item_panel.Enabled = true;
+                label5.Visible = false;
+                iDesc_txt.Visible = false;
                 item_panel.Size = new Size(523, 423);
                 item_panel.Location = new Point(3, 124);
 
-                item_data.Columns["name"].Width = 160;
-                item_data.Columns["price"].Width = 80;
-                
+                item_data.Columns["name"].Width = 110;
+                item_data.Columns["description"].Width = 110;
+                item_data.Columns["price"].Width = 50;
+                item_data.Columns["unit"].Width = 80;
+                item_data.Columns["amount"].Width = 50;
+            
             }
         }
 
        public void itemload()
         {
-            String queryitems = "SELECT itemsID, name, price, unit, amount, expirable FROM items; ";
+            String queryitems = "SELECT itemsID, name, description, price, unit, amount FROM items; ";
 
             conn.Open();
             MySqlCommand commitems = new MySqlCommand(queryitems, conn);
@@ -110,10 +116,11 @@ namespace SAD
             item_data.DataSource = dtitems;
             item_data.Columns["itemsID"].Visible = false;
             item_data.Columns["name"].HeaderText = "Name";
+            item_data.Columns["description"].HeaderText = "Description";
             item_data.Columns["price"].HeaderText = "Price";
             item_data.Columns["unit"].HeaderText = "Unit";
-            item_data.Columns["amount"].HeaderText = "Amount";
-            item_data.Columns["expirable"].HeaderText = "Expirable";
+            item_data.Columns["amount"].HeaderText = "Amt";
+          
         }
         public int item_idselected;
         private void item_data_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -124,6 +131,8 @@ namespace SAD
 
                 item_panel.Visible = false;
                 item_panel.Enabled = false;
+                label5.Visible = true;
+                iDesc_txt.Visible = true;
                 btn_remove.Visible = true;
                 item_details();
             }
@@ -131,7 +140,7 @@ namespace SAD
 
         public void item_details()
         {
-            String loaditemdetails = "SELECT itemsID,name,price,unit,amount,expirable FROM items where itemsID = " + item_idselected + ";";
+            String loaditemdetails = "SELECT itemsID,name,description,price,unit,amount,expirable FROM items where itemsID = " + item_idselected + ";";
 
             MySqlCommand commitemdetails = new MySqlCommand(loaditemdetails, conn);
             commitemdetails.CommandText = loaditemdetails;
@@ -142,6 +151,7 @@ namespace SAD
             while (drditemdetails.Read())
             {
                 iName_txt.Text = (drditemdetails["name"].ToString());
+                iDesc_txt.Text = (drditemdetails["description"].ToString());
                 iPrice_txt.Text = (drditemdetails["price"].ToString());
                 subtotal_txt.Text = iPrice_txt.Text;
                 iQuantity_txt.Value = 1;
@@ -179,7 +189,7 @@ namespace SAD
             // Check if items in the items_ordered datagrid
             for (int i = 0; i < items_purchased.Rows.Count; i++)
             {
-                if ((iName_txt.Text == items_purchased.Rows[i].Cells["Name"].Value.ToString()) && (iExpiry_txt.Text == items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString() || "0000-00-00" == items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString()) )
+                if ((iName_txt.Text == items_purchased.Rows[i].Cells["Name"].Value.ToString()) && (iDesc_txt.Text == items_purchased.Rows[i].Cells["Description"].Value.ToString()) && (iExpiry_txt.Text == items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString() || "0000-00-00" == items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString()) )
                 {
                     duplicate_item = true;
                     iditem = i;
@@ -208,7 +218,7 @@ namespace SAD
                     expiry = iExpiry_txt.Text;
                     type = cmb_type.Text;
 
-                    OrderWM.Rows.Add(iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, type, expiry, subtotal_txt.Text);
+                    OrderWM.Rows.Add(iName_txt.Text,iDesc_txt.Text,iPrice_txt.Text, iQuantity_txt.Text, type, expiry, subtotal_txt.Text);
                     items_purchased.DataSource = OrderWM;
 
                     total();
@@ -236,7 +246,7 @@ namespace SAD
                     expiry = "0000-00-00";
                     type = "Non-Ingredient";
 
-                    OrderWM.Rows.Add(iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, type, expiry, subtotal_txt.Text);
+                    OrderWM.Rows.Add(iName_txt.Text, iDesc_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, type, expiry, subtotal_txt.Text);
                     items_purchased.DataSource = OrderWM;
 
                     total();
@@ -286,6 +296,7 @@ namespace SAD
         public void clear_shit()
         {
             iName_txt.Text = "";
+            iDesc_txt.Text = "";
             iPrice_txt.Text = "0";
             subtotal_txt.Text = "0";
             iQuantity_txt.Text = "1";
@@ -300,6 +311,7 @@ namespace SAD
         private void stockin_btn_Click(object sender, EventArgs e)
         {
             string item_name;
+            string item_description;
             int item_quantity;
             string item_expiry;
             string item_type;
@@ -313,12 +325,13 @@ namespace SAD
                 for (int i = 0; i <= items_purchased.Rows.Count - 1; i++)
                 {
                     item_name = items_purchased.Rows[i].Cells["Name"].Value.ToString();
+                    item_description = items_purchased.Rows[i].Cells["Description"].Value.ToString();
                     item_quantity = Int32.Parse(items_purchased.Rows[i].Cells["Quantity"].Value.ToString());
                     item_expiry = items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString();
                     item_type = items_purchased.Rows[i].Cells["Type"].Value.ToString();
 
                     string duplicateItemsquery = "SELECT itemExpiry from items_inventory WHERE itemExpiry = '" + item_expiry +
-                                                 "' AND item_ID = (SELECT itemsID FROM items WHERE name = '" + item_name + "');";
+                                                 "' AND item_ID = (SELECT itemsID FROM items WHERE name = '" + item_name + "' AND description = '"+ item_description + "');";
                     conn.Open();
                     MySqlCommand comm1 = new MySqlCommand(duplicateItemsquery, conn);
                     MySqlDataAdapter adp = new MySqlDataAdapter(comm1);
@@ -331,7 +344,7 @@ namespace SAD
                     if (duplicateItems.Rows.Count > 0)
                     {
                         string addItemQuantityquery = "UPDATE items_inventory SET itemStatus = 'Available', itemQuantity = itemQuantity + " + item_quantity +
-                                                      " WHERE item_ID = (SELECT itemsID FROM items WHERE name ='" + item_name + "') AND itemExpiry = '" + item_expiry + "';";
+                                                      " WHERE item_ID = (SELECT itemsID FROM items WHERE name ='" + item_name + "' AND description = '" + item_description + "') AND itemExpiry = '" + item_expiry + "';";
 
                         conn.Open();
                         MySqlCommand comm_itemquantity = new MySqlCommand(addItemQuantityquery, conn);
@@ -341,7 +354,7 @@ namespace SAD
                     else
                     {
                         string addNewItemQuery = "INSERT INTO items_inventory (item_ID, itemQuantity, itemStatus, itemType, itemStockedIn, itemExpiry) " +
-                                                   "VALUES((SELECT itemsID from items WHERE name = '" + item_name + "'), " + item_quantity + ", 'Available', '" + item_type + "', current_timestamp(), '" + item_expiry + "');";
+                                                   "VALUES((SELECT itemsID from items WHERE name = '" + item_name + "' AND description = '" + item_description + "'), " + item_quantity + ", 'Available', '" + item_type + "', current_timestamp(), '" + item_expiry + "');";
                         conn.Open();
                         MySqlCommand comm_NewItem = new MySqlCommand(addNewItemQuery, conn);
                         comm_NewItem.ExecuteNonQuery();
@@ -388,6 +401,25 @@ namespace SAD
             string string_subtotal = subtotal.ToString();
 
             subtotal_txt.Text = string_subtotal;
+        }
+
+        private void iDesc_txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void iPrice_txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

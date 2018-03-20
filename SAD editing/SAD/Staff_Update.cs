@@ -24,7 +24,7 @@ namespace SAD
 
         private void Staff_Update_Load(object sender, EventArgs e)
         {
-            String query = "SELECT firstname, lastname, address, contact, email, position, username, password, status FROM person, staff " + 
+            String query = "SELECT firstname, middlename, lastname, address, contact, email, position, username, password, status FROM person, staff " + 
                             "WHERE person.personid = staff.person_personid AND personid = " + staffid ;
            
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -35,6 +35,7 @@ namespace SAD
             while (drd.Read())
             {
                 txt_fname.Text = (drd["firstname"].ToString());
+                txt_mname.Text = (drd["middlename"].ToString());
                 txt_lname.Text = (drd["lastname"].ToString());
                 txt_address.Text = (drd["address"].ToString());
                 mtxt_contact.Text = (drd["contact"].ToString());
@@ -70,7 +71,8 @@ namespace SAD
 
         private void update_staff_Click_1(object sender, EventArgs e)
         {
-            if (txt_fname.Text == "" || txt_lname.Text == "" || txt_address.Text == "" || mtxt_contact.Text == "" || cb_usertype.Text == "" || txt_username.Text == "" || txt_pass.Text == "")
+            if (txt_fname.Text == "" ||txt_mname.Text == "" || txt_lname.Text == "" || txt_address.Text == "" || mtxt_contact.Text == ""
+                || cb_usertype.Text == "" || txt_username.Text == "" || txt_pass.Text == "")
             {
                 MessageBox.Show("Please Complete the Registration!", "Incomplete Registration", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -92,7 +94,7 @@ namespace SAD
                 }
 
 
-                string query = "UPDATE person set firstname = '" + txt_fname.Text + "', lastname = '" + txt_lname.Text + "', address = '" + txt_address.Text
+                string query = "UPDATE person set firstname = '" + txt_fname.Text + "', middlename = '"+ txt_mname.Text +"', lastname = '" + txt_lname.Text + "', address = '" + txt_address.Text
                                 + "', contact = '" + mtxt_contact.Text + "', email = '" + txt_email.Text + "' WHERE personid = " + staffid;
 
                 string query1 = "UPDATE staff set position = '" + cb_usertype.Text + "', username = '" + txt_username.Text + "', password = '" + txt_pass.Text

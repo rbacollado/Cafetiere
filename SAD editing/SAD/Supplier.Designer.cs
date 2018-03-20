@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.Archive = new System.Windows.Forms.Button();
             this.supplier_update = new System.Windows.Forms.Button();
             this.supplier_add = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dtgv = new System.Windows.Forms.DataGridView();
             this.records = new System.Windows.Forms.DataGridView();
-            this.label15 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
@@ -48,7 +46,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.Archive);
             this.panel1.Controls.Add(this.supplier_update);
             this.panel1.Controls.Add(this.supplier_add);
             this.panel1.Controls.Add(this.Back);
@@ -57,13 +54,26 @@
             this.panel1.Size = new System.Drawing.Size(1078, 55);
             this.panel1.TabIndex = 115;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(121, 5);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(231, 41);
+            this.label15.TabIndex = 125;
+            this.label15.Text = "S U P P L I E R";
+            // 
             // Archive
             // 
             this.Archive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.Archive.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Archive.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Archive.ForeColor = System.Drawing.Color.White;
-            this.Archive.Location = new System.Drawing.Point(709, 17);
+            this.Archive.Location = new System.Drawing.Point(12, 61);
             this.Archive.Name = "Archive";
             this.Archive.Size = new System.Drawing.Size(86, 32);
             this.Archive.TabIndex = 124;
@@ -114,30 +124,6 @@
             this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click_1);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label6.Location = new System.Drawing.Point(16, 60);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 18);
-            this.label6.TabIndex = 124;
-            this.label6.Text = "Filter:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Active",
-            "Inactive"});
-            this.comboBox1.Location = new System.Drawing.Point(68, 61);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 123;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // dtgv
             // 
             this.dtgv.AllowUserToAddRows = false;
@@ -148,13 +134,13 @@
             this.dtgv.BackgroundColor = System.Drawing.Color.White;
             this.dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv.Location = new System.Drawing.Point(12, 82);
+            this.dtgv.Location = new System.Drawing.Point(12, 95);
             this.dtgv.MultiSelect = false;
             this.dtgv.Name = "dtgv";
             this.dtgv.ReadOnly = true;
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv.Size = new System.Drawing.Size(780, 210);
+            this.dtgv.Size = new System.Drawing.Size(780, 197);
             this.dtgv.TabIndex = 114;
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
             this.dtgv.SelectionChanged += new System.EventHandler(this.dtgv_SelectionChanged);
@@ -179,19 +165,6 @@
             this.records.TabIndex = 116;
             this.records.SelectionChanged += new System.EventHandler(this.records_SelectionChanged);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(121, 5);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(231, 41);
-            this.label15.TabIndex = 125;
-            this.label15.Text = "S U P P L I E R";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -212,8 +185,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(804, 575);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Archive);
             this.Controls.Add(this.records);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgv);
@@ -238,8 +210,6 @@
         private System.Windows.Forms.Button Back;
         private System.Windows.Forms.DataGridView dtgv;
         private System.Windows.Forms.DataGridView records;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button Archive;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label1;

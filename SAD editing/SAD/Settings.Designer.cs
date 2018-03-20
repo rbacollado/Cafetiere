@@ -126,6 +126,7 @@
             this.btn_updateUser.TabIndex = 113;
             this.btn_updateUser.Text = "Update";
             this.btn_updateUser.UseVisualStyleBackColor = false;
+            this.btn_updateUser.Click += new System.EventHandler(this.btn_updateUser_Click);
             // 
             // panel6
             // 
@@ -162,6 +163,7 @@
             this.btn_updatePass.TabIndex = 114;
             this.btn_updatePass.Text = "Update";
             this.btn_updatePass.UseVisualStyleBackColor = false;
+            this.btn_updatePass.Click += new System.EventHandler(this.btn_updatePass_Click);
             // 
             // panel7
             // 

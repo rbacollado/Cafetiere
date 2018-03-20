@@ -27,11 +27,9 @@ namespace SAD
 
         private void InventoryTransaction_Load(object sender, EventArgs e)
         {
-            
             inventory_status();
             loadTobeRemoved();
             
-
             DateTime now = DateTime.Today;
             date_lbl.Text = now.ToString("MM-dd-yyyy");
         }
@@ -98,7 +96,7 @@ namespace SAD
         private void inventory_status()
         {
 
-            String inventoryquery = "SELECT itemInvID, item_ID, name, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m/%d/%y') as itemExpiry , itemStockedIn FROM items " +
+            String inventoryquery = "SELECT itemInvID, item_ID, name, description, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m/%d/%y') as itemExpiry , date_format(itemStockedIn, '%m/%d/%y') as itemStockedIn FROM items " +
                                     "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID;";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(inventoryquery, conn);
@@ -114,10 +112,11 @@ namespace SAD
             inventory_dtgv.Columns["item_ID"].Visible = false;
             inventory_dtgv.Columns["itemInvID"].Visible = false;
             inventory_dtgv.Columns["name"].HeaderText = "Name";
+            inventory_dtgv.Columns["description"].HeaderText = "Description";
             inventory_dtgv.Columns["unit"].HeaderText = "Unit";
             inventory_dtgv.Columns["amount"].HeaderText = "Amount";
             inventory_dtgv.Columns["Cost"].HeaderText = "Cost";
-            inventory_dtgv.Columns["itemQuantity"].HeaderText = "Quantity";
+            inventory_dtgv.Columns["itemQuantity"].HeaderText = "Qty";
             inventory_dtgv.Columns["itemStatus"].HeaderText = "Status";
             inventory_dtgv.Columns["itemType"].HeaderText = "Type";
             inventory_dtgv.Columns["itemExpiry"].HeaderText = "Expiration Date";
@@ -150,9 +149,10 @@ namespace SAD
             }
         }
 
+       
         public void loadTobeRemoved()
         {
-            String inventoryquery = "SELECT name, unit, amount, itemQuantity FROM items, items_inventory WHERE items_inventory.itemInvID = " + itemInvID + " " +
+            String inventoryquery = "SELECT name, description, unit, amount, itemQuantity FROM items, items_inventory WHERE items_inventory.itemInvID = " + itemInvID + " " +
                                     "AND items.itemsID = items_inventory.item_ID;";
 
             MySqlCommand comm = new MySqlCommand(inventoryquery, conn);
@@ -163,21 +163,24 @@ namespace SAD
 
             while (drdInv.Read())
             {
+                
                 txt_name.Text = (drdInv["name"].ToString());
-                txt_quantity.Text = (drdInv["itemQuantity"].ToString());
+                txt_description.Text = (drdInv["description"].ToString());
+                txt_quantity.Text = (drdInv["itemQuantity"].ToString());                
                 txt_amount.Text = (drdInv["amount"].ToString());
                 txt_unit.Text = (drdInv["unit"].ToString());
+                
             }
             conn.Close(); 
         }
 
         private void txt_quantity_ValueChanged(object sender, EventArgs e)
         {
+            /*string quantity = txt_quantity.Value.ToString();
 
-            string quantity = txt_quantity.Value.ToString();
             int parseQuantity = int.Parse(quantity);
-
-            if (parseQuantity == txt_quantity.Maximum)
+            
+            if (txt_quantity.Text == quantity)
             {
                 txt_quantity.ForeColor = System.Drawing.Color.Red;
 
@@ -185,7 +188,7 @@ namespace SAD
             else
             {
                 txt_quantity.ForeColor = System.Drawing.Color.Black;
-            }
+            }*/
         }
 
         private void btn_stockout_Click(object sender, EventArgs e)
@@ -210,15 +213,15 @@ namespace SAD
                     commupdate.ExecuteNonQuery();
                     conn.Close();
                     
-                    String addtoBatchIngredients = "INSERT INTO batch_ingredients (log_stockout, ingredientName, ingredientQuantity, ingredientAmount, ingredientUnit, batch_ingredient_date) " +
-                                            "VALUES( (SELECT max(logid) FROM inventorylog),'" + txt_name.Text + "'," + txt_quantity.Text +  "," + txt_amount.Text + ",'" + txt_unit.Text + "', current_timestamp() );";
+                    String addtoBatchIngredients = "INSERT INTO batch_ingredients (log_stockout, ingredientName, ingredientDescription, ingredientQuantity, ingredientAmount, ingredientUnit, batch_ingredient_date) " +
+                                            "VALUES( (SELECT max(logid) FROM inventorylog),'" + txt_name.Text + "','" + txt_description.Text + "'," + txt_quantity.Text +  "," + txt_amount.Text + ",'" + txt_unit.Text + "', current_timestamp() );";
                     conn.Open();
                     MySqlCommand commAddBatch = new MySqlCommand(addtoBatchIngredients, conn);
                     commAddBatch.ExecuteNonQuery();
                     conn.Close();
 
                     String updateLogquery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType,remarks) " +
-                                            "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + txt_name.Text + "'," + txt_quantity.Text + ", current_timestamp(), 'Stock out(Manual)', '" + cmb_remarks.Text + "' );";
+                                            "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + txt_name.Text + "','" + txt_quantity.Text + "', current_timestamp(), 'Stock out(Manual)', '" + cmb_remarks.Text + "' );";
                     conn.Open();
                     MySqlCommand comm_inventorylog = new MySqlCommand(updateLogquery, conn);
                     comm_inventorylog.ExecuteNonQuery();
@@ -258,8 +261,8 @@ namespace SAD
         {
             panel_stockout.Visible = true;
             panel_stockout.Enabled = true;
-            panel_stockout.Size = new Size(341, 287);
-            panel_stockout.Location = new Point(736, 352);
+            panel_stockout.Size = new Size(349, 311);
+            panel_stockout.Location = new Point(757, 337);
             
         }
         
@@ -298,6 +301,7 @@ namespace SAD
             stockin.Show();
             this.Hide();
         }
-        
+
+       
     }
 }

@@ -31,18 +31,16 @@
             this.Back = new System.Windows.Forms.Button();
             this.dtgv = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Archive = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.staff_update = new System.Windows.Forms.Button();
             this.staff_add = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Archive = new System.Windows.Forms.Button();
             this.sales_records = new System.Windows.Forms.DataGridView();
             this.inventory_records = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sales_records)).BeginInit();
@@ -73,16 +71,16 @@
             this.dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv.BackgroundColor = System.Drawing.Color.White;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv.Location = new System.Drawing.Point(12, 91);
+            this.dtgv.Location = new System.Drawing.Point(12, 99);
             this.dtgv.MultiSelect = false;
             this.dtgv.Name = "dtgv";
             this.dtgv.ReadOnly = true;
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv.Size = new System.Drawing.Size(939, 177);
+            this.dtgv.Size = new System.Drawing.Size(939, 169);
             this.dtgv.TabIndex = 111;
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
-            this.dtgv.SelectionChanged += new System.EventHandler(this.dtgv_SelectionChanged);
+
             // 
             // panel1
             // 
@@ -96,19 +94,18 @@
             this.panel1.Size = new System.Drawing.Size(983, 67);
             this.panel1.TabIndex = 109;
             // 
-            // Archive
+            // label15
             // 
-            this.Archive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.Archive.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Archive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
-            this.Archive.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Archive.Location = new System.Drawing.Point(195, 69);
-            this.Archive.Name = "Archive";
-            this.Archive.Size = new System.Drawing.Size(86, 24);
-            this.Archive.TabIndex = 123;
-            this.Archive.Text = "Archive";
-            this.Archive.UseVisualStyleBackColor = false;
-            this.Archive.Click += new System.EventHandler(this.Archive_Click);
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(19, 14);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(151, 41);
+            this.label15.TabIndex = 124;
+            this.label15.Text = "S T A F F";
             // 
             // staff_update
             // 
@@ -139,29 +136,19 @@
             this.staff_add.UseVisualStyleBackColor = false;
             this.staff_add.Click += new System.EventHandler(this.staff_add_Click);
             // 
-            // label6
+            // Archive
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label6.Location = new System.Drawing.Point(16, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 18);
-            this.label6.TabIndex = 122;
-            this.label6.Text = "Filter:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Active",
-            "Inactive"});
-            this.comboBox1.Location = new System.Drawing.Point(68, 69);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 121;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.Archive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.Archive.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Archive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.Archive.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Archive.Location = new System.Drawing.Point(12, 73);
+            this.Archive.Name = "Archive";
+            this.Archive.Size = new System.Drawing.Size(77, 28);
+            this.Archive.TabIndex = 123;
+            this.Archive.Text = "Archive";
+            this.Archive.UseVisualStyleBackColor = false;
+            this.Archive.Click += new System.EventHandler(this.Archive_Click);
             // 
             // sales_records
             // 
@@ -212,6 +199,19 @@
             this.panel2.Size = new System.Drawing.Size(998, 43);
             this.panel2.TabIndex = 118;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(383, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(235, 41);
+            this.label1.TabIndex = 125;
+            this.label1.Text = "R E C O R D S";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -234,32 +234,6 @@
             this.label4.TabIndex = 120;
             this.label4.Text = "INVENTORY";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(19, 14);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(151, 41);
-            this.label15.TabIndex = 124;
-            this.label15.Text = "S T A F F";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(383, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 41);
-            this.label1.TabIndex = 125;
-            this.label1.Text = "R E C O R D S";
-            // 
             // Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,11 +242,9 @@
             this.ClientSize = new System.Drawing.Size(963, 591);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Archive);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.inventory_records);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.sales_records);
             this.Controls.Add(this.dtgv);
             this.Controls.Add(this.panel1);
@@ -304,8 +276,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button Archive;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label1;

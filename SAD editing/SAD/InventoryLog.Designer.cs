@@ -74,20 +74,6 @@
             this.btn_close.Text = "BACK";
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            // 
-<<<<<<< HEAD
-=======
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(23, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(177, 24);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "INVENTORY LOG";
-            // 
 
 
             // panel4
@@ -117,7 +103,6 @@
             // 
 
 
->>>>>>> 970bacc91e7fc59a533b85e8d3894d5d27418c58
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));

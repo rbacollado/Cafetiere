@@ -59,7 +59,7 @@ namespace SAD
 
         public void passprod_data()
         {
-            string query = "SELECT prodInv_id, pname, pprice, prodQuantity FROM product_inventory, products WHERE products.productID = product_inventory.product_ID AND prodInv_id = " + selected_user_id + " ";
+            string query = "SELECT productInvID, pname, pprice, product_quantity FROM product_inventory, products WHERE products.productID = product_inventory.product_ID AND productInvID = " + selected_user_id + " ";
 
             MySqlCommand comm = new MySqlCommand(query, conn);
             comm.CommandText = query;
@@ -90,7 +90,7 @@ namespace SAD
 
         public void loadSelectedCategory()
         {
-            string category = "SELECT productInvID, productID, pname, pprice, product_quantity FROM products, product_inventory WHERE products.productID = product_inventory.productInvID AND pcategory = '" + cb_category.Text.ToLower() + "'";
+            string category = "SELECT productInvID, product_ID, pname, pprice, product_quantity FROM products, product_inventory WHERE products.productID = product_inventory.product_ID AND pcategory = '" + cb_category.Text.ToLower() + "'";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(category, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -103,7 +103,7 @@ namespace SAD
 
         public void loadprodInv_data()
         {
-            String query = "SELECT productInvID, product_ID, pname, pprice, product_quantity FROM products, product_inventory WHERE products.productID = product_inventory.productInvID";
+            String query = "SELECT productInvID, product_ID, pname, pprice, product_quantity FROM products, product_inventory WHERE products.productID = product_inventory.product_ID";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -130,7 +130,7 @@ namespace SAD
         {
             if (e.RowIndex > -1)
             {
-                selected_user_id = int.Parse(product_data.Rows[e.RowIndex].Cells["prodInv_id"].Value.ToString());
+                selected_user_id = int.Parse(product_data.Rows[e.RowIndex].Cells["productInvID"].Value.ToString());
                 passprod_data();
                 if (Convert.ToInt32(stockleft.Text) == 0)
                 {
@@ -199,7 +199,7 @@ namespace SAD
                             found = true;
                             current = product_data.CurrentRow.Index;
                             stockleft.Text = (Convert.ToString(Convert.ToInt32(stockleft.Text) - Convert.ToInt32(quantityTxt.Text)));
-                            product_data.Rows[current].Cells["prodQuantity"].Value = stockleft.Text;
+                            product_data.Rows[current].Cells["product_quantity"].Value = stockleft.Text;
 
                         }
 
@@ -237,7 +237,7 @@ namespace SAD
                             ordered_products["OrderType", row].Value = ordertype;
                             current = product_data.CurrentRow.Index;
                             stockleft.Text = (Convert.ToString(Convert.ToInt32(stockleft.Text) - Convert.ToInt32(quantityTxt.Text)));
-                            product_data.Rows[current].Cells["prodQuantity"].Value = stockleft.Text;
+                            product_data.Rows[current].Cells["product_quantity"].Value = stockleft.Text;
                         }
                     }
                 }
@@ -405,10 +405,10 @@ namespace SAD
 
                         if (Convert.ToString(prod_data.Cells["pname"].Value) == tempname)
                         {
-                            int QTY = Convert.ToInt32(prod_data.Cells["prodQuantity"].Value);
+                            int QTY = Convert.ToInt32(prod_data.Cells["product_quantity"].Value);
 
                             int add = QTY + tempQTY;
-                            prod_data.Cells["prodQuantity"].Value = Convert.ToString(add);
+                            prod_data.Cells["product_quantity"].Value = Convert.ToString(add);
                             ordered_products.Rows.RemoveAt(orderedprod.Index);
 
                         }
@@ -459,8 +459,8 @@ namespace SAD
                     totalDue.Text = TotalTB.Text;
                     paymentpanel.Visible = true;
                     paymentpanel.Enabled = true;
-                    paymentpanel.Size = new Size(382, 441);
-                    paymentpanel.Location = new Point(0, 1);
+                    paymentpanel.Size = new Size(390, 455);
+                    paymentpanel.Location = new Point(0, 112);
 
                     prodname.Text = "";
                     priceTxt.Text = "";
@@ -474,7 +474,7 @@ namespace SAD
                     countrow2 = product_data.Rows.Count;
                     for (int a = 0; a < countrow2; a++)
                     {
-                        MySqlCommand cmd2 = new MySqlCommand("update product_inventory set prodQuantity = @prodQuantity where prodInv_id = @prodInv_id", conn);
+                        MySqlCommand cmd2 = new MySqlCommand("update product_inventory set product_quantity = @prodQuantity where productInvID = @prodInv_id", conn);
                         cmd2.Parameters.AddWithValue("@prodQuantity", product_data.Rows[a].Cells[4].Value);
                         cmd2.Parameters.AddWithValue("@prodInv_id", product_data.Rows[a].Cells[0].Value);
                         cmd2.ExecuteNonQuery();
@@ -835,6 +835,11 @@ namespace SAD
         }
 
         private void product_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel12_Paint(object sender, PaintEventArgs e)
         {
 
         }

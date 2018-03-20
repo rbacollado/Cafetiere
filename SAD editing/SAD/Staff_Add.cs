@@ -38,7 +38,8 @@ namespace SAD
 
         private void btn_add_Click_1(object sender, EventArgs e)
         {
-            if (txt_fname.Text == "" || txt_lname.Text == "" || txt_address.Text == "" || mtxt_contact.Text == "" || cb_usertype.Text == "" || txt_username.Text == "" || txt_pass.Text == "")
+            if (txt_fname.Text == "" || txt_mname.Text == ""|| txt_lname.Text == "" || txt_address.Text == "" || 
+                mtxt_contact.Text == "" || cb_usertype.Text == "" || txt_username.Text == "" || txt_pass.Text == "")
             {
                 MessageBox.Show("Please Complete the Registration!", "Incomplete Registration", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -52,8 +53,8 @@ namespace SAD
             }
             else
             {
-                string query = "INSERT INTO person(firstname, lastname, address, contact, email, person_type)"
-                    + "VALUES('" + txt_fname.Text + "','" + txt_lname.Text + "','" + txt_address.Text + "','" + mtxt_contact.Text + "','" + txt_email.Text + "','STAFF')";
+                string query = "INSERT INTO person(firstname, middlename, lastname, address, contact, email, person_type)"
+                    + "VALUES('" + txt_fname.Text + "','"+ txt_mname.Text +  "','" + txt_lname.Text + "','" + txt_address.Text + "','" + mtxt_contact.Text + "','" + txt_email.Text + "','STAFF')";
 
                 string query1 = "INSERT INTO staff (person_personid, position, username, password, status, date_added, date_modified)" +
                                 "VALUES( (SELECT MAX(personid) from person) ,'" + cb_usertype.Text + "','" + txt_username.Text + "','" + txt_pass.Text + "','Active', current_timestamp(), current_timestamp() )";
@@ -92,19 +93,5 @@ namespace SAD
             btn_add.Enabled = true;
             btn_add.BackColor = Color.PaleGreen;
         }
-<<<<<<< HEAD
-
-        private void Back_Click(object sender, EventArgs e)
-        {
-            prevForm.Show();
-            this.Close();
-        }
-
-        private void btn_add_Click_1(object sender, EventArgs e)
-        {
-
-        }
-=======
->>>>>>> 406e0d0854ec5de328b06d716a56a8bcf23e13ed
     }
 }

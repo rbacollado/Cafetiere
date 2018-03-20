@@ -72,13 +72,14 @@ namespace SAD
             conn.Close();
         }
 
-        private void update_supplier_Click(object sender, EventArgs e)
+        private void update_supplier_Click_1(object sender, EventArgs e)
         {
-            if (txt_fname.Text == "" || txt_lname.Text == "" || txt_address.Text == "" || mtxt_contact.Text == "" || txt_organization.Text == "")
+            if (txt_fname.Text == "" ||txt_mname.Text == "" || txt_lname.Text == "" 
+                || txt_address.Text == "" || mtxt_contact.Text == "" || txt_organization.Text == "")
             {
                 MessageBox.Show("Please Complete the Registration!", "Incomplete Registration", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
             else
             {
                 string statusval = "Inactive";
@@ -92,7 +93,7 @@ namespace SAD
                     statusval = "Inactive";
                 }
 
-                string query = "UPDATE person set firstname = '" + txt_fname.Text + "', lastname = '" + txt_lname.Text + "', address = '" + txt_address.Text
+                string query = "UPDATE person set firstname = '" + txt_fname.Text + "', middlename ='" + txt_mname.Text + "', lastname = '" + txt_lname.Text + "', address = '" + txt_address.Text
                                 + "', contact = '" + mtxt_contact.Text + "', email = '" + txt_email.Text + "' WHERE personid = " + supplierid;
 
                 string query1 = "UPDATE supplier set organization = '" + txt_organization.Text + "',status = '" + statusval + "', date_modified = current_timestamp() WHERE person_personid = " + supplierid;

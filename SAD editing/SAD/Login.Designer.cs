@@ -36,6 +36,7 @@
             this.label_user = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_cancel
@@ -46,11 +47,11 @@
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancel.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_cancel.Location = new System.Drawing.Point(629, 249);
+            this.btn_cancel.Location = new System.Drawing.Point(769, 1);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(155, 37);
+            this.btn_cancel.Size = new System.Drawing.Size(58, 37);
             this.btn_cancel.TabIndex = 19;
-            this.btn_cancel.Text = "CANCEL";
+            this.btn_cancel.Text = "X";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
@@ -61,9 +62,9 @@
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_login.Location = new System.Drawing.Point(468, 249);
+            this.btn_login.Location = new System.Drawing.Point(448, 249);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(155, 37);
+            this.btn_login.Size = new System.Drawing.Size(322, 37);
             this.btn_login.TabIndex = 18;
             this.btn_login.Text = "LOGIN";
             this.btn_login.UseVisualStyleBackColor = false;
@@ -142,12 +143,26 @@
             this.panel1.Size = new System.Drawing.Size(3, 166);
             this.panel1.TabIndex = 62;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(40, 217);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(343, 32);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "fresh . flavorful . delicious";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(824, 412);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label_pass);
@@ -175,6 +190,7 @@
         private System.Windows.Forms.Label label_user;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

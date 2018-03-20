@@ -23,6 +23,7 @@ namespace SAD
             conn = new MySqlConnection("SERVER=localhost; DATABASE=cafetiere; uid=root; pwd=root;");
 
             POrder.Columns.Add("Name", typeof(string));
+            POrder.Columns.Add("Description", typeof(string));
             POrder.Columns.Add("Price", typeof(string));
             POrder.Columns.Add("Quantity", typeof(int));
             POrder.Columns.Add("Type", typeof(string));
@@ -80,6 +81,8 @@ namespace SAD
         {
             supplierpanel.Visible = true;
             supplierpanel.Enabled = true;
+            label14.Visible = false;
+            iDesc_txt.Visible = false;
             iQuantity_txt.Visible = false;
             btn_remove.Visible = false;
             label12.Visible = false;
@@ -117,6 +120,8 @@ namespace SAD
 
                 supplierpanel.Visible = false;
                 supplierpanel.Enabled = false;
+                label14.Visible = true;
+                iDesc_txt.Visible = true;
                 iQuantity_txt.Visible = true;
                 btn_remove.Visible = true;
                 load_suppliers();
@@ -133,7 +138,7 @@ namespace SAD
             // Check if items in the items_ordered datagrid
             for (int i = 0; i < items_ordered.Rows.Count; i++)
             {
-                if ( (iName_txt.Text == items_ordered.Rows[i].Cells["Name"].Value.ToString()) && (iExpiry_txt.Text == items_ordered.Rows[i].Cells["ExpiryDate"].Value.ToString() || "0000-00-00" == items_ordered.Rows[i].Cells["ExpiryDate"].Value.ToString())  )
+                if ( (iName_txt.Text == items_ordered.Rows[i].Cells["Name"].Value.ToString()) && (iDesc_txt.Text == items_ordered.Rows[i].Cells["Description"].Value.ToString()) && (iExpiry_txt.Text == items_ordered.Rows[i].Cells["ExpiryDate"].Value.ToString() || "0000-00-00" == items_ordered.Rows[i].Cells["ExpiryDate"].Value.ToString())  )
                 {
                     duplicate_item = true;
                     iditem = i;
@@ -161,7 +166,7 @@ namespace SAD
                     expiry = iExpiry_txt.Text;
                     type = cmb_type.Text;
                    
-                    POrder.Rows.Add(iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, type, expiry, subtotal_txt.Text);
+                    POrder.Rows.Add(iName_txt.Text, iDesc_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, type, expiry, subtotal_txt.Text);
                     items_ordered.DataSource = POrder;
 
                     total();
@@ -188,7 +193,7 @@ namespace SAD
                     expiry = "0000-00-00";
                     type = "Non-Ingredient";
     
-                    POrder.Rows.Add(iName_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, type, expiry, subtotal_txt.Text);
+                    POrder.Rows.Add(iName_txt.Text, iDesc_txt.Text, iPrice_txt.Text, iQuantity_txt.Text, type, expiry, subtotal_txt.Text);
                     items_ordered.DataSource = POrder;
 
                     total();
@@ -306,14 +311,15 @@ namespace SAD
 
                     string itemid = dt_items.Rows[0][0].ToString();
                     string itemName = items_ordered.Rows[i].Cells["Name"].Value.ToString();
+                    string item_description = items_ordered.Rows[i].Cells["Description"].Value.ToString();
                     string itemPrice = items_ordered.Rows[i].Cells["Price"].Value.ToString();
                     string itemQuantity = items_ordered.Rows[i].Cells["Quantity"].Value.ToString();
                     string itemType = items_ordered.Rows[i].Cells["Type"].Value.ToString();
                     string itemExipiry = items_ordered.Rows[i].Cells["ExpiryDate"].Value.ToString();
                     string subtotal = items_ordered.Rows[i].Cells["Subtotal"].Value.ToString();
                     
-                    string orderline_query = "INSERT INTO purchaseorder_line(purchaseOrder_purchaseOrderID, items_itemsID, POLineItemName, POLinePrice, POLineQuantity, itemType, itemExipiryDate, POLineSubtotal, stocked_in)" +
-                                             "VALUES((SELECT max(purchaseOrderID) from purchaseorder), '" + int.Parse(itemid) + "' ,'" + itemName + "', '" + double.Parse(itemPrice) + "','" + int.Parse(itemQuantity) +
+                    string orderline_query = "INSERT INTO purchaseorder_line(purchaseOrder_purchaseOrderID, items_itemsID, POLineItemName, POLineDescription, POLinePrice, POLineQuantity, itemType, itemExipiryDate, POLineSubtotal, stocked_in)" +
+                                             "VALUES((SELECT max(purchaseOrderID) from purchaseorder), '" + int.Parse(itemid) + "' ,'" + itemName + "', '" + item_description + "', '" + double.Parse(itemPrice) + "','" + int.Parse(itemQuantity) +
                                              "','" + itemType + "','" + itemExipiry + "','" + decimal.Parse(subtotal) + "', 'No');";
                     conn.Open();
                     MySqlCommand orderline_comm = new MySqlCommand(orderline_query, conn);
@@ -322,6 +328,7 @@ namespace SAD
                 }
                 MessageBox.Show("Item Order added!");
                 clear_shit();
+                items_ordered.Rows.Clear();
                 this.Close();
                 prevForm.ShowDialog();
             }
@@ -361,20 +368,27 @@ namespace SAD
                 
                 item_panel.Visible = true;
                 item_panel.Enabled = true;
-                item_panel.Size = new Size(470, 404);
+                label14.Visible = false;
+                iDesc_txt.Visible = false;
+                item_panel.Size = new Size(474, 434);
                 item_panel.Location = new Point(8, 125);
                 btn_remove.Visible = false;
                 label12.Visible = false;
                 cmb_type.Visible = false;
 
-                item_data.Columns["name"].Width = 160;
-                item_data.Columns["price"].Width = 80;
+                item_data.Columns["name"].Width = 110;
+                item_data.Columns["description"].Width = 110;
+                item_data.Columns["price"].Width = 50;
+                item_data.Columns["unit"].Width = 80;
+                item_data.Columns["amount"].Width = 50;
+          
             }
             
         }
+
         public void ShowItems()
         {
-            String queryitems = "SELECT itemsID, name, price, unit, amount, expirable FROM items ";
+            String queryitems = "SELECT itemsID, name, description, price, unit, amount FROM items ";
 
             conn.Open();
             MySqlCommand commitems = new MySqlCommand(queryitems, conn);
@@ -386,12 +400,13 @@ namespace SAD
             item_data.DataSource = dtitems;
             item_data.Columns["itemsID"].Visible = false;
             item_data.Columns["name"].HeaderText = "Name";
+            item_data.Columns["description"].HeaderText = "Description";
             item_data.Columns["price"].HeaderText = "Price";
             item_data.Columns["unit"].HeaderText = "Unit";
-            item_data.Columns["amount"].HeaderText = "Amount";
-            item_data.Columns["expirable"].HeaderText = "Expirable";
-
+            item_data.Columns["amount"].HeaderText = "Amt";
+            
         }
+
         public int item_idselected;
         private void item_data_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -401,6 +416,8 @@ namespace SAD
 
                 item_panel.Visible = false;
                 item_panel.Enabled = false;
+                label14.Visible = true;
+                iDesc_txt.Visible = true;
                 btn_remove.Visible = true;
                 item_details();
             }
@@ -408,7 +425,7 @@ namespace SAD
 
         public void item_details()
         {
-            String loaditemdetails = "SELECT itemsID,name,price,unit,amount,expirable FROM items where itemsID = " + item_idselected + ";";
+            String loaditemdetails = "SELECT itemsID,name,description,price,unit,amount,expirable FROM items where itemsID = " + item_idselected + ";";
 
             MySqlCommand commitemdetails = new MySqlCommand(loaditemdetails, conn);
             commitemdetails.CommandText = loaditemdetails;
@@ -419,6 +436,7 @@ namespace SAD
             while (drditemdetails.Read())
             {
                 iName_txt.Text = (drditemdetails["name"].ToString());
+                iDesc_txt.Text = (drditemdetails["description"].ToString());
                 iPrice_txt.Text = (drditemdetails["price"].ToString());
                 subtotal_txt.Text = iPrice_txt.Text;
                 iQuantity_txt.Value = 1;
@@ -446,14 +464,7 @@ namespace SAD
             conn.Close();
         }
 
-        private void btn_additem_Click(object sender, EventArgs e)
-        {
-            Item_Add add = new Item_Add();
-            add.Show();
-            add.prevForm = this;
-            this.Hide();
-        }
-
+       
         private void supplier_btn_Click(object sender, EventArgs e)
         {
             Supplier_Add add = new Supplier_Add();
@@ -483,6 +494,33 @@ namespace SAD
             }
         }
 
-       
+        private void btn_item_Click(object sender, EventArgs e)
+        {
+            Item_Add add = new Item_Add();
+            add.Show();
+            add.prevForm = this;
+            this.Hide();
+        }
+        
+        //Validtions 
+
+        private void iDesc_txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void iPrice_txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
