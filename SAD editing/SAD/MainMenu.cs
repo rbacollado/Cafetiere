@@ -41,17 +41,18 @@ namespace SAD
             tm.Enabled = true;
 
             timeText.Text = DateTime.Now.ToLongTimeString();
-
-            btnDash.BackColor = Color.FromArgb(192, 57, 43);
+            
 
             if (SAD.Login.DisplayUserDetails.usertype.ToLower() == "staff")
             {
+                btnDash.BackColor = Color.FromArgb(43, 192, 57);
                 btn_profiling.Enabled = false;
                 btn_product.Enabled = false;
-                btn_profiling.BackColor = Color.Red;
-                btn_product.BackColor = Color.Red;
-                btnDash.BackColor = Color.SeaGreen;
+                btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
+                btn_product.BackColor = Color.FromArgb(192, 57, 43);
+               
             }
+           
 
             logDate();
             restock();
@@ -170,14 +171,25 @@ namespace SAD
 
         private void btnDash_Click(object sender, EventArgs e)
         {
-            btnDash.BackColor = Color.FromArgb(192, 57, 43);
-            btn_orders.BackColor = Color.FromArgb(51, 51, 51);
-            btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
-            restock_items.Visible = true;
-            sales_panel.Visible = false;
-            profiling_panel.Visible = false;
-            panel3.Visible = true;
-            items_list.Visible = true;
+            if (SAD.Login.DisplayUserDetails.usertype.ToLower() == "staff")
+            {
+                btnDash.BackColor = Color.FromArgb(43, 192, 57);
+                btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
+
+            }
+            else
+            {
+                btnDash.BackColor = Color.FromArgb(192, 57, 43);
+                btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
+            }
+                
+                btn_orders.BackColor = Color.FromArgb(51, 51, 51);
+                restock_items.Visible = true;
+                sales_panel.Visible = false;
+                profiling_panel.Visible = false;
+                panel3.Visible = true;
+                items_list.Visible = true;
+           
         }
 
         private void btn_profiling_Click(object sender, EventArgs e)
@@ -197,17 +209,30 @@ namespace SAD
 
         private void btn_orders_Click(object sender, EventArgs e)
         {
+            if (SAD.Login.DisplayUserDetails.usertype.ToLower() == "staff")
+            {
+                btn_orders.BackColor = Color.FromArgb(43, 192, 57);
+            }
+            else
+            {
+                btn_orders.BackColor = Color.FromArgb(192, 57, 43);
+            }
+
             sales_panel.Visible = true;
             sales_panel.Enabled = true;
             profiling_panel.Visible = false;
             panel3.Visible = false;
             items_list.Visible = false;
-            btn_orders.BackColor = Color.FromArgb(192, 57, 43);
+         
             btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
             btnDash.BackColor = Color.FromArgb(51, 51, 51);
             sales_panel.Size = new Size(640, 529);
             sales_panel.Location = new Point(139, 91);
+            
 
+           
+
+            
         }
         
         private void btn_product_Click(object sender, EventArgs e)
@@ -277,12 +302,22 @@ namespace SAD
 
             btnDash.BackColor = Color.FromArgb(192, 57, 43);
             btn_orders.BackColor = Color.FromArgb(51, 51, 51);
-            btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
+            
             restock_items.Visible = true;
             sales_panel.Visible = false;
             profiling_panel.Visible = false;
             panel3.Visible = true;
             items_list.Visible = true;
+
+            if (SAD.Login.DisplayUserDetails.usertype.ToLower() == "staff")
+            {
+                btnDash.BackColor = Color.FromArgb(43, 192, 57);
+                btn_profiling.Enabled = false;
+                btn_product.Enabled = false;
+                btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
+                btn_product.BackColor = Color.FromArgb(192, 57, 43);
+
+            }
         }
 
         private void btn_item_Click(object sender, EventArgs e)
