@@ -160,9 +160,9 @@
             // 
             // add_purchase
             // 
-            this.add_purchase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.add_purchase.BackColor = System.Drawing.Color.Transparent;
             this.add_purchase.FlatAppearance.BorderSize = 0;
-            this.add_purchase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add_purchase.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.add_purchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_purchase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.add_purchase.Location = new System.Drawing.Point(12, 66);
@@ -268,7 +268,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(43)))), ((int)(((byte)(73)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(814, 718);
             this.Controls.Add(this.returnBtn);
             this.Controls.Add(this.moveBtn);

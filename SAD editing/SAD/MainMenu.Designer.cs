@@ -154,7 +154,7 @@
             this.btn_product.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
             this.btn_product.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_product.Image = global::SAD.Properties.Resources._002_commerce;
-            this.btn_product.Location = new System.Drawing.Point(-3, 333);
+            this.btn_product.Location = new System.Drawing.Point(-4, 212);
             this.btn_product.Name = "btn_product";
             this.btn_product.Size = new System.Drawing.Size(135, 124);
             this.btn_product.TabIndex = 64;
@@ -188,7 +188,7 @@
             this.btn_orders.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
             this.btn_orders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_orders.Image = global::SAD.Properties.Resources._004_charts;
-            this.btn_orders.Location = new System.Drawing.Point(3, 211);
+            this.btn_orders.Location = new System.Drawing.Point(3, 328);
             this.btn_orders.Name = "btn_orders";
             this.btn_orders.Size = new System.Drawing.Size(129, 125);
             this.btn_orders.TabIndex = 62;

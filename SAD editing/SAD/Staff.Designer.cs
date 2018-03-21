@@ -80,7 +80,6 @@
             this.dtgv.Size = new System.Drawing.Size(939, 169);
             this.dtgv.TabIndex = 111;
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
-
             // 
             // panel1
             // 
@@ -101,7 +100,7 @@
             this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(19, 14);
+            this.label15.Location = new System.Drawing.Point(26, 14);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(151, 41);
             this.label15.TabIndex = 124;
@@ -142,7 +141,7 @@
             this.Archive.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Archive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold);
             this.Archive.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Archive.Location = new System.Drawing.Point(12, 73);
+            this.Archive.Location = new System.Drawing.Point(12, 65);
             this.Archive.Name = "Archive";
             this.Archive.Size = new System.Drawing.Size(77, 28);
             this.Archive.TabIndex = 123;
@@ -196,7 +195,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(-14, 274);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(998, 43);
+            this.panel2.Size = new System.Drawing.Size(1013, 43);
             this.panel2.TabIndex = 118;
             // 
             // label1
@@ -253,6 +252,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "v";
             this.Load += new System.EventHandler(this.Staff_Load);
+            this.VisibleChanged += new System.EventHandler(this.Staff_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

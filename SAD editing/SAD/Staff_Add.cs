@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace SAD
 {
@@ -26,10 +27,7 @@ namespace SAD
         {
 
         }
-
-       
-
-
+        
         private void Back_Click(object sender, EventArgs e)
         {
             prevForm.Show();
@@ -92,6 +90,38 @@ namespace SAD
             txt_confpass.BackColor = Color.White;
             btn_add.Enabled = true;
             btn_add.BackColor = Color.PaleGreen;
+        }
+
+        //Validations
+
+        private void txt_email_Leave(object sender, EventArgs e)
+        {
+            string email = txt_email.Text;
+            string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
+            if (!(System.Text.RegularExpressions.Regex.IsMatch(email, pattern)))
+            {
+                MessageBox.Show("Invalid e-mail address!", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_email.Text = "";
+            }
+        }
+
+        private void txt_pass_TextChanged(object sender, EventArgs e)
+        {
+            /*String input = txt_pass.Text;
+
+            Regex hasNumber = new Regex(@"[0-9]+");
+            Regex hasUpperChar = new Regex(@"[A-Z]+");
+            Regex hasMinimum8Chars = new Regex(@".{8,}");
+
+            bool isValidated = hasNumber.IsMatch(input) && hasUpperChar.IsMatch(input) && hasMinimum8Chars.IsMatch(input);
+            
+            if ()
+            {
+
+            }
+            */
+
         }
     }
 }

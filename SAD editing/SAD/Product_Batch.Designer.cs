@@ -72,7 +72,7 @@
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_close.Location = new System.Drawing.Point(1199, 4);
+            this.btn_close.Location = new System.Drawing.Point(971, 4);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(97, 61);
             this.btn_close.TabIndex = 90;
@@ -85,7 +85,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(533, 88);
+            this.label4.Location = new System.Drawing.Point(406, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(182, 25);
             this.label4.TabIndex = 242;
@@ -109,7 +109,7 @@
             "Hot & Cold Beverages",
             "Fresh Fruit Shakes",
             "Coolers"});
-            this.cmb_products.Location = new System.Drawing.Point(857, 89);
+            this.cmb_products.Location = new System.Drawing.Point(651, 89);
             this.cmb_products.Name = "cmb_products";
             this.cmb_products.Size = new System.Drawing.Size(177, 25);
             this.cmb_products.TabIndex = 241;
@@ -137,13 +137,13 @@
             this.product_recipe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.product_recipe.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.product_recipe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.product_recipe.Location = new System.Drawing.Point(538, 114);
+            this.product_recipe.Location = new System.Drawing.Point(411, 114);
             this.product_recipe.MultiSelect = false;
             this.product_recipe.Name = "product_recipe";
             this.product_recipe.ReadOnly = true;
             this.product_recipe.RowHeadersVisible = false;
             this.product_recipe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.product_recipe.Size = new System.Drawing.Size(496, 349);
+            this.product_recipe.Size = new System.Drawing.Size(417, 332);
             this.product_recipe.TabIndex = 238;
             // 
             // batch_items
@@ -163,7 +163,7 @@
             this.batch_items.ReadOnly = true;
             this.batch_items.RowHeadersVisible = false;
             this.batch_items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.batch_items.Size = new System.Drawing.Size(497, 349);
+            this.batch_items.Size = new System.Drawing.Size(393, 332);
             this.batch_items.TabIndex = 237;
             // 
             // stockin_btn
@@ -185,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(1062, 488);
+            this.ClientSize = new System.Drawing.Size(833, 487);
             this.Controls.Add(this.stockin_btn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmb_products);

@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.takeout_subtotal = new System.Windows.Forms.TextBox();
             this.stockleft = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Back = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.paymentpanel = new System.Windows.Forms.Panel();
+            this.cmb_queue = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.discountCheck = new System.Windows.Forms.CheckBox();
             this.cb_discountType = new System.Windows.Forms.ComboBox();
             this.discountTypelbl = new System.Windows.Forms.Label();
@@ -66,6 +69,12 @@
             this.priceTxt = new System.Windows.Forms.TextBox();
             this.product_data = new System.Windows.Forms.DataGridView();
             this.ordered_products = new System.Windows.Forms.DataGridView();
+            this.ProdID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalTB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.checkout = new System.Windows.Forms.Button();
@@ -73,12 +82,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.ProdID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.paymentpanel.SuspendLayout();
@@ -90,6 +93,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.takeout_subtotal);
             this.panel1.Controls.Add(this.stockleft);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.Back);
@@ -97,6 +101,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1131, 54);
             this.panel1.TabIndex = 101;
+            // 
+            // takeout_subtotal
+            // 
+            this.takeout_subtotal.Enabled = false;
+            this.takeout_subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.takeout_subtotal.Location = new System.Drawing.Point(482, 17);
+            this.takeout_subtotal.Name = "takeout_subtotal";
+            this.takeout_subtotal.ReadOnly = true;
+            this.takeout_subtotal.Size = new System.Drawing.Size(65, 26);
+            this.takeout_subtotal.TabIndex = 212;
+            this.takeout_subtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // stockleft
             // 
@@ -125,12 +140,13 @@
             // 
             // Back
             // 
-            this.Back.BackColor = System.Drawing.Color.Tomato;
-            this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back.Location = new System.Drawing.Point(1014, 3);
+            this.Back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Back.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Back.ForeColor = System.Drawing.Color.White;
+            this.Back.Location = new System.Drawing.Point(1011, 3);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(103, 54);
+            this.Back.Size = new System.Drawing.Size(117, 51);
             this.Back.TabIndex = 85;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = false;
@@ -180,6 +196,8 @@
             // paymentpanel
             // 
             this.paymentpanel.BackColor = System.Drawing.Color.Brown;
+            this.paymentpanel.Controls.Add(this.cmb_queue);
+            this.paymentpanel.Controls.Add(this.label11);
             this.paymentpanel.Controls.Add(this.discountCheck);
             this.paymentpanel.Controls.Add(this.cb_discountType);
             this.paymentpanel.Controls.Add(this.discountTypelbl);
@@ -193,12 +211,46 @@
             this.paymentpanel.Controls.Add(this.amountPaidlbl);
             this.paymentpanel.Controls.Add(this.label9);
             this.paymentpanel.Controls.Add(this.label6);
-            this.paymentpanel.Location = new System.Drawing.Point(0, 112);
+            this.paymentpanel.Location = new System.Drawing.Point(0, 412);
             this.paymentpanel.Name = "paymentpanel";
-            this.paymentpanel.Size = new System.Drawing.Size(390, 455);
+            this.paymentpanel.Size = new System.Drawing.Size(44, 155);
             this.paymentpanel.TabIndex = 208;
             this.paymentpanel.Visible = false;
-            this.paymentpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paymentpanel_Paint);
+            // 
+            // cmb_queue
+            // 
+            this.cmb_queue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_queue.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_queue.FormattingEnabled = true;
+            this.cmb_queue.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cmb_queue.Location = new System.Drawing.Point(180, 42);
+            this.cmb_queue.Name = "cmb_queue";
+            this.cmb_queue.Size = new System.Drawing.Size(70, 28);
+            this.cmb_queue.TabIndex = 213;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(14, 49);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(130, 19);
+            this.label11.TabIndex = 212;
+            this.label11.Text = "Queue Number";
             // 
             // discountCheck
             // 
@@ -332,9 +384,9 @@
             this.amountPaidlbl.ForeColor = System.Drawing.Color.White;
             this.amountPaidlbl.Location = new System.Drawing.Point(14, 160);
             this.amountPaidlbl.Name = "amountPaidlbl";
-            this.amountPaidlbl.Size = new System.Drawing.Size(146, 25);
+            this.amountPaidlbl.Size = new System.Drawing.Size(155, 25);
             this.amountPaidlbl.TabIndex = 78;
-            this.amountPaidlbl.Text = "Amount paid";
+            this.amountPaidlbl.Text = "Amount paid*";
             // 
             // label9
             // 
@@ -435,6 +487,7 @@
             this.takeout.TabStop = true;
             this.takeout.Text = "Take Out";
             this.takeout.UseVisualStyleBackColor = true;
+            this.takeout.CheckedChanged += new System.EventHandler(this.takeout_CheckedChanged);
             // 
             // subTotalTxt
             // 
@@ -509,7 +562,7 @@
             this.dinein.AutoSize = true;
             this.dinein.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dinein.ForeColor = System.Drawing.Color.White;
-            this.dinein.Location = new System.Drawing.Point(74, 425);
+            this.dinein.Location = new System.Drawing.Point(74, 428);
             this.dinein.Name = "dinein";
             this.dinein.Size = new System.Drawing.Size(80, 23);
             this.dinein.TabIndex = 212;
@@ -584,7 +637,6 @@
             this.product_data.Size = new System.Drawing.Size(693, 236);
             this.product_data.TabIndex = 0;
             this.product_data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_data_CellClick);
-            this.product_data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_data_CellContentClick);
             // 
             // ordered_products
             // 
@@ -611,6 +663,43 @@
             this.ordered_products.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ordered_products.Size = new System.Drawing.Size(693, 236);
             this.ordered_products.TabIndex = 205;
+            // 
+            // ProdID
+            // 
+            this.ProdID.HeaderText = "Product ID";
+            this.ProdID.Name = "ProdID";
+            this.ProdID.ReadOnly = true;
+            this.ProdID.Visible = false;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
+            // 
+            // OrderType
+            // 
+            this.OrderType.HeaderText = "Order Type";
+            this.OrderType.Name = "OrderType";
+            this.OrderType.ReadOnly = true;
             // 
             // TotalTB
             // 
@@ -655,6 +744,7 @@
             this.cb_category.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_category.FormattingEnabled = true;
             this.cb_category.Items.AddRange(new object[] {
+            "Show All",
             "All Day Breakfast",
             "Extras",
             "Pasta",
@@ -671,6 +761,7 @@
             this.cb_category.Name = "cb_category";
             this.cb_category.Size = new System.Drawing.Size(149, 28);
             this.cb_category.TabIndex = 220;
+            this.cb_category.SelectedIndexChanged += new System.EventHandler(this.cb_category_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -708,43 +799,6 @@
             this.label8.TabIndex = 222;
             this.label8.Text = "Total";
             // 
-            // ProdID
-            // 
-            this.ProdID.HeaderText = "Product ID";
-            this.ProdID.Name = "ProdID";
-            this.ProdID.ReadOnly = true;
-            this.ProdID.Visible = false;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
-            // 
-            // OrderType
-            // 
-            this.OrderType.HeaderText = "Order Type";
-            this.OrderType.Name = "OrderType";
-            this.OrderType.ReadOnly = true;
-            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -763,7 +817,7 @@
             this.Controls.Add(this.ordered_products);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            
+           
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);
@@ -833,5 +887,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderType;
+        public System.Windows.Forms.ComboBox cmb_queue;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox takeout_subtotal;
     }
 }

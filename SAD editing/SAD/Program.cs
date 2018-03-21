@@ -19,7 +19,6 @@ namespace SAD
 
             Application.Run(new Login());
             
-
         }
     }
 }

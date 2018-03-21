@@ -61,7 +61,6 @@ namespace SAD
         {
             loadAll();
             
-
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -142,6 +141,11 @@ namespace SAD
             sArchive.prevForm = this;
             sArchive.Show();
             this.Hide();
+        }
+
+        private void Staff_VisibleChanged(object sender, EventArgs e)
+        {
+            loadAll();
         }
     }
 }

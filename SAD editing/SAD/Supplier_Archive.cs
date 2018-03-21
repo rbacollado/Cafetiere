@@ -61,5 +61,31 @@ namespace SAD
             archive_supplier.Columns["date_modified"].HeaderText = "Date Modified";
         }
 
+        public static int supplierid;
+        private void archive_supplier_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                int selected_id = int.Parse(archive_supplier.Rows[e.RowIndex].Cells["supplierID"].Value.ToString());
+                supplierid = selected_id;
+            }
+        }
+
+        private void restore_Click(object sender, EventArgs e)
+        {
+            string updateStaffStatus = "UPDATE supplier SET status = 'Active' WHERE staffid = " + supplierid + ";";
+
+            conn.Open();
+            MySqlCommand comm_status = new MySqlCommand(updateStaffStatus, conn);
+            comm_status.ExecuteNonQuery();
+            conn.Close();
+
+            MessageBox.Show("Profile Restored!");
+
+            prevForm.Show();
+            this.Close();
+        }
+
+        
     }
 }

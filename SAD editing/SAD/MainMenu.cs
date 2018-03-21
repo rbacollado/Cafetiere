@@ -48,8 +48,9 @@ namespace SAD
             {
                 btn_profiling.Enabled = false;
                 btn_product.Enabled = false;
-                btn_profiling.BackColor = Color.Gray;
-                btn_product.BackColor = Color.Gray;
+                btn_profiling.BackColor = Color.Red;
+                btn_product.BackColor = Color.Red;
+                btnDash.BackColor = Color.SeaGreen;
             }
 
             logDate();

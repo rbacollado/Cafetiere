@@ -88,17 +88,36 @@ namespace SAD
             this.Close();
         }
 
+        private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadSelectedCategory();
+        }
+
         public void loadSelectedCategory()
         {
-            string category = "SELECT productInvID, product_ID, pname, pprice, product_quantity FROM products, product_inventory WHERE products.productID = product_inventory.product_ID AND pcategory = '" + cb_category.Text.ToLower() + "'";
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(category, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            product_data.DataSource = dt;
-
+            if (cb_category.Text == "Show All")
+            {
+                string category = "SELECT productInvID, product_ID, pname, pprice, product_quantity FROM products, product_inventory WHERE products.productID = product_inventory.product_ID";
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(category, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                conn.Close();
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                product_data.DataSource = dt;
+            }
+            else
+            {
+                string category = "SELECT productInvID, product_ID, pname, pprice, product_quantity FROM products, product_inventory WHERE products.productID = product_inventory.product_ID AND pcategory = '" + cb_category.Text.ToLower() + "'";
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(category, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                conn.Close();
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                product_data.DataSource = dt;
+            }
+            
         }
 
         public void loadprodInv_data()
@@ -147,6 +166,7 @@ namespace SAD
         }
 
         string pname;
+        string type;
         int current;
         int countrow;
         int countrow2;
@@ -159,13 +179,16 @@ namespace SAD
             string ordertype = "";
             bool isChecked = dinein.Checked;
             bool found = false;
+            
+           
+
 
             if (prodname.Text == String.Empty || priceTxt.Text == String.Empty || quantityTxt.Enabled == false)
             {
                 MessageBox.Show("Please choose an item", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-            else if (Convert.ToInt32(stockleft.Text) == 0)
+            else if (int.Parse(stockleft.Text) == 0 )
             {
                 MessageBox.Show("You do not have enough stocks.", "Inventory", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -179,16 +202,43 @@ namespace SAD
             }
             else
             {
+                // Takeout or Dinein
+
+
+                if (isChecked)
+                {
+                    ordertype = dinein.Text;
+                }
+                else
+                {
+
+                    ordertype = takeout.Text;
+
+                    string price = priceTxt.Text;
+                    string quantity = quantityTxt.Value.ToString();
+
+                    int parseQuantity = int.Parse(quantity);
+                    decimal parsePrice = decimal.Parse(price);
+
+                    decimal subtotal_takeout = parsePrice + 10 * parseQuantity;
+                    string string_subtotaltakeout = subtotal_takeout.ToString();
+
+                    takeout_subtotal.Text = string_subtotaltakeout;
+
+                }
+
+
                 if (product_data.Rows.Count > 0)
                 {
                     // add items to another datagrid 
 
                     foreach (DataGridViewRow row in ordered_products.Rows)
                     {
-
-
+                        
                         pname = row.Cells["Name"].Value.ToString();
-                        if (prodname.Text == pname)
+                        type = row.Cells["OrderType"].Value.ToString();
+
+                        if ((prodname.Text == pname) && (type == ordertype) )
                         {
                             if (Convert.ToInt32(stockleft.Text) <= 0)
                             {
@@ -196,6 +246,15 @@ namespace SAD
                             }
                             // update quantity if item is already in the datagrid
                             row.Cells["Quantity"].Value = (Convert.ToString(Convert.ToInt32(row.Cells["Quantity"].Value) + Convert.ToInt32(quantityTxt.Text)));
+                            if (type == "Dine In")
+                            {
+                                row.Cells["Subtotal"].Value = (Convert.ToString(Convert.ToDecimal(row.Cells["Price"].Value) * Convert.ToInt32(row.Cells["Quantity"].Value)));
+                            }
+                            else
+                            {
+                                row.Cells["Subtotal"].Value = Convert.ToString(takeout_subtotal.Text);
+                            }
+                           
                             found = true;
                             current = product_data.CurrentRow.Index;
                             stockleft.Text = (Convert.ToString(Convert.ToInt32(stockleft.Text) - Convert.ToInt32(quantityTxt.Text)));
@@ -204,18 +263,7 @@ namespace SAD
                         }
 
                     }
-                    // Takeout or Dinein
-
-
-                    if (isChecked)
-                    {
-                        ordertype = dinein.Text;
-                    }
-                    else
-                    {
-                        ordertype = takeout.Text;
-                    }
-
+                    
                     if (!found)
                     {
                         if (Convert.ToInt32(stockleft.Text) <= 0)
@@ -224,20 +272,41 @@ namespace SAD
                         }
                         else
                         {
-                            int row = 0;
-                            ordered_products.Rows.Add();
-                            row = ordered_products.Rows.Count - 1;
+                            if (ordertype == "Take Out")
+                            {
+                                int row = 0;
+                                ordered_products.Rows.Add();
+                                row = ordered_products.Rows.Count - 1;
 
 
-                            ordered_products["ProdID", row].Value = product_data.CurrentRow.Cells["product_ID"].Value.ToString();
-                            ordered_products["Name", row].Value = prodname.Text;
-                            ordered_products["Price", row].Value = priceTxt.Text;
-                            ordered_products["Quantity", row].Value = quantityTxt.Text;
-                            ordered_products["Subtotal", row].Value = subTotalTxt.Text;
-                            ordered_products["OrderType", row].Value = ordertype;
-                            current = product_data.CurrentRow.Index;
-                            stockleft.Text = (Convert.ToString(Convert.ToInt32(stockleft.Text) - Convert.ToInt32(quantityTxt.Text)));
-                            product_data.Rows[current].Cells["product_quantity"].Value = stockleft.Text;
+                                ordered_products["ProdID", row].Value = product_data.CurrentRow.Cells["product_ID"].Value.ToString();
+                                ordered_products["Name", row].Value = prodname.Text;
+                                ordered_products["Price", row].Value = priceTxt.Text;
+                                ordered_products["Quantity", row].Value = quantityTxt.Text;
+                                ordered_products["Subtotal", row].Value = takeout_subtotal.Text;
+                                ordered_products["OrderType", row].Value = ordertype;
+                                current = product_data.CurrentRow.Index;
+                                stockleft.Text = (Convert.ToString(Convert.ToInt32(stockleft.Text) - Convert.ToInt32(quantityTxt.Text)));
+                                product_data.Rows[current].Cells["product_quantity"].Value = stockleft.Text;
+                            }
+                            else if (ordertype == "Dine In")
+                            {
+                                int row = 0;
+                                ordered_products.Rows.Add();
+                                row = ordered_products.Rows.Count - 1;
+
+
+                                ordered_products["ProdID", row].Value = product_data.CurrentRow.Cells["product_ID"].Value.ToString();
+                                ordered_products["Name", row].Value = prodname.Text;
+                                ordered_products["Price", row].Value = priceTxt.Text;
+                                ordered_products["Quantity", row].Value = quantityTxt.Text;
+                                ordered_products["Subtotal", row].Value = subTotalTxt.Text;
+                                ordered_products["OrderType", row].Value = ordertype;
+                                current = product_data.CurrentRow.Index;
+                                stockleft.Text = (Convert.ToString(Convert.ToInt32(stockleft.Text) - Convert.ToInt32(quantityTxt.Text)));
+                                product_data.Rows[current].Cells["product_quantity"].Value = stockleft.Text;
+                            }
+                            
                         }
                     }
                 }
@@ -250,20 +319,41 @@ namespace SAD
                     }
                     else
                     {
-                        int row = 0;
-                        ordered_products.Rows.Add();
-                        row = ordered_products.Rows.Count - 1;
+                        if (ordertype == "Take Out")
+                        {
+                            int row = 0;
+                            ordered_products.Rows.Add();
+                            row = ordered_products.Rows.Count - 1;
 
 
-                        ordered_products["ProdID", row].Value = Convert.ToInt32(product_data.CurrentRow.Cells["product_ID"].ToString());
-                        ordered_products["Name", row].Value = prodname.Text;
-                        ordered_products["Price", row].Value = priceTxt.Text;
-                        ordered_products["Quantity", row].Value = quantityTxt.Text;
-                        ordered_products["Subtotal", row].Value = subTotalTxt.Text;
-                        ordered_products["OrderType", row].Value = ordertype;
-                        current = product_data.CurrentRow.Index;
-                        stockleft.Text = (Convert.ToString(Convert.ToInt32(stockleft.Text) - Convert.ToInt32(quantityTxt.Text)));
-                        product_data.Rows[current].Cells["prodQuantity"].Value = stockleft.Text;
+                            ordered_products["ProdID", row].Value = Convert.ToInt32(product_data.CurrentRow.Cells["product_ID"].ToString());
+                            ordered_products["Name", row].Value = prodname.Text;
+                            ordered_products["Price", row].Value = priceTxt.Text;
+                            ordered_products["Quantity", row].Value = quantityTxt.Text;
+                            ordered_products["Subtotal", row].Value = takeout_subtotal.Text;
+                            ordered_products["OrderType", row].Value = ordertype;
+                            current = product_data.CurrentRow.Index;
+                            stockleft.Text = (Convert.ToString(Convert.ToInt32(stockleft.Text) - Convert.ToInt32(quantityTxt.Text)));
+                            product_data.Rows[current].Cells["prodQuantity"].Value = stockleft.Text;
+                        }
+                        else if (ordertype == "Dine In")
+                        {
+                            int row = 0;
+                            ordered_products.Rows.Add();
+                            row = ordered_products.Rows.Count - 1;
+
+
+                            ordered_products["ProdID", row].Value = Convert.ToInt32(product_data.CurrentRow.Cells["product_ID"].ToString());
+                            ordered_products["Name", row].Value = prodname.Text;
+                            ordered_products["Price", row].Value = priceTxt.Text;
+                            ordered_products["Quantity", row].Value = quantityTxt.Text;
+                            ordered_products["Subtotal", row].Value = subTotalTxt.Text;
+                            ordered_products["OrderType", row].Value = ordertype;
+                            current = product_data.CurrentRow.Index;
+                            stockleft.Text = (Convert.ToString(Convert.ToInt32(stockleft.Text) - Convert.ToInt32(quantityTxt.Text)));
+                            product_data.Rows[current].Cells["prodQuantity"].Value = stockleft.Text;
+                        }
+                       
                     }
                 }
 
@@ -272,6 +362,7 @@ namespace SAD
                 {
                     decimal sum = 0;
                     countrow = ordered_products.Rows.Count;
+
                     for (int i = 0; i < countrow; i++)
                     {
                         sum += Convert.ToDecimal(ordered_products.Rows[i].Cells[4].Value);
@@ -279,84 +370,15 @@ namespace SAD
                     TotalTB.Text = Convert.ToString(sum);
                 }
 
+                quantityTxt.Maximum = Convert.ToDecimal(product_data.CurrentRow.Cells[4].Value.ToString());
+                quantityTxt.Enabled = true;
+                quantityTxt.Value = 0;
+
+
+
             }
             
-            /* Boolean duplicate_prod = false;
-             int idprod = 0;
-
-             // Takeout or Dinein
-             string ordertype = "";
-             bool isChecked = dinein.Checked;
-
-             if (isChecked)
-             {
-                 ordertype = dinein.Text;
-             }
-             else
-             {
-                 ordertype = takeout.Text;
-             }
-
-             // Check if products in the ordered_products datagrid
-             for (int i = 0; i < ordered_products.Rows.Count; i++)
-             {
-                 if ( selected_user_id == int.Parse(ordered_products.Rows[i].Cells["id"].Value.ToString()) && ordertype == ordered_products.Rows[i].Cells["OrderType"].Value.ToString() )
-                 {
-                     duplicate_prod = true;
-                     idprod = i;
-                 }
-             }
-
-             if ( prodname.Text == "" || priceTxt.Text == "" || quantityTxt.Text == "" || !(dinein.Checked) && !(takeout.Checked))
-             {
-                 MessageBox.Show("Please input product details!" ,"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-             }
-             else if (quantityTxt.Maximum == 0)
-             {
-                 MessageBox.Show("Product Unavailable!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-             }
-             else if (duplicate_prod == true)
-             {
-                 if (quantityTxt.Maximum < ( quantityTxt.Value + int.Parse( ordered_products.Rows[idprod].Cells["Quantity"].Value.ToString()) ) ) 
-                 {
-                     MessageBox.Show("Product Unavailable!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 }
-                 else
-                 {
-                     ordered_products.Rows[idprod].Cells["Quantity"].Value = int.Parse(quantityTxt.Text) + int.Parse(ordered_products.Rows[idprod].Cells["Quantity"].Value.ToString());
-
-                     decimal subtotal = decimal.Parse(ordered_products.Rows[idprod].Cells["Price"].Value.ToString()) * int.Parse(ordered_products.Rows[idprod].Cells["Quantity"].Value.ToString());
-                     ordered_products.Rows[idprod].Cells["Subtotal"].Value = subtotal.ToString();
-
-                     total();
-
-                 }
-             }
-             else
-             {
-                 bool x = false;
-                 for (int i = 0; i < ordered_products.Rows.Count; i++)
-                 {
-                     if (quantityTxt.Maximum < (quantityTxt.Value + int.Parse(ordered_products.Rows[idprod].Cells["Quantity"].Value.ToString())))
-                     {
-                         x = true;
-                     }      
-                 }
-                 if(x == false)
-                 {
-                     order.Rows.Add(selected_user_id, prodname.Text, priceTxt.Text, quantityTxt.Text, subTotalTxt.Text, ordertype);
-                     ordered_products.DataSource = order;
-                     ordered_products.Columns["id"].Visible = false;
-
-                     total();
-                 }
-                 else
-                 {
-                     MessageBox.Show("Product Unavailable!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 }          
-             }*/
-
-
+            
         }
 
 
@@ -365,9 +387,10 @@ namespace SAD
         {
             string price = priceTxt.Text;
             string quantity = quantityTxt.Value.ToString();
-            int parseQuantity = int.Parse(quantity);
 
+            int parseQuantity = int.Parse(quantity);
             decimal parsePrice = decimal.Parse(price);
+
             decimal subtotal = parsePrice * parseQuantity;
             string string_subtotal = subtotal.ToString();
 
@@ -423,6 +446,7 @@ namespace SAD
                     {
                         sum += Convert.ToDecimal(ordered_products.Rows[i].Cells["Subtotal"].Value);
                     }
+                    TotalTB.Text = Convert.ToString(sum);
                     TotalTB.Text = Convert.ToString(sum);
                 }
                 /*int row = ordered_products.CurrentCell.RowIndex;
@@ -524,15 +548,7 @@ namespace SAD
 
         private void discountTxt_TextChanged(object sender, EventArgs e)
         {
-            /* try
-             {
-
-             }
-             catch (Exception)
-             {
-                 MessageBox.Show("An error has occured. Please Try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-             }*/
-
+          
             if (discountTxt.Text == "")
             {
                 totalDue.Text = TotalTB.Text;
@@ -564,7 +580,7 @@ namespace SAD
 
             if (discountTypelbl.Visible == false && cb_discountType.Visible == false && discountlbl.Visible == false && discountTxt.Visible == false)
             {
-                if (amountPaid.Text == "")
+                if (amountPaid.Text == "" || cmb_queue.Text == "")
                 {
                     MessageBox.Show("Please fill up the required information!");
                 }
@@ -589,9 +605,9 @@ namespace SAD
                     }
 
 
-                    string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderPayment, orderDiscount, orderDiscountType, orderChange)"
+                    string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderPayment, orderDiscount, orderDiscountType, orderChange, waitingNumber)"
                             + " VALUES((SELECT staff.staffid FROM staff INNER JOIN person ON person.personid = staff.person_personid AND CONCAT(person.firstname, ' ' , person.lastname) LIKE '%" + SAD.Login.DisplayUserDetails.name + "%'), "
-                            + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + decimal.Parse(amountPaid.Text) + "','" + double.Parse(discount) + "','" + discountType + "','" + decimal.Parse(changetxt.Text) + "')";
+                            + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + decimal.Parse(amountPaid.Text) + "','" + double.Parse(discount) + "','" + discountType + "','" + decimal.Parse(changetxt.Text) + "','" + cmb_queue.Text + "')";
 
 
 
@@ -619,6 +635,16 @@ namespace SAD
                         string pquantity = ordered_products.Rows[i].Cells["Quantity"].Value.ToString();
                         string subtotal = ordered_products.Rows[i].Cells["Subtotal"].Value.ToString();
                         string ordertype = ordered_products.Rows[i].Cells["OrderType"].Value.ToString();
+
+                        if (ordertype == "Take Out")
+                        {
+                            string updateItemQuantity = "UPDATE items_inventory SET itemQuantity = itemQuantity - 1 WHERE itemType = 'Non-Ingredient';";
+
+                            conn.Open();
+                            MySqlCommand comm_ItemQuantity = new MySqlCommand(updateItemQuantity, conn);
+                            comm_ItemQuantity.ExecuteNonQuery();
+                            conn.Close();
+                        }
 
                         string orderline_query = "INSERT INTO orderline(orderID, productID, orderType, orderPrice, orderQuantity, orderSubtotal)" +
                                                  "VALUES( (SELECT max(orderID) from `order`),'" + int.Parse(prod_data) + "','" + ordertype + "','" + double.Parse(pprice) +
@@ -655,7 +681,7 @@ namespace SAD
             }
             else
             {
-                if (amountPaid.Text == "" || discountTxt.Text == "" || cb_discountType.Text == "")
+                if (amountPaid.Text == "" || discountTxt.Text == "" || cb_discountType.Text == "" || cmb_queue.Text == "")
                 {
                     MessageBox.Show("Please fill up the required information!");
                 }
@@ -682,9 +708,9 @@ namespace SAD
                     }
 
 
-                    string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderPayment, orderDiscount, orderDiscountType, orderChange)"
+                    string query_order = "INSERT INTO `order`(staff_staffid, orderDate, orderTotal, orderPayment, orderDiscount, orderDiscountType, orderChange, waitingNumber)"
                             + " VALUES((SELECT staff.staffid FROM staff INNER JOIN person ON person.personid = staff.person_personid AND CONCAT(person.firstname, ' ' , person.lastname) LIKE '%" + SAD.Login.DisplayUserDetails.name + "%'), "
-                            + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + decimal.Parse(amountPaid.Text) + "','" + double.Parse(discount) + "','" + discountType + "','" + decimal.Parse(changetxt.Text) + "')";
+                            + "current_timestamp(),'" + decimal.Parse(totalDue.Text) + "','" + decimal.Parse(amountPaid.Text) + "','" + double.Parse(discount) + "','" + discountType + "','" + decimal.Parse(changetxt.Text) + "','" + cmb_queue.Text + "')";
 
 
 
@@ -746,33 +772,7 @@ namespace SAD
                 }
             }
         }
-
-        private void productpanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-
-        private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            loadSelectedCategory();
-        }
-
-
-
-        private void paymentpanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
         private void cb_discountType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -798,15 +798,15 @@ namespace SAD
                 discountTypelbl.Visible = true;
                 discountTxt.Visible = true;
                 cb_discountType.Visible = true;
-                discountTypelbl.Location = new Point(16, 135);
-                cb_discountType.Location = new Point(184, 130);
-                discountlbl.Location = new Point(18, 172);
-                discountTxt.Location = new Point(184, 168);
+                discountTypelbl.Location = new Point(14, 242);
+                cb_discountType.Location = new Point(180, 235);
+                discountlbl.Location = new Point(14, 287);
+                discountTxt.Location = new Point(180, 283);
 
-                amountPaidlbl.Location = new Point(18, 214);
-                amountPaid.Location = new Point(184, 212);
-                changelbl.Location = new Point(18, 251);
-                changetxt.Location = new Point(184, 247);
+                amountPaidlbl.Location = new Point(14, 160);
+                amountPaid.Location = new Point(180, 156);
+                changelbl.Location = new Point(14, 197);
+                changetxt.Location = new Point(180, 193);
 
             }
             else
@@ -815,55 +815,23 @@ namespace SAD
                 discountTypelbl.Visible = false;
                 discountTxt.Visible = false;
                 cb_discountType.Visible = false;
-                amountPaidlbl.Location = new Point(18, 127);
-                amountPaid.Location = new Point(184, 123);
-                changelbl.Location = new Point(18, 164);
-                changetxt.Location = new Point(184, 160);
+                amountPaidlbl.Location = new Point(14, 160);
+                amountPaid.Location = new Point(180, 156);
+                changelbl.Location = new Point(14, 197);
+                changetxt.Location = new Point(180, 193);
             }
 
 
         }
 
-
-
-
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void takeout_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void product_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
-        private void panel12_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-        /*<<<<<<< HEAD
-=======
-
-       private void prodname_TextChanged(object sender, EventArgs e)
-       {
-
-       }
-
-       private void product_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
-       {
-
-       }
-
-       private void productpanel_Paint(object sender, PaintEventArgs e)
-       {
-           categoryCmbData();
-       }
-
-      
->>>>>>> 5bb68333316c59fd4e45917809e0f1bba3c15c49*/
     }
 }

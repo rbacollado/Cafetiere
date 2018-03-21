@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.archive_staff = new System.Windows.Forms.DataGridView();
-            this.label15 = new System.Windows.Forms.Label();
+            this.restore = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.archive_staff)).BeginInit();
             this.SuspendLayout();
@@ -45,6 +46,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(834, 74);
             this.panel1.TabIndex = 63;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(49, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(271, 41);
+            this.label15.TabIndex = 127;
+            this.label15.Text = "STAFF ARCHIVE";
             // 
             // btn_close
             // 
@@ -72,27 +86,29 @@
             this.archive_staff.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.archive_staff.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.archive_staff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.archive_staff.Location = new System.Drawing.Point(12, 80);
+            this.archive_staff.Location = new System.Drawing.Point(12, 101);
             this.archive_staff.Name = "archive_staff";
             this.archive_staff.ReadOnly = true;
             this.archive_staff.RowHeadersVisible = false;
             this.archive_staff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.archive_staff.Size = new System.Drawing.Size(737, 299);
+            this.archive_staff.Size = new System.Drawing.Size(737, 278);
             this.archive_staff.TabIndex = 209;
-            this.archive_staff.SelectionChanged += new System.EventHandler(this.archive_staff_SelectionChanged);
+            this.archive_staff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.archive_staff_CellClick);
             // 
-            // label15
+            // restore
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(49, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(271, 41);
-            this.label15.TabIndex = 127;
-            this.label15.Text = "STAFF ARCHIVE";
+            this.restore.BackColor = System.Drawing.Color.Transparent;
+            this.restore.FlatAppearance.BorderSize = 0;
+            this.restore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.restore.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.restore.Location = new System.Drawing.Point(12, 69);
+            this.restore.Name = "restore";
+            this.restore.Size = new System.Drawing.Size(129, 25);
+            this.restore.TabIndex = 247;
+            this.restore.Text = "RESTORE";
+            this.restore.UseVisualStyleBackColor = false;
+            this.restore.Click += new System.EventHandler(this.restore_Click);
             // 
             // Staff_Archive
             // 
@@ -100,6 +116,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(761, 391);
+            this.Controls.Add(this.restore);
             this.Controls.Add(this.archive_staff);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -120,5 +137,6 @@
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.DataGridView archive_staff;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button restore;
     }
 }

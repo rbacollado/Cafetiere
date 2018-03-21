@@ -37,7 +37,7 @@ namespace SAD
 
         public void staff()
         {
-            string filterquery = "SELECT* FROM person , staff WHERE person.personid = staff.person_personid AND status = 'Inactive'";
+            string filterquery = "SELECT * FROM person, staff WHERE person.personid = staff.person_personid AND status = 'Inactive'";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(filterquery, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -63,9 +63,32 @@ namespace SAD
             archive_staff.Columns["date_modified"].HeaderText = "Date Modified";
         }
 
-        private void archive_staff_SelectionChanged(object sender, EventArgs e)
+        public static int staffid;
+        private void archive_staff_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.archive_staff.ClearSelection();
+            if (e.RowIndex > -1)
+            {
+                int selected_id = int.Parse(archive_staff.Rows[e.RowIndex].Cells["staffid"].Value.ToString());
+                staffid = selected_id;
+            }
         }
+
+        private void restore_Click(object sender, EventArgs e)
+        {
+
+            string updateStaffStatus = "UPDATE STAFF SET status = 'Active' WHERE staffid = " + staffid + ";";
+            
+            conn.Open();
+            MySqlCommand comm_status = new MySqlCommand(updateStaffStatus, conn);
+            comm_status.ExecuteNonQuery();
+            conn.Close();
+
+            MessageBox.Show("Profile Restored!");
+
+            prevForm.Show();
+            this.Close();
+
+        }
+        
     }
 }
