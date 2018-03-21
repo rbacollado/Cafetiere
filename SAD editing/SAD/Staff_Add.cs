@@ -37,7 +37,7 @@ namespace SAD
         private void btn_add_Click_1(object sender, EventArgs e)
         {
             if (txt_fname.Text == "" || txt_mname.Text == ""|| txt_lname.Text == "" || txt_address.Text == "" || 
-                mtxt_contact.Text == "" || cb_usertype.Text == "" || txt_username.Text == "" || txt_pass.Text == "")
+                mtxt_contact.Text == "" || cb_usertype.Text == "" )
             {
                 MessageBox.Show("Please Complete the Registration!", "Incomplete Registration", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -51,23 +51,45 @@ namespace SAD
             }
             else
             {
-                string query = "INSERT INTO person(firstname, middlename, lastname, address, contact, email, person_type)"
-                    + "VALUES('" + txt_fname.Text + "','"+ txt_mname.Text +  "','" + txt_lname.Text + "','" + txt_address.Text + "','" + mtxt_contact.Text + "','" + txt_email.Text + "','STAFF')";
+                DialogResult dialogResult = MessageBox.Show("Are you sure?", "", MessageBoxButtons.YesNo);
 
-                string query1 = "INSERT INTO staff (person_personid, position, username, password, status, date_added, date_modified)" +
-                                "VALUES( (SELECT MAX(personid) from person) ,'" + cb_usertype.Text + "','" + txt_username.Text + "','" + txt_pass.Text + "','Active', current_timestamp(), current_timestamp() )";
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand(query, conn);
-                comm.ExecuteNonQuery();
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string query = "INSERT INTO person(firstname, middlename, lastname, address, contact, email, person_type)"
+                   + "VALUES('" + txt_fname.Text + "','" + txt_mname.Text + "','" + txt_lname.Text + "','" + txt_address.Text + "','" + mtxt_contact.Text + "','" + txt_email.Text + "','STAFF')";
 
-                MySqlCommand comm1 = new MySqlCommand(query1, conn);
-                comm1.ExecuteNonQuery();
-                conn.Close();
 
-                MessageBox.Show("Staff added!");
+                    conn.Open();
+                    MySqlCommand comm = new MySqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
 
-                this.Close();
-                prevForm.ShowDialog();
+                    if (txt_username.Text == "" || txt_pass.Text == "")
+                    {
+                        string query1 = "INSERT INTO staff (person_personid, position, username, password, status, date_added, date_modified)" +
+                                    "VALUES( (SELECT MAX(personid) from person) ,'cafetiere','cafetiere','" + txt_pass.Text + "','Active', current_timestamp(), current_timestamp() )";
+
+                        MySqlCommand comm1 = new MySqlCommand(query1, conn);
+                        comm1.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                    else
+                    {
+                        string query2 = "INSERT INTO staff (person_personid, position, username, password, status, date_added, date_modified)" +
+                                    "VALUES( (SELECT MAX(personid) from person) ,'" + cb_usertype.Text + "','" + txt_username.Text + "','" + txt_pass.Text + "','Active', current_timestamp(), current_timestamp() )";
+
+                        MySqlCommand comm1 = new MySqlCommand(query2, conn);
+                        comm1.ExecuteNonQuery();
+                        conn.Close();
+
+                    }
+
+                    MessageBox.Show("Staff added!");
+
+                    this.Close();
+                    prevForm.ShowDialog();
+
+                }
+                
 
             }
         }
@@ -108,20 +130,25 @@ namespace SAD
 
         private void txt_pass_TextChanged(object sender, EventArgs e)
         {
-            /*String input = txt_pass.Text;
-
-            Regex hasNumber = new Regex(@"[0-9]+");
-            Regex hasUpperChar = new Regex(@"[A-Z]+");
-            Regex hasMinimum8Chars = new Regex(@".{8,}");
-
-            bool isValidated = hasNumber.IsMatch(input) && hasUpperChar.IsMatch(input) && hasMinimum8Chars.IsMatch(input);
             
-            if ()
+        }
+        
+        private void txt_mname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void show_CheckedChanged(object sender, EventArgs e)
+        {
+            if (show.Checked)
             {
-
+                txt_pass.UseSystemPasswordChar = false;
             }
-            */
-
+            else
+            {
+                txt_pass.UseSystemPasswordChar = true;
+            }
         }
     }
 }
