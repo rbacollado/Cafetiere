@@ -166,6 +166,9 @@ namespace SAD
             txt_confpass.UseSystemPasswordChar = true;
         }
 
-       
+        private void txt_oldpass_TextChanged(object sender, EventArgs e)
+        {
+            txt_oldpass.UseSystemPasswordChar = true;
+        }
     }
 }

@@ -89,6 +89,10 @@ namespace SAD
             this.Close();
 
         }
-        
+
+        private void Staff_Archive_VisibleChanged(object sender, EventArgs e)
+        {
+            staff();
+        }
     }
 }

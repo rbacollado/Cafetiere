@@ -124,6 +124,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Staff_Archive";
             this.Load += new System.EventHandler(this.Staff_Archive_Load);
+            this.VisibleChanged += new System.EventHandler(this.Staff_Archive_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.archive_staff)).EndInit();

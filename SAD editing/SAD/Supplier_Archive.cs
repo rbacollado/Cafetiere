@@ -73,7 +73,7 @@ namespace SAD
 
         private void restore_Click(object sender, EventArgs e)
         {
-            string updateStaffStatus = "UPDATE supplier SET status = 'Active' WHERE staffid = " + supplierid + ";";
+            string updateStaffStatus = "UPDATE supplier SET status = 'Active' WHERE supplierID = " + supplierid + ";";
 
             conn.Open();
             MySqlCommand comm_status = new MySqlCommand(updateStaffStatus, conn);
@@ -86,6 +86,9 @@ namespace SAD
             this.Close();
         }
 
-        
+        private void Supplier_Archive_VisibleChanged(object sender, EventArgs e)
+        {
+            supplier();
+        }
     }
 }

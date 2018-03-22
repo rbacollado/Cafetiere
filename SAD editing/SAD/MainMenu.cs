@@ -319,7 +319,7 @@ namespace SAD
         
         private void btn_product_Click(object sender, EventArgs e)
         {
-            Product_Inventory prod = new Product_Inventory();
+            Product prod = new Product();
             prod.prevForm = this;
             prod.Show();
             this.Hide();
@@ -396,6 +396,8 @@ namespace SAD
 
             panel3.Visible = true;
             expired_items.Visible = true;
+            panel4.Visible = true;
+            panel5.Visible = true;
 
             if (SAD.Login.DisplayUserDetails.usertype.ToLower() == "staff")
             {

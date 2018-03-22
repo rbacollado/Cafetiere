@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_updatePass = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.show = new System.Windows.Forms.CheckBox();
             this.txt_oldpass = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txt_username = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.show = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -183,6 +183,19 @@
             this.panel7.Size = new System.Drawing.Size(349, 210);
             this.panel7.TabIndex = 118;
             // 
+            // show
+            // 
+            this.show.AutoSize = true;
+            this.show.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.show.ForeColor = System.Drawing.Color.White;
+            this.show.Location = new System.Drawing.Point(66, 114);
+            this.show.Name = "show";
+            this.show.Size = new System.Drawing.Size(60, 20);
+            this.show.TabIndex = 106;
+            this.show.Text = "Show";
+            this.show.UseVisualStyleBackColor = true;
+            this.show.CheckedChanged += new System.EventHandler(this.show_CheckedChanged);
+            // 
             // txt_oldpass
             // 
             this.txt_oldpass.BackColor = System.Drawing.Color.White;
@@ -194,6 +207,7 @@
             this.txt_oldpass.Name = "txt_oldpass";
             this.txt_oldpass.Size = new System.Drawing.Size(159, 27);
             this.txt_oldpass.TabIndex = 104;
+            this.txt_oldpass.TextChanged += new System.EventHandler(this.txt_oldpass_TextChanged);
             // 
             // label7
             // 
@@ -292,19 +306,6 @@
             this.label8.Size = new System.Drawing.Size(91, 19);
             this.label8.TabIndex = 100;
             this.label8.Text = "Username:";
-            // 
-            // show
-            // 
-            this.show.AutoSize = true;
-            this.show.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.show.ForeColor = System.Drawing.Color.White;
-            this.show.Location = new System.Drawing.Point(66, 114);
-            this.show.Name = "show";
-            this.show.Size = new System.Drawing.Size(60, 20);
-            this.show.TabIndex = 106;
-            this.show.Text = "Show";
-            this.show.UseVisualStyleBackColor = true;
-            this.show.CheckedChanged += new System.EventHandler(this.show_CheckedChanged);
             // 
             // Settings
             // 

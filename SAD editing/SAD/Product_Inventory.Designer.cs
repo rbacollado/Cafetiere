@@ -29,30 +29,34 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_products = new System.Windows.Forms.Button();
+            this.btn_prodINV = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.prodInv = new System.Windows.Forms.DataGridView();
-            this.add_panel = new System.Windows.Forms.Panel();
+            this.show_panel = new System.Windows.Forms.Panel();
             this.close_panel = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.batch_items = new System.Windows.Forms.DataGridView();
+            this.show_recipe = new System.Windows.Forms.Button();
+            this.show_add = new System.Windows.Forms.Button();
+            this.qty_panel = new System.Windows.Forms.Panel();
+            this.add_qty = new System.Windows.Forms.Button();
+            this.lbl_prod = new System.Windows.Forms.Label();
+            this.close_add = new System.Windows.Forms.Button();
+            this.prod_quantity = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.product_recipe = new System.Windows.Forms.DataGridView();
-            this.add = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prodInv)).BeginInit();
-            this.add_panel.SuspendLayout();
+            this.show_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.batch_items)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.product_recipe)).BeginInit();
+            this.qty_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.btn_products);
+            this.panel1.Controls.Add(this.btn_prodINV);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btn_close);
             this.panel1.Location = new System.Drawing.Point(-285, -6);
@@ -60,20 +64,19 @@
             this.panel1.Size = new System.Drawing.Size(1412, 64);
             this.panel1.TabIndex = 3;
             // 
-            // btn_products
+            // btn_prodINV
             // 
-            this.btn_products.BackColor = System.Drawing.Color.Transparent;
-            this.btn_products.FlatAppearance.BorderSize = 0;
-            this.btn_products.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_products.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_products.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_products.Location = new System.Drawing.Point(914, 6);
-            this.btn_products.Name = "btn_products";
-            this.btn_products.Size = new System.Drawing.Size(103, 50);
-            this.btn_products.TabIndex = 244;
-            this.btn_products.Text = "PRODUCTS";
-            this.btn_products.UseVisualStyleBackColor = false;
-            this.btn_products.Click += new System.EventHandler(this.btn_products_Click);
+            this.btn_prodINV.BackColor = System.Drawing.Color.Transparent;
+            this.btn_prodINV.FlatAppearance.BorderSize = 0;
+            this.btn_prodINV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_prodINV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_prodINV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btn_prodINV.Location = new System.Drawing.Point(903, 7);
+            this.btn_prodINV.Name = "btn_prodINV";
+            this.btn_prodINV.Size = new System.Drawing.Size(103, 57);
+            this.btn_prodINV.TabIndex = 246;
+            this.btn_prodINV.Text = "PRODUCT";
+            this.btn_prodINV.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -135,21 +138,17 @@
             this.prodInv.TabIndex = 219;
             this.prodInv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodInv_CellClick);
             // 
-            // add_panel
+            // show_panel
             // 
-            this.add_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.add_panel.Controls.Add(this.close_panel);
-            this.add_panel.Controls.Add(this.button1);
-            this.add_panel.Controls.Add(this.label3);
-            this.add_panel.Controls.Add(this.batch_items);
-            this.add_panel.Controls.Add(this.label4);
-            this.add_panel.Controls.Add(this.product_recipe);
-            this.add_panel.Location = new System.Drawing.Point(765, 439);
-            this.add_panel.Name = "add_panel";
-            this.add_panel.Size = new System.Drawing.Size(56, 55);
-            this.add_panel.TabIndex = 245;
-            this.add_panel.Visible = false;
-            this.add_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.add_panel_Paint);
+            this.show_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.show_panel.Controls.Add(this.close_panel);
+            this.show_panel.Controls.Add(this.label3);
+            this.show_panel.Controls.Add(this.batch_items);
+            this.show_panel.Location = new System.Drawing.Point(692, 183);
+            this.show_panel.Name = "show_panel";
+            this.show_panel.Size = new System.Drawing.Size(111, 311);
+            this.show_panel.TabIndex = 245;
+            this.show_panel.Visible = false;
             // 
             // close_panel
             // 
@@ -167,27 +166,12 @@
             this.close_panel.UseVisualStyleBackColor = false;
             this.close_panel.Click += new System.EventHandler(this.close_panel_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.button1.Location = new System.Drawing.Point(657, 355);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 25);
-            this.button1.TabIndex = 247;
-            this.button1.Text = "ADD";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(404, 36);
+            this.label3.Location = new System.Drawing.Point(16, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(216, 25);
             this.label3.TabIndex = 246;
@@ -204,61 +188,121 @@
             this.batch_items.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.batch_items.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.batch_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.batch_items.Location = new System.Drawing.Point(409, 64);
+            this.batch_items.Location = new System.Drawing.Point(21, 64);
             this.batch_items.MultiSelect = false;
             this.batch_items.Name = "batch_items";
             this.batch_items.ReadOnly = true;
             this.batch_items.RowHeadersVisible = false;
             this.batch_items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.batch_items.Size = new System.Drawing.Size(377, 285);
+            this.batch_items.Size = new System.Drawing.Size(765, 285);
             this.batch_items.TabIndex = 245;
+            // 
+            // show_recipe
+            // 
+            this.show_recipe.BackColor = System.Drawing.Color.Transparent;
+            this.show_recipe.FlatAppearance.BorderSize = 0;
+            this.show_recipe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.show_recipe.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.show_recipe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.show_recipe.Location = new System.Drawing.Point(650, 75);
+            this.show_recipe.Name = "show_recipe";
+            this.show_recipe.Size = new System.Drawing.Size(171, 25);
+            this.show_recipe.TabIndex = 247;
+            this.show_recipe.Text = "BATCH INGREDIENTS";
+            this.show_recipe.UseVisualStyleBackColor = false;
+            this.show_recipe.Click += new System.EventHandler(this.show_recipe_Click);
+            // 
+            // show_add
+            // 
+            this.show_add.BackColor = System.Drawing.Color.Transparent;
+            this.show_add.FlatAppearance.BorderSize = 0;
+            this.show_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.show_add.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.show_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.show_add.Location = new System.Drawing.Point(517, 75);
+            this.show_add.Name = "show_add";
+            this.show_add.Size = new System.Drawing.Size(127, 25);
+            this.show_add.TabIndex = 249;
+            this.show_add.Text = "ADD QUANTITY";
+            this.show_add.UseVisualStyleBackColor = false;
+            this.show_add.Click += new System.EventHandler(this.show_add_Click);
+            // 
+            // qty_panel
+            // 
+            this.qty_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.qty_panel.Controls.Add(this.label4);
+            this.qty_panel.Controls.Add(this.prod_quantity);
+            this.qty_panel.Controls.Add(this.add_qty);
+            this.qty_panel.Controls.Add(this.lbl_prod);
+            this.qty_panel.Controls.Add(this.close_add);
+            this.qty_panel.Location = new System.Drawing.Point(274, 153);
+            this.qty_panel.Name = "qty_panel";
+            this.qty_panel.Size = new System.Drawing.Size(295, 213);
+            this.qty_panel.TabIndex = 250;
+            // 
+            // add_qty
+            // 
+            this.add_qty.BackColor = System.Drawing.Color.Transparent;
+            this.add_qty.FlatAppearance.BorderSize = 0;
+            this.add_qty.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.add_qty.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_qty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.add_qty.Location = new System.Drawing.Point(152, 173);
+            this.add_qty.Name = "add_qty";
+            this.add_qty.Size = new System.Drawing.Size(127, 25);
+            this.add_qty.TabIndex = 250;
+            this.add_qty.Text = "ADD ";
+            this.add_qty.UseVisualStyleBackColor = false;
+            this.add_qty.Click += new System.EventHandler(this.add_qty_Click);
+            // 
+            // lbl_prod
+            // 
+            this.lbl_prod.AutoSize = true;
+            this.lbl_prod.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_prod.ForeColor = System.Drawing.Color.Transparent;
+            this.lbl_prod.Location = new System.Drawing.Point(36, 66);
+            this.lbl_prod.Name = "lbl_prod";
+            this.lbl_prod.Size = new System.Drawing.Size(126, 25);
+            this.lbl_prod.TabIndex = 219;
+            this.lbl_prod.Text = "prod name";
+            // 
+            // close_add
+            // 
+            this.close_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.close_add.FlatAppearance.BorderSize = 0;
+            this.close_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.close_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.close_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.close_add.Location = new System.Drawing.Point(254, 0);
+            this.close_add.Name = "close_add";
+            this.close_add.Size = new System.Drawing.Size(41, 38);
+            this.close_add.TabIndex = 91;
+            this.close_add.Text = "X";
+            this.close_add.UseVisualStyleBackColor = false;
+            // 
+            // prod_quantity
+            // 
+            this.prod_quantity.BackColor = System.Drawing.Color.White;
+            this.prod_quantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prod_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prod_quantity.ForeColor = System.Drawing.Color.Black;
+            this.prod_quantity.Location = new System.Drawing.Point(152, 116);
+            this.prod_quantity.Multiline = true;
+            this.prod_quantity.Name = "prod_quantity";
+            this.prod_quantity.Size = new System.Drawing.Size(95, 25);
+            this.prod_quantity.TabIndex = 251;
+            this.prod_quantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.prod_quantity_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(10, 36);
+            this.label4.Location = new System.Drawing.Point(36, 116);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(182, 25);
-            this.label4.TabIndex = 244;
-            this.label4.Text = "PRODUCT RECIPE";
-            // 
-            // product_recipe
-            // 
-            this.product_recipe.AllowUserToAddRows = false;
-            this.product_recipe.AllowUserToDeleteRows = false;
-            this.product_recipe.AllowUserToResizeColumns = false;
-            this.product_recipe.AllowUserToResizeRows = false;
-            this.product_recipe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.product_recipe.BackgroundColor = System.Drawing.Color.White;
-            this.product_recipe.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.product_recipe.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.product_recipe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.product_recipe.Location = new System.Drawing.Point(15, 64);
-            this.product_recipe.MultiSelect = false;
-            this.product_recipe.Name = "product_recipe";
-            this.product_recipe.ReadOnly = true;
-            this.product_recipe.RowHeadersVisible = false;
-            this.product_recipe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.product_recipe.Size = new System.Drawing.Size(377, 285);
-            this.product_recipe.TabIndex = 243;
-            // 
-            // add
-            // 
-            this.add.BackColor = System.Drawing.Color.Transparent;
-            this.add.FlatAppearance.BorderSize = 0;
-            this.add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.add.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.add.Location = new System.Drawing.Point(692, 73);
-            this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(129, 25);
-            this.add.TabIndex = 246;
-            this.add.Text = "ADD QUANTITY";
-            this.add.UseVisualStyleBackColor = false;
-            this.add.Visible = false;
-            this.add.Click += new System.EventHandler(this.add_Click);
+            this.label4.Size = new System.Drawing.Size(105, 25);
+            this.label4.TabIndex = 252;
+            this.label4.Text = "Quantity:";
             // 
             // Product_Inventory
             // 
@@ -266,8 +310,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(833, 506);
-            this.Controls.Add(this.add);
-            this.Controls.Add(this.add_panel);
+            this.Controls.Add(this.qty_panel);
+            this.Controls.Add(this.show_add);
+            this.Controls.Add(this.show_recipe);
+            this.Controls.Add(this.show_panel);
             this.Controls.Add(this.prodInv);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -279,10 +325,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prodInv)).EndInit();
-            this.add_panel.ResumeLayout(false);
-            this.add_panel.PerformLayout();
+            this.show_panel.ResumeLayout(false);
+            this.show_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.batch_items)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.product_recipe)).EndInit();
+            this.qty_panel.ResumeLayout(false);
+            this.qty_panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,14 +342,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView prodInv;
-        private System.Windows.Forms.Panel add_panel;
-        private System.Windows.Forms.Button add;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView product_recipe;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel show_panel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView batch_items;
         private System.Windows.Forms.Button close_panel;
-        private System.Windows.Forms.Button btn_products;
+        private System.Windows.Forms.Button show_recipe;
+        private System.Windows.Forms.Button show_add;
+        private System.Windows.Forms.Panel qty_panel;
+        private System.Windows.Forms.Label lbl_prod;
+        private System.Windows.Forms.Button close_add;
+        private System.Windows.Forms.Button btn_prodINV;
+        private System.Windows.Forms.Button add_qty;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox prod_quantity;
     }
 }

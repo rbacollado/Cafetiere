@@ -29,9 +29,23 @@ namespace SAD
         {
             inventory_status();
             loadTobeRemoved();
-            
+            total();
+
             DateTime now = DateTime.Today;
             date_lbl.Text = now.ToString("MM-dd-yyyy");
+        }
+
+        public void total()
+        {
+            // Total
+            decimal total = 0;
+            for (int i = 0; i <= inventory_dtgv.Rows.Count - 1; i++)
+            {
+                total += (decimal.Parse(inventory_dtgv.Rows[i].Cells["Cost"].Value.ToString()));
+
+            }
+            TotalTB.Text = total.ToString();
+
         }
 
         private void inventory_dtgv_SelectionChanged(object sender, EventArgs e)
@@ -300,6 +314,21 @@ namespace SAD
             this.Hide();
         }
 
-       
+        private void TotalTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TotalTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+
+        }
     }
 }

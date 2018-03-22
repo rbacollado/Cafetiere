@@ -17,7 +17,7 @@ namespace SAD
 
         public class DisplayUserDetails
         {
-           public static int staff_id;
+            public static int staff_id;
             public static string name;
             public static string usertype;
             public static string username;

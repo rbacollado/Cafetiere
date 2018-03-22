@@ -102,10 +102,10 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(17, 78);
+            this.panel3.Location = new System.Drawing.Point(11, 78);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(707, 37);
+            this.panel3.Size = new System.Drawing.Size(706, 37);
             this.panel3.TabIndex = 115;
             // 
             // label5

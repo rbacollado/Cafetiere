@@ -30,10 +30,10 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
-            this.Archive = new System.Windows.Forms.Button();
             this.supplier_update = new System.Windows.Forms.Button();
             this.supplier_add = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
+            this.Archive = new System.Windows.Forms.Button();
             this.dtgv = new System.Windows.Forms.DataGridView();
             this.records = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,20 +66,6 @@
             this.label15.Size = new System.Drawing.Size(231, 41);
             this.label15.TabIndex = 125;
             this.label15.Text = "S U P P L I E R";
-            // 
-            // Archive
-            // 
-            this.Archive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.Archive.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Archive.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Archive.ForeColor = System.Drawing.Color.White;
-            this.Archive.Location = new System.Drawing.Point(12, 61);
-            this.Archive.Name = "Archive";
-            this.Archive.Size = new System.Drawing.Size(86, 32);
-            this.Archive.TabIndex = 124;
-            this.Archive.Text = "Archive";
-            this.Archive.UseVisualStyleBackColor = false;
-            this.Archive.Click += new System.EventHandler(this.Archive_Click);
             // 
             // supplier_update
             // 
@@ -124,6 +110,20 @@
             this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click_1);
             // 
+            // Archive
+            // 
+            this.Archive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.Archive.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Archive.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Archive.ForeColor = System.Drawing.Color.White;
+            this.Archive.Location = new System.Drawing.Point(12, 61);
+            this.Archive.Name = "Archive";
+            this.Archive.Size = new System.Drawing.Size(86, 32);
+            this.Archive.TabIndex = 124;
+            this.Archive.Text = "Archive";
+            this.Archive.UseVisualStyleBackColor = false;
+            this.Archive.Click += new System.EventHandler(this.Archive_Click);
+            // 
             // dtgv
             // 
             this.dtgv.AllowUserToAddRows = false;
@@ -132,7 +132,7 @@
             this.dtgv.AllowUserToResizeRows = false;
             this.dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv.BackgroundColor = System.Drawing.Color.White;
-            this.dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv.Location = new System.Drawing.Point(12, 95);
             this.dtgv.MultiSelect = false;

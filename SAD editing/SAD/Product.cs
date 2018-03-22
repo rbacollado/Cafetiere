@@ -26,8 +26,60 @@ namespace SAD
         private void Product_Load(object sender, EventArgs e)
         {
             loadAll();
+            loadBatch();
+            loadProductBatch();
         }
-        
+
+        public void loadProductBatch()
+        {
+            string batchingredientsQuery = "SELECT * FROM batch;";
+
+            conn.Open();
+
+            MySqlCommand batch_ingredientcomm = new MySqlCommand(batchingredientsQuery, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(batch_ingredientcomm);
+
+            conn.Close();
+
+            DataTable dt_batch = new DataTable();
+
+            adp.Fill(dt_batch);
+
+            batch_dtgv.DataSource = dt_batch;
+            batch_dtgv.Columns["batch_id"].Visible = false;
+            batch_dtgv.Columns["batch_name"].HeaderText = "Name";
+            batch_dtgv.Columns["batch_produced"].HeaderText = "Produced";
+            batch_dtgv.Columns["batch_date"].HeaderText = "Date";
+            
+
+        }
+
+
+        public void loadBatch()
+        {
+            string batchingredientsQuery = "SELECT batchIngredient_id, log_stockout, ingredientName, ingredientDescription, ingredientQuantity, CONCAT(ingredientAmount, ' ' ,ingredientUnit) as measurement, batch_ingredient_date FROM batch_ingredients;";
+
+            conn.Open();
+
+            MySqlCommand batch_ingredientcomm = new MySqlCommand(batchingredientsQuery, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(batch_ingredientcomm);
+
+            conn.Close();
+
+            DataTable dt_batch = new DataTable();
+
+            adp.Fill(dt_batch);
+
+            batch_items.DataSource = dt_batch;
+            batch_items.Columns["batchIngredient_id"].Visible = false;
+            batch_items.Columns["log_stockout"].Visible = false;
+            batch_items.Columns["ingredientName"].HeaderText = "Name";
+            batch_items.Columns["ingredientDescription"].HeaderText = "Desc";
+            batch_items.Columns["ingredientQuantity"].HeaderText = "Qty";
+            batch_items.Columns["measurement"].HeaderText = "Item Measurement";
+            batch_items.Columns["batch_ingredient_date"].HeaderText = "Date";
+        }
+
         private void loadAll()
         {
             string query = "SELECT * FROM Products";
@@ -83,7 +135,7 @@ namespace SAD
                 product_recipe.DataSource = recipe;
 
                 product_recipe.Columns["ingredientName"].HeaderText = "Ingredient Name";
-                product_recipe.Columns["recipeQuantity"].HeaderText = "Quantity Used";
+                product_recipe.Columns["recipeQuantity"].HeaderText = "Quantity Needed";
                 product_recipe.Columns["recipeUnit"].HeaderText = "Unit";
                
             }
@@ -129,6 +181,23 @@ namespace SAD
             prodUpdate.Show();
             prodUpdate.prevForm = this;
             this.Hide();
+        }
+
+        
+        private void show_recipe_Click(object sender, EventArgs e)
+        {
+            show_panel.Visible = true;
+            show_panel.Enabled = true;
+
+            show_panel.Size = new Size(730, 445);
+            show_panel.Location = new Point(17, 63);
+
+        }
+
+        private void close_panel_Click(object sender, EventArgs e)
+        {
+            show_panel.Visible = false;
+            show_panel.Enabled = false;
         }
     }
 }

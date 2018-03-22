@@ -87,7 +87,11 @@ namespace SAD
             if (e.RowIndex > -1)
             {
                 int selected_id = int.Parse(dtgv.Rows[e.RowIndex].Cells["personid"].Value.ToString());
+                int selected_staff = int.Parse(dtgv.Rows[e.RowIndex].Cells["staffid"].Value.ToString());
+
                 selected_data.selected_user_id = selected_id;
+                
+                
             }
 
             string salesrecord_query = "SELECT CONCAT(firstname,' ',lastname) as StaffName, orderDate, orderType FROM person " +

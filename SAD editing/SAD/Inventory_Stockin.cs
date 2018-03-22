@@ -309,6 +309,7 @@ namespace SAD
         
         private void stockin_btn_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Are you Sure?", "", MessageBoxButtons.YesNo);
             string item_name;
             string item_description;
             int item_quantity;
@@ -321,56 +322,60 @@ namespace SAD
             }
             else
             {
-                for (int i = 0; i <= items_purchased.Rows.Count - 1; i++)
+                if (dialogResult == DialogResult.Yes)
                 {
-                    item_name = items_purchased.Rows[i].Cells["Name"].Value.ToString();
-                    item_description = items_purchased.Rows[i].Cells["Description"].Value.ToString();
-                    item_quantity = Int32.Parse(items_purchased.Rows[i].Cells["Quantity"].Value.ToString());
-                    item_expiry = items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString();
-                    item_type = items_purchased.Rows[i].Cells["Type"].Value.ToString();
-
-                    string duplicateItemsquery = "SELECT itemExpiry from items_inventory WHERE itemExpiry = '" + item_expiry +
-                                                 "' AND item_ID = (SELECT itemsID FROM items WHERE name = '" + item_name + "' AND description = '"+ item_description + "');";
-                    conn.Open();
-                    MySqlCommand comm1 = new MySqlCommand(duplicateItemsquery, conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(comm1);
-                    comm1.ExecuteNonQuery();
-                    conn.Close();
-
-                    DataTable duplicateItems = new DataTable();
-                    adp.Fill(duplicateItems);
-                    
-                    if (duplicateItems.Rows.Count > 0)
+                    for (int i = 0; i <= items_purchased.Rows.Count - 1; i++)
                     {
-                        string addItemQuantityquery = "UPDATE items_inventory SET itemStatus = 'Available', itemQuantity = itemQuantity + " + item_quantity +
-                                                      " WHERE item_ID = (SELECT itemsID FROM items WHERE name ='" + item_name + "' AND description = '" + item_description + "') AND itemExpiry = '" + item_expiry + "';";
+                        item_name = items_purchased.Rows[i].Cells["Name"].Value.ToString();
+                        item_description = items_purchased.Rows[i].Cells["Description"].Value.ToString();
+                        item_quantity = Int32.Parse(items_purchased.Rows[i].Cells["Quantity"].Value.ToString());
+                        item_expiry = items_purchased.Rows[i].Cells["ExpiryDate"].Value.ToString();
+                        item_type = items_purchased.Rows[i].Cells["Type"].Value.ToString();
 
+                        string duplicateItemsquery = "SELECT itemExpiry from items_inventory WHERE itemExpiry = '" + item_expiry +
+                                                     "' AND item_ID = (SELECT itemsID FROM items WHERE name = '" + item_name + "' AND description = '" + item_description + "');";
                         conn.Open();
-                        MySqlCommand comm_itemquantity = new MySqlCommand(addItemQuantityquery, conn);
-                        comm_itemquantity.ExecuteNonQuery();
+                        MySqlCommand comm1 = new MySqlCommand(duplicateItemsquery, conn);
+                        MySqlDataAdapter adp = new MySqlDataAdapter(comm1);
+                        comm1.ExecuteNonQuery();
                         conn.Close();
-                    }
-                    else
-                    {
-                        string addNewItemQuery = "INSERT INTO items_inventory (item_ID, itemQuantity, itemStatus, itemType, itemStockedIn, itemExpiry) " +
-                                                   "VALUES((SELECT itemsID from items WHERE name = '" + item_name + "' AND description = '" + item_description + "'), " + item_quantity + ", 'Available', '" + item_type + "', current_timestamp(), '" + item_expiry + "');";
+
+                        DataTable duplicateItems = new DataTable();
+                        adp.Fill(duplicateItems);
+
+                        if (duplicateItems.Rows.Count > 0)
+                        {
+                            string addItemQuantityquery = "UPDATE items_inventory SET itemStatus = 'Available', itemQuantity = itemQuantity + " + item_quantity +
+                                                          " WHERE item_ID = (SELECT itemsID FROM items WHERE name ='" + item_name + "' AND description = '" + item_description + "') AND itemExpiry = '" + item_expiry + "';";
+
+                            conn.Open();
+                            MySqlCommand comm_itemquantity = new MySqlCommand(addItemQuantityquery, conn);
+                            comm_itemquantity.ExecuteNonQuery();
+                            conn.Close();
+                        }
+                        else
+                        {
+                            string addNewItemQuery = "INSERT INTO items_inventory (item_ID, itemQuantity, itemStatus, itemType, itemStockedIn, itemExpiry) " +
+                                                       "VALUES((SELECT itemsID from items WHERE name = '" + item_name + "' AND description = '" + item_description + "'), " + item_quantity + ", 'Available', '" + item_type + "', current_timestamp(), '" + item_expiry + "');";
+                            conn.Open();
+                            MySqlCommand comm_NewItem = new MySqlCommand(addNewItemQuery, conn);
+                            comm_NewItem.ExecuteNonQuery();
+                            conn.Close();
+                        }
+
+                        string inventorylogQuery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType,remarks) " +
+                                                   "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + item_name + "'," + item_quantity + ", current_timestamp(), 'Stock in (Wet Market)', 'Stocked in by " + SAD.Login.DisplayUserDetails.name + "');";
                         conn.Open();
-                        MySqlCommand comm_NewItem = new MySqlCommand(addNewItemQuery, conn);
-                        comm_NewItem.ExecuteNonQuery();
+                        MySqlCommand comm_inventorylog = new MySqlCommand(inventorylogQuery, conn);
+                        comm_inventorylog.ExecuteNonQuery();
                         conn.Close();
+
                     }
-                    
-                    string inventorylogQuery = "INSERT INTO inventorylog (staff_staffid,itemName,quantity,logdate,logType,remarks) " +
-                                               "VALUES(" + SAD.Login.DisplayUserDetails.staff_id + ",'" + item_name + "'," + item_quantity + ", current_timestamp(), 'Stock in (Wet Market)', 'Stocked in by " + SAD.Login.DisplayUserDetails.name + "');";
-                    conn.Open();
-                    MySqlCommand comm_inventorylog = new MySqlCommand(inventorylogQuery, conn);
-                    comm_inventorylog.ExecuteNonQuery();
-                    conn.Close();
-                    
+                    MessageBox.Show("Items successfully stocked in!");
+                    prevForm.ShowDialog();
+                    this.Close();
                 }
-                MessageBox.Show("Items successfully stocked in!");
-                prevForm.ShowDialog();
-                this.Close();
+                
 
             }
         }

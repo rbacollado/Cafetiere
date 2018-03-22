@@ -28,16 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.withIngredient_panel = new System.Windows.Forms.Panel();
+            this.ingredient_expiry = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.ingredientdesc_txt = new System.Windows.Forms.TextBox();
             this.add_btn = new System.Windows.Forms.Button();
@@ -86,7 +81,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.ingredient_chk = new System.Windows.Forms.CheckBox();
-            this.ingredient_expiry = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.withIngredient_panel.SuspendLayout();
             this.ingredients_panel.SuspendLayout();
@@ -168,6 +162,19 @@
             this.withIngredient_panel.TabIndex = 206;
             this.withIngredient_panel.Visible = false;
             // 
+            // ingredient_expiry
+            // 
+            this.ingredient_expiry.BackColor = System.Drawing.Color.White;
+            this.ingredient_expiry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ingredient_expiry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ingredient_expiry.ForeColor = System.Drawing.Color.Black;
+            this.ingredient_expiry.Location = new System.Drawing.Point(153, 37);
+            this.ingredient_expiry.Multiline = true;
+            this.ingredient_expiry.Name = "ingredient_expiry";
+            this.ingredient_expiry.Size = new System.Drawing.Size(29, 27);
+            this.ingredient_expiry.TabIndex = 253;
+            this.ingredient_expiry.Visible = false;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -227,35 +234,11 @@
             this.item_data.BackgroundColor = System.Drawing.Color.White;
             this.item_data.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.item_data.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.item_data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.item_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.item_data.DefaultCellStyle = dataGridViewCellStyle20;
             this.item_data.Location = new System.Drawing.Point(14, 13);
             this.item_data.Name = "item_data";
             this.item_data.ReadOnly = true;
             this.item_data.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.item_data.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.item_data.RowHeadersVisible = false;
             this.item_data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.item_data.Size = new System.Drawing.Size(414, 242);
@@ -488,10 +471,10 @@
             // pcost_txt
             // 
             this.pcost_txt.Enabled = false;
-            this.pcost_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pcost_txt.Location = new System.Drawing.Point(584, 513);
+            this.pcost_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pcost_txt.Location = new System.Drawing.Point(613, 506);
             this.pcost_txt.Name = "pcost_txt";
-            this.pcost_txt.Size = new System.Drawing.Size(151, 24);
+            this.pcost_txt.Size = new System.Drawing.Size(151, 31);
             this.pcost_txt.TabIndex = 231;
             this.pcost_txt.Tag = "";
             this.pcost_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -501,11 +484,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(474, 515);
+            this.label10.Location = new System.Drawing.Point(461, 507);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 19);
+            this.label10.Size = new System.Drawing.Size(140, 25);
             this.label10.TabIndex = 230;
             this.label10.Text = "Product Cost";
             this.label10.Visible = false;
@@ -674,6 +657,7 @@
             this.prod_cost.TabIndex = 246;
             this.prod_cost.Tag = "";
             this.prod_cost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.prod_cost.TextChanged += new System.EventHandler(this.prod_cost_TextChanged);
             this.prod_cost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.prod_cost_KeyPress);
             // 
             // label14
@@ -708,35 +692,11 @@
             this.product_data.BackgroundColor = System.Drawing.Color.White;
             this.product_data.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.product_data.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.product_data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.product_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.product_data.DefaultCellStyle = dataGridViewCellStyle23;
             this.product_data.Location = new System.Drawing.Point(18, 26);
             this.product_data.Name = "product_data";
             this.product_data.ReadOnly = true;
             this.product_data.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.product_data.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.product_data.RowHeadersVisible = false;
             this.product_data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.product_data.Size = new System.Drawing.Size(387, 327);
@@ -873,19 +833,6 @@
             this.ingredient_chk.Text = "Ingredients";
             this.ingredient_chk.UseVisualStyleBackColor = true;
             this.ingredient_chk.CheckedChanged += new System.EventHandler(this.ingredient_chk_CheckedChanged);
-            // 
-            // ingredient_expiry
-            // 
-            this.ingredient_expiry.BackColor = System.Drawing.Color.White;
-            this.ingredient_expiry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ingredient_expiry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ingredient_expiry.ForeColor = System.Drawing.Color.Black;
-            this.ingredient_expiry.Location = new System.Drawing.Point(153, 37);
-            this.ingredient_expiry.Multiline = true;
-            this.ingredient_expiry.Name = "ingredient_expiry";
-            this.ingredient_expiry.Size = new System.Drawing.Size(29, 27);
-            this.ingredient_expiry.TabIndex = 253;
-            this.ingredient_expiry.Visible = false;
             // 
             // Product_Add
             // 

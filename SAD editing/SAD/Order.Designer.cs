@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.takeout_subtotal = new System.Windows.Forms.TextBox();
-            this.stockleft = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Back = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.prod_category = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.paymentpanel = new System.Windows.Forms.Panel();
             this.cmb_queue = new System.Windows.Forms.ComboBox();
@@ -94,7 +97,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.panel1.Controls.Add(this.takeout_subtotal);
-            this.panel1.Controls.Add(this.stockleft);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.Back);
             this.panel1.Location = new System.Drawing.Point(-6, -2);
@@ -112,18 +114,7 @@
             this.takeout_subtotal.Size = new System.Drawing.Size(65, 26);
             this.takeout_subtotal.TabIndex = 212;
             this.takeout_subtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // stockleft
-            // 
-            this.stockleft.Enabled = false;
-            this.stockleft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockleft.Location = new System.Drawing.Point(379, 16);
-            this.stockleft.Name = "stockleft";
-            this.stockleft.ReadOnly = true;
-            this.stockleft.Size = new System.Drawing.Size(54, 26);
-            this.stockleft.TabIndex = 211;
-            this.stockleft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.stockleft.Visible = false;
+            this.takeout_subtotal.Visible = false;
             // 
             // label1
             // 
@@ -132,7 +123,7 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(10, 11);
+            this.label1.Location = new System.Drawing.Point(16, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 41);
             this.label1.TabIndex = 128;
@@ -144,9 +135,9 @@
             this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Back.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Back.ForeColor = System.Drawing.Color.White;
-            this.Back.Location = new System.Drawing.Point(1011, 3);
+            this.Back.Location = new System.Drawing.Point(1023, 3);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(117, 51);
+            this.Back.Size = new System.Drawing.Size(96, 51);
             this.Back.TabIndex = 85;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = false;
@@ -155,6 +146,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel6.Controls.Add(this.prod_category);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.paymentpanel);
             this.panel6.Controls.Add(this.encoderPos);
@@ -180,6 +172,16 @@
             this.panel6.Size = new System.Drawing.Size(387, 572);
             this.panel6.TabIndex = 204;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            // 
+            // prod_category
+            // 
+            this.prod_category.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prod_category.Location = new System.Drawing.Point(74, 174);
+            this.prod_category.Name = "prod_category";
+            this.prod_category.ReadOnly = true;
+            this.prod_category.Size = new System.Drawing.Size(191, 27);
+            this.prod_category.TabIndex = 217;
+            this.prod_category.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -518,7 +520,6 @@
             // 
             // quantityTxt
             // 
-            this.quantityTxt.Enabled = false;
             this.quantityTxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantityTxt.Location = new System.Drawing.Point(74, 272);
             this.quantityTxt.Name = "quantityTxt";
@@ -534,7 +535,7 @@
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_add.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.White;
-            this.btn_add.Location = new System.Drawing.Point(219, 468);
+            this.btn_add.Location = new System.Drawing.Point(209, 468);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(165, 37);
             this.btn_add.TabIndex = 83;
@@ -598,7 +599,7 @@
             // prodname
             // 
             this.prodname.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prodname.Location = new System.Drawing.Point(74, 154);
+            this.prodname.Location = new System.Drawing.Point(74, 141);
             this.prodname.Name = "prodname";
             this.prodname.ReadOnly = true;
             this.prodname.Size = new System.Drawing.Size(191, 27);
@@ -609,7 +610,7 @@
             // 
             this.priceTxt.Enabled = false;
             this.priceTxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceTxt.Location = new System.Drawing.Point(74, 197);
+            this.priceTxt.Location = new System.Drawing.Point(74, 207);
             this.priceTxt.Name = "priceTxt";
             this.priceTxt.ReadOnly = true;
             this.priceTxt.Size = new System.Drawing.Size(191, 27);
@@ -627,14 +628,38 @@
             this.product_data.BackgroundColor = System.Drawing.Color.White;
             this.product_data.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.product_data.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.product_data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.product_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.product_data.Location = new System.Drawing.Point(407, 82);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.product_data.DefaultCellStyle = dataGridViewCellStyle2;
+            this.product_data.Location = new System.Drawing.Point(407, 89);
             this.product_data.Name = "product_data";
             this.product_data.ReadOnly = true;
             this.product_data.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.product_data.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.product_data.RowHeadersVisible = false;
             this.product_data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.product_data.Size = new System.Drawing.Size(693, 236);
+            this.product_data.Size = new System.Drawing.Size(693, 229);
             this.product_data.TabIndex = 0;
             this.product_data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_data_CellClick);
             // 
@@ -656,7 +681,7 @@
             this.Quantity,
             this.Subtotal,
             this.OrderType});
-            this.ordered_products.Location = new System.Drawing.Point(407, 360);
+            this.ordered_products.Location = new System.Drawing.Point(407, 374);
             this.ordered_products.Name = "ordered_products";
             this.ordered_products.ReadOnly = true;
             this.ordered_products.RowHeadersVisible = false;
@@ -707,7 +732,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(403, 333);
+            this.label4.Location = new System.Drawing.Point(403, 340);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(233, 24);
             this.label4.TabIndex = 74;
@@ -719,7 +744,7 @@
             this.checkout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.checkout.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkout.ForeColor = System.Drawing.Color.White;
-            this.checkout.Location = new System.Drawing.Point(935, 596);
+            this.checkout.Location = new System.Drawing.Point(935, 610);
             this.checkout.Name = "checkout";
             this.checkout.Size = new System.Drawing.Size(165, 37);
             this.checkout.TabIndex = 210;
@@ -774,7 +799,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(127, 24);
             this.label7.TabIndex = 221;
-            this.label7.Text = "PRODUCTS ";
+            this.label7.Text = "MAIN MENU";
             // 
             // label8
             // 
@@ -782,19 +807,20 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(901, 334);
+            this.label8.Location = new System.Drawing.Point(867, 337);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 24);
+            this.label8.Size = new System.Drawing.Size(90, 24);
             this.label8.TabIndex = 224;
-            this.label8.Text = "Total";
+            this.label8.Text = "Total (₱)";
             // 
             // TotalTB
             // 
             this.TotalTB.BackColor = System.Drawing.SystemColors.Window;
-            this.TotalTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalTB.Location = new System.Drawing.Point(963, 330);
+            this.TotalTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalTB.ForeColor = System.Drawing.Color.Red;
+            this.TotalTB.Location = new System.Drawing.Point(963, 333);
             this.TotalTB.Name = "TotalTB";
-            this.TotalTB.Size = new System.Drawing.Size(137, 29);
+            this.TotalTB.Size = new System.Drawing.Size(137, 31);
             this.TotalTB.TabIndex = 223;
             this.TotalTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TotalTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TotalTB_KeyPress);
@@ -804,7 +830,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(1112, 641);
+            this.ClientSize = new System.Drawing.Size(1112, 652);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.TotalTB);
             this.Controls.Add(this.cb_category);
@@ -817,7 +843,7 @@
             this.Controls.Add(this.ordered_products);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-    
+           
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);
@@ -870,7 +896,6 @@
         private System.Windows.Forms.Label discountTypelbl;
         public System.Windows.Forms.ComboBox cb_discountType;
         private System.Windows.Forms.CheckBox discountCheck;
-        private System.Windows.Forms.TextBox stockleft;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label encoderPos;
@@ -890,5 +915,6 @@
         private System.Windows.Forms.TextBox takeout_subtotal;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TotalTB;
+        private System.Windows.Forms.TextBox prod_category;
     }
 }

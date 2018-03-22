@@ -39,6 +39,7 @@ namespace SAD
             encoderLbl.Text = SAD.Login.DisplayUserDetails.name;
             encoderPos.Text = SAD.Login.DisplayUserDetails.usertype;
 
+            
             //Load Items
             ShowItems();
 
@@ -62,7 +63,7 @@ namespace SAD
         public void load_suppliers()
         {
             String query = "SELECT firstname, lastname, organization FROM person " +
-                           "INNER JOIN supplier ON person.personid =  supplier.person_personid WHERE supplierID = "+ selected_supplierid + "";
+                           "INNER JOIN supplier ON person.personid =  supplier.person_personid WHERE supplierID = "+ selected_supplierid + " AND status = 'Active';";
 
             MySqlCommand comm = new MySqlCommand(query, conn);
             comm.CommandText = query;
@@ -273,72 +274,76 @@ namespace SAD
 
         private void btn_order_Click(object sender, EventArgs e)
         {
-            if (items_ordered.SelectedRows.Count  > 0 )
+            DialogResult dialogResult = MessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                string suppquery = "SELECT supplierID FROM supplier WHERE organization = '" + supplier_txt.Text +"'";
-                conn.Open();
-
-                MySqlCommand comm1 = new MySqlCommand(suppquery, conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm1);
-                DataTable supplierdata = new DataTable();
-                adp.Fill(supplierdata);
-
-                string supplierid = supplierdata.Rows[0][0].ToString();
-
-                conn.Close();
-
-
-                string orderquery = "INSERT INTO purchaseorder (supplier_supplierID, staff_staffid, purchaseOrderDate, purchaseOrderTotal) "
-                        + "VALUES('"+ int.Parse(supplierid) + "','"+ SAD.Login.DisplayUserDetails.staff_id +"', current_timestamp(), '" + decimal.Parse(TotalTB.Text) + "')";
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand(orderquery, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-
-
-                for (int i = 0; i <= items_ordered.Rows.Count - 1; i++)
+                if (items_ordered.SelectedRows.Count > 0)
                 {
-                    
-                    string itemname = items_ordered.Rows[i].Cells["Name"].Value.ToString();
-
-                    string queryitem = "SELECT itemsID FROM items WHERE name = '" + itemname + "'";
+                    string suppquery = "SELECT supplierID FROM supplier WHERE organization = '" + supplier_txt.Text + "'";
                     conn.Open();
-                    MySqlCommand commitems = new MySqlCommand(queryitem, conn);
-                    MySqlDataAdapter adpitems = new MySqlDataAdapter(commitems);
-                    conn.Close();
-                    DataTable dt_items = new DataTable();
-                    adpitems.Fill(dt_items);
 
-                    string itemid = dt_items.Rows[0][0].ToString();
-                    string itemName = items_ordered.Rows[i].Cells["Name"].Value.ToString();
-                    string item_description = items_ordered.Rows[i].Cells["Description"].Value.ToString();
-                    string itemPrice = items_ordered.Rows[i].Cells["Price"].Value.ToString();
-                    string itemQuantity = items_ordered.Rows[i].Cells["Quantity"].Value.ToString();
-                    string itemType = items_ordered.Rows[i].Cells["Type"].Value.ToString();
-                    string itemExipiry = items_ordered.Rows[i].Cells["ExpiryDate"].Value.ToString();
-                    string subtotal = items_ordered.Rows[i].Cells["Subtotal"].Value.ToString();
-                    
-                    string orderline_query = "INSERT INTO purchaseorder_line(purchaseOrder_purchaseOrderID, items_itemsID, POLineItemName, POLineDescription, POLinePrice, POLineQuantity, itemType, itemExipiryDate, POLineSubtotal, stocked_in)" +
-                                             "VALUES((SELECT max(purchaseOrderID) from purchaseorder), '" + int.Parse(itemid) + "' ,'" + itemName + "', '" + item_description + "', '" + double.Parse(itemPrice) + "','" + int.Parse(itemQuantity) +
-                                             "','" + itemType + "','" + itemExipiry + "','" + decimal.Parse(subtotal) + "', 'No');";
-                    conn.Open();
-                    MySqlCommand orderline_comm = new MySqlCommand(orderline_query, conn);
-                    orderline_comm.ExecuteNonQuery();
+                    MySqlCommand comm1 = new MySqlCommand(suppquery, conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm1);
+                    DataTable supplierdata = new DataTable();
+                    adp.Fill(supplierdata);
+
+                    string supplierid = supplierdata.Rows[0][0].ToString();
+
                     conn.Close();
+
+
+                    string orderquery = "INSERT INTO purchaseorder (supplier_supplierID, staff_staffid, purchaseOrderDate, purchaseOrderTotal) "
+                            + "VALUES('" + int.Parse(supplierid) + "','" + SAD.Login.DisplayUserDetails.staff_id + "', current_timestamp(), '" + decimal.Parse(TotalTB.Text) + "')";
+                    conn.Open();
+                    MySqlCommand comm = new MySqlCommand(orderquery, conn);
+                    comm.ExecuteNonQuery();
+                    conn.Close();
+
+
+                    for (int i = 0; i <= items_ordered.Rows.Count - 1; i++)
+                    {
+
+                        string itemname = items_ordered.Rows[i].Cells["Name"].Value.ToString();
+
+                        string queryitem = "SELECT itemsID FROM items WHERE name = '" + itemname + "'";
+                        conn.Open();
+                        MySqlCommand commitems = new MySqlCommand(queryitem, conn);
+                        MySqlDataAdapter adpitems = new MySqlDataAdapter(commitems);
+                        conn.Close();
+                        DataTable dt_items = new DataTable();
+                        adpitems.Fill(dt_items);
+
+                        string itemid = dt_items.Rows[0][0].ToString();
+                        string itemName = items_ordered.Rows[i].Cells["Name"].Value.ToString();
+                        string item_description = items_ordered.Rows[i].Cells["Description"].Value.ToString();
+                        string itemPrice = items_ordered.Rows[i].Cells["Price"].Value.ToString();
+                        string itemQuantity = items_ordered.Rows[i].Cells["Quantity"].Value.ToString();
+                        string itemType = items_ordered.Rows[i].Cells["Type"].Value.ToString();
+                        string itemExipiry = items_ordered.Rows[i].Cells["ExpiryDate"].Value.ToString();
+                        string subtotal = items_ordered.Rows[i].Cells["Subtotal"].Value.ToString();
+
+                        string orderline_query = "INSERT INTO purchaseorder_line(purchaseOrder_purchaseOrderID, items_itemsID, POLineItemName, POLineDescription, POLinePrice, POLineQuantity, itemType, itemExipiryDate, POLineSubtotal, stocked_in)" +
+                                                 "VALUES((SELECT max(purchaseOrderID) from purchaseorder), '" + int.Parse(itemid) + "' ,'" + itemName + "', '" + item_description + "', '" + double.Parse(itemPrice) + "','" + int.Parse(itemQuantity) +
+                                                 "','" + itemType + "','" + itemExipiry + "','" + decimal.Parse(subtotal) + "', 'No');";
+                        conn.Open();
+                        MySqlCommand orderline_comm = new MySqlCommand(orderline_query, conn);
+                        orderline_comm.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                    MessageBox.Show("Item Order added!");
+                    clear_shit();
+
+                    this.Close();
+                    prevForm.ShowDialog();
                 }
-                MessageBox.Show("Item Order added!");
-                clear_shit();
-                
-                this.Close();
-                prevForm.ShowDialog();
+                else
+                {
+                    MessageBox.Show("Please add data to the table before saving.");
+                }
             }
-            else
-            {
-                MessageBox.Show("Please add data to the table before saving.");
-            }
-           
+            
         }
-
+        
         private void btn_additem_Click_1(object sender, EventArgs e)
         {
             Item_Add add = new Item_Add();
@@ -379,8 +384,8 @@ namespace SAD
                 item_data.Columns["name"].Width = 110;
                 item_data.Columns["description"].Width = 110;
                 item_data.Columns["price"].Width = 50;
-                item_data.Columns["unit"].Width = 80;
-                item_data.Columns["amount"].Width = 50;
+                item_data.Columns["itemMeasurement"].Width = 80;
+                
           
             }
             
@@ -388,7 +393,7 @@ namespace SAD
 
         public void ShowItems()
         {
-            String queryitems = "SELECT itemsID, name, description, price, unit, amount FROM items ";
+            String queryitems = "SELECT itemsID, name, description, price, CONCAT(amount, ' ' ,unit) as itemMeasurement FROM items ";
 
             conn.Open();
             MySqlCommand commitems = new MySqlCommand(queryitems, conn);
@@ -402,8 +407,7 @@ namespace SAD
             item_data.Columns["name"].HeaderText = "Name";
             item_data.Columns["description"].HeaderText = "Description";
             item_data.Columns["price"].HeaderText = "Price";
-            item_data.Columns["unit"].HeaderText = "Unit";
-            item_data.Columns["amount"].HeaderText = "Amt";
+            item_data.Columns["itemMeasurement"].HeaderText = "Item Measurement";
             
         }
 
@@ -425,7 +429,7 @@ namespace SAD
 
         public void item_details()
         {
-            String loaditemdetails = "SELECT itemsID,name,description,price,unit,amount,expirable FROM items where itemsID = " + item_idselected + ";";
+            String loaditemdetails = "SELECT itemsID,name,description,price,CONCAT(amount, ' ', unit) as itemMeasurement ,expirable FROM items where itemsID = " + item_idselected + ";";
 
             MySqlCommand commitemdetails = new MySqlCommand(loaditemdetails, conn);
             commitemdetails.CommandText = loaditemdetails;
@@ -522,5 +526,12 @@ namespace SAD
                 e.Handled = true;
             }
         }
+
+        private void Total_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

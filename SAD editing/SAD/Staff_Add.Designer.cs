@@ -35,7 +35,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.show = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_mname = new System.Windows.Forms.TextBox();
             this.lbl_usertype = new System.Windows.Forms.Label();
@@ -127,7 +126,6 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.show);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txt_mname);
             this.panel2.Controls.Add(this.lbl_usertype);
@@ -168,18 +166,6 @@
             this.show.Text = "Show";
             this.show.UseVisualStyleBackColor = true;
             this.show.CheckedChanged += new System.EventHandler(this.show_CheckedChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(496, 184);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 15);
-            this.label2.TabIndex = 94;
-            this.label2.Text = "*Minimum 4 characters";
             // 
             // label1
             // 
@@ -504,7 +490,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_mname;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox show;
     }
 }

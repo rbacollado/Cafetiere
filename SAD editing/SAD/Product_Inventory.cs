@@ -35,7 +35,7 @@ namespace SAD
         {
             
             loadprodInv();
-        
+            loadBatch();
         }
 
         
@@ -79,44 +79,15 @@ namespace SAD
                 int selected_invID = int.Parse(prodInv.Rows[e.RowIndex].Cells["productInvID"].Value.ToString());
                 int selected_id = int.Parse(prodInv.Rows[e.RowIndex].Cells["productID"].Value.ToString());
                 prodID = selected_id;
-
-                add.Size = new Size(129, 25);
-                add.Location = new Point(692, 73);
-                add.Enabled = true;
-                add.Visible = true;
-
-                loadRecipe();
-                loadBatch();
-
+                
             }
         }
 
-        public void loadRecipe()
-        {
-            String recipeQuery = "SELECT ingredientName, ingredientDesc, recipeQuantity, recipeUnit FROM ingredients, recipe " +
-                                 "WHERE ingredients.ingredientsID = recipe.ingredients_ingredientsID AND recipe.products_productID = " + prodID + ";";
-
-            
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(recipeQuery, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-
-            DataTable recipe = new DataTable();
-            adp.Fill(recipe);
-
-            product_recipe.DataSource = recipe;
-
-            product_recipe.Columns["ingredientName"].HeaderText = "Name";
-            product_recipe.Columns["ingredientDesc"].HeaderText = "Desc";
-            product_recipe.Columns["recipeQuantity"].HeaderText = "Quantity Used";
-            product_recipe.Columns["recipeUnit"].HeaderText = "Unit";
-
-        }
+        
 
         public void loadBatch()
         {
-            string batchingredientsQuery = "SELECT * FROM batch_ingredients;";
+            string batchingredientsQuery = "SELECT batchIngredient_id, log_stockout, ingredientName, ingredientDescription, ingredientQuantity, CONCAT(ingredientAmount, ' ' ,ingredientUnit) as measurement, batch_ingredient_date FROM batch_ingredients;";
 
             conn.Open();
 
@@ -135,43 +106,45 @@ namespace SAD
             batch_items.Columns["ingredientName"].HeaderText = "Name";
             batch_items.Columns["ingredientDescription"].HeaderText = "Desc";
             batch_items.Columns["ingredientQuantity"].HeaderText = "Qty";
-            batch_items.Columns["ingredientAmount"].HeaderText = "Amt";
-            batch_items.Columns["ingredientUnit"].HeaderText = "Unit";
+            batch_items.Columns["measurement"].HeaderText = "Item Measurement";
             batch_items.Columns["batch_ingredient_date"].HeaderText = "Date";
         }
 
-        private void add_Click(object sender, EventArgs e)
+        private void show_recipe_Click(object sender, EventArgs e)
         {
-            add_panel.Visible = true;
-            add_panel.Enabled = true;
-            
-            add_panel.Size = new Size(802, 393);
-            add_panel.Location = new Point(19, 101);
+            show_panel.Visible = true;
+            show_panel.Enabled = true;
 
+            show_panel.Size = new Size(802, 393);
+            show_panel.Location = new Point(19, 101);
         }
-
+        
         private void close_panel_Click(object sender, EventArgs e)
         {
-            add_panel.Visible = false;
-            add_panel.Enabled = false;
+            show_panel.Visible = false;
+            show_panel.Enabled = false;
         }
 
-        private void btn_products_Click(object sender, EventArgs e)
+        private void show_add_Click(object sender, EventArgs e)
         {
-            Product prod = new Product();
-            prod.Show();
-            prod.prevForm = this;
-            this.Hide();
+            qty_panel.Visible = true;
+            qty_panel.Enabled = true;
+
+            qty_panel.Size = new Size(295, 213);
+            qty_panel.Location = new Point(274, 153);
         }
 
-        private void btn_productInv_Click(object sender, EventArgs e)
+        private void add_qty_Click(object sender, EventArgs e)
         {
-          
+
         }
 
-        private void add_panel_Paint(object sender, PaintEventArgs e)
+        private void prod_quantity_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

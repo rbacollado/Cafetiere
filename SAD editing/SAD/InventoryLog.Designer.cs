@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.print = new System.Windows.Forms.Button();
@@ -43,8 +44,6 @@
             this.start_filter = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.inventory_log = new System.Windows.Forms.DataGridView();
-            this.log_id = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_log)).BeginInit();
@@ -57,8 +56,21 @@
             this.panel1.Controls.Add(this.btn_close);
             this.panel1.Location = new System.Drawing.Point(-8, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 59);
+            this.panel1.Size = new System.Drawing.Size(897, 59);
             this.panel1.TabIndex = 61;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(235, 10);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(292, 41);
+            this.label15.TabIndex = 100;
+            this.label15.Text = "INVENTORY LOG";
             // 
             // btn_close
             // 
@@ -67,42 +79,14 @@
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_close.Location = new System.Drawing.Point(683, 0);
+            this.btn_close.Location = new System.Drawing.Point(774, 0);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(91, 59);
             this.btn_close.TabIndex = 64;
             this.btn_close.Text = "BACK";
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-
-
-            // panel4
             // 
-          
-            // 
-            // inventory_log
-            // 
-            this.inventory_log.AllowUserToAddRows = false;
-            this.inventory_log.AllowUserToDeleteRows = false;
-            this.inventory_log.AllowUserToResizeColumns = false;
-            this.inventory_log.AllowUserToResizeRows = false;
-            this.inventory_log.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.inventory_log.BackgroundColor = System.Drawing.Color.White;
-            this.inventory_log.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.inventory_log.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.inventory_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.inventory_log.GridColor = System.Drawing.SystemColors.Control;
-            this.inventory_log.Location = new System.Drawing.Point(20, 15);
-            this.inventory_log.Name = "inventory_log";
-            this.inventory_log.ReadOnly = true;
-            this.inventory_log.RowHeadersVisible = false;
-            this.inventory_log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventory_log.Size = new System.Drawing.Size(693, 478);
-            this.inventory_log.TabIndex = 208;
-            this.inventory_log.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_log_CellContentClick);
-            // 
-
-
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
@@ -116,7 +100,7 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(-28, 64);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(820, 58);
+            this.panel3.Size = new System.Drawing.Size(917, 58);
             this.panel3.TabIndex = 63;
             // 
             // print
@@ -125,7 +109,7 @@
             this.print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.print.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.print.ForeColor = System.Drawing.Color.Black;
-            this.print.Location = new System.Drawing.Point(688, 13);
+            this.print.Location = new System.Drawing.Point(786, 26);
             this.print.Name = "print";
             this.print.Size = new System.Drawing.Size(88, 32);
             this.print.TabIndex = 99;
@@ -138,7 +122,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label4.Location = new System.Drawing.Point(465, 26);
+            this.label4.Location = new System.Drawing.Point(571, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 18);
             this.label4.TabIndex = 124;
@@ -153,7 +137,7 @@
             "Stock in (Wet Market)",
             "Stock in (Purchased)",
             "Stock out(Manual)"});
-            this.cmb_filter.Location = new System.Drawing.Point(537, 25);
+            this.cmb_filter.Location = new System.Drawing.Point(643, 25);
             this.cmb_filter.Name = "cmb_filter";
             this.cmb_filter.Size = new System.Drawing.Size(121, 21);
             this.cmb_filter.TabIndex = 123;
@@ -218,73 +202,47 @@
             this.inventory_log.BackgroundColor = System.Drawing.Color.White;
             this.inventory_log.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.inventory_log.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventory_log.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventory_log.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.inventory_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.inventory_log.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.inventory_log.DefaultCellStyle = dataGridViewCellStyle2;
             this.inventory_log.GridColor = System.Drawing.SystemColors.Control;
             this.inventory_log.Location = new System.Drawing.Point(19, 128);
             this.inventory_log.Name = "inventory_log";
             this.inventory_log.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventory_log.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventory_log.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.inventory_log.RowHeadersVisible = false;
             this.inventory_log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventory_log.Size = new System.Drawing.Size(717, 478);
+            this.inventory_log.Size = new System.Drawing.Size(827, 478);
             this.inventory_log.TabIndex = 209;
             this.inventory_log.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_log_CellContentClick);
-            // 
-            // log_id
-            // 
-            this.log_id.BackColor = System.Drawing.Color.White;
-            this.log_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.log_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_id.ForeColor = System.Drawing.Color.Black;
-            this.log_id.Location = new System.Drawing.Point(725, 178);
-            this.log_id.Multiline = true;
-            this.log_id.Name = "log_id";
-            this.log_id.Size = new System.Drawing.Size(23, 27);
-            this.log_id.TabIndex = 65;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(235, 10);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(292, 41);
-            this.label15.TabIndex = 100;
-            this.label15.Text = "INVENTORY LOG";
             // 
             // InventoryLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(760, 633);
-            this.Controls.Add(this.log_id);
+            this.ClientSize = new System.Drawing.Size(858, 633);
             this.Controls.Add(this.inventory_log);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -299,7 +257,6 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_log)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -317,7 +274,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmb_filter;
         private System.Windows.Forms.Button print;
-        private System.Windows.Forms.TextBox log_id;
         private System.Windows.Forms.Label label15;
     }
 }

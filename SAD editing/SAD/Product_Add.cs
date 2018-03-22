@@ -216,15 +216,7 @@ namespace SAD
                     MySqlCommand productComm = new MySqlCommand(addproductQuery, conn);
                     productComm.ExecuteNonQuery();
                     conn.Close();
-
-                    string insertproductInv = "INSERT INTO product_inventory(product_ID, product_quantity, product_status)" +
-                                                        " VALUES((SELECT MAX(productID) from Products), 0, 'Not Available')";
-                    conn.Open();
-                    MySqlCommand productInvcomm = new MySqlCommand(insertproductInv, conn);
-                    productInvcomm.ExecuteNonQuery();
-                    conn.Close();
-
-
+                    
                     string queryProduct = "SELECT itemInvID FROM items_inventory " +
                                         "WHERE item_id = (SELECT itemsID from items where name = '" + prod_name.Text + "' AND description = '" + prod_description.Text + "' ) AND itemExpiry = '" + prod_expiry.Text + "' AND itemStatus = 'Available';";
 
@@ -407,12 +399,7 @@ namespace SAD
                         productComm.ExecuteNonQuery();
                         conn.Close();
 
-                        string insertproductInv = "INSERT INTO product_inventory(product_ID, product_quantity, product_status)" +
-                                                    " VALUES((SELECT MAX(productID) from Products), 0, 'Not Available')";
-                        conn.Open();
-                        MySqlCommand productInvcomm = new MySqlCommand(insertproductInv, conn);
-                        productInvcomm.ExecuteNonQuery();
-                        conn.Close();
+                        
 
                         for (int i = 0; i <= ingredient_used.Rows.Count - 1 ; i++)
                         {
@@ -593,6 +580,11 @@ namespace SAD
         }
 
         private void product_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void prod_cost_TextChanged(object sender, EventArgs e)
         {
 
         }
