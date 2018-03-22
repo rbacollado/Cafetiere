@@ -328,7 +328,7 @@ namespace SAD
                 }
                 MessageBox.Show("Item Order added!");
                 clear_shit();
-                items_ordered.Rows.Clear();
+                
                 this.Close();
                 prevForm.ShowDialog();
             }

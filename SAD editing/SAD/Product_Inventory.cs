@@ -144,6 +144,10 @@ namespace SAD
         {
             add_panel.Visible = true;
             add_panel.Enabled = true;
+            
+            add_panel.Size = new Size(802, 393);
+            add_panel.Location = new Point(19, 101);
+
         }
 
         private void close_panel_Click(object sender, EventArgs e)
@@ -162,10 +166,7 @@ namespace SAD
 
         private void btn_productInv_Click(object sender, EventArgs e)
         {
-            Product_Batch prodInv = new Product_Batch();
-            prodInv.Show();
-            prodInv.prevForm = this;
-            this.Hide();
+          
         }
 
         private void add_panel_Paint(object sender, PaintEventArgs e)

@@ -833,5 +833,10 @@ namespace SAD
         {
 
         }
+
+        private void TotalTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

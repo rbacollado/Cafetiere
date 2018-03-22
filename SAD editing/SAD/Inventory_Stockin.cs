@@ -94,17 +94,17 @@ namespace SAD
                 item_panel.Location = new Point(3, 124);
 
                 item_data.Columns["name"].Width = 110;
-                item_data.Columns["description"].Width = 110;
+                item_data.Columns["description"].Width = 80;
                 item_data.Columns["price"].Width = 50;
-                item_data.Columns["unit"].Width = 80;
-                item_data.Columns["amount"].Width = 50;
+                item_data.Columns["ItemMeasurement"].Width = 80;
+               
             
             }
         }
 
        public void itemload()
         {
-            String queryitems = "SELECT itemsID, name, description, price, unit, amount FROM items; ";
+            String queryitems = "SELECT itemsID, name, description, price, CONCAT(amount, ' ',unit) as ItemMeasurement FROM items; ";
 
             conn.Open();
             MySqlCommand commitems = new MySqlCommand(queryitems, conn);
@@ -118,8 +118,7 @@ namespace SAD
             item_data.Columns["name"].HeaderText = "Name";
             item_data.Columns["description"].HeaderText = "Description";
             item_data.Columns["price"].HeaderText = "Price";
-            item_data.Columns["unit"].HeaderText = "Unit";
-            item_data.Columns["amount"].HeaderText = "Amt";
+            item_data.Columns["ItemMeasurement"].HeaderText = "Measurement";
           
         }
         public int item_idselected;
@@ -140,7 +139,7 @@ namespace SAD
 
         public void item_details()
         {
-            String loaditemdetails = "SELECT itemsID,name,description,price,unit,amount,expirable FROM items where itemsID = " + item_idselected + ";";
+            String loaditemdetails = "SELECT itemsID,name,description,price, CONCAT(amount, ' ',unit) as ItemMeasurement,expirable FROM items where itemsID = " + item_idselected + ";";
 
             MySqlCommand commitemdetails = new MySqlCommand(loaditemdetails, conn);
             commitemdetails.CommandText = loaditemdetails;

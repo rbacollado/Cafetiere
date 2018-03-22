@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace SAD
 {
@@ -26,7 +27,31 @@ namespace SAD
             prevForm.Show();
             this.Close();
         }
-        
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+            load_credentials();
+        }
+
+        public void load_credentials()
+        {
+            String query = "SELECT username, password FROM staff " +
+                            "WHERE staffid = " + SAD.Login.DisplayUserDetails.staff_id;
+
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.CommandText = query;
+            conn.Open();
+            MySqlDataReader drd = comm.ExecuteReader();
+
+            while (drd.Read())
+            {
+                txt_username.Text = (drd["username"].ToString());
+                txt_oldpass.Text = (drd["password"].ToString());
+               
+            }
+            conn.Close();
+        }
+
         private void btn_updateUser_Click(object sender, EventArgs e)
         {
 
@@ -107,6 +132,40 @@ namespace SAD
                 txt_newpass.Clear();
                 txt_confpass.Clear();
             }
+
+            prevForm.Show();
+            this.Close();
         }
+
+        private void txt_newpass_TextChanged(object sender, EventArgs e)
+        {
+            if (show.Checked)
+            {
+                txt_newpass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txt_newpass.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void show_CheckedChanged(object sender, EventArgs e)
+        {
+            if (show.Checked)
+            {
+                txt_newpass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txt_newpass.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txt_confpass_TextChanged(object sender, EventArgs e)
+        {
+            txt_confpass.UseSystemPasswordChar = true;
+        }
+
+       
     }
 }

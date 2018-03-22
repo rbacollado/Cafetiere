@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.date_lbl = new System.Windows.Forms.Label();
@@ -77,10 +77,8 @@
             this.itemQuantity = new System.Windows.Forms.Label();
             this.itemCost = new System.Windows.Forms.Label();
             this.itemAmount = new System.Windows.Forms.Label();
-            this.itemUnit = new System.Windows.Forms.Label();
             this.item_name = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_dtgv)).BeginInit();
             this.panel10.SuspendLayout();
@@ -155,34 +153,34 @@
             this.inventory_dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inventory_dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.inventory_dtgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventory_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventory_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.inventory_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.inventory_dtgv.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.inventory_dtgv.DefaultCellStyle = dataGridViewCellStyle8;
             this.inventory_dtgv.Location = new System.Drawing.Point(12, 89);
             this.inventory_dtgv.Name = "inventory_dtgv";
             this.inventory_dtgv.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventory_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventory_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.inventory_dtgv.RowHeadersVisible = false;
             this.inventory_dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.inventory_dtgv.Size = new System.Drawing.Size(1108, 243);
@@ -344,7 +342,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(15, 93);
+            this.label11.Location = new System.Drawing.Point(11, 94);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(94, 19);
             this.label11.TabIndex = 238;
@@ -384,7 +382,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(18, 235);
+            this.label3.Location = new System.Drawing.Point(11, 235);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 19);
             this.label3.TabIndex = 227;
@@ -406,11 +404,11 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(18, 166);
+            this.label17.Location = new System.Drawing.Point(11, 165);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 19);
+            this.label17.Size = new System.Drawing.Size(115, 19);
             this.label17.TabIndex = 225;
-            this.label17.Text = "Amount";
+            this.label17.Text = "Measurement";
             // 
             // txt_quantity
             // 
@@ -459,7 +457,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(18, 201);
+            this.label16.Location = new System.Drawing.Point(11, 201);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(37, 19);
             this.label16.TabIndex = 218;
@@ -471,7 +469,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(15, 127);
+            this.label15.Location = new System.Drawing.Point(11, 131);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(74, 19);
             this.label15.TabIndex = 216;
@@ -493,7 +491,7 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(15, 57);
+            this.label14.Location = new System.Drawing.Point(11, 61);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(58, 19);
             this.label14.TabIndex = 214;
@@ -529,7 +527,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.panel13);
             this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.label10);
@@ -544,7 +541,6 @@
             this.panel2.Controls.Add(this.itemQuantity);
             this.panel2.Controls.Add(this.itemCost);
             this.panel2.Controls.Add(this.itemAmount);
-            this.panel2.Controls.Add(this.itemUnit);
             this.panel2.Controls.Add(this.item_name);
             this.panel2.Location = new System.Drawing.Point(30, 354);
             this.panel2.Name = "panel2";
@@ -633,9 +629,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label7.Location = new System.Drawing.Point(3, 78);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 18);
+            this.label7.Size = new System.Drawing.Size(145, 18);
             this.label7.TabIndex = 24;
-            this.label7.Text = "Amount";
+            this.label7.Text = "Item Measurement";
             // 
             // label8
             // 
@@ -708,16 +704,6 @@
             this.itemAmount.Size = new System.Drawing.Size(0, 20);
             this.itemAmount.TabIndex = 17;
             // 
-            // itemUnit
-            // 
-            this.itemUnit.AutoSize = true;
-            this.itemUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemUnit.ForeColor = System.Drawing.Color.Transparent;
-            this.itemUnit.Location = new System.Drawing.Point(88, 96);
-            this.itemUnit.Name = "itemUnit";
-            this.itemUnit.Size = new System.Drawing.Size(0, 20);
-            this.itemUnit.TabIndex = 16;
-            // 
             // item_name
             // 
             this.item_name.AutoSize = true;
@@ -740,17 +726,6 @@
             this.label6.Size = new System.Drawing.Size(184, 25);
             this.label6.TabIndex = 62;
             this.label6.Text = "ITEM PURCHASED";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label12.Location = new System.Drawing.Point(89, 78);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(35, 18);
-            this.label12.TabIndex = 31;
-            this.label12.Text = "Unit";
             // 
             // InventoryTransaction
             // 
@@ -824,7 +799,6 @@
         private System.Windows.Forms.Label itemQuantity;
         private System.Windows.Forms.Label itemCost;
         private System.Windows.Forms.Label itemAmount;
-        private System.Windows.Forms.Label itemUnit;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label20;
@@ -840,6 +814,5 @@
         private System.Windows.Forms.Button show_SOpanel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txt_description;
-        private System.Windows.Forms.Label label12;
     }
 }

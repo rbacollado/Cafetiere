@@ -66,7 +66,7 @@ namespace SAD
                     if (txt_username.Text == "" || txt_pass.Text == "")
                     {
                         string query1 = "INSERT INTO staff (person_personid, position, username, password, status, date_added, date_modified)" +
-                                    "VALUES( (SELECT MAX(personid) from person) ,'cafetiere','cafetiere','" + txt_pass.Text + "','Active', current_timestamp(), current_timestamp() )";
+                                    "VALUES( (SELECT MAX(personid) from person) ,'" + cb_usertype.Text + "','cafetiere', 'cafetiere', 'Active', current_timestamp(), current_timestamp() )";
 
                         MySqlCommand comm1 = new MySqlCommand(query1, conn);
                         comm1.ExecuteNonQuery();
@@ -130,7 +130,14 @@ namespace SAD
 
         private void txt_pass_TextChanged(object sender, EventArgs e)
         {
-            
+            if (show.Checked)
+            {
+                txt_pass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txt_pass.UseSystemPasswordChar = true;
+            }
         }
         
         private void txt_mname_KeyPress(object sender, KeyPressEventArgs e)
@@ -149,6 +156,11 @@ namespace SAD
             {
                 txt_pass.UseSystemPasswordChar = true;
             }
+        }
+
+        private void txt_confpass_TextChanged(object sender, EventArgs e)
+        {
+            txt_confpass.UseSystemPasswordChar = true;
         }
     }
 }

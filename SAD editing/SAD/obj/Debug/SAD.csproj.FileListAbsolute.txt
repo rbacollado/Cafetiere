@@ -273,7 +273,6 @@ C:\Users\mmntmaulana\Desktop\Cafetiere\Cafetiere\SAD editing\SAD\bin\Debug\pt\Mi
 C:\Users\mmntmaulana\Desktop\Cafetiere\Cafetiere\SAD editing\SAD\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\mmntmaulana\Desktop\Cafetiere\Cafetiere\SAD editing\SAD\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\mmntmaulana\Desktop\Cafetiere\Cafetiere\SAD editing\SAD\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\admin\Desktop\Cafetiere\SAD editing\SAD\obj\Debug\SAD.Product_Batch.resources
 C:\Users\rbacollado\Documents\GitHub\Cafetiere\SAD editing\SAD\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 C:\Users\rbacollado\Documents\GitHub\Cafetiere\SAD editing\SAD\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\Users\rbacollado\Documents\GitHub\Cafetiere\SAD editing\SAD\bin\Debug\SqlServerTypes\x86\msvcr120.dll

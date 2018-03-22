@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_productInv = new System.Windows.Forms.Button();
             this.btn_products = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
@@ -53,7 +52,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.btn_productInv);
             this.panel1.Controls.Add(this.btn_products);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btn_close);
@@ -62,21 +60,6 @@
             this.panel1.Size = new System.Drawing.Size(1412, 64);
             this.panel1.TabIndex = 3;
             // 
-            // btn_productInv
-            // 
-            this.btn_productInv.BackColor = System.Drawing.Color.Transparent;
-            this.btn_productInv.FlatAppearance.BorderSize = 0;
-            this.btn_productInv.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_productInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_productInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_productInv.Location = new System.Drawing.Point(867, 8);
-            this.btn_productInv.Name = "btn_productInv";
-            this.btn_productInv.Size = new System.Drawing.Size(149, 48);
-            this.btn_productInv.TabIndex = 245;
-            this.btn_productInv.Text = "PRODUCT BATCH";
-            this.btn_productInv.UseVisualStyleBackColor = false;
-            this.btn_productInv.Click += new System.EventHandler(this.btn_productInv_Click);
-            // 
             // btn_products
             // 
             this.btn_products.BackColor = System.Drawing.Color.Transparent;
@@ -84,7 +67,7 @@
             this.btn_products.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_products.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btn_products.Location = new System.Drawing.Point(759, 6);
+            this.btn_products.Location = new System.Drawing.Point(914, 6);
             this.btn_products.Name = "btn_products";
             this.btn_products.Size = new System.Drawing.Size(103, 50);
             this.btn_products.TabIndex = 244;
@@ -161,9 +144,9 @@
             this.add_panel.Controls.Add(this.batch_items);
             this.add_panel.Controls.Add(this.label4);
             this.add_panel.Controls.Add(this.product_recipe);
-            this.add_panel.Location = new System.Drawing.Point(19, 101);
+            this.add_panel.Location = new System.Drawing.Point(765, 439);
             this.add_panel.Name = "add_panel";
-            this.add_panel.Size = new System.Drawing.Size(802, 393);
+            this.add_panel.Size = new System.Drawing.Size(56, 55);
             this.add_panel.TabIndex = 245;
             this.add_panel.Visible = false;
             this.add_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.add_panel_Paint);
@@ -320,7 +303,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView batch_items;
         private System.Windows.Forms.Button close_panel;
-        private System.Windows.Forms.Button btn_productInv;
         private System.Windows.Forms.Button btn_products;
     }
 }

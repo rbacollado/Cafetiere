@@ -47,6 +47,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txt_username = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.show = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -120,7 +121,7 @@
             this.btn_updateUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_updateUser.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_updateUser.ForeColor = System.Drawing.Color.White;
-            this.btn_updateUser.Location = new System.Drawing.Point(121, 230);
+            this.btn_updateUser.Location = new System.Drawing.Point(121, 258);
             this.btn_updateUser.Name = "btn_updateUser";
             this.btn_updateUser.Size = new System.Drawing.Size(194, 37);
             this.btn_updateUser.TabIndex = 113;
@@ -157,7 +158,7 @@
             this.btn_updatePass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_updatePass.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_updatePass.ForeColor = System.Drawing.Color.White;
-            this.btn_updatePass.Location = new System.Drawing.Point(515, 297);
+            this.btn_updatePass.Location = new System.Drawing.Point(515, 328);
             this.btn_updatePass.Name = "btn_updatePass";
             this.btn_updatePass.Size = new System.Drawing.Size(194, 37);
             this.btn_updatePass.TabIndex = 114;
@@ -169,6 +170,7 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.show);
             this.panel7.Controls.Add(this.txt_oldpass);
             this.panel7.Controls.Add(this.label7);
             this.panel7.Controls.Add(this.label4);
@@ -178,7 +180,7 @@
             this.panel7.Location = new System.Drawing.Point(358, 113);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(351, 170);
+            this.panel7.Size = new System.Drawing.Size(349, 210);
             this.panel7.TabIndex = 118;
             // 
             // txt_oldpass
@@ -199,7 +201,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 79);
+            this.label7.Location = new System.Drawing.Point(3, 92);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(123, 19);
             this.label7.TabIndex = 98;
@@ -211,7 +213,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 112);
+            this.label4.Location = new System.Drawing.Point(-1, 144);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(149, 19);
             this.label4.TabIndex = 99;
@@ -223,11 +225,12 @@
             this.txt_confpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_confpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_confpass.ForeColor = System.Drawing.Color.Black;
-            this.txt_confpass.Location = new System.Drawing.Point(173, 112);
+            this.txt_confpass.Location = new System.Drawing.Point(172, 144);
             this.txt_confpass.Multiline = true;
             this.txt_confpass.Name = "txt_confpass";
             this.txt_confpass.Size = new System.Drawing.Size(159, 27);
             this.txt_confpass.TabIndex = 87;
+            this.txt_confpass.TextChanged += new System.EventHandler(this.txt_confpass_TextChanged);
             // 
             // txt_newpass
             // 
@@ -235,11 +238,12 @@
             this.txt_newpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_newpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_newpass.ForeColor = System.Drawing.Color.Black;
-            this.txt_newpass.Location = new System.Drawing.Point(173, 76);
+            this.txt_newpass.Location = new System.Drawing.Point(173, 89);
             this.txt_newpass.Multiline = true;
             this.txt_newpass.Name = "txt_newpass";
             this.txt_newpass.Size = new System.Drawing.Size(159, 27);
             this.txt_newpass.TabIndex = 86;
+            this.txt_newpass.TextChanged += new System.EventHandler(this.txt_newpass_TextChanged);
             // 
             // label5
             // 
@@ -262,7 +266,7 @@
             this.panel5.Location = new System.Drawing.Point(26, 108);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(289, 117);
+            this.panel5.Size = new System.Drawing.Size(289, 140);
             this.panel5.TabIndex = 115;
             // 
             // txt_username
@@ -271,7 +275,7 @@
             this.txt_username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_username.ForeColor = System.Drawing.Color.Black;
-            this.txt_username.Location = new System.Drawing.Point(111, 60);
+            this.txt_username.Location = new System.Drawing.Point(110, 67);
             this.txt_username.Multiline = true;
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(159, 27);
@@ -283,11 +287,24 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(3, 60);
+            this.label8.Location = new System.Drawing.Point(2, 67);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 19);
             this.label8.TabIndex = 100;
             this.label8.Text = "Username:";
+            // 
+            // show
+            // 
+            this.show.AutoSize = true;
+            this.show.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.show.ForeColor = System.Drawing.Color.White;
+            this.show.Location = new System.Drawing.Point(66, 114);
+            this.show.Name = "show";
+            this.show.Size = new System.Drawing.Size(60, 20);
+            this.show.TabIndex = 106;
+            this.show.Text = "Show";
+            this.show.UseVisualStyleBackColor = true;
+            this.show.CheckedChanged += new System.EventHandler(this.show_CheckedChanged);
             // 
             // Settings
             // 
@@ -306,6 +323,7 @@
             this.Name = "Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
+            this.Load += new System.EventHandler(this.Settings_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -341,5 +359,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txt_username;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox show;
     }
 }

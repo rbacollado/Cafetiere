@@ -96,7 +96,7 @@ namespace SAD
         private void inventory_status()
         {
 
-            String inventoryquery = "SELECT itemInvID, item_ID, name, description, unit, amount, price as Cost, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m/%d/%y') as itemExpiry , date_format(itemStockedIn, '%m/%d/%y') as itemStockedIn FROM items " +
+            String inventoryquery = "SELECT itemInvID, item_ID, name, description, CONCAT(amount,' ',unit) as itemMeasurement , price as Cost, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m/%d/%y') as itemExpiry , date_format(itemStockedIn, '%m/%d/%y') as itemStockedIn FROM items " +
                                     "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID;";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(inventoryquery, conn);
@@ -113,8 +113,7 @@ namespace SAD
             inventory_dtgv.Columns["itemInvID"].Visible = false;
             inventory_dtgv.Columns["name"].HeaderText = "Name";
             inventory_dtgv.Columns["description"].HeaderText = "Description";
-            inventory_dtgv.Columns["unit"].HeaderText = "Unit";
-            inventory_dtgv.Columns["amount"].HeaderText = "Amount";
+            inventory_dtgv.Columns["itemMeasurement"].HeaderText = "Item Measurement";
             inventory_dtgv.Columns["Cost"].HeaderText = "Cost";
             inventory_dtgv.Columns["itemQuantity"].HeaderText = "Qty";
             inventory_dtgv.Columns["itemStatus"].HeaderText = "Status";
@@ -134,8 +133,7 @@ namespace SAD
                 itemInvID = selected_id;
 
                 item_name.Text = inventory_dtgv.Rows[e.RowIndex].Cells["name"].Value.ToString();
-                itemUnit.Text = inventory_dtgv.Rows[e.RowIndex].Cells["unit"].Value.ToString();
-                itemAmount.Text = inventory_dtgv.Rows[e.RowIndex].Cells["amount"].Value.ToString();
+                itemAmount.Text = inventory_dtgv.Rows[e.RowIndex].Cells["itemMeasurement"].Value.ToString();
                 itemCost.Text = inventory_dtgv.Rows[e.RowIndex].Cells["cost"].Value.ToString();
                 itemQuantity.Text = inventory_dtgv.Rows[e.RowIndex].Cells["itemQuantity"].Value.ToString();
                 itemStatus.Text = inventory_dtgv.Rows[e.RowIndex].Cells["itemStatus"].Value.ToString();

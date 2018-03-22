@@ -291,9 +291,9 @@
             this.txt_confpass.ForeColor = System.Drawing.Color.Black;
             this.txt_confpass.Location = new System.Drawing.Point(499, 230);
             this.txt_confpass.Name = "txt_confpass";
-            this.txt_confpass.PasswordChar = '*';
             this.txt_confpass.Size = new System.Drawing.Size(159, 26);
             this.txt_confpass.TabIndex = 86;
+            this.txt_confpass.TextChanged += new System.EventHandler(this.txt_confpass_TextChanged);
             // 
             // txt_pass
             // 
@@ -303,7 +303,6 @@
             this.txt_pass.ForeColor = System.Drawing.Color.Black;
             this.txt_pass.Location = new System.Drawing.Point(499, 158);
             this.txt_pass.Name = "txt_pass";
-            this.txt_pass.PasswordChar = '*';
             this.txt_pass.Size = new System.Drawing.Size(159, 26);
             this.txt_pass.TabIndex = 85;
             this.txt_pass.TextChanged += new System.EventHandler(this.txt_pass_TextChanged);

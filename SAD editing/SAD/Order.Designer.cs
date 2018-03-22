@@ -75,13 +75,13 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalTB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.checkout = new System.Windows.Forms.Button();
             this.cb_category = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.TotalTB = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.paymentpanel.SuspendLayout();
@@ -701,17 +701,6 @@
             this.OrderType.Name = "OrderType";
             this.OrderType.ReadOnly = true;
             // 
-            // TotalTB
-            // 
-            this.TotalTB.BackColor = System.Drawing.SystemColors.Window;
-            this.TotalTB.Enabled = false;
-            this.TotalTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalTB.Location = new System.Drawing.Point(465, 604);
-            this.TotalTB.Name = "TotalTB";
-            this.TotalTB.Size = new System.Drawing.Size(113, 29);
-            this.TotalTB.TabIndex = 208;
-            this.TotalTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -793,11 +782,22 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(403, 608);
+            this.label8.Location = new System.Drawing.Point(901, 334);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 24);
-            this.label8.TabIndex = 222;
+            this.label8.TabIndex = 224;
             this.label8.Text = "Total";
+            // 
+            // TotalTB
+            // 
+            this.TotalTB.BackColor = System.Drawing.SystemColors.Window;
+            this.TotalTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalTB.Location = new System.Drawing.Point(963, 330);
+            this.TotalTB.Name = "TotalTB";
+            this.TotalTB.Size = new System.Drawing.Size(137, 29);
+            this.TotalTB.TabIndex = 223;
+            this.TotalTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TotalTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TotalTB_KeyPress);
             // 
             // Order
             // 
@@ -806,18 +806,18 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(1112, 641);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.TotalTB);
             this.Controls.Add(this.cb_category);
             this.Controls.Add(this.product_data);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.checkout);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.TotalTB);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.ordered_products);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-           
+    
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);
@@ -850,7 +850,6 @@
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_remove;
         private System.Windows.Forms.Button btn_add;
-        private System.Windows.Forms.TextBox TotalTB;
         private System.Windows.Forms.DataGridView product_data;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel paymentpanel;
@@ -880,7 +879,6 @@
         public System.Windows.Forms.ComboBox cb_category;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
@@ -890,5 +888,7 @@
         public System.Windows.Forms.ComboBox cmb_queue;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox takeout_subtotal;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox TotalTB;
     }
 }

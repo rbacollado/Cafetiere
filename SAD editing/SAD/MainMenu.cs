@@ -46,10 +46,10 @@ namespace SAD
             if (SAD.Login.DisplayUserDetails.usertype.ToLower() == "staff")
             {
                 btnDash.BackColor = Color.FromArgb(43, 192, 57);
+
                 btn_profiling.Enabled = false;
-                btn_product.Enabled = false;
                 btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
-                btn_product.BackColor = Color.FromArgb(192, 57, 43);
+ 
                
             }
            
@@ -57,29 +57,91 @@ namespace SAD
             logDate();
             restock();
             notif_expiry();
-            item_list();
+            load_expired();
+            pending_orders();
+            daily_sales();
+         
+        }
+        
+
+        public void daily_sales()
+        {
+            String dailyQuery = "select SUM(orderTotal) as SalesTotal FROM `order` WHERE curdate() < orderDate ;";
+
+            MySqlCommand comm = new MySqlCommand(dailyQuery, conn);
+            comm.CommandText = dailyQuery;
+
+            conn.Open();
+            MySqlDataReader drdDaily = comm.ExecuteReader();
+
+            while (drdDaily.Read())
+            {
+                string dailySales = drdDaily["SalesTotal"].ToString();
+
+                if (dailySales.ToString() == "")
+                {
+                    sales_daily.Text = "None";
+                }
+                else
+                {
+                    sales_daily.Text = dailySales.ToString();
+                }
+
+            }
+            conn.Close();
         }
 
-        public void item_list()
+        public void pending_orders()
         {
-            String itemsquery = "SELECT itemsID, name, description, price, unit, amount FROM items ";
+            String pendingQuery = "SELECT COUNT(stocked_in) as PendingItems FROM purchaseorder, purchaseorder_line " +
+                                  "WHERE purchaseorder.purchaseOrderID = purchaseorder_line.purchaseOrder_purchaseOrderID AND stocked_in = 'No';";
+
+            MySqlCommand comm = new MySqlCommand(pendingQuery, conn);
+            comm.CommandText = pendingQuery;
+
             conn.Open();
-            MySqlCommand comm = new MySqlCommand(itemsquery, conn);
-            comm.CommandText = itemsquery;
+            MySqlDataReader drdPending = comm.ExecuteReader();
+
+            while (drdPending.Read())
+            {
+                string numPending = drdPending["PendingItems"].ToString();
+                
+                if (numPending.ToString() == "")
+                {
+                    pendingitems.Text = "None";
+                }
+                else
+                {
+                    pendingitems.Text = numPending.ToString();
+                }
+                
+            }
+            conn.Close();
+        }
+
+        public void load_expired()
+        {
+            String query_expired = "SELECT itemInvID, item_id, name, description, CONCAT(amount, ' ' ,unit) as ItemMeasurement, date_format(itemExpiry, '%m /%d /%y') as itemExpiry FROM items_inventory, items " +
+                                    "WHERE (itemType = 'Ingredient' OR itemType = 'Product') AND items.itemsID = items_inventory.item_ID AND current_date() > itemExpiry;";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query_expired, conn);
+            comm.CommandText = query_expired;
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
-            DataTable dt_log = new DataTable();
-            adp.Fill(dt_log);
+            DataTable dt_expired = new DataTable();
+            adp.Fill(dt_expired);
 
-            items_list.DataSource = dt_log;
+            expired_items.DataSource = dt_expired;
 
-            items_list.Columns["itemsID"].Visible = false;
-            items_list.Columns["name"].HeaderText = "Name";
-            items_list.Columns["description"].HeaderText = "Description";
-            items_list.Columns["price"].HeaderText = "Price";
-            items_list.Columns["unit"].HeaderText = "Unit";
-            items_list.Columns["amount"].HeaderText = "Amount";
+
+            expired_items.Columns["itemInvID"].Visible = false;
+            expired_items.Columns["item_id"].Visible = false;
+            expired_items.Columns["name"].HeaderText = "Name";
+            expired_items.Columns["description"].HeaderText = "Desc";
+            expired_items.Columns["ItemMeasurement"].HeaderText = "Item Measurement";
+            expired_items.Columns["itemExpiry"].HeaderText = "Expiration Date";
             
+
         }
 
         public void notif_expiry()
@@ -175,64 +237,84 @@ namespace SAD
             {
                 btnDash.BackColor = Color.FromArgb(43, 192, 57);
                 btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
+                btn_orders.BackColor = Color.FromArgb(51, 51, 51);
 
             }
             else
             {
-                btnDash.BackColor = Color.FromArgb(192, 57, 43);
+                btnDash.BackColor = Color.FromArgb(43, 192, 57);
                 btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
-            }
-                
                 btn_orders.BackColor = Color.FromArgb(51, 51, 51);
-                restock_items.Visible = true;
-                sales_panel.Visible = false;
-                profiling_panel.Visible = false;
-                panel3.Visible = true;
-                items_list.Visible = true;
+            }
+            
+            restock_items.Visible = true;
+            sales_panel.Visible = false;
+            profiling_panel.Visible = false;
+
+            panel3.Visible = true;
+            expired_items.Visible = true;
+            panel4.Visible = true;
+            panel5.Visible = true;
+
            
         }
 
         private void btn_profiling_Click(object sender, EventArgs e)
         {
+
+            if (SAD.Login.DisplayUserDetails.usertype.ToLower() == "staff")
+            {
+                btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
+                btn_profiling.Enabled = false;
+            }
+
             profiling_panel.Visible = true;
             profiling_panel.Enabled = true;
-            panel3.Visible = false;
-            items_list.Visible = false;
+
             sales_panel.Visible = false;
-            btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
+
+            btn_profiling.BackColor = Color.FromArgb(43, 192, 57);
             btnDash.BackColor = Color.FromArgb(51, 51, 51);
             btn_orders.BackColor = Color.FromArgb(51, 51, 51);
+
             restock_items.Visible = false;
-            profiling_panel.Size = new Size(640, 529);
-            profiling_panel.Location = new Point(139, 91);
+            profiling_panel.Size = new Size(823, 543);
+            profiling_panel.Location = new Point(126, 73);
+
+            panel3.Visible = false;
+            expired_items.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
         }
 
         private void btn_orders_Click(object sender, EventArgs e)
         {
             if (SAD.Login.DisplayUserDetails.usertype.ToLower() == "staff")
             {
-                btn_orders.BackColor = Color.FromArgb(43, 192, 57);
+                btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
+                btn_profiling.Enabled = false;
             }
             else
             {
-                btn_orders.BackColor = Color.FromArgb(192, 57, 43);
+                btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
             }
 
+            btn_orders.BackColor = Color.FromArgb(43, 192, 57);
+            
             sales_panel.Visible = true;
             sales_panel.Enabled = true;
             profiling_panel.Visible = false;
-            panel3.Visible = false;
-            items_list.Visible = false;
-         
-            btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
-            btnDash.BackColor = Color.FromArgb(51, 51, 51);
-            sales_panel.Size = new Size(640, 529);
-            sales_panel.Location = new Point(139, 91);
-            
-
            
+           
+            btnDash.BackColor = Color.FromArgb(51, 51, 51);
 
-            
+            sales_panel.Size = new Size(823, 543);
+            sales_panel.Location = new Point(126, 73);
+
+            panel3.Visible = false;
+            expired_items.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
         }
         
         private void btn_product_Click(object sender, EventArgs e)
@@ -289,33 +371,37 @@ namespace SAD
             this.restock_items.ClearSelection();
         }
 
-        private void items_list_SelectionChanged(object sender, EventArgs e)
+        private void expired_items_SelectionChanged(object sender, EventArgs e)
         {
-            this.items_list.ClearSelection();
+            this.expired_items.ClearSelection();
         }
 
         private void MainMenu_VisibleChanged(object sender, EventArgs e)
         {
             logDate();
             restock();
-            item_list();
+            load_expired();
+            pending_orders();
+            daily_sales();
+ 
 
-            btnDash.BackColor = Color.FromArgb(192, 57, 43);
+            btnDash.BackColor = Color.FromArgb(43, 192, 57);
+            btn_profiling.BackColor = Color.FromArgb(51, 51, 51);
             btn_orders.BackColor = Color.FromArgb(51, 51, 51);
             
             restock_items.Visible = true;
             sales_panel.Visible = false;
             profiling_panel.Visible = false;
+
+
             panel3.Visible = true;
-            items_list.Visible = true;
+            expired_items.Visible = true;
 
             if (SAD.Login.DisplayUserDetails.usertype.ToLower() == "staff")
             {
                 btnDash.BackColor = Color.FromArgb(43, 192, 57);
                 btn_profiling.Enabled = false;
-                btn_product.Enabled = false;
                 btn_profiling.BackColor = Color.FromArgb(192, 57, 43);
-                btn_product.BackColor = Color.FromArgb(192, 57, 43);
 
             }
         }
@@ -327,5 +413,7 @@ namespace SAD
             itemadd.Show();
             this.Hide();
         }
+
+       
     }
 }
