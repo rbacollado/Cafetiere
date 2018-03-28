@@ -55,9 +55,11 @@ namespace SAD
             conn.Close();
         }
         
-        private void update_btn_Click(object sender, EventArgs e)
+        
+
+        private void update_btn_Click_1(object sender, EventArgs e)
         {
-            if (pname_txt.Text == "" || cmb_category.Text == ""  || pprice_txt.Text == "" || pcost_txt.Text == "")
+            if (pname_txt.Text == "" || cmb_category.Text == "" || pprice_txt.Text == "" || pcost_txt.Text == "")
             {
                 MessageBox.Show("Please Complete the Registration!", "Incomplete Registration", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -70,14 +72,12 @@ namespace SAD
                 MySqlCommand updatecomm = new MySqlCommand(updateproduct, conn);
                 updatecomm.ExecuteNonQuery();
                 conn.Close();
-                
+
                 MessageBox.Show("Product updated!");
 
                 this.Close();
                 prevForm.ShowDialog();
             }
         }
-
-        
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_close = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
+            this.btn_close = new System.Windows.Forms.Button();
             this.update_btn = new System.Windows.Forms.Button();
             this.cmb_category = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,6 +53,18 @@
             this.panel1.Size = new System.Drawing.Size(994, 59);
             this.panel1.TabIndex = 110;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(3, 13);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(252, 29);
+            this.label16.TabIndex = 76;
+            this.label16.Text = "PRODUCT DETAILS";
+            // 
             // btn_close
             // 
             this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
@@ -68,18 +80,6 @@
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(3, 13);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(252, 29);
-            this.label16.TabIndex = 76;
-            this.label16.Text = "PRODUCT DETAILS";
-            // 
             // update_btn
             // 
             this.update_btn.BackColor = System.Drawing.Color.Gold;
@@ -93,6 +93,7 @@
             this.update_btn.TabIndex = 238;
             this.update_btn.Text = "UPDATE";
             this.update_btn.UseVisualStyleBackColor = false;
+            this.update_btn.Click += new System.EventHandler(this.update_btn_Click_1);
             // 
             // cmb_category
             // 
@@ -100,12 +101,18 @@
             this.cmb_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_category.FormattingEnabled = true;
             this.cmb_category.Items.AddRange(new object[] {
-            "Beverage",
-            "Add on",
-            "Best Seller",
-            "Side Dish",
-            "Tipid Meal",
-            "Special Meal"});
+            "All Day Breakfast",
+            "Extras",
+            "Pasta",
+            "Burgers & Sandwiches",
+            "Fries & Nachos",
+            "Frappe",
+            "Milkshakes",
+            "House Specials",
+            "All Time Favorite",
+            "Hot & Cold Beverages",
+            "Fresh Fruit Shakes",
+            "Coolers"});
             this.cmb_category.Location = new System.Drawing.Point(195, 115);
             this.cmb_category.Name = "cmb_category";
             this.cmb_category.Size = new System.Drawing.Size(152, 26);

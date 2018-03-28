@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Globalization;
 
 namespace SAD
 {
@@ -65,7 +66,7 @@ namespace SAD
                 total += (decimal.Parse(items_purchased.Rows[i].Cells["Subtotal"].Value.ToString()));
 
             }
-            TotalTB.Text = total.ToString();
+            TotalTB.Text = total.ToString("c", CultureInfo.GetCultureInfo("en-PH"));
 
         }
 

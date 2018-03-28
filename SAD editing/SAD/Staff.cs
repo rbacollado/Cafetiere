@@ -94,7 +94,7 @@ namespace SAD
                 
             }
 
-            string salesrecord_query = "SELECT CONCAT(firstname,' ',lastname) as StaffName, orderDate, orderType FROM person " +
+            string salesrecord_query = "SELECT orderDate as Date, orderType as Type FROM person " +
                             "INNER JOIN staff ON person.personid = staff.person_personid " +
                             "INNER JOIN `order` ON staff.staffid = `order`.staff_staffid " +
                             "INNER JOIN orderline ON `order`.orderID = orderline.orderID " +
@@ -107,7 +107,7 @@ namespace SAD
             adp.Fill(dt_sales);
             sales_records.DataSource = dt_sales;
 
-            string inventoryrecord_query = "SELECT CONCAT(firstname,' ',lastname) as StaffName,logType as Activity, logdate as Date FROM person " +
+            string inventoryrecord_query = "SELECT ItemName as Name, quantity as Quantity, logType as Activity, logdate as Date FROM person " +
                                             "INNER JOIN staff ON person.personid = staff.person_personid " +
                                             "INNER JOIN inventorylog ON staff.staffid = inventorylog.staff_staffid " +                                      
                                             "WHERE personid = " + selected_data.selected_user_id + " ";

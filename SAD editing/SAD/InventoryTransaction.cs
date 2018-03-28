@@ -41,10 +41,12 @@ namespace SAD
             decimal total = 0;
             for (int i = 0; i <= inventory_dtgv.Rows.Count - 1; i++)
             {
-                total += (decimal.Parse(inventory_dtgv.Rows[i].Cells["Cost"].Value.ToString()));
+                //total += (decimal.Parse(inventory_dtgv.Rows[i].Cells["Cost"].Value.ToString()));
+
+                total += (Convert.ToDecimal(Convert.ToDecimal(inventory_dtgv.Rows[i].Cells["Cost"].Value) * Convert.ToInt32(inventory_dtgv.Rows[i].Cells["itemQuantity"].Value)));
 
             }
-            TotalTB.Text = total.ToString();
+            TotalTB.Text = total.ToString("c", CultureInfo.GetCultureInfo("en-PH"));
 
         }
 
@@ -58,7 +60,7 @@ namespace SAD
         public void restock()
         {
             String restockquery = "SELECT itemInvID, item_ID, name, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m/%d/%y') as itemExpiry FROM items " +
-                                  "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID AND itemStatus like 'Unavailable' AND (itemExpiry > current_date() OR itemExpiry = '0000-00-00');";
+                                  "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID AND itemQuantity <= 5 AND (itemExpiry > current_date() OR itemExpiry = '0000-00-00');";
 
             MySqlCommand comm_restock = new MySqlCommand(restockquery, conn);
             comm_restock.CommandText = restockquery;

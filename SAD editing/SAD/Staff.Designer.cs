@@ -78,7 +78,7 @@
             this.dtgv.ReadOnly = true;
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv.Size = new System.Drawing.Size(939, 169);
+            this.dtgv.Size = new System.Drawing.Size(954, 169);
             this.dtgv.TabIndex = 111;
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
             // 
@@ -186,7 +186,7 @@
             this.inventory_records.ReadOnly = true;
             this.inventory_records.RowHeadersVisible = false;
             this.inventory_records.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventory_records.Size = new System.Drawing.Size(430, 227);
+            this.inventory_records.Size = new System.Drawing.Size(445, 227);
             this.inventory_records.TabIndex = 117;
             this.inventory_records.SelectionChanged += new System.EventHandler(this.inventory_records_SelectionChanged);
             // 
@@ -239,7 +239,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(963, 591);
+            this.ClientSize = new System.Drawing.Size(983, 591);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Archive);
             this.Controls.Add(this.label2);

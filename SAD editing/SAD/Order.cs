@@ -52,7 +52,10 @@ namespace SAD
 
             loadprodInv_data();
 
-
+            amountPaidlbl.Location = new Point(12, 162);
+            amountPaid.Location = new Point(180, 155);
+            changelbl.Location = new Point(13, 200);
+            changetxt.Location = new Point(180, 197);
 
 
         }
@@ -734,15 +737,15 @@ namespace SAD
                 discountTypelbl.Visible = true;
                 discountTxt.Visible = true;
                 cb_discountType.Visible = true;
-                discountTypelbl.Location = new Point(14, 242);
-                cb_discountType.Location = new Point(180, 235);
-                discountlbl.Location = new Point(14, 287);
-                discountTxt.Location = new Point(180, 283);
+                discountTypelbl.Location = new Point(12, 162);
+                cb_discountType.Location = new Point(180, 155);
+                discountlbl.Location = new Point(13, 200);
+                discountTxt.Location = new Point(180, 197);
 
-                amountPaidlbl.Location = new Point(14, 160);
-                amountPaid.Location = new Point(180, 156);
-                changelbl.Location = new Point(14, 197);
-                changetxt.Location = new Point(180, 193);
+                amountPaidlbl.Location = new Point(12, 239);
+                amountPaid.Location = new Point(180, 237);
+                changelbl.Location = new Point(13, 278);
+                changetxt.Location = new Point(180, 274);
 
             }
             else
@@ -751,10 +754,10 @@ namespace SAD
                 discountTypelbl.Visible = false;
                 discountTxt.Visible = false;
                 cb_discountType.Visible = false;
-                amountPaidlbl.Location = new Point(14, 160);
-                amountPaid.Location = new Point(180, 156);
-                changelbl.Location = new Point(14, 197);
-                changetxt.Location = new Point(180, 193);
+                amountPaidlbl.Location = new Point(12, 162);
+                amountPaid.Location = new Point(180, 155);
+                changelbl.Location = new Point(13, 200);
+                changetxt.Location = new Point(180, 197);
             }
 
 
@@ -782,6 +785,9 @@ namespace SAD
             
         }
 
-        
+        private void paymentpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

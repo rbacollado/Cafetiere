@@ -146,7 +146,6 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.panel6.Controls.Add(this.prod_category);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.paymentpanel);
             this.panel6.Controls.Add(this.encoderPos);
@@ -165,6 +164,7 @@
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.prodname);
             this.panel6.Controls.Add(this.priceTxt);
+            this.panel6.Controls.Add(this.prod_category);
             this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel6.Location = new System.Drawing.Point(11, 62);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
@@ -213,11 +213,12 @@
             this.paymentpanel.Controls.Add(this.amountPaidlbl);
             this.paymentpanel.Controls.Add(this.label9);
             this.paymentpanel.Controls.Add(this.label6);
-            this.paymentpanel.Location = new System.Drawing.Point(0, 412);
+            this.paymentpanel.Location = new System.Drawing.Point(0, 112);
             this.paymentpanel.Name = "paymentpanel";
-            this.paymentpanel.Size = new System.Drawing.Size(44, 155);
+            this.paymentpanel.Size = new System.Drawing.Size(386, 455);
             this.paymentpanel.TabIndex = 208;
             this.paymentpanel.Visible = false;
+            this.paymentpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paymentpanel_Paint);
             // 
             // cmb_queue
             // 
@@ -275,7 +276,7 @@
             this.cb_discountType.Items.AddRange(new object[] {
             "Senior Citizen",
             "PWD"});
-            this.cb_discountType.Location = new System.Drawing.Point(180, 235);
+            this.cb_discountType.Location = new System.Drawing.Point(180, 155);
             this.cb_discountType.Name = "cb_discountType";
             this.cb_discountType.Size = new System.Drawing.Size(171, 32);
             this.cb_discountType.TabIndex = 210;
@@ -288,7 +289,7 @@
             this.discountTypelbl.BackColor = System.Drawing.Color.Transparent;
             this.discountTypelbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discountTypelbl.ForeColor = System.Drawing.Color.White;
-            this.discountTypelbl.Location = new System.Drawing.Point(14, 242);
+            this.discountTypelbl.Location = new System.Drawing.Point(12, 162);
             this.discountTypelbl.Name = "discountTypelbl";
             this.discountTypelbl.Size = new System.Drawing.Size(153, 25);
             this.discountTypelbl.TabIndex = 96;
@@ -299,7 +300,7 @@
             // 
             this.discountTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.discountTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discountTxt.Location = new System.Drawing.Point(180, 283);
+            this.discountTxt.Location = new System.Drawing.Point(180, 197);
             this.discountTxt.Name = "discountTxt";
             this.discountTxt.Size = new System.Drawing.Size(171, 29);
             this.discountTxt.TabIndex = 93;
@@ -314,7 +315,7 @@
             this.discountlbl.BackColor = System.Drawing.Color.Transparent;
             this.discountlbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discountlbl.ForeColor = System.Drawing.Color.White;
-            this.discountlbl.Location = new System.Drawing.Point(14, 287);
+            this.discountlbl.Location = new System.Drawing.Point(13, 200);
             this.discountlbl.Name = "discountlbl";
             this.discountlbl.Size = new System.Drawing.Size(139, 25);
             this.discountlbl.TabIndex = 92;
@@ -327,7 +328,7 @@
             this.pay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.pay.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pay.ForeColor = System.Drawing.Color.White;
-            this.pay.Location = new System.Drawing.Point(188, 344);
+            this.pay.Location = new System.Drawing.Point(180, 332);
             this.pay.Name = "pay";
             this.pay.Size = new System.Drawing.Size(165, 37);
             this.pay.TabIndex = 91;
@@ -339,7 +340,7 @@
             // 
             this.changetxt.Enabled = false;
             this.changetxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changetxt.Location = new System.Drawing.Point(180, 193);
+            this.changetxt.Location = new System.Drawing.Point(180, 274);
             this.changetxt.Name = "changetxt";
             this.changetxt.Size = new System.Drawing.Size(171, 29);
             this.changetxt.TabIndex = 89;
@@ -348,7 +349,7 @@
             // amountPaid
             // 
             this.amountPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountPaid.Location = new System.Drawing.Point(180, 156);
+            this.amountPaid.Location = new System.Drawing.Point(180, 237);
             this.amountPaid.Name = "amountPaid";
             this.amountPaid.Size = new System.Drawing.Size(171, 29);
             this.amountPaid.TabIndex = 88;
@@ -372,7 +373,7 @@
             this.changelbl.BackColor = System.Drawing.Color.Transparent;
             this.changelbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changelbl.ForeColor = System.Drawing.Color.White;
-            this.changelbl.Location = new System.Drawing.Point(14, 197);
+            this.changelbl.Location = new System.Drawing.Point(13, 278);
             this.changelbl.Name = "changelbl";
             this.changelbl.Size = new System.Drawing.Size(95, 25);
             this.changelbl.TabIndex = 79;
@@ -384,7 +385,7 @@
             this.amountPaidlbl.BackColor = System.Drawing.Color.Transparent;
             this.amountPaidlbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountPaidlbl.ForeColor = System.Drawing.Color.White;
-            this.amountPaidlbl.Location = new System.Drawing.Point(14, 160);
+            this.amountPaidlbl.Location = new System.Drawing.Point(12, 239);
             this.amountPaidlbl.Name = "amountPaidlbl";
             this.amountPaidlbl.Size = new System.Drawing.Size(155, 25);
             this.amountPaidlbl.TabIndex = 78;
@@ -843,7 +844,7 @@
             this.Controls.Add(this.ordered_products);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-           
+         
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);

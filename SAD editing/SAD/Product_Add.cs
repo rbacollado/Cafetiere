@@ -364,98 +364,103 @@ namespace SAD
 
         private void create_btn_Click(object sender, EventArgs e)
         {
-            string q = "SELECT pname FROM Products WHERE pname = '" + pname_txt.Text + "';";
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(q, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
-            DataTable dt = new DataTable();
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            adp.Fill(dt);
-            
-            if (dt.Rows.Count == 1)
+            DialogResult result = MessageBox.Show("Are you sure?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Product Already Exist!", "Duplicate Product", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (pname_txt.Text == "" || cmb_category.Text == "" || pprice_txt.Text == "" || pcost_txt.Text == "")
+                string q = "SELECT pname FROM Products WHERE pname = '" + pname_txt.Text + "';";
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(q, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 1)
                 {
-                    MessageBox.Show("Please complete product details!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Product Already Exist!", "Duplicate Product", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    if (ingredient_used.SelectedRows.Count > 0)
+                    if (pname_txt.Text == "" || cmb_category.Text == "" || pprice_txt.Text == "" || pcost_txt.Text == "")
                     {
-                        string prodname = pname_txt.Text;
-                        string prodcategory = cmb_category.Text;
-                        decimal parsePrice = decimal.Parse(pprice_txt.Text);
-                        decimal parseCost = decimal.Parse(pcost_txt.Text);
-
-                        string addproductQuery = "INSERT INTO products(pname, pcategory, pprice, pcost)" +
-                                                     " VALUES('" + prodname + "','" + prodcategory + "','" + parsePrice + "','" + parseCost + "')";
-                        conn.Open();
-                        MySqlCommand productComm = new MySqlCommand(addproductQuery, conn);
-                        productComm.ExecuteNonQuery();
-                        conn.Close();
-
-                        
-
-                        for (int i = 0; i <= ingredient_used.Rows.Count - 1 ; i++)
-                        {
-
-                            string ingredientname = ingredient_used.Rows[i].Cells["Name"].Value.ToString();
-                            string ingredientdesc = ingredient_used.Rows[i].Cells["Desc"].Value.ToString();
-                            string ingredientexp = ingredient_used.Rows[i].Cells["Exp"].Value.ToString();
-
-                            string queryitem = "SELECT itemInvID FROM items_inventory " +
-                                               "WHERE item_id = (SELECT itemsID from items where name = '" + ingredientname + "' AND description = '" + ingredientdesc + "') AND itemExpiry = '" + ingredientexp + "' AND itemStatus = 'Available';";
-                            conn.Open();
-                            MySqlCommand commitems = new MySqlCommand(queryitem, conn);
-                            MySqlDataAdapter adpitems = new MySqlDataAdapter(commitems);
-                            conn.Close();
-                            DataTable dt_items = new DataTable();
-                            adpitems.Fill(dt_items);
-
-                            string itemid = dt_items.Rows[0][0].ToString();
-
-                            string ingredientName = ingredient_used.Rows[i].Cells["Name"].Value.ToString();
-                            string ingredientDesc = ingredient_used.Rows[i].Cells["Desc"].Value.ToString();
-                            string ingredientPrice = ingredient_used.Rows[i].Cells["Price"].Value.ToString();
-                            string recipeQuantity = ingredient_used.Rows[i].Cells["Quantity"].Value.ToString();
-                            string recipeUnit = ingredient_used.Rows[i].Cells["Unit"].Value.ToString();
-
-
-                            string addingredientQuery = "INSERT INTO ingredients(items_inventory_itemInvID, ingredientName, ingredientDesc, ingredientprice)" +
-                                                     " VALUES('" + int.Parse(itemid) + "' ,'" + ingredientName + "','" + ingredientDesc + "','" + decimal.Parse(ingredientPrice) + "')";
-                            conn.Open();
-                            MySqlCommand ingredientComm = new MySqlCommand(addingredientQuery, conn);
-                            ingredientComm.ExecuteNonQuery();
-                            conn.Close();
-
-                            string addrecipeQuery = "INSERT INTO recipe(ingredients_ingredientsID, products_productID, recipeQuantity, recipeUnit)" +
-                                                     " VALUES((SELECT max(ingredientsID) FROM ingredients), (SELECT max(productID) FROM products), '" + int.Parse(recipeQuantity) + "','" + recipeUnit + "')";
-                            conn.Open();
-                            MySqlCommand recipeComm = new MySqlCommand(addrecipeQuery, conn);
-                            recipeComm.ExecuteNonQuery();
-                            conn.Close();
-
-                        }
-                        MessageBox.Show("Product added!");
-
-                        IngredientUsed.Rows.Clear();
-
-                        this.Close();
-                        prevForm.ShowDialog();
+                        MessageBox.Show("Please complete product details!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        MessageBox.Show("Please add data to the table before saving.");
-                    }
-                } 
-               
+                        if (ingredient_used.SelectedRows.Count > 0)
+                        {
+                            string prodname = pname_txt.Text;
+                            string prodcategory = cmb_category.Text;
+                            decimal parsePrice = decimal.Parse(pprice_txt.Text);
+                            decimal parseCost = decimal.Parse(pcost_txt.Text);
 
+                            string addproductQuery = "INSERT INTO products(pname, pcategory, pprice, pcost)" +
+                                                         " VALUES('" + prodname + "','" + prodcategory + "','" + parsePrice + "','" + parseCost + "')";
+                            conn.Open();
+                            MySqlCommand productComm = new MySqlCommand(addproductQuery, conn);
+                            productComm.ExecuteNonQuery();
+                            conn.Close();
+
+
+
+                            for (int i = 0; i <= ingredient_used.Rows.Count - 1; i++)
+                            {
+
+                                string ingredientname = ingredient_used.Rows[i].Cells["Name"].Value.ToString();
+                                string ingredientdesc = ingredient_used.Rows[i].Cells["Desc"].Value.ToString();
+                                string ingredientexp = ingredient_used.Rows[i].Cells["Exp"].Value.ToString();
+
+                                string queryitem = "SELECT itemInvID FROM items_inventory " +
+                                                   "WHERE item_id = (SELECT itemsID from items where name = '" + ingredientname + "' AND description = '" + ingredientdesc + "') AND itemExpiry = '" + ingredientexp + "' AND itemStatus = 'Available';";
+                                conn.Open();
+                                MySqlCommand commitems = new MySqlCommand(queryitem, conn);
+                                MySqlDataAdapter adpitems = new MySqlDataAdapter(commitems);
+                                conn.Close();
+                                DataTable dt_items = new DataTable();
+                                adpitems.Fill(dt_items);
+
+                                string itemid = dt_items.Rows[0][0].ToString();
+
+                                string ingredientName = ingredient_used.Rows[i].Cells["Name"].Value.ToString();
+                                string ingredientDesc = ingredient_used.Rows[i].Cells["Desc"].Value.ToString();
+                                string ingredientPrice = ingredient_used.Rows[i].Cells["Price"].Value.ToString();
+                                string recipeQuantity = ingredient_used.Rows[i].Cells["Quantity"].Value.ToString();
+                                string recipeUnit = ingredient_used.Rows[i].Cells["Unit"].Value.ToString();
+
+
+                                string addingredientQuery = "INSERT INTO ingredients(items_inventory_itemInvID, ingredientName, ingredientDesc, ingredientprice)" +
+                                                         " VALUES('" + int.Parse(itemid) + "' ,'" + ingredientName + "','" + ingredientDesc + "','" + decimal.Parse(ingredientPrice) + "')";
+                                conn.Open();
+                                MySqlCommand ingredientComm = new MySqlCommand(addingredientQuery, conn);
+                                ingredientComm.ExecuteNonQuery();
+                                conn.Close();
+
+                                string addrecipeQuery = "INSERT INTO recipe(ingredients_ingredientsID, products_productID, recipeQuantity, recipeUnit)" +
+                                                         " VALUES((SELECT max(ingredientsID) FROM ingredients), (SELECT max(productID) FROM products), '" + int.Parse(recipeQuantity) + "','" + recipeUnit + "')";
+                                conn.Open();
+                                MySqlCommand recipeComm = new MySqlCommand(addrecipeQuery, conn);
+                                recipeComm.ExecuteNonQuery();
+                                conn.Close();
+
+                            }
+                            MessageBox.Show("Product added!");
+
+                            IngredientUsed.Rows.Clear();
+
+                            this.Close();
+                            prevForm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please add data to the table before saving.");
+                        }
+                    }
+                    
+                }
             }
+            
 
         }
 

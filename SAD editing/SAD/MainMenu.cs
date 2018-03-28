@@ -171,7 +171,7 @@ namespace SAD
         public void restock()
         {
             String restockquery = "SELECT itemInvID, item_ID, name, itemQuantity, itemStatus, itemType, date_format(itemExpiry, '%m/%d/%y') as itemExpiry FROM items " +
-                                  "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID AND itemStatus like 'Unavailable' AND (itemExpiry > current_date() OR itemExpiry = '0000-00-00');";
+                                  "INNER JOIN items_inventory ON items.itemsID = items_inventory.item_ID AND itemQuantity <= 5  AND (itemExpiry > current_date() OR itemExpiry = '0000-00-00');";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(restockquery, conn);
             comm.CommandText = restockquery;

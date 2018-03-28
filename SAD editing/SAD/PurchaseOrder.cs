@@ -131,26 +131,7 @@ namespace SAD
             }
         }
 
-
-        private void item_purchased_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-        {
-            decimal total = 0;
-
-            for (int i = 0; i <= item_purchased.Rows.Count - 1; i++)
-            {
-
-                string subs = item_purchased.Rows[i].Cells["Total"].Value.ToString();
-
-                decimal decimal_sub = decimal.Parse(subs);
-
-                total = total + decimal_sub;
-
-
-            }
-            string total_string = total.ToString();
-            TotalTB.Text = total_string;
-        }
-
+        
         public static int polineID;
         private void item_poLine_CellClick(object sender, DataGridViewCellEventArgs e)
         {
